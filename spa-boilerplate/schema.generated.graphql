@@ -1,0 +1,312 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+# mutation root
+type mutation_root {
+  # delete data from the table: "Users"
+  delete_Users(
+    # filter the rows which have to be deleted
+    where: Users_bool_exp!
+  ): Users_mutation_response
+
+  # insert data into the table: "Users"
+  insert_Users(
+    # the rows to be inserted
+    objects: [Users_insert_input!]!
+
+    # on conflict condition
+    on_conflict: Users_on_conflict
+  ): Users_mutation_response
+
+  # update data of the table: "Users"
+  update_Users(
+    # sets the columns of the filtered rows to the given values
+    _set: Users_set_input
+
+    # filter the rows which have to be updated
+    where: Users_bool_exp!
+  ): Users_mutation_response
+}
+
+# column ordering options
+enum order_by {
+  # in the ascending order, nulls last
+  asc
+
+  # in the ascending order, nulls first
+  asc_nulls_first
+
+  # in the ascending order, nulls last
+  asc_nulls_last
+
+  # in the descending order, nulls first
+  desc
+
+  # in the descending order, nulls first
+  desc_nulls_first
+
+  # in the descending order, nulls last
+  desc_nulls_last
+}
+
+# query root
+type query_root {
+  # fetch data from the table: "Users"
+  Users(
+    # distinct select on columns
+    distinct_on: [Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Users_order_by!]
+
+    # filter the rows returned
+    where: Users_bool_exp
+  ): [Users!]!
+
+  # fetch aggregated fields from the table: "Users"
+  Users_aggregate(
+    # distinct select on columns
+    distinct_on: [Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Users_order_by!]
+
+    # filter the rows returned
+    where: Users_bool_exp
+  ): Users_aggregate!
+
+  # fetch data from the table: "Users" using primary key columns
+  Users_by_pk(id: uuid!): Users
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+# subscription root
+type subscription_root {
+  # fetch data from the table: "Users"
+  Users(
+    # distinct select on columns
+    distinct_on: [Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Users_order_by!]
+
+    # filter the rows returned
+    where: Users_bool_exp
+  ): [Users!]!
+
+  # fetch aggregated fields from the table: "Users"
+  Users_aggregate(
+    # distinct select on columns
+    distinct_on: [Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Users_order_by!]
+
+    # filter the rows returned
+    where: Users_bool_exp
+  ): Users_aggregate!
+
+  # fetch data from the table: "Users" using primary key columns
+  Users_by_pk(id: uuid!): Users
+}
+
+# columns and relationships of "Users"
+type Users {
+  address: String
+  id: uuid!
+  name: String!
+}
+
+# aggregated selection of "Users"
+type Users_aggregate {
+  aggregate: Users_aggregate_fields
+  nodes: [Users!]!
+}
+
+# aggregate fields of "Users"
+type Users_aggregate_fields {
+  count(columns: [Users_select_column!], distinct: Boolean): Int
+  max: Users_max_fields
+  min: Users_min_fields
+}
+
+# order by aggregate values of table "Users"
+input Users_aggregate_order_by {
+  count: order_by
+  max: Users_max_order_by
+  min: Users_min_order_by
+}
+
+# input type for inserting array relation for remote table "Users"
+input Users_arr_rel_insert_input {
+  data: [Users_insert_input!]!
+  on_conflict: Users_on_conflict
+}
+
+# Boolean expression to filter rows from the table "Users". All fields are combined with a logical 'AND'.
+input Users_bool_exp {
+  _and: [Users_bool_exp]
+  _not: Users_bool_exp
+  _or: [Users_bool_exp]
+  address: String_comparison_exp
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+}
+
+# unique or primary key constraints on table "Users"
+enum Users_constraint {
+  # unique or primary key constraint
+  Users_pkey
+}
+
+# input type for inserting data into table "Users"
+input Users_insert_input {
+  address: String
+  id: uuid
+  name: String
+}
+
+# aggregate max on columns
+type Users_max_fields {
+  address: String
+  name: String
+}
+
+# order by max() on columns of table "Users"
+input Users_max_order_by {
+  address: order_by
+  name: order_by
+}
+
+# aggregate min on columns
+type Users_min_fields {
+  address: String
+  name: String
+}
+
+# order by min() on columns of table "Users"
+input Users_min_order_by {
+  address: order_by
+  name: order_by
+}
+
+# response of any mutation on the table "Users"
+type Users_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [Users!]!
+}
+
+# input type for inserting object relation for remote table "Users"
+input Users_obj_rel_insert_input {
+  data: Users_insert_input!
+  on_conflict: Users_on_conflict
+}
+
+# on conflict condition type for table "Users"
+input Users_on_conflict {
+  constraint: Users_constraint!
+  update_columns: [Users_update_column!]!
+  where: Users_bool_exp
+}
+
+# ordering options when selecting data from "Users"
+input Users_order_by {
+  address: order_by
+  id: order_by
+  name: order_by
+}
+
+# select columns of table "Users"
+enum Users_select_column {
+  # column name
+  address
+
+  # column name
+  id
+
+  # column name
+  name
+}
+
+# input type for updating data in table "Users"
+input Users_set_input {
+  address: String
+  id: uuid
+  name: String
+}
+
+# update columns of table "Users"
+enum Users_update_column {
+  # column name
+  address
+
+  # column name
+  id
+
+  # column name
+  name
+}
+
+scalar uuid
+
+# expression to compare columns of type uuid. All fields are combined with logical 'AND'.
+input uuid_comparison_exp {
+  _eq: uuid
+  _gt: uuid
+  _gte: uuid
+  _in: [uuid!]
+  _is_null: Boolean
+  _lt: uuid
+  _lte: uuid
+  _neq: uuid
+  _nin: [uuid!]
+}
+

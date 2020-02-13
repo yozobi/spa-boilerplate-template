@@ -1,0 +1,9 @@
+mutation SuperAdminCreateUser($name: String!) {
+  insert_Users(objects: { name: $name }) {
+    returning {
+      id
+      name
+    }
+    affected_rows
+  }
+}

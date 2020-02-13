@@ -1,0 +1,3 @@
+# We need to keep this annoying empty file around,
+# because the Hasura CLI can't do anything without it.
+# We actually keep these values in the .env.local file.

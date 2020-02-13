@@ -1,0 +1,39 @@
+{
+  "name": "yozobi-shared",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Matt Pocock <matt@thisisone.tv>",
+  "workspaces": [
+    "spa-boilerplate",
+    "toolbox"
+  ],
+  "scripts": {
+    "setup": "bash ./setup.sh",
+    "spa": "yarn workspace spa-boilerplate",
+    "toolbox": "yarn workspace toolbox",
+    "tb": "yarn workspace toolbox",
+    "gql": "yarn workspaces run gql",
+    "lint": "yarn workspaces run lint",
+    "test:ci": "CI=true yarn workspaces run test",
+    "generate": "plop --plopfile internals/generators/plopfile.js",
+    "pretty-staged": "pretty-quick --staged"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 80
+  },
+  "devDependencies": {
+    "husky": "^4.2.1",
+    "plop": "^2.5.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint",
+      "pre-commit": "yarn pretty-staged"
+    }
+  }
+}
