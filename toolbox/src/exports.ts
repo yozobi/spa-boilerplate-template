@@ -492,6 +492,8 @@ export const Modal = React.lazy(() => import('./components/Modal/Modal'));
 
 export { useThrottle } from './hooks/useThrottle';
 
+export { usePagination } from './hooks/usePagination';
+
 export const ToastContainer = React.lazy(() =>
   import('./components/ToastContainer/ToastContainer'),
 );
