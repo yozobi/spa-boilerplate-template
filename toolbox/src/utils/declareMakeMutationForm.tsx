@@ -29,6 +29,7 @@ export function declareMakeMutationForm<
 >({ inputs }: DeclareMakeMutationFormParams<Inputs>) {
   interface MakeMutationFormParams<V extends {}, T extends {}> {
     config: MutationFormConfig<V, T>;
+    validate?: (values: V) => { [K in keyof V]?: string } | void;
   }
   /**
    * You can pass in a generic to makeMutationForm
@@ -44,6 +45,7 @@ export function declareMakeMutationForm<
    */
   return function makeMutationForm<MutationVariables extends {}>({
     config,
+    validate: validateFromMakeMutationForm,
   }: MakeMutationFormParams<MutationVariables, Inputs>) {
     /**
      * Here, we declare a Wrapper which we'll use to
@@ -53,14 +55,14 @@ export function declareMakeMutationForm<
       children,
       initialValues,
       onSubmit,
-      validate,
+      validate: validateFromLocal,
     }) => {
       const formik = useFormik<MutationVariables>({
         initialValues: initialValues as any,
         onSubmit: (values: MutationVariables) => {
           onSubmit(values);
         },
-        validate,
+        validate: validateFromLocal || validateFromMakeMutationForm,
       });
       return (
         /**

@@ -38,23 +38,11 @@ const LoginForm = makeMutationForm<{ email: string; password: string }>({
   },
 });
 
-export const defaultForm = () => (
+export const Default = () => (
   <div className="p-6">
     <LoginForm.Wrapper
       initialValues={{}}
       onSubmit={(values) => alert(JSON.stringify(values, null, 2))}
-      validate={(values) => {
-        if (!values.email) {
-          return {
-            email: 'Please enter your email address.',
-          };
-        }
-        if (!values.password) {
-          return {
-            password: 'Please enter your password.',
-          };
-        }
-      }}
     >
       <Flex flexDirection="column" my={6}>
         <LoginForm.Inputs.email />
@@ -62,5 +50,55 @@ export const defaultForm = () => (
         <ButtonBase>Submit</ButtonBase>
       </Flex>
     </LoginForm.Wrapper>
+  </div>
+);
+
+const LoginFormWithValidation = makeMutationForm<{
+  email: string;
+  password: string;
+}>({
+  config: {
+    email: {
+      type: 'text',
+      label: 'Email',
+    },
+    password: {
+      label: 'Password',
+      type: 'password',
+    },
+  },
+  /**
+   * We can also add validation in the config of the form.
+   */
+  validate: (values) => {
+    if (!values.email) {
+      return {
+        email: 'Please enter your email address.',
+      };
+    }
+    if (!values.password) {
+      return {
+        password: 'Please enter your password.',
+      };
+    }
+  },
+});
+
+export const WithValidation = () => (
+  <div className="p-6">
+    <LoginFormWithValidation.Wrapper
+      initialValues={{}}
+      onSubmit={(values) => alert(JSON.stringify(values, null, 2))}
+      /**
+       * If we wanted to, we could also add validation
+       * as a prop here to override any config.
+       */
+    >
+      <Flex flexDirection="column" my={6}>
+        <LoginFormWithValidation.Inputs.email />
+        <LoginFormWithValidation.Inputs.password />
+        <ButtonBase>Submit</ButtonBase>
+      </Flex>
+    </LoginFormWithValidation.Wrapper>
   </div>
 );
