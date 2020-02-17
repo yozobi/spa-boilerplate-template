@@ -8,7 +8,7 @@
     "@aws-amplify/auth": "^2.1.5",
     "@types/styled-components": "^4.4.3",
     "@types/uuid": "^3.4.7",
-    "@urql/exchange-suspense": "^0.1.0",
+    "@urql/exchange-suspense": "^1.8.3",
     "apollo-boost": "^0.4.7",
     "formik": "^2.1.4",
     "framer-motion": "^1.8.3",
