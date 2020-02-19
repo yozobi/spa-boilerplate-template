@@ -140,7 +140,7 @@
     "graphql": "^14.6.0",
     "jest-puppeteer": "^4.4.0",
     "postcss-cli": "^7.1.0",
-    "puppeteer": "^2.1.0",
+    "puppeteer": "^2.1.1",
     "tailwindcss": "^1.1.4",
     "xstate": "^4.7.8"
   }
