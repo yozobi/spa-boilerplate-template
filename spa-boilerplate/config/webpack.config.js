@@ -82,6 +82,7 @@ module.exports = function(webpackEnv) {
   const purgecss = require('@fullhuman/postcss-purgecss')({
     // Specify the paths to all of the template files in your project
     content: [
+      path.resolve(__dirname, '../public/**/*.html'),
       path.resolve(__dirname, '../src/**/*.ts'),
       path.resolve(__dirname, '../src/**/*.tsx'),
       path.resolve(__dirname, '../../toolbox/src/**/*.ts'),
@@ -91,6 +92,10 @@ module.exports = function(webpackEnv) {
 
     // Include any special characters you're using in this regular expression
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+  });
+
+  const cssnano = require('cssnano')({
+    preset: ['default', { discardComments: { removeAll: true } }],
   });
 
   // common function to get style loaders
@@ -115,6 +120,8 @@ module.exports = function(webpackEnv) {
           // https://github.com/facebook/create-react-app/issues/2677
           ident: 'postcss',
           plugins: () => [
+            require('postcss-import'),
+            require('precss'),
             tailwindcss(path.resolve(__dirname, '../tailwind.config.js')),
             require('autoprefixer'),
             require('postcss-flexbugs-fixes'),
@@ -128,7 +135,9 @@ module.exports = function(webpackEnv) {
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
-            ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+            ...(process.env.NODE_ENV === 'production'
+              ? [purgecss, cssnano]
+              : []),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
