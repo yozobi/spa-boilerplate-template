@@ -5,13 +5,16 @@
   "author": "Matt Pocock <matt@thisisone.tv>",
   "workspaces": [
     "spa-boilerplate",
-    "toolbox"
+    "toolbox",
+    "yozobi-blog"
   ],
   "scripts": {
     "setup": "bash ./setup.sh",
     "spa": "yarn workspace spa-boilerplate",
     "toolbox": "yarn workspace toolbox",
     "tb": "yarn workspace toolbox",
+    "yozobi-blog": "yarn workspace yozobi-blog",
+    "blog": "yarn workspace yozobi-blog",
     "gql": "yarn workspaces run gql",
     "lint": "yarn workspaces run lint",
     "test:ci": "CI=true yarn workspaces run test",
