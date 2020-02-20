@@ -17,8 +17,6 @@ const args = [
   ...Object.keys(objectArgs).map((key) => `--${key}=${objectArgs[key]}`),
 ];
 
-console.log(objectArgs, arrayArgs);
-
 if (!process.env.HASURA_ENDPOINT) {
   console.log(
     `You don't have HASURA_ENDPOINT configured in your .env.<local|dev|beta|production> file`,
