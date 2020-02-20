@@ -1,7 +1,23 @@
-const { execSync } = require('child_process');
 const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, '../', process.env.ENV_FILE),
+});
+const { execSync } = require('child_process');
 
-const [_, __, ...args] = process.argv;
+/**
+ * Minimist captures any flags (--from-server, etc)
+ * in the objectArgs object below.
+ */
+var { _: arrayArgs, ...objectArgs } = require('minimist')(
+  process.argv.slice(2),
+);
+
+const args = [
+  ...arrayArgs,
+  ...Object.keys(objectArgs).map((key) => `--${key}=${objectArgs[key]}`),
+];
+
+console.log(objectArgs, arrayArgs);
 
 if (!process.env.HASURA_ENDPOINT) {
   console.log(
@@ -20,12 +36,19 @@ if (!process.env.HASURA_GRAPHQL_ADMIN_SECRET) {
  * This script just formats the hasura CLI command properly,
  * which I was having trouble with in bash.
  */
-execSync(
-  `hasura ${args.join(' ')} --endpoint=${
+
+try {
+  const script = `hasura ${args.join(' ')} --endpoint=${
     process.env.HASURA_ENDPOINT
-  } --admin-secret=${process.env.HASURA_GRAPHQL_ADMIN_SECRET}`,
-  {
+  } --admin-secret=${process.env.HASURA_GRAPHQL_ADMIN_SECRET}`;
+
+  console.log(script);
+
+  execSync(script, {
     cwd: path.resolve(__dirname, '../'),
     stdio: 'inherit',
-  },
-);
+  });
+} catch (e) {
+  console.log(e.toString());
+  process.exit(1);
+}
