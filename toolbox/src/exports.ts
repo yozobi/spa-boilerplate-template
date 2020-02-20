@@ -488,6 +488,10 @@ export const AnimatedButtonBase = React.lazy(() =>
   import('./components/AnimatedButtonBase/AnimatedButtonBase'),
 );
 
+export const SankeyDiagram = React.lazy(() =>
+  import('./components/DataVisualisation/SankeyDiagram'),
+);
+
 export const Modal = React.lazy(() => import('./components/Modal/Modal'));
 
 export { useThrottle } from './hooks/useThrottle';

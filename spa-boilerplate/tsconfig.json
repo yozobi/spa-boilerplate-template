@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,15 +17,9 @@
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "toolbox": [
-        "../../toolbox/src/exports.ts"
-      ]
+      "toolbox": ["../../toolbox/src/exports.ts"]
     }
   },
-  "include": [
-    "src"
-  ],
-  "files": [
-    "../toolbox/src/exports.ts"
-  ]
+  "include": ["src"],
+  "files": ["../toolbox/src/exports.ts"]
 }

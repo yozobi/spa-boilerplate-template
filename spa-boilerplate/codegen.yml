@@ -1,7 +1,7 @@
 schema:
   - schema.generated.graphql
 documents:
-  - "src/graphql/**/*.graphql"
+  - 'src/graphql/**/*.graphql'
 hooks:
   afterAllFileWrite:
     - prettier --write
@@ -23,8 +23,8 @@ generates:
   src/graphql/:
     preset: near-operation-file
     presetConfig:
-      baseTypesPath: "schemaTypes.generated.ts"
-      extension: ".generated.tsx"
+      baseTypesPath: 'schemaTypes.generated.ts'
+      extension: '.generated.tsx'
     plugins:
       - add: |
           // eslint-disable
