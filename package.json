@@ -25,7 +25,8 @@
     "arrowParens": "always",
     "trailingComma": "all",
     "singleQuote": true,
-    "printWidth": 80
+    "printWidth": 80,
+    "tabWidth": 2
   },
   "devDependencies": {
     "husky": "^4.2.3",
