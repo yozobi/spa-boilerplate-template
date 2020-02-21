@@ -27,11 +27,7 @@ const ToastTestPage = () => {
          * I'd suggest making a custom useToast hook per
          * library, and abstract all of this logic behind it.
          */
-        toast('Sent successfully', {
-          className:
-            'p-4 px-6 bg-info-200 text-info-900 border-l-4 border-info-500 flex items-center',
-          progressClassName: 'bg-info-900',
-        })
+        toast.success('Sent successfully')
       }
     >
       Send a Toast!
