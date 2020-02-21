@@ -503,3 +503,7 @@ export const ToastContainer = React.lazy(() =>
 );
 
 export { useToast } from './components/ToastContainer/ToastContainer';
+
+export const ProtectedRoute = React.lazy(() =>
+  import('./components/Auth/ProtectedRoute/ProtectedRoute'),
+);
