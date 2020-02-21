@@ -115,3 +115,52 @@ Opens a dialog to bootstrap a component or route in the repo. Too much descripti
 `yarn pretty-staged`
 
 Runs prettier on the files you've staged for commit. This is currently set up to run every commit, with husky git hooks.
+
+# Amplify 📢
+
+The AWS Amplify toolchain (SDK and CLI) brings together various other AWS services for building mobile & web apps in a single API. Out of the box, it will give you Authentication, Serverless Functions, REST/GraphQL APIs, Offline Sync, NoSQL DB, File Storage, Logging, Analytics, Notifications, Bots, AR/VR, and more.
+
+## Glossary 👀
+
+- Profile - this is a set of credentials, used by Amplify CLI to programmatically access an AWS account. Credentials are usually stored locally on dev machines inside ~/.aws, they should never be checked in to a git repo.
+- Environment - this is a bunch of related infrastructure in AWS, usually named like git branches (e.g. prod, beta, staging, feature-test1)
+- CloudFormation Template - these template files are how the Amplify CLI actually manipulates the services within AWS
+- Cognito - the authentication service we use
+- S3 - the storage service we use for blobs of data (files), but also used to store our frontend bundle after it is built
+- CloudFront - a global CDN that serves up our bundle from S3
+- Amplify Console - continuous deployment tool that builds/tests both the frontend and backend for us by watching a git repo. It deploys to S3 and invalidates any CloudFront caches where required.
+
+## Background Reading 📕
+
+- [AWS Command Line Interface Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+- [Setting up your dev workstation with the Amplify CLI](https://www.youtube.com/watch?v=fWbM5DLh25U)
+- [Key Amplify Concepts](https://aws-amplify.github.io/docs/cli-toolchain/quickstart#concepts-1)
+- [Environments and Teams](https://aws-amplify.github.io/docs/cli-toolchain/quickstart#environments-and-teams)
+
+## Project structure 📁
+
+- _amplify_ the entire definition of our backend AWS environment, committed to git, right alongside our frontend code 🎉
+- _amplify/#current-cloud-backend_ a reflection of what is already deployed
+- _amplify/backend_ work in progress, not applied/deployed until we run `amplify push`
+- _team-provider-info.json_ a list describing the different backend environments (but no credentials!)
+- _amplify/.config_ mostly config that is local to your dev machine, with the exception of 'project-config.json'
+
+### TLDR 🥱
+
+1. [Install the generic AWS CLI tools](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+2. Install the Amplify CLI tools - `yarn global add @aws-amplify/cli` or `npm i -g @aws-amplify/cli`
+3. Set up an AWS account, add an IAM user with programmatic access, and make a note of the _access key_ & _secret_.
+4. Set up a credential profile `aws configure --profile projectname-amplify-profile`, you can give the profile whatever alias you like as its local to your dev machine. It will ask for the _access key_ & _secret_ above.
+5. Run `amplify init` after you checkout to choose an existing environment, or add a new one. It will ask if you want to use an existing profile (yes!).
+6. Add or reconfigure features using the amplify CLI, or edit existing functions from within the amplify/backend folder in the repo. Test functions locally. When you are ready to apply changes to the AWS backend, run `amplify status` (optional), and then `amplify push --yes`.
+
+#### Switching git branches
+
+If you change from _dev_ to _feature-new-login-page_ it is likely that you will be testing against the same AWS backend environment ('dev').
+
+However, if you switch branches from _dev_ to _master_ your amplify CLI will still be pointing to the last backend (dev), so you need to do this:
+`amplify env checkout prod` (where _prod_ is the environment name).
+
+You can see a list of environments in amplify/team-provider-info.json, or by running `amplify env list`. New ones can be added with `amplify env add`.
+
+Even if you haven't switched branches, you should routinely run `amplify env pull` to overwrite the local reflection of the deployed AWS environment (stored in amplify/#current-cloud-backend). We do this just in case someone else has made changes (and given that this folder should be in .gitignore). If things ever get screwed up `amplify init` is usually the best recourse.

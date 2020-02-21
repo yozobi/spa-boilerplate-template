@@ -79,19 +79,22 @@ module.exports = function(webpackEnv) {
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(publicUrl);
 
+  // @ts-ignore
   const purgecss = require('@fullhuman/postcss-purgecss')({
     // Specify the paths to all of the template files in your project
     content: [
       path.resolve(__dirname, '../public/**/*.html'),
       path.resolve(__dirname, '../src/**/*.ts'),
       path.resolve(__dirname, '../src/**/*.tsx'),
+      path.resolve(__dirname, '../src/**/*.svg'),
       path.resolve(__dirname, '../../toolbox/src/**/*.ts'),
       path.resolve(__dirname, '../../toolbox/src/**/*.tsx'),
+      path.resolve(__dirname, '../../toolbox/src/**/*.svg'),
       // etc.
     ],
-
     // Include any special characters you're using in this regular expression
-    defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+    defaultExtractor: (content) =>
+      content.match(/[A-Za-z0-9-_:\/]+(?<!:)/g) || [],
   });
 
   const cssnano = require('cssnano')({
