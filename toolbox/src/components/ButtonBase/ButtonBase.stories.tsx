@@ -1,26 +1,26 @@
 import React from 'react';
 import { ButtonBase } from './ButtonBase';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
-export default { title: 'ButtonBase' };
+export default { title: 'ButtonBase', decorators: [withKnobs] };
 
-export const withText = () => (
-  <div className="p-6">
-    <ButtonBase>Hello ButtonBase</ButtonBase>
-  </div>
-);
-
-export const gray = () => (
-  <div className="p-6">
-    <ButtonBase color="gray">Hello ButtonBase</ButtonBase>
-  </div>
-);
-
-export const withEmoji = () => (
-  <div className="p-6">
-    <ButtonBase>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </ButtonBase>
-  </div>
-);
+export const Default = () => {
+  const size = select('Size', ['small', 'medium'], 'small');
+  const color = select(
+    'Color',
+    ['primary', 'gray', 'danger', 'warning', 'info', 'success'],
+    'primary',
+  );
+  const background = select(
+    'Background Style',
+    ['light-fill', 'heavy-fill', 'no-fill-with-border'],
+    'light-fill',
+  );
+  return (
+    <div className="p-6">
+      <ButtonBase size={size} color={color} background={background}>
+        Hello ButtonBase
+      </ButtonBase>
+    </div>
+  );
+};

@@ -507,3 +507,11 @@ export { useToast } from './components/ToastContainer/ToastContainer';
 export const ProtectedRoute = React.lazy(() =>
   import('./components/Auth/ProtectedRoute/ProtectedRoute'),
 );
+
+export const TableRow = React.lazy(() =>
+  import('./components/TableRow/TableRow'),
+);
+
+export const Alert = React.lazy(() =>
+  import('./components/Alert/Alert'),
+);
