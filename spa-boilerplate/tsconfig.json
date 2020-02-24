@@ -15,11 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "src",
-    "paths": {
-      "toolbox": ["../../toolbox/src/exports.ts"]
-    }
+    "baseUrl": "src"
   },
-  "include": ["src"],
-  "files": ["../toolbox/src/exports.ts"]
+  "include": ["src"]
 }
