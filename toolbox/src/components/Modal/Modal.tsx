@@ -60,11 +60,9 @@ export const Modal: React.FC<Props> = ({
       {shouldShowChildren && (
         <ChildrenWrapper
           isVisible={open}
-          className="z-10 max-h-screen flex flex-col justify-center"
+          className="z-10 max-h-screen flex flex-col justify-center w-full sm:w-auto"
         >
-          <div className={`flex-1 my-4 shadow-lg ${className || ''}`}>
-            {children}
-          </div>
+          <div className={`flex-1 m-4 ${className || ''}`}>{children}</div>
         </ChildrenWrapper>
       )}
     </BackdropWrapper>
@@ -103,6 +101,10 @@ const BackdropWrapper = styled.div<{ isVisible: boolean }>`
           pointer-events: none;
         `
       : ''}
+  @media only screen and (max-width: 639px) {
+    justify-content: stretch;
+    align-items: flex-end;
+  }
 `;
 
 export default Modal;

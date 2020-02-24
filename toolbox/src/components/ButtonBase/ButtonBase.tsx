@@ -48,9 +48,6 @@ export const ButtonBase: React.FC<ButtonHTMLAttributes<HTMLButtonElement> &
   ...props
 }) => {
   const classes = classNames(
-    'uppercase',
-    'tracking-widest',
-    'font-sans',
     'focus:outline-none',
     classNameMap[background][color],
     {

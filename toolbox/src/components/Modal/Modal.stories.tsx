@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Modal } from './Modal';
 import Flex from '../Flex/Flex';
 import HeroIconX from '../HeroIcons/HeroIconX';
+import HeroIconExclamation from '../HeroIcons/HeroIconExclamation';
+import ButtonBase from '../ButtonBase/ButtonBase';
 
 export default { title: 'Modal' };
 
@@ -23,9 +25,36 @@ export const Normal = () => {
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="bg-white p-4"
+        className="bg-white p-4 shadow rounded-lg"
       >
-        <span>Hello!</span>
+        <div>
+          <div className="p-2">
+            <div className="flex justify-start">
+              <HeroIconExclamation className="text-danger-600 w-8 h-8 mr-4"></HeroIconExclamation>
+              <div>
+                <h1 className="font-semibold text-lg tracking-tight text-gray-800 mb-1">
+                  Are you sure you want to do this?
+                </h1>
+                <p className="text-sm text-gray-700">
+                  Deleting this author will mean deleting all of their posts.
+                </p>
+              </div>
+            </div>
+          </div>
+          <Flex justifyContent="flex-end" className="mt-3" mx={2}>
+            <ButtonBase className="rounded " size="small" color="gray">
+              Cancel
+            </ButtonBase>
+            <ButtonBase
+              size="small"
+              color="danger"
+              // background="heavy-fill"
+              className="rounded font-semibold tracking-snug"
+            >
+              Delete
+            </ButtonBase>
+          </Flex>
+        </div>
       </Modal>
     </div>
   );
