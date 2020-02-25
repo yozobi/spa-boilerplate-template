@@ -116,6 +116,12 @@ Opens a dialog to bootstrap a component or route in the repo. Too much descripti
 
 Runs prettier on the files you've staged for commit. This is currently set up to run every commit, with husky git hooks.
 
+### version-minor / version-patch
+
+`yarn version-minor` / `yarn version-patch`
+
+Creates a new git tag and pushes it to the remote repo. This is used when you need to create a new tag to deploy to.
+
 # Amplify 📢
 
 The AWS Amplify toolchain (SDK and CLI) brings together various other AWS services for building mobile & web apps in a single API. Out of the box, it will give you Authentication, Serverless Functions, REST/GraphQL APIs, Offline Sync, NoSQL DB, File Storage, Logging, Analytics, Notifications, Bots, AR/VR, and more.

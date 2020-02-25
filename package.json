@@ -16,7 +16,9 @@
     "lint": "yarn workspaces run lint",
     "test:ci": "CI=true yarn workspaces run test",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "pretty-staged": "pretty-quick --staged"
+    "pretty-staged": "pretty-quick --staged",
+    "version-minor": "npm version minor && git push --tags",
+    "version-patch": "npm version patch && git push --tags"
   },
   "prettier": {
     "arrowParens": "always",
