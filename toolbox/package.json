@@ -59,8 +59,6 @@
     "lint": "tsc",
     "playroom:start": "playroom start",
     "play": "npm run playroom:start",
-    "playroom:build": "playroom build",
-    "test": "echo \"No tests enabled for now, add \"jest src\" to this script to bring them back.\"",
-    "gql": "echo \"There is no graphQL autogeneration set up for the Toolbox, silently ignoring...\""
+    "playroom:build": "playroom build"
   }
 }
