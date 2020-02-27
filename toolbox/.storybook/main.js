@@ -1,17 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/**/*.stories.tsx'],
+  stories: [
+    '../src/**/*.stories.tsx',
+    '../src/**/*.stories.jsx',
+    '../src/**/*.stories.js',
+  ],
   addons: ['@storybook/addon-a11y/register', '@storybook/addon-knobs/register'],
   webpackFinal: async (config) => {
     config.module.rules.push({
-      test: /\.(ts|tsx)$/,
+      test: /\.(js|jsx|ts|tsx)$/,
       use: [
         {
           loader: require.resolve('babel-loader'),
-        },
-        {
-          loader: require.resolve('react-docgen-typescript-loader'),
         },
       ],
     });
