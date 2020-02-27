@@ -508,6 +508,8 @@ export const ProtectedRoute = React.lazy(() =>
   import('./components/Auth/ProtectedRoute/ProtectedRoute'),
 );
 
+export { useWrappedUrqlMutation } from './hooks/useWrappedUrqlMutation';
+
 export const TableRow = React.lazy(() =>
   import('./components/TableRow/TableRow'),
 );
