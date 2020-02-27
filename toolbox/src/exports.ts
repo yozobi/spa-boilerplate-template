@@ -514,6 +514,4 @@ export const TableRow = React.lazy(() =>
   import('./components/TableRow/TableRow'),
 );
 
-export const Alert = React.lazy(() =>
-  import('./components/Alert/Alert'),
-);
+export const Alert = React.lazy(() => import('./components/Alert/Alert'));
