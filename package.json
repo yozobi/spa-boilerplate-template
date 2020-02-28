@@ -12,7 +12,7 @@
     "spa": "yarn workspace spa-boilerplate",
     "toolbox": "yarn workspace toolbox",
     "tb": "yarn workspace toolbox",
-    "gql": "bash internals/scripts/ci-codegen.sh",
+    "codegen": "bash internals/scripts/ci-codegen.sh",
     "lint": "bash internals/scripts/ci-lint.sh",
     "test:ci": "bash internals/scripts/ci-test.sh",
     "generate": "plop --plopfile internals/generators/plopfile.js",

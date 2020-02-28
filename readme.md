@@ -92,11 +92,11 @@ An alias for `yarn toolbox`
 
 Runs the `lint` command in all the workspaces. Useful for CI, or for checking if you're safe to push.
 
-### gql
+### codegen
 
-`yarn gql`
+`yarn codegen`
 
-Runs the `gql` command in all the workspaces. Useful for autogenerating all types within a workspace.
+Runs the `codegen` command in all the workspaces. Useful for autogenerating all types within a workspace.
 
 ### test:ci
 

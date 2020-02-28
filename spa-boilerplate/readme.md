@@ -7,7 +7,7 @@
 From root: `yarn spa start`
 From this package: `yarn start`
 
-This will run the create react app setup script, as well as running `hasura:console` and `gql:watch` (documented below)
+This will run the create react app setup script, as well as running `hasura:console` and `codegen:watch` (documented below)
 
 ### build
 
@@ -65,26 +65,26 @@ From this package: `yarn get-schema`
 
 Runs a script to get the introspected graphql schema from the hasura backend. It is built so that it doesn't fail if it doesn't find the schema, so you can run it on a CI.
 
-### gql
+### codegen
 
-From root: `yarn spa gql`
-From this package: `yarn gql`
+From root: `yarn spa codegen`
+From this package: `yarn codegen`
 
-Runs `yarn gql:clear`, then `yarn get-schema`, then runs `graphql-codegen` to generate code from the graphql files you have declared locally.
+Runs `yarn codegen:clear`, then `yarn get-schema`, then runs `graphql-codegen` to generate code from the graphql files you have declared locally.
 
-### gql:watch
+### codegen:watch
 
-From root: `yarn spa gql:watch`
-From this package: `yarn gql:watch`
+From root: `yarn spa codegen:watch`
+From this package: `yarn codegen:watch`
 
 Like the above command, but runs it every time there are changes.
 
 > Note, this will only run `yarn get-schema` once, so if you make changes to your Hasura backend you'll need to run `yarn get-schema` again to keep it up to date.
 
-### gql:clear
+### codegen:clear
 
-From root: `yarn spa gql:clear`
-From this package: `yarn gql:clear`
+From root: `yarn spa codegen:clear`
+From this package: `yarn codegen:clear`
 
 Clears out any generated files. This is useful for getting rid of files that are still present when you switch branches.
 
