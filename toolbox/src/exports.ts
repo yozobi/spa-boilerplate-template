@@ -515,3 +515,7 @@ export const TableRow = React.lazy(() =>
 );
 
 export const Alert = React.lazy(() => import('./components/Alert/Alert'));
+
+export const UnderlinedTabs = React.lazy(() =>
+  import('./components/UnderlinedTabs/UnderlinedTabs'),
+);
