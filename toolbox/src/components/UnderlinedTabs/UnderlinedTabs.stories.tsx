@@ -16,8 +16,8 @@ export const withText = () => {
         activeTab={activeTab}
         onChange={setActiveTab}
         tabs={[
-          { value: 1, label: 'Zero' },
-          { value: 2, label: 'Something' },
+          { value: 0, label: 'Zero' },
+          { value: 1, label: 'Something' },
         ]}
         tabClassname={className}
       ></UnderlinedTabs>
