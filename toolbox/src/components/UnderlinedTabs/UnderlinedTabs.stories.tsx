@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 export default { title: 'UnderlinedTabs', decorators: [withKnobs] };
 
 export const withText = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(1);
   const className = text(
     'tabClassname',
     'text-gray-700 text-xs uppercase tracking-wider focus:bg-gray-300 focus:outline-none px-6 h-12',
@@ -16,8 +16,8 @@ export const withText = () => {
         activeTab={activeTab}
         onChange={setActiveTab}
         tabs={[
-          { value: 0, label: 'Zero' },
-          { value: 1, label: 'Something' },
+          { value: 1, label: 'Zero' },
+          { value: 2, label: 'Something' },
         ]}
         tabClassname={className}
       ></UnderlinedTabs>
