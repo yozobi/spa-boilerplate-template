@@ -5,7 +5,7 @@ import HeroIconMenu from '../HeroIcons/HeroIconMenu';
 import HeroIconNotification from '../HeroIcons/HeroIconNotification';
 import HeroIconUser from '../HeroIcons/HeroIconUser';
 
-export default { title: 'JCAP' };
+export default { title: 'ToolbarExample' };
 
 export const Menu = () => {
   return (
@@ -18,9 +18,9 @@ export const Menu = () => {
     >
       <a className={classNames('inline-block')} href="#" title="Home">
         <img
-          src="https://jcap.co.uk/wp-content/uploads/2014/04/jcap-home-logo.png"
+          src="https://tailwindcss.com/img/tailwind-twitter-square.png"
           className={classNames('h-8', 'w-18', 'object-fit')}
-          alt="JCAP Logo"
+          alt="Logo"
         ></img>
       </a>
       <nav>
