@@ -82,10 +82,10 @@
     "start:app": "node scripts/start.js",
     "start": "concurrently \"npm run start:app\" \"npm run codegen:watch\" \"npm run console\"",
     "build": "node scripts/build.js",
-    "e2e": "dotenv -e .env.local jest --runInBand",
+    "e2e": "jest --config=jest.e2e.config.js --runInBand",
     "e2e:watch": "PUPPETEER_HEADED=true npm run e2e",
     "lint": "tsc",
-    "test": "echo \"No unit tests present for this repo, run yarn e2e instead.\"",
+    "test": "jest --config=jest.config.js",
     "hasura:up": "docker-compose up -d",
     "hasura:down": "docker-compose down",
     "console": "npm run hasura console",
@@ -113,13 +113,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "jest": {
-    "preset": "jest-puppeteer",
-    "testRegex": "./*\\.e2e\\.tsx$",
-    "setupFiles": [
-      "<rootDir>/src/utils/setupTests.js"
     ]
   },
   "devDependencies": {
