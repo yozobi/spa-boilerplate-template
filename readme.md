@@ -122,6 +122,14 @@ Runs prettier on the files you've staged for commit. This is currently set up to
 
 Creates a new git tag and pushes it to the remote repo. This is used when you need to create a new tag to deploy to.
 
+### quick-pr
+
+`yarn quick-pr "A message describing what the PR does"`
+
+Runs a script to create a PR to the repo. Handy for when you want to split up lots of small changes into several PR's.
+
+> You need **hub** installed on your machine before you run this command.
+
 # Amplify 📢
 
 The AWS Amplify toolchain (SDK and CLI) brings together various other AWS services for building mobile & web apps in a single API. Out of the box, it will give you Authentication, Serverless Functions, REST/GraphQL APIs, Offline Sync, NoSQL DB, File Storage, Logging, Analytics, Notifications, Bots, AR/VR, and more.
