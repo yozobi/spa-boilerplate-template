@@ -1,3 +1,6 @@
 node_modules
 yarn-error.log
 /coverage
+.env.local
+.env.test.local
+.env.production.local
