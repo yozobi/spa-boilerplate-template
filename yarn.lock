@@ -4016,6 +4016,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-table@^7.0.10":
+  version "7.0.10"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.10.tgz#8742cd76dfaf9857580698ca4d3a852b32377d0b"
+  integrity sha512-kpUiIlGUpHn4D/0xcLqHEQ0M8Tbg6pbgZqXBDejfn1oBK2cjnOaZKLlqPrh5poIRp8JMJrOv2UWDCRiXARUGBA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-textarea-autosize@^4.3.3":
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/@types/react-textarea-autosize/-/react-textarea-autosize-4.3.5.tgz#6c4d2753fa1864c98c0b2b517f67bb1f6e4c46de"
@@ -19484,6 +19491,15 @@ query-string@^6.10.1:
     split-on-first "^1.0.0"
     strict-uri-encode "^2.0.0"
 
+query-string@^6.11.0:
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.11.0.tgz#dc27a05733d1be66f16d0f83dfa957270f45f66d"
+  integrity sha512-jS+me8X3OEGFTsF6kF+vUUMFG/d3WUCvD7bHhfZP5784nOq1pjj8yau/u86nfOncmcN6ZkSWKWkKAvv/MGxzLA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -20139,6 +20155,13 @@ react-syntax-highlighter@^11.0.2:
     lowlight "~1.11.0"
     prismjs "^1.8.4"
     refractor "^2.4.1"
+
+react-table@^7.0.0-rc.16:
+  version "7.0.0-rc.16"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.0-rc.16.tgz#61aa22e5c6e4796ea3a0085653f5e4bb90bdab5d"
+  integrity sha512-2wcGKO56gKlE1IwJnFatCn1yzHIAwRgbTJJQeoSiERJ/Ed6VeLdJLMJkLuSnxZCwD8CjhZD+C/iXEaFubJVW3A==
+  dependencies:
+    "@babel/plugin-transform-runtime" "^7.8.3"
 
 react-test-renderer@^16.12.0:
   version "16.12.0"
