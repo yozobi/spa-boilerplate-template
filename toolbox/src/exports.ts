@@ -519,3 +519,7 @@ export const Alert = React.lazy(() => import('./components/Alert/Alert'));
 export const UnderlinedTabs = React.lazy(() =>
   import('./components/UnderlinedTabs/UnderlinedTabs'),
 );
+
+export const ServiceWorkerProvider = React.lazy(() =>
+  import('./components/ServiceWorkerProvider/ServiceWorkerProvider'),
+);
