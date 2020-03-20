@@ -126,9 +126,15 @@ Creates a new git tag and pushes it to the remote repo. This is used when you ne
 
 `yarn quick-pr "A message describing what the PR does"`
 
-Runs a script to create a PR to the repo. Handy for when you want to split up lots of small changes into several PR's.
+Runs a script to PR your current changes to the branch you're currently on. Handy for when you want to split up lots of small changes into several PR's.
 
 > You need **hub** installed on your machine before you run this command.
+
+### draft-pr
+
+`yarn draft-pr "A message describing what the PR does"`
+
+Same as `quick-pr`, but this makes the PR a draft. Handy for when you're starting off a piece of work.
 
 # Amplify 📢
 
