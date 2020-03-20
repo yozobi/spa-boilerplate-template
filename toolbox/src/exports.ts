@@ -523,3 +523,5 @@ export const UnderlinedTabs = React.lazy(() =>
 export const ServiceWorkerProvider = React.lazy(() =>
   import('./components/ServiceWorkerProvider/ServiceWorkerProvider'),
 );
+
+export { useServiceWorker } from './components/ServiceWorkerProvider/ServiceWorkerProvider';
