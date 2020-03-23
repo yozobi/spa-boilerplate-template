@@ -16,7 +16,7 @@
     "lint": "bash internals/scripts/ci-lint.sh",
     "test:ci": "bash internals/scripts/ci-test.sh",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "pretty-staged": "pretty-quick --staged",
+    "pretty-staged": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx)\"",
     "version-minor": "npm version minor && git push --tags",
     "version-patch": "npm version patch && git push --tags",
     "quick-pr": "node internals/scripts/quickPullRequest.js",
