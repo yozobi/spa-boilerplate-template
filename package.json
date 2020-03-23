@@ -1,6 +1,6 @@
 {
   "name": "yozobi-shared",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "private": true,
   "author": "Matt Pocock <matt@thisisone.tv>",
   "workspaces": [
@@ -20,7 +20,9 @@
     "version-minor": "npm version minor && git push --tags",
     "version-patch": "npm version patch && git push --tags",
     "quick-pr": "node internals/scripts/quickPullRequest.js",
-    "draft-pr": "node internals/scripts/draftPullRequest.js"
+    "draft-pr": "node internals/scripts/draftPullRequest.js",
+    "release": "node internals/scripts/release.js",
+    "changeset": "yarn changeset"
   },
   "prettier": {
     "arrowParens": "always",
@@ -39,5 +41,9 @@
     "hooks": {
       "pre-commit": "yarn pretty-staged"
     }
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.6.1",
+    "gray-matter": "^4.0.2"
   }
 }

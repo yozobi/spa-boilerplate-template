@@ -136,6 +136,18 @@ Runs a script to PR your current changes to the branch you're currently on. Hand
 
 Same as `quick-pr`, but this makes the PR a draft. Handy for when you're starting off a piece of work.
 
+### changeset
+
+`yarn changeset`
+
+Add a new changeset using the changesets CLI.
+
+### release
+
+`yarn release "release message"`
+
+Create a new GitHub release from the master branch. This increments the version number of the repository, creates changelogs from the stored changesets, and creates a GitHub release.
+
 # Amplify 📢
 
 The AWS Amplify toolchain (SDK and CLI) brings together various other AWS services for building mobile & web apps in a single API. Out of the box, it will give you Authentication, Serverless Functions, REST/GraphQL APIs, Offline Sync, NoSQL DB, File Storage, Logging, Analytics, Notifications, Bots, AR/VR, and more.
