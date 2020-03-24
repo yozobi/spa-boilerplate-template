@@ -525,3 +525,10 @@ export const ServiceWorkerProvider = React.lazy(() =>
 );
 
 export { useServiceWorker } from './components/ServiceWorkerProvider/ServiceWorkerProvider';
+
+export const AwsAuthenticator = React.lazy(() =>
+  import('./components/AwsAuthenticator/AwsAuthenticator'),
+);
+
+// @ts-ignore
+export { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';

@@ -12,8 +12,8 @@ export default { title: 'Form Setup' };
  */
 const makeMutationForm = declareMakeMutationForm({
   inputs: {
-    text: (props) => <TextInput {...props} />,
-    password: (props) => <TextInput {...props} type="password" />,
+    text: (props: any) => <TextInput {...props} />,
+    password: (props: any) => <TextInput {...props} type="password" />,
   },
 });
 

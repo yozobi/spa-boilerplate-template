@@ -11,6 +11,13 @@ interface DeclareMakeMutationFormParams<T extends {}> {
   inputs: T;
 }
 
+type InputsType<MutationVariables, Inputs> = {
+  [K in keyof Required<MutationVariables>]: Inputs[MutationFormConfig<
+    Required<MutationVariables>,
+    Inputs
+  >[K]['type']];
+};
+
 /**
  * declareMakeMutationForm creates a function which you can
  * call in your project to help bootstrap forms. You pass in
@@ -24,9 +31,9 @@ interface DeclareMakeMutationFormParams<T extends {}> {
  *   },
  * })
  */
-export function declareMakeMutationForm<
-  Inputs extends { [K in keyof Inputs]: FormInputFC }
->({ inputs }: DeclareMakeMutationFormParams<Inputs>) {
+export function declareMakeMutationForm<Inputs>({
+  inputs,
+}: DeclareMakeMutationFormParams<Inputs>) {
   interface MakeMutationFormParams<V extends {}, T extends {}> {
     config: MutationFormConfig<V, T>;
     validate?: (values: V) => { [K in keyof V]?: string } | void;
@@ -46,7 +53,10 @@ export function declareMakeMutationForm<
   return function makeMutationForm<MutationVariables extends {}>({
     config,
     validate: validateFromMakeMutationForm,
-  }: MakeMutationFormParams<MutationVariables, Inputs>) {
+  }: MakeMutationFormParams<MutationVariables, Inputs>): {
+    Inputs: InputsType<MutationVariables, Inputs>;
+    Wrapper: React.FC<MutationFormWrapperProps<MutationVariables>>;
+  } {
     /**
      * Here, we declare a Wrapper which we'll use to
      * wrap the form, and pass in onSubmit, initialValues and validate.
@@ -58,7 +68,7 @@ export function declareMakeMutationForm<
       validate: validateFromLocal,
     }) => {
       const formik = useFormik<MutationVariables>({
-        initialValues: initialValues as any,
+        initialValues: (initialValues || {}) as MutationVariables,
         onSubmit: (values: MutationVariables) => {
           onSubmit(values);
         },
@@ -76,13 +86,6 @@ export function declareMakeMutationForm<
       );
     };
 
-    type InputsType = {
-      [K in keyof Required<MutationVariables>]: Inputs[MutationFormConfig<
-        Required<MutationVariables>,
-        Inputs
-      >[K]['type']];
-    };
-
     /**
      * Here, we transform the config you passed into
      * an object, where each key is a react component. With a login form,
@@ -94,7 +97,9 @@ export function declareMakeMutationForm<
      * This is typed to the generic that you passed in to
      * makeMutationForm
      */
-    const Inputs: InputsType = Object.keys(config).reduce((obj, key) => {
+    const Inputs: InputsType<MutationVariables, Inputs> = Object.keys(
+      config,
+    ).reduce((obj, key) => {
       return {
         ...obj,
         [key]: (props: any) => {
@@ -111,6 +116,7 @@ export function declareMakeMutationForm<
           const { submitCount } = useFormikContext();
           const shouldShowError = submitCount > 0 || metaProps.touched;
           return (
+            // @ts-ignore
             <Comp
               {...inputProps}
               {...configProps}
@@ -131,7 +137,7 @@ export function declareMakeMutationForm<
 }
 
 interface MutationFormWrapperProps<V> {
-  initialValues: Partial<V>;
+  initialValues?: Partial<V>;
   onSubmit: (values: V) => void;
   validate?: (values: V) => { [K in keyof V]?: string } | void;
 }
