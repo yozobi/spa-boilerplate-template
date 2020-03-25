@@ -16,12 +16,18 @@
     "lint": "bash internals/scripts/ci-lint.sh",
     "test:ci": "bash internals/scripts/ci-test.sh",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "pretty-staged": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx)\"",
     "version-minor": "npm version minor && git push --tags",
     "version-patch": "npm version patch && git push --tags",
     "quick-pr": "node internals/scripts/quickPullRequest.js",
     "draft-pr": "node internals/scripts/draftPullRequest.js",
-    "release": "node internals/scripts/release.js"
+    "release": "node internals/scripts/release.js",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "prettier": {
     "arrowParens": "always",
@@ -32,17 +38,27 @@
   },
   "devDependencies": {
     "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
     "plop": "^2.5.3",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1"
+    "prettier": "^1.19.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn pretty-staged"
+      "pre-commit": "yarn lint-staged"
     }
   },
   "dependencies": {
     "@changesets/cli": "^2.6.1",
-    "gray-matter": "^4.0.2"
+    "gray-matter": "^4.0.2",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x"
   }
 }
