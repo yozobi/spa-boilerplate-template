@@ -1,4 +1,5 @@
 import useFsmReducer from 'use-fsm-reducer';
+import { parseAwsError } from './parseAwsError';
 
 export type AwsAuthenticatorApiState =
   | { type: 'idle' }
@@ -9,13 +10,6 @@ type Action =
   | { type: 'reportLoading' }
   | { type: 'reportComplete' }
   | { type: 'reportError'; err: Error };
-
-const parseError = (err: Error) => {
-  if (typeof err === 'string') {
-    return err;
-  }
-  return err.message ? err.message : JSON.stringify(err);
-};
 
 export const useApiState = () =>
   useFsmReducer<AwsAuthenticatorApiState, Action>({
@@ -36,7 +30,7 @@ export const useApiState = () =>
       reportError: (state, action) => {
         return {
           type: 'error',
-          errorMessage: parseError(action.err),
+          errorMessage: parseAwsError(action.err),
         };
       },
     },

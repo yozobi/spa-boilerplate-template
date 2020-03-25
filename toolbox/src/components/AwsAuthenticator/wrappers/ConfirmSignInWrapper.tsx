@@ -5,6 +5,9 @@ import { useAuthenticationContext } from '../AwsAuthenticatorContext';
 import { AwsAuthComponents } from '../awsAuthenticatorTypes';
 import { useApiState } from '../useApiState';
 
+/** Add QR elements to remove here: */
+const cleanCodeRegex = / /g;
+
 export const ConfirmSignInWrapper: React.FC<{
   render: AwsAuthComponents['confirmSignIn'];
 }> = ({ render }) => {
@@ -24,7 +27,11 @@ export const ConfirmSignInWrapper: React.FC<{
   };
   const confirmSignIn = ({ code }: { code: string }) => {
     dispatch({ type: 'reportLoading' });
-    Auth.confirmSignIn(user, code, 'SOFTWARE_TOKEN_MFA')
+    Auth.confirmSignIn(
+      user,
+      code.replace(cleanCodeRegex, ''),
+      'SOFTWARE_TOKEN_MFA',
+    )
       .then(() => {
         checkContact();
       })

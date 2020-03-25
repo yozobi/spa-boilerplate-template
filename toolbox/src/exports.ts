@@ -532,3 +532,9 @@ export const AwsAuthenticator = React.lazy(() =>
 
 // @ts-ignore
 export { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';
+
+export const AwsSetupTotpWrapper = React.lazy(() =>
+  import('./components/AwsSetupTotpWrapper/AwsSetupTotpWrapper'),
+);
+
+export { useAwsChangePassword } from './hooks/useAwsChangePassword';

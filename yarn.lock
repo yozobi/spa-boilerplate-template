@@ -4312,6 +4312,13 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
+"@types/qrcode.react@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/qrcode.react/-/qrcode.react-1.0.0.tgz#9eff4d4a93eb32fcd65e26ea046f2efc52764431"
+  integrity sha512-CyH8QizAyp/G2RTz+2W0qIp/qbJMNC6a8aossG+zN42Rmx3loQlgBCWFatjKJ3NeJaX99e22SJ75yU2EVHlu3g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/reach__router@^1.2.3":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.2.6.tgz#b14cf1adbd1a365d204bbf6605cd9dd7b8816c87"
@@ -20047,7 +20054,7 @@ qr.js@0.0.0:
   resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
   integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
 
-qrcode.react@^0.8.0:
+qrcode.react@0.8.0, qrcode.react@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-0.8.0.tgz#413b31cc3b62910e39513f7bead945e01c4c34fb"
   integrity sha512-16wKpuFvLwciIq2YAsfmPUCnSR8GrYPsXRK5KVdcIuX0+W/MKZbBkFhl44ttRx4TWZHqRjfztoWOxdPF0Hb9JA==

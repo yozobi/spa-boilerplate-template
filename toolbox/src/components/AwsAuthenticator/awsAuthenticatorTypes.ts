@@ -1,5 +1,4 @@
 import { AwsAuthenticatorApiState } from './useApiState';
-import { CognitoUser } from '@aws-amplify/auth';
 
 export type AuthState =
   | 'signedIn'

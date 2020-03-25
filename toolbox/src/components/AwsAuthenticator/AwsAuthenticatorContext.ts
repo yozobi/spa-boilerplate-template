@@ -4,7 +4,7 @@ import { createContext, useContext } from 'react';
 
 export type AuthenticationContextType = {
   authState: AuthState;
-  onLogInSuccess?: (user: CognitoUser) => void;
+  onLogInSuccess?: () => void;
   setAuthState: (
     authState: AuthState,
     user?: CognitoUser | { username: string },

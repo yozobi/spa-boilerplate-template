@@ -17,7 +17,7 @@ const SignedInWrapper: React.FC<{ render: AwsAuthComponents['signedIn'] }> = ({
 
 export const AwsAuthenticator: React.FC<{
   components: AwsAuthComponents;
-  onLogInSuccess?: (user: CognitoUser) => void;
+  onLogInSuccess?: () => void;
   checkIsLoggedIn: () => Promise<boolean> | boolean;
 }> = ({ components, onLogInSuccess, checkIsLoggedIn }) => {
   const [authState, setAuthState] = useState<AuthState>('pending');
@@ -61,7 +61,7 @@ export const AwsAuthenticator: React.FC<{
           }
           setAuthState(nextAuthState);
           if (authState !== 'pending' && nextAuthState === 'signedIn') {
-            onLogInSuccess?.(nextUser as CognitoUser);
+            onLogInSuccess?.();
           }
         },
         onLogInSuccess,
