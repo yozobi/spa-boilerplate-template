@@ -105,6 +105,7 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@fullhuman/postcss-purgecss": "^2.0.6",
+    "eslint-loader": "^3.0.3",
     "@graphql-codegen/add": "^1.12.1",
     "@graphql-codegen/cli": "^1.12.2",
     "@graphql-codegen/introspection": "^1.12.2",
