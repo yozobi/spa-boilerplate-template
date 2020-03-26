@@ -2,7 +2,7 @@ import API from '@aws-amplify/api';
 import useFsmReducer, { UseFsmReducerEffects } from 'use-fsm-reducer';
 import { parseAwsError } from '../components/AwsAuthenticator/parseAwsError';
 
-type State<Data, Values> =
+export type UseAmplifyQueryState<Data, Values> =
   | {
       type: 'initial';
     }
@@ -10,11 +10,13 @@ type State<Data, Values> =
       type: 'pending';
       /** Possibly stale data */
       data?: Data;
+      paginationToken?: string;
       previousValues: Values;
     }
   | {
       type: 'success';
       data: Data;
+      paginationToken?: string;
       previousValues: Values;
     }
   | {
@@ -47,18 +49,25 @@ const useLogic = <Data = any, Values extends {} = any>({
 }: {
   effects: UseFsmReducerEffects<Action<Data, Values>, Effect<Values>>;
 }) =>
-  useFsmReducer<State<Data, Values>, Action<Data, Values>, Effect<Values>>({
+  useFsmReducer<
+    UseAmplifyQueryState<Data, Values>,
+    Action<Data, Values>,
+    Effect<Values>
+  >({
     initialState: { type: 'initial' },
     on: {
       send: (state, action) => {
         let data;
+        let paginationToken;
         if (state.type === 'success') {
           data = state.data;
+          paginationToken = state.paginationToken;
         }
         return {
           type: 'pending',
           previousValues: action.values,
-          data: data,
+          paginationToken,
+          data,
           effects: [{ type: 'dispatchSend', values: action.values }],
         };
       },
@@ -88,6 +97,7 @@ const useLogic = <Data = any, Values extends {} = any>({
               type: 'pending',
               previousValues: state.previousValues,
               data: state.data,
+              paginationToken: state.paginationToken,
             };
           },
         },
@@ -132,7 +142,7 @@ export const useAmplifyQuery = <Data, Values>(
             dispatch({
               type: 'reportSuccess',
               data: rest,
-              // paginationToken: NextToken,
+              paginationToken: NextToken,
             });
           } else if (params.method === 'post') {
             const { NextToken, ...rest } = await API.post(
@@ -146,7 +156,7 @@ export const useAmplifyQuery = <Data, Values>(
             dispatch({
               type: 'reportSuccess',
               data: rest,
-              // paginationToken: NextToken,
+              paginationToken: NextToken,
             });
           }
         } catch (e) {

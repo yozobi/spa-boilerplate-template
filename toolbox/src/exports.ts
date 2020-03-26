@@ -545,4 +545,6 @@ export const AwsSetupTotpWrapper = React.lazy(() =>
 
 export { useAwsChangePassword } from './hooks/useAwsChangePassword';
 
+export { usePaginatedAmplifyQuery } from './hooks/usePaginatedAmplifyQuery';
+
 export { isEmailAddress } from './utils/isEmailAddress';
