@@ -149,6 +149,7 @@ interface AwsSetupTotpWrapperProps {
   onEnableSuccess?: () => void;
   onDisableSuccess?: () => void;
   render: React.FC<AwsSetupTotpComponentProps>;
+  clientName: string;
 }
 
 export interface AwsSetupTotpComponentProps {
@@ -161,6 +162,7 @@ export const AwsSetupTotpWrapper = ({
   onEnableSuccess,
   onDisableSuccess,
   render,
+  clientName,
 }: AwsSetupTotpWrapperProps) => {
   const [state, dispatch] = useLogic({
     getPreferredMFA: async ({ dispatch }) => {
@@ -178,7 +180,7 @@ export const AwsSetupTotpWrapper = ({
       try {
         const user = await Auth.currentAuthenticatedUser();
         const secretCode = await Auth.setupTOTP(user);
-        const url = `otpauth://totp/JCAP:${user?.username}?secret=${secretCode}&issuer=${window.location.hostname}`;
+        const url = `otpauth://totp/${clientName}:${user?.username}?secret=${secretCode}&issuer=${window.location.hostname}`;
         dispatch({ type: 'reportQRCode', qrCode: url });
       } catch (error) {
         dispatch({ type: 'reportError', error });
