@@ -1,4 +1,4 @@
-export const parseAwsError = (err: Error) => {
+export const parseAwsError = (err: Error | string) => {
   if (typeof err === 'string') {
     return err;
   }

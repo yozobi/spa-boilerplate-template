@@ -19,7 +19,9 @@ interface UseThrottleParams {
  *
  * This is perfect for throttling inputs, such as autocompletes.
  */
-export const useThrottle = ({ throttleInMs = 500 }: UseThrottleParams) => {
+export const useThrottle = (
+  { throttleInMs }: UseThrottleParams = { throttleInMs: 500 },
+) => {
   const timeoutRef = useRef<number>();
 
   return {
