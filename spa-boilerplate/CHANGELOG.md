@@ -1,5 +1,11 @@
 # spa-boilerplate
 
+## 0.1.3
+
+### Patch Changes
+
+- d6bf218: Added eslint-loader
+
 ## 0.1.2
 
 ### Patch Changes

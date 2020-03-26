@@ -4,13 +4,751 @@ schema {
   subscription: subscription_root
 }
 
+# columns and relationships of "AccountGroups"
+type AccountGroups {
+  # An array relationship
+  AccountGroupUsers(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): [AccountGroupUser!]!
+
+  # An aggregated array relationship
+  AccountGroupUsers_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): AccountGroupUser_aggregate!
+
+  # An array relationship
+  Accounts(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): [Accounts!]!
+
+  # An aggregated array relationship
+  Accounts_aggregate(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): Accounts_aggregate!
+
+  # An object relationship
+  Org: Orgs!
+  id: uuid!
+  name: String!
+  org_id: uuid!
+  tcc_contact_id: String
+}
+
+# aggregated selection of "AccountGroups"
+type AccountGroups_aggregate {
+  aggregate: AccountGroups_aggregate_fields
+  nodes: [AccountGroups!]!
+}
+
+# aggregate fields of "AccountGroups"
+type AccountGroups_aggregate_fields {
+  count(columns: [AccountGroups_select_column!], distinct: Boolean): Int
+  max: AccountGroups_max_fields
+  min: AccountGroups_min_fields
+}
+
+# order by aggregate values of table "AccountGroups"
+input AccountGroups_aggregate_order_by {
+  count: order_by
+  max: AccountGroups_max_order_by
+  min: AccountGroups_min_order_by
+}
+
+# input type for inserting array relation for remote table "AccountGroups"
+input AccountGroups_arr_rel_insert_input {
+  data: [AccountGroups_insert_input!]!
+  on_conflict: AccountGroups_on_conflict
+}
+
+# Boolean expression to filter rows from the table "AccountGroups". All fields are combined with a logical 'AND'.
+input AccountGroups_bool_exp {
+  AccountGroupUsers: AccountGroupUser_bool_exp
+  Accounts: Accounts_bool_exp
+  Org: Orgs_bool_exp
+  _and: [AccountGroups_bool_exp]
+  _not: AccountGroups_bool_exp
+  _or: [AccountGroups_bool_exp]
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+  org_id: uuid_comparison_exp
+  tcc_contact_id: String_comparison_exp
+}
+
+# unique or primary key constraints on table "AccountGroups"
+enum AccountGroups_constraint {
+  # unique or primary key constraint
+  AccountGroups_pkey
+}
+
+# input type for inserting data into table "AccountGroups"
+input AccountGroups_insert_input {
+  AccountGroupUsers: AccountGroupUser_arr_rel_insert_input
+  Accounts: Accounts_arr_rel_insert_input
+  Org: Orgs_obj_rel_insert_input
+  id: uuid
+  name: String
+  org_id: uuid
+  tcc_contact_id: String
+}
+
+# aggregate max on columns
+type AccountGroups_max_fields {
+  name: String
+  tcc_contact_id: String
+}
+
+# order by max() on columns of table "AccountGroups"
+input AccountGroups_max_order_by {
+  name: order_by
+  tcc_contact_id: order_by
+}
+
+# aggregate min on columns
+type AccountGroups_min_fields {
+  name: String
+  tcc_contact_id: String
+}
+
+# order by min() on columns of table "AccountGroups"
+input AccountGroups_min_order_by {
+  name: order_by
+  tcc_contact_id: order_by
+}
+
+# response of any mutation on the table "AccountGroups"
+type AccountGroups_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [AccountGroups!]!
+}
+
+# input type for inserting object relation for remote table "AccountGroups"
+input AccountGroups_obj_rel_insert_input {
+  data: AccountGroups_insert_input!
+  on_conflict: AccountGroups_on_conflict
+}
+
+# on conflict condition type for table "AccountGroups"
+input AccountGroups_on_conflict {
+  constraint: AccountGroups_constraint!
+  update_columns: [AccountGroups_update_column!]!
+  where: AccountGroups_bool_exp
+}
+
+# ordering options when selecting data from "AccountGroups"
+input AccountGroups_order_by {
+  AccountGroupUsers_aggregate: AccountGroupUser_aggregate_order_by
+  Accounts_aggregate: Accounts_aggregate_order_by
+  Org: Orgs_order_by
+  id: order_by
+  name: order_by
+  org_id: order_by
+  tcc_contact_id: order_by
+}
+
+# select columns of table "AccountGroups"
+enum AccountGroups_select_column {
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  org_id
+
+  # column name
+  tcc_contact_id
+}
+
+# input type for updating data in table "AccountGroups"
+input AccountGroups_set_input {
+  id: uuid
+  name: String
+  org_id: uuid
+  tcc_contact_id: String
+}
+
+# update columns of table "AccountGroups"
+enum AccountGroups_update_column {
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  org_id
+
+  # column name
+  tcc_contact_id
+}
+
+# columns and relationships of "AccountGroupUser"
+type AccountGroupUser {
+  # An object relationship
+  AccountGroup: AccountGroups!
+
+  # An object relationship
+  User: Users!
+  account_group_id: uuid!
+  id: uuid!
+  user_id: String!
+}
+
+# aggregated selection of "AccountGroupUser"
+type AccountGroupUser_aggregate {
+  aggregate: AccountGroupUser_aggregate_fields
+  nodes: [AccountGroupUser!]!
+}
+
+# aggregate fields of "AccountGroupUser"
+type AccountGroupUser_aggregate_fields {
+  count(columns: [AccountGroupUser_select_column!], distinct: Boolean): Int
+  max: AccountGroupUser_max_fields
+  min: AccountGroupUser_min_fields
+}
+
+# order by aggregate values of table "AccountGroupUser"
+input AccountGroupUser_aggregate_order_by {
+  count: order_by
+  max: AccountGroupUser_max_order_by
+  min: AccountGroupUser_min_order_by
+}
+
+# input type for inserting array relation for remote table "AccountGroupUser"
+input AccountGroupUser_arr_rel_insert_input {
+  data: [AccountGroupUser_insert_input!]!
+  on_conflict: AccountGroupUser_on_conflict
+}
+
+# Boolean expression to filter rows from the table "AccountGroupUser". All fields are combined with a logical 'AND'.
+input AccountGroupUser_bool_exp {
+  AccountGroup: AccountGroups_bool_exp
+  User: Users_bool_exp
+  _and: [AccountGroupUser_bool_exp]
+  _not: AccountGroupUser_bool_exp
+  _or: [AccountGroupUser_bool_exp]
+  account_group_id: uuid_comparison_exp
+  id: uuid_comparison_exp
+  user_id: String_comparison_exp
+}
+
+# unique or primary key constraints on table "AccountGroupUser"
+enum AccountGroupUser_constraint {
+  # unique or primary key constraint
+  AccountGroupUser_pkey
+}
+
+# input type for inserting data into table "AccountGroupUser"
+input AccountGroupUser_insert_input {
+  AccountGroup: AccountGroups_obj_rel_insert_input
+  User: Users_obj_rel_insert_input
+  account_group_id: uuid
+  id: uuid
+  user_id: String
+}
+
+# aggregate max on columns
+type AccountGroupUser_max_fields {
+  user_id: String
+}
+
+# order by max() on columns of table "AccountGroupUser"
+input AccountGroupUser_max_order_by {
+  user_id: order_by
+}
+
+# aggregate min on columns
+type AccountGroupUser_min_fields {
+  user_id: String
+}
+
+# order by min() on columns of table "AccountGroupUser"
+input AccountGroupUser_min_order_by {
+  user_id: order_by
+}
+
+# response of any mutation on the table "AccountGroupUser"
+type AccountGroupUser_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [AccountGroupUser!]!
+}
+
+# input type for inserting object relation for remote table "AccountGroupUser"
+input AccountGroupUser_obj_rel_insert_input {
+  data: AccountGroupUser_insert_input!
+  on_conflict: AccountGroupUser_on_conflict
+}
+
+# on conflict condition type for table "AccountGroupUser"
+input AccountGroupUser_on_conflict {
+  constraint: AccountGroupUser_constraint!
+  update_columns: [AccountGroupUser_update_column!]!
+  where: AccountGroupUser_bool_exp
+}
+
+# ordering options when selecting data from "AccountGroupUser"
+input AccountGroupUser_order_by {
+  AccountGroup: AccountGroups_order_by
+  User: Users_order_by
+  account_group_id: order_by
+  id: order_by
+  user_id: order_by
+}
+
+# select columns of table "AccountGroupUser"
+enum AccountGroupUser_select_column {
+  # column name
+  account_group_id
+
+  # column name
+  id
+
+  # column name
+  user_id
+}
+
+# input type for updating data in table "AccountGroupUser"
+input AccountGroupUser_set_input {
+  account_group_id: uuid
+  id: uuid
+  user_id: String
+}
+
+# update columns of table "AccountGroupUser"
+enum AccountGroupUser_update_column {
+  # column name
+  account_group_id
+
+  # column name
+  id
+
+  # column name
+  user_id
+}
+
+# columns and relationships of "Accounts"
+type Accounts {
+  # An object relationship
+  AccountGroup: AccountGroups!
+  account_group_id: uuid!
+  balance: numeric!
+  id: uuid!
+  tcc_currency_code: String!
+}
+
+# aggregated selection of "Accounts"
+type Accounts_aggregate {
+  aggregate: Accounts_aggregate_fields
+  nodes: [Accounts!]!
+}
+
+# aggregate fields of "Accounts"
+type Accounts_aggregate_fields {
+  avg: Accounts_avg_fields
+  count(columns: [Accounts_select_column!], distinct: Boolean): Int
+  max: Accounts_max_fields
+  min: Accounts_min_fields
+  stddev: Accounts_stddev_fields
+  stddev_pop: Accounts_stddev_pop_fields
+  stddev_samp: Accounts_stddev_samp_fields
+  sum: Accounts_sum_fields
+  var_pop: Accounts_var_pop_fields
+  var_samp: Accounts_var_samp_fields
+  variance: Accounts_variance_fields
+}
+
+# order by aggregate values of table "Accounts"
+input Accounts_aggregate_order_by {
+  avg: Accounts_avg_order_by
+  count: order_by
+  max: Accounts_max_order_by
+  min: Accounts_min_order_by
+  stddev: Accounts_stddev_order_by
+  stddev_pop: Accounts_stddev_pop_order_by
+  stddev_samp: Accounts_stddev_samp_order_by
+  sum: Accounts_sum_order_by
+  var_pop: Accounts_var_pop_order_by
+  var_samp: Accounts_var_samp_order_by
+  variance: Accounts_variance_order_by
+}
+
+# input type for inserting array relation for remote table "Accounts"
+input Accounts_arr_rel_insert_input {
+  data: [Accounts_insert_input!]!
+  on_conflict: Accounts_on_conflict
+}
+
+# aggregate avg on columns
+type Accounts_avg_fields {
+  balance: Float
+}
+
+# order by avg() on columns of table "Accounts"
+input Accounts_avg_order_by {
+  balance: order_by
+}
+
+# Boolean expression to filter rows from the table "Accounts". All fields are combined with a logical 'AND'.
+input Accounts_bool_exp {
+  AccountGroup: AccountGroups_bool_exp
+  _and: [Accounts_bool_exp]
+  _not: Accounts_bool_exp
+  _or: [Accounts_bool_exp]
+  account_group_id: uuid_comparison_exp
+  balance: numeric_comparison_exp
+  id: uuid_comparison_exp
+  tcc_currency_code: String_comparison_exp
+}
+
+# unique or primary key constraints on table "Accounts"
+enum Accounts_constraint {
+  # unique or primary key constraint
+  Accounts_pkey
+}
+
+# input type for inserting data into table "Accounts"
+input Accounts_insert_input {
+  AccountGroup: AccountGroups_obj_rel_insert_input
+  account_group_id: uuid
+  balance: numeric
+  id: uuid
+  tcc_currency_code: String
+}
+
+# aggregate max on columns
+type Accounts_max_fields {
+  balance: numeric
+  tcc_currency_code: String
+}
+
+# order by max() on columns of table "Accounts"
+input Accounts_max_order_by {
+  balance: order_by
+  tcc_currency_code: order_by
+}
+
+# aggregate min on columns
+type Accounts_min_fields {
+  balance: numeric
+  tcc_currency_code: String
+}
+
+# order by min() on columns of table "Accounts"
+input Accounts_min_order_by {
+  balance: order_by
+  tcc_currency_code: order_by
+}
+
+# response of any mutation on the table "Accounts"
+type Accounts_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [Accounts!]!
+}
+
+# input type for inserting object relation for remote table "Accounts"
+input Accounts_obj_rel_insert_input {
+  data: Accounts_insert_input!
+  on_conflict: Accounts_on_conflict
+}
+
+# on conflict condition type for table "Accounts"
+input Accounts_on_conflict {
+  constraint: Accounts_constraint!
+  update_columns: [Accounts_update_column!]!
+  where: Accounts_bool_exp
+}
+
+# ordering options when selecting data from "Accounts"
+input Accounts_order_by {
+  AccountGroup: AccountGroups_order_by
+  account_group_id: order_by
+  balance: order_by
+  id: order_by
+  tcc_currency_code: order_by
+}
+
+# select columns of table "Accounts"
+enum Accounts_select_column {
+  # column name
+  account_group_id
+
+  # column name
+  balance
+
+  # column name
+  id
+
+  # column name
+  tcc_currency_code
+}
+
+# input type for updating data in table "Accounts"
+input Accounts_set_input {
+  account_group_id: uuid
+  balance: numeric
+  id: uuid
+  tcc_currency_code: String
+}
+
+# aggregate stddev on columns
+type Accounts_stddev_fields {
+  balance: Float
+}
+
+# order by stddev() on columns of table "Accounts"
+input Accounts_stddev_order_by {
+  balance: order_by
+}
+
+# aggregate stddev_pop on columns
+type Accounts_stddev_pop_fields {
+  balance: Float
+}
+
+# order by stddev_pop() on columns of table "Accounts"
+input Accounts_stddev_pop_order_by {
+  balance: order_by
+}
+
+# aggregate stddev_samp on columns
+type Accounts_stddev_samp_fields {
+  balance: Float
+}
+
+# order by stddev_samp() on columns of table "Accounts"
+input Accounts_stddev_samp_order_by {
+  balance: order_by
+}
+
+# aggregate sum on columns
+type Accounts_sum_fields {
+  balance: numeric
+}
+
+# order by sum() on columns of table "Accounts"
+input Accounts_sum_order_by {
+  balance: order_by
+}
+
+# update columns of table "Accounts"
+enum Accounts_update_column {
+  # column name
+  account_group_id
+
+  # column name
+  balance
+
+  # column name
+  id
+
+  # column name
+  tcc_currency_code
+}
+
+# aggregate var_pop on columns
+type Accounts_var_pop_fields {
+  balance: Float
+}
+
+# order by var_pop() on columns of table "Accounts"
+input Accounts_var_pop_order_by {
+  balance: order_by
+}
+
+# aggregate var_samp on columns
+type Accounts_var_samp_fields {
+  balance: Float
+}
+
+# order by var_samp() on columns of table "Accounts"
+input Accounts_var_samp_order_by {
+  balance: order_by
+}
+
+# aggregate variance on columns
+type Accounts_variance_fields {
+  balance: Float
+}
+
+# order by variance() on columns of table "Accounts"
+input Accounts_variance_order_by {
+  balance: order_by
+}
+
 # mutation root
 type mutation_root {
+  # delete data from the table: "AccountGroupUser"
+  delete_AccountGroupUser(
+    # filter the rows which have to be deleted
+    where: AccountGroupUser_bool_exp!
+  ): AccountGroupUser_mutation_response
+
+  # delete data from the table: "AccountGroups"
+  delete_AccountGroups(
+    # filter the rows which have to be deleted
+    where: AccountGroups_bool_exp!
+  ): AccountGroups_mutation_response
+
+  # delete data from the table: "Accounts"
+  delete_Accounts(
+    # filter the rows which have to be deleted
+    where: Accounts_bool_exp!
+  ): Accounts_mutation_response
+
+  # delete data from the table: "OrgGroups"
+  delete_OrgGroups(
+    # filter the rows which have to be deleted
+    where: OrgGroups_bool_exp!
+  ): OrgGroups_mutation_response
+
+  # delete data from the table: "Orgs"
+  delete_Orgs(
+    # filter the rows which have to be deleted
+    where: Orgs_bool_exp!
+  ): Orgs_mutation_response
+
+  # delete data from the table: "Roles"
+  delete_Roles(
+    # filter the rows which have to be deleted
+    where: Roles_bool_exp!
+  ): Roles_mutation_response
+
+  # delete data from the table: "UserRole"
+  delete_UserRole(
+    # filter the rows which have to be deleted
+    where: UserRole_bool_exp!
+  ): UserRole_mutation_response
+
   # delete data from the table: "Users"
   delete_Users(
     # filter the rows which have to be deleted
     where: Users_bool_exp!
   ): Users_mutation_response
+
+  # insert data into the table: "AccountGroupUser"
+  insert_AccountGroupUser(
+    # the rows to be inserted
+    objects: [AccountGroupUser_insert_input!]!
+
+    # on conflict condition
+    on_conflict: AccountGroupUser_on_conflict
+  ): AccountGroupUser_mutation_response
+
+  # insert data into the table: "AccountGroups"
+  insert_AccountGroups(
+    # the rows to be inserted
+    objects: [AccountGroups_insert_input!]!
+
+    # on conflict condition
+    on_conflict: AccountGroups_on_conflict
+  ): AccountGroups_mutation_response
+
+  # insert data into the table: "Accounts"
+  insert_Accounts(
+    # the rows to be inserted
+    objects: [Accounts_insert_input!]!
+
+    # on conflict condition
+    on_conflict: Accounts_on_conflict
+  ): Accounts_mutation_response
+
+  # insert data into the table: "OrgGroups"
+  insert_OrgGroups(
+    # the rows to be inserted
+    objects: [OrgGroups_insert_input!]!
+
+    # on conflict condition
+    on_conflict: OrgGroups_on_conflict
+  ): OrgGroups_mutation_response
+
+  # insert data into the table: "Orgs"
+  insert_Orgs(
+    # the rows to be inserted
+    objects: [Orgs_insert_input!]!
+
+    # on conflict condition
+    on_conflict: Orgs_on_conflict
+  ): Orgs_mutation_response
+
+  # insert data into the table: "Roles"
+  insert_Roles(
+    # the rows to be inserted
+    objects: [Roles_insert_input!]!
+
+    # on conflict condition
+    on_conflict: Roles_on_conflict
+  ): Roles_mutation_response
+
+  # insert data into the table: "UserRole"
+  insert_UserRole(
+    # the rows to be inserted
+    objects: [UserRole_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserRole_on_conflict
+  ): UserRole_mutation_response
 
   # insert data into the table: "Users"
   insert_Users(
@@ -21,6 +759,69 @@ type mutation_root {
     on_conflict: Users_on_conflict
   ): Users_mutation_response
 
+  # update data of the table: "AccountGroupUser"
+  update_AccountGroupUser(
+    # sets the columns of the filtered rows to the given values
+    _set: AccountGroupUser_set_input
+
+    # filter the rows which have to be updated
+    where: AccountGroupUser_bool_exp!
+  ): AccountGroupUser_mutation_response
+
+  # update data of the table: "AccountGroups"
+  update_AccountGroups(
+    # sets the columns of the filtered rows to the given values
+    _set: AccountGroups_set_input
+
+    # filter the rows which have to be updated
+    where: AccountGroups_bool_exp!
+  ): AccountGroups_mutation_response
+
+  # update data of the table: "Accounts"
+  update_Accounts(
+    # sets the columns of the filtered rows to the given values
+    _set: Accounts_set_input
+
+    # filter the rows which have to be updated
+    where: Accounts_bool_exp!
+  ): Accounts_mutation_response
+
+  # update data of the table: "OrgGroups"
+  update_OrgGroups(
+    # sets the columns of the filtered rows to the given values
+    _set: OrgGroups_set_input
+
+    # filter the rows which have to be updated
+    where: OrgGroups_bool_exp!
+  ): OrgGroups_mutation_response
+
+  # update data of the table: "Orgs"
+  update_Orgs(
+    # sets the columns of the filtered rows to the given values
+    _set: Orgs_set_input
+
+    # filter the rows which have to be updated
+    where: Orgs_bool_exp!
+  ): Orgs_mutation_response
+
+  # update data of the table: "Roles"
+  update_Roles(
+    # sets the columns of the filtered rows to the given values
+    _set: Roles_set_input
+
+    # filter the rows which have to be updated
+    where: Roles_bool_exp!
+  ): Roles_mutation_response
+
+  # update data of the table: "UserRole"
+  update_UserRole(
+    # sets the columns of the filtered rows to the given values
+    _set: UserRole_set_input
+
+    # filter the rows which have to be updated
+    where: UserRole_bool_exp!
+  ): UserRole_mutation_response
+
   # update data of the table: "Users"
   update_Users(
     # sets the columns of the filtered rows to the given values
@@ -29,6 +830,21 @@ type mutation_root {
     # filter the rows which have to be updated
     where: Users_bool_exp!
   ): Users_mutation_response
+}
+
+scalar numeric
+
+# expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+input numeric_comparison_exp {
+  _eq: numeric
+  _gt: numeric
+  _gte: numeric
+  _in: [numeric!]
+  _is_null: Boolean
+  _lt: numeric
+  _lte: numeric
+  _neq: numeric
+  _nin: [numeric!]
 }
 
 # column ordering options
@@ -52,8 +868,624 @@ enum order_by {
   desc_nulls_last
 }
 
+# columns and relationships of "OrgGroups"
+type OrgGroups {
+  # An array relationship
+  Orgs(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): [Orgs!]!
+
+  # An aggregated array relationship
+  Orgs_aggregate(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): Orgs_aggregate!
+  id: uuid!
+  name: String!
+}
+
+# aggregated selection of "OrgGroups"
+type OrgGroups_aggregate {
+  aggregate: OrgGroups_aggregate_fields
+  nodes: [OrgGroups!]!
+}
+
+# aggregate fields of "OrgGroups"
+type OrgGroups_aggregate_fields {
+  count(columns: [OrgGroups_select_column!], distinct: Boolean): Int
+  max: OrgGroups_max_fields
+  min: OrgGroups_min_fields
+}
+
+# order by aggregate values of table "OrgGroups"
+input OrgGroups_aggregate_order_by {
+  count: order_by
+  max: OrgGroups_max_order_by
+  min: OrgGroups_min_order_by
+}
+
+# input type for inserting array relation for remote table "OrgGroups"
+input OrgGroups_arr_rel_insert_input {
+  data: [OrgGroups_insert_input!]!
+  on_conflict: OrgGroups_on_conflict
+}
+
+# Boolean expression to filter rows from the table "OrgGroups". All fields are combined with a logical 'AND'.
+input OrgGroups_bool_exp {
+  Orgs: Orgs_bool_exp
+  _and: [OrgGroups_bool_exp]
+  _not: OrgGroups_bool_exp
+  _or: [OrgGroups_bool_exp]
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+}
+
+# unique or primary key constraints on table "OrgGroups"
+enum OrgGroups_constraint {
+  # unique or primary key constraint
+  OrgGroups_pkey
+}
+
+# input type for inserting data into table "OrgGroups"
+input OrgGroups_insert_input {
+  Orgs: Orgs_arr_rel_insert_input
+  id: uuid
+  name: String
+}
+
+# aggregate max on columns
+type OrgGroups_max_fields {
+  name: String
+}
+
+# order by max() on columns of table "OrgGroups"
+input OrgGroups_max_order_by {
+  name: order_by
+}
+
+# aggregate min on columns
+type OrgGroups_min_fields {
+  name: String
+}
+
+# order by min() on columns of table "OrgGroups"
+input OrgGroups_min_order_by {
+  name: order_by
+}
+
+# response of any mutation on the table "OrgGroups"
+type OrgGroups_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [OrgGroups!]!
+}
+
+# input type for inserting object relation for remote table "OrgGroups"
+input OrgGroups_obj_rel_insert_input {
+  data: OrgGroups_insert_input!
+  on_conflict: OrgGroups_on_conflict
+}
+
+# on conflict condition type for table "OrgGroups"
+input OrgGroups_on_conflict {
+  constraint: OrgGroups_constraint!
+  update_columns: [OrgGroups_update_column!]!
+  where: OrgGroups_bool_exp
+}
+
+# ordering options when selecting data from "OrgGroups"
+input OrgGroups_order_by {
+  Orgs_aggregate: Orgs_aggregate_order_by
+  id: order_by
+  name: order_by
+}
+
+# select columns of table "OrgGroups"
+enum OrgGroups_select_column {
+  # column name
+  id
+
+  # column name
+  name
+}
+
+# input type for updating data in table "OrgGroups"
+input OrgGroups_set_input {
+  id: uuid
+  name: String
+}
+
+# update columns of table "OrgGroups"
+enum OrgGroups_update_column {
+  # column name
+  id
+
+  # column name
+  name
+}
+
+# columns and relationships of "Orgs"
+type Orgs {
+  # An array relationship
+  AccountGroups(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): [AccountGroups!]!
+
+  # An aggregated array relationship
+  AccountGroups_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): AccountGroups_aggregate!
+
+  # An object relationship
+  OrgGroup: OrgGroups!
+  id: uuid!
+  name: String!
+  org_group_id: uuid!
+}
+
+# aggregated selection of "Orgs"
+type Orgs_aggregate {
+  aggregate: Orgs_aggregate_fields
+  nodes: [Orgs!]!
+}
+
+# aggregate fields of "Orgs"
+type Orgs_aggregate_fields {
+  count(columns: [Orgs_select_column!], distinct: Boolean): Int
+  max: Orgs_max_fields
+  min: Orgs_min_fields
+}
+
+# order by aggregate values of table "Orgs"
+input Orgs_aggregate_order_by {
+  count: order_by
+  max: Orgs_max_order_by
+  min: Orgs_min_order_by
+}
+
+# input type for inserting array relation for remote table "Orgs"
+input Orgs_arr_rel_insert_input {
+  data: [Orgs_insert_input!]!
+  on_conflict: Orgs_on_conflict
+}
+
+# Boolean expression to filter rows from the table "Orgs". All fields are combined with a logical 'AND'.
+input Orgs_bool_exp {
+  AccountGroups: AccountGroups_bool_exp
+  OrgGroup: OrgGroups_bool_exp
+  _and: [Orgs_bool_exp]
+  _not: Orgs_bool_exp
+  _or: [Orgs_bool_exp]
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+  org_group_id: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "Orgs"
+enum Orgs_constraint {
+  # unique or primary key constraint
+  Orgs_pkey
+}
+
+# input type for inserting data into table "Orgs"
+input Orgs_insert_input {
+  AccountGroups: AccountGroups_arr_rel_insert_input
+  OrgGroup: OrgGroups_obj_rel_insert_input
+  id: uuid
+  name: String
+  org_group_id: uuid
+}
+
+# aggregate max on columns
+type Orgs_max_fields {
+  name: String
+}
+
+# order by max() on columns of table "Orgs"
+input Orgs_max_order_by {
+  name: order_by
+}
+
+# aggregate min on columns
+type Orgs_min_fields {
+  name: String
+}
+
+# order by min() on columns of table "Orgs"
+input Orgs_min_order_by {
+  name: order_by
+}
+
+# response of any mutation on the table "Orgs"
+type Orgs_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [Orgs!]!
+}
+
+# input type for inserting object relation for remote table "Orgs"
+input Orgs_obj_rel_insert_input {
+  data: Orgs_insert_input!
+  on_conflict: Orgs_on_conflict
+}
+
+# on conflict condition type for table "Orgs"
+input Orgs_on_conflict {
+  constraint: Orgs_constraint!
+  update_columns: [Orgs_update_column!]!
+  where: Orgs_bool_exp
+}
+
+# ordering options when selecting data from "Orgs"
+input Orgs_order_by {
+  AccountGroups_aggregate: AccountGroups_aggregate_order_by
+  OrgGroup: OrgGroups_order_by
+  id: order_by
+  name: order_by
+  org_group_id: order_by
+}
+
+# select columns of table "Orgs"
+enum Orgs_select_column {
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  org_group_id
+}
+
+# input type for updating data in table "Orgs"
+input Orgs_set_input {
+  id: uuid
+  name: String
+  org_group_id: uuid
+}
+
+# update columns of table "Orgs"
+enum Orgs_update_column {
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  org_group_id
+}
+
 # query root
 type query_root {
+  # fetch data from the table: "AccountGroupUser"
+  AccountGroupUser(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): [AccountGroupUser!]!
+
+  # fetch aggregated fields from the table: "AccountGroupUser"
+  AccountGroupUser_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): AccountGroupUser_aggregate!
+
+  # fetch data from the table: "AccountGroupUser" using primary key columns
+  AccountGroupUser_by_pk(id: uuid!): AccountGroupUser
+
+  # fetch data from the table: "AccountGroups"
+  AccountGroups(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): [AccountGroups!]!
+
+  # fetch aggregated fields from the table: "AccountGroups"
+  AccountGroups_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): AccountGroups_aggregate!
+
+  # fetch data from the table: "AccountGroups" using primary key columns
+  AccountGroups_by_pk(id: uuid!): AccountGroups
+
+  # fetch data from the table: "Accounts"
+  Accounts(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): [Accounts!]!
+
+  # fetch aggregated fields from the table: "Accounts"
+  Accounts_aggregate(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): Accounts_aggregate!
+
+  # fetch data from the table: "Accounts" using primary key columns
+  Accounts_by_pk(id: uuid!): Accounts
+
+  # fetch data from the table: "OrgGroups"
+  OrgGroups(
+    # distinct select on columns
+    distinct_on: [OrgGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [OrgGroups_order_by!]
+
+    # filter the rows returned
+    where: OrgGroups_bool_exp
+  ): [OrgGroups!]!
+
+  # fetch aggregated fields from the table: "OrgGroups"
+  OrgGroups_aggregate(
+    # distinct select on columns
+    distinct_on: [OrgGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [OrgGroups_order_by!]
+
+    # filter the rows returned
+    where: OrgGroups_bool_exp
+  ): OrgGroups_aggregate!
+
+  # fetch data from the table: "OrgGroups" using primary key columns
+  OrgGroups_by_pk(id: uuid!): OrgGroups
+
+  # fetch data from the table: "Orgs"
+  Orgs(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): [Orgs!]!
+
+  # fetch aggregated fields from the table: "Orgs"
+  Orgs_aggregate(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): Orgs_aggregate!
+
+  # fetch data from the table: "Orgs" using primary key columns
+  Orgs_by_pk(id: uuid!): Orgs
+
+  # fetch data from the table: "Roles"
+  Roles(
+    # distinct select on columns
+    distinct_on: [Roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Roles_order_by!]
+
+    # filter the rows returned
+    where: Roles_bool_exp
+  ): [Roles!]!
+
+  # fetch aggregated fields from the table: "Roles"
+  Roles_aggregate(
+    # distinct select on columns
+    distinct_on: [Roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Roles_order_by!]
+
+    # filter the rows returned
+    where: Roles_bool_exp
+  ): Roles_aggregate!
+
+  # fetch data from the table: "Roles" using primary key columns
+  Roles_by_pk(id: uuid!): Roles
+
+  # fetch data from the table: "UserRole"
+  UserRole(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): [UserRole!]!
+
+  # fetch aggregated fields from the table: "UserRole"
+  UserRole_aggregate(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): UserRole_aggregate!
+
+  # fetch data from the table: "UserRole" using primary key columns
+  UserRole_by_pk(id: uuid!): UserRole
+
   # fetch data from the table: "Users"
   Users(
     # distinct select on columns
@@ -91,7 +1523,170 @@ type query_root {
   ): Users_aggregate!
 
   # fetch data from the table: "Users" using primary key columns
-  Users_by_pk(id: uuid!): Users
+  Users_by_pk(id: String!): Users
+}
+
+# columns and relationships of "Roles"
+type Roles {
+  # An array relationship
+  UserRoles(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): [UserRole!]!
+
+  # An aggregated array relationship
+  UserRoles_aggregate(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): UserRole_aggregate!
+  description: String
+  id: uuid!
+}
+
+# aggregated selection of "Roles"
+type Roles_aggregate {
+  aggregate: Roles_aggregate_fields
+  nodes: [Roles!]!
+}
+
+# aggregate fields of "Roles"
+type Roles_aggregate_fields {
+  count(columns: [Roles_select_column!], distinct: Boolean): Int
+  max: Roles_max_fields
+  min: Roles_min_fields
+}
+
+# order by aggregate values of table "Roles"
+input Roles_aggregate_order_by {
+  count: order_by
+  max: Roles_max_order_by
+  min: Roles_min_order_by
+}
+
+# input type for inserting array relation for remote table "Roles"
+input Roles_arr_rel_insert_input {
+  data: [Roles_insert_input!]!
+  on_conflict: Roles_on_conflict
+}
+
+# Boolean expression to filter rows from the table "Roles". All fields are combined with a logical 'AND'.
+input Roles_bool_exp {
+  UserRoles: UserRole_bool_exp
+  _and: [Roles_bool_exp]
+  _not: Roles_bool_exp
+  _or: [Roles_bool_exp]
+  description: String_comparison_exp
+  id: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "Roles"
+enum Roles_constraint {
+  # unique or primary key constraint
+  Roles_pkey
+}
+
+# input type for inserting data into table "Roles"
+input Roles_insert_input {
+  UserRoles: UserRole_arr_rel_insert_input
+  description: String
+  id: uuid
+}
+
+# aggregate max on columns
+type Roles_max_fields {
+  description: String
+}
+
+# order by max() on columns of table "Roles"
+input Roles_max_order_by {
+  description: order_by
+}
+
+# aggregate min on columns
+type Roles_min_fields {
+  description: String
+}
+
+# order by min() on columns of table "Roles"
+input Roles_min_order_by {
+  description: order_by
+}
+
+# response of any mutation on the table "Roles"
+type Roles_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [Roles!]!
+}
+
+# input type for inserting object relation for remote table "Roles"
+input Roles_obj_rel_insert_input {
+  data: Roles_insert_input!
+  on_conflict: Roles_on_conflict
+}
+
+# on conflict condition type for table "Roles"
+input Roles_on_conflict {
+  constraint: Roles_constraint!
+  update_columns: [Roles_update_column!]!
+  where: Roles_bool_exp
+}
+
+# ordering options when selecting data from "Roles"
+input Roles_order_by {
+  UserRoles_aggregate: UserRole_aggregate_order_by
+  description: order_by
+  id: order_by
+}
+
+# select columns of table "Roles"
+enum Roles_select_column {
+  # column name
+  description
+
+  # column name
+  id
+}
+
+# input type for updating data in table "Roles"
+input Roles_set_input {
+  description: String
+  id: uuid
+}
+
+# update columns of table "Roles"
+enum Roles_update_column {
+  # column name
+  description
+
+  # column name
+  id
 }
 
 # expression to compare columns of type String. All fields are combined with logical 'AND'.
@@ -115,6 +1710,279 @@ input String_comparison_exp {
 
 # subscription root
 type subscription_root {
+  # fetch data from the table: "AccountGroupUser"
+  AccountGroupUser(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): [AccountGroupUser!]!
+
+  # fetch aggregated fields from the table: "AccountGroupUser"
+  AccountGroupUser_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): AccountGroupUser_aggregate!
+
+  # fetch data from the table: "AccountGroupUser" using primary key columns
+  AccountGroupUser_by_pk(id: uuid!): AccountGroupUser
+
+  # fetch data from the table: "AccountGroups"
+  AccountGroups(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): [AccountGroups!]!
+
+  # fetch aggregated fields from the table: "AccountGroups"
+  AccountGroups_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroups_order_by!]
+
+    # filter the rows returned
+    where: AccountGroups_bool_exp
+  ): AccountGroups_aggregate!
+
+  # fetch data from the table: "AccountGroups" using primary key columns
+  AccountGroups_by_pk(id: uuid!): AccountGroups
+
+  # fetch data from the table: "Accounts"
+  Accounts(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): [Accounts!]!
+
+  # fetch aggregated fields from the table: "Accounts"
+  Accounts_aggregate(
+    # distinct select on columns
+    distinct_on: [Accounts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Accounts_order_by!]
+
+    # filter the rows returned
+    where: Accounts_bool_exp
+  ): Accounts_aggregate!
+
+  # fetch data from the table: "Accounts" using primary key columns
+  Accounts_by_pk(id: uuid!): Accounts
+
+  # fetch data from the table: "OrgGroups"
+  OrgGroups(
+    # distinct select on columns
+    distinct_on: [OrgGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [OrgGroups_order_by!]
+
+    # filter the rows returned
+    where: OrgGroups_bool_exp
+  ): [OrgGroups!]!
+
+  # fetch aggregated fields from the table: "OrgGroups"
+  OrgGroups_aggregate(
+    # distinct select on columns
+    distinct_on: [OrgGroups_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [OrgGroups_order_by!]
+
+    # filter the rows returned
+    where: OrgGroups_bool_exp
+  ): OrgGroups_aggregate!
+
+  # fetch data from the table: "OrgGroups" using primary key columns
+  OrgGroups_by_pk(id: uuid!): OrgGroups
+
+  # fetch data from the table: "Orgs"
+  Orgs(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): [Orgs!]!
+
+  # fetch aggregated fields from the table: "Orgs"
+  Orgs_aggregate(
+    # distinct select on columns
+    distinct_on: [Orgs_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Orgs_order_by!]
+
+    # filter the rows returned
+    where: Orgs_bool_exp
+  ): Orgs_aggregate!
+
+  # fetch data from the table: "Orgs" using primary key columns
+  Orgs_by_pk(id: uuid!): Orgs
+
+  # fetch data from the table: "Roles"
+  Roles(
+    # distinct select on columns
+    distinct_on: [Roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Roles_order_by!]
+
+    # filter the rows returned
+    where: Roles_bool_exp
+  ): [Roles!]!
+
+  # fetch aggregated fields from the table: "Roles"
+  Roles_aggregate(
+    # distinct select on columns
+    distinct_on: [Roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Roles_order_by!]
+
+    # filter the rows returned
+    where: Roles_bool_exp
+  ): Roles_aggregate!
+
+  # fetch data from the table: "Roles" using primary key columns
+  Roles_by_pk(id: uuid!): Roles
+
+  # fetch data from the table: "UserRole"
+  UserRole(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): [UserRole!]!
+
+  # fetch aggregated fields from the table: "UserRole"
+  UserRole_aggregate(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): UserRole_aggregate!
+
+  # fetch data from the table: "UserRole" using primary key columns
+  UserRole_by_pk(id: uuid!): UserRole
+
   # fetch data from the table: "Users"
   Users(
     # distinct select on columns
@@ -152,14 +2020,233 @@ type subscription_root {
   ): Users_aggregate!
 
   # fetch data from the table: "Users" using primary key columns
-  Users_by_pk(id: uuid!): Users
+  Users_by_pk(id: String!): Users
+}
+
+# columns and relationships of "UserRole"
+type UserRole {
+  # An object relationship
+  Role: Roles!
+
+  # An object relationship
+  User: Users!
+  id: uuid!
+  role_id: uuid!
+  user_id: String!
+}
+
+# aggregated selection of "UserRole"
+type UserRole_aggregate {
+  aggregate: UserRole_aggregate_fields
+  nodes: [UserRole!]!
+}
+
+# aggregate fields of "UserRole"
+type UserRole_aggregate_fields {
+  count(columns: [UserRole_select_column!], distinct: Boolean): Int
+  max: UserRole_max_fields
+  min: UserRole_min_fields
+}
+
+# order by aggregate values of table "UserRole"
+input UserRole_aggregate_order_by {
+  count: order_by
+  max: UserRole_max_order_by
+  min: UserRole_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserRole"
+input UserRole_arr_rel_insert_input {
+  data: [UserRole_insert_input!]!
+  on_conflict: UserRole_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserRole". All fields are combined with a logical 'AND'.
+input UserRole_bool_exp {
+  Role: Roles_bool_exp
+  User: Users_bool_exp
+  _and: [UserRole_bool_exp]
+  _not: UserRole_bool_exp
+  _or: [UserRole_bool_exp]
+  id: uuid_comparison_exp
+  role_id: uuid_comparison_exp
+  user_id: String_comparison_exp
+}
+
+# unique or primary key constraints on table "UserRole"
+enum UserRole_constraint {
+  # unique or primary key constraint
+  UserRole_pkey
+}
+
+# input type for inserting data into table "UserRole"
+input UserRole_insert_input {
+  Role: Roles_obj_rel_insert_input
+  User: Users_obj_rel_insert_input
+  id: uuid
+  role_id: uuid
+  user_id: String
+}
+
+# aggregate max on columns
+type UserRole_max_fields {
+  user_id: String
+}
+
+# order by max() on columns of table "UserRole"
+input UserRole_max_order_by {
+  user_id: order_by
+}
+
+# aggregate min on columns
+type UserRole_min_fields {
+  user_id: String
+}
+
+# order by min() on columns of table "UserRole"
+input UserRole_min_order_by {
+  user_id: order_by
+}
+
+# response of any mutation on the table "UserRole"
+type UserRole_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserRole!]!
+}
+
+# input type for inserting object relation for remote table "UserRole"
+input UserRole_obj_rel_insert_input {
+  data: UserRole_insert_input!
+  on_conflict: UserRole_on_conflict
+}
+
+# on conflict condition type for table "UserRole"
+input UserRole_on_conflict {
+  constraint: UserRole_constraint!
+  update_columns: [UserRole_update_column!]!
+  where: UserRole_bool_exp
+}
+
+# ordering options when selecting data from "UserRole"
+input UserRole_order_by {
+  Role: Roles_order_by
+  User: Users_order_by
+  id: order_by
+  role_id: order_by
+  user_id: order_by
+}
+
+# select columns of table "UserRole"
+enum UserRole_select_column {
+  # column name
+  id
+
+  # column name
+  role_id
+
+  # column name
+  user_id
+}
+
+# input type for updating data in table "UserRole"
+input UserRole_set_input {
+  id: uuid
+  role_id: uuid
+  user_id: String
+}
+
+# update columns of table "UserRole"
+enum UserRole_update_column {
+  # column name
+  id
+
+  # column name
+  role_id
+
+  # column name
+  user_id
 }
 
 # columns and relationships of "Users"
 type Users {
-  address: String
-  id: uuid!
-  name: String!
+  # An array relationship
+  AccountGroupUsers(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): [AccountGroupUser!]!
+
+  # An aggregated array relationship
+  AccountGroupUsers_aggregate(
+    # distinct select on columns
+    distinct_on: [AccountGroupUser_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [AccountGroupUser_order_by!]
+
+    # filter the rows returned
+    where: AccountGroupUser_bool_exp
+  ): AccountGroupUser_aggregate!
+
+  # An array relationship
+  UserRoles(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): [UserRole!]!
+
+  # An aggregated array relationship
+  UserRoles_aggregate(
+    # distinct select on columns
+    distinct_on: [UserRole_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserRole_order_by!]
+
+    # filter the rows returned
+    where: UserRole_bool_exp
+  ): UserRole_aggregate!
+  email: String!
+  id: String!
+  name: String
+  phone_number: String
 }
 
 # aggregated selection of "Users"
@@ -190,12 +2277,15 @@ input Users_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "Users". All fields are combined with a logical 'AND'.
 input Users_bool_exp {
+  AccountGroupUsers: AccountGroupUser_bool_exp
+  UserRoles: UserRole_bool_exp
   _and: [Users_bool_exp]
   _not: Users_bool_exp
   _or: [Users_bool_exp]
-  address: String_comparison_exp
-  id: uuid_comparison_exp
+  email: String_comparison_exp
+  id: String_comparison_exp
   name: String_comparison_exp
+  phone_number: String_comparison_exp
 }
 
 # unique or primary key constraints on table "Users"
@@ -206,33 +2296,44 @@ enum Users_constraint {
 
 # input type for inserting data into table "Users"
 input Users_insert_input {
-  address: String
-  id: uuid
+  AccountGroupUsers: AccountGroupUser_arr_rel_insert_input
+  UserRoles: UserRole_arr_rel_insert_input
+  email: String
+  id: String
   name: String
+  phone_number: String
 }
 
 # aggregate max on columns
 type Users_max_fields {
-  address: String
+  email: String
+  id: String
   name: String
+  phone_number: String
 }
 
 # order by max() on columns of table "Users"
 input Users_max_order_by {
-  address: order_by
+  email: order_by
+  id: order_by
   name: order_by
+  phone_number: order_by
 }
 
 # aggregate min on columns
 type Users_min_fields {
-  address: String
+  email: String
+  id: String
   name: String
+  phone_number: String
 }
 
 # order by min() on columns of table "Users"
 input Users_min_order_by {
-  address: order_by
+  email: order_by
+  id: order_by
   name: order_by
+  phone_number: order_by
 }
 
 # response of any mutation on the table "Users"
@@ -259,40 +2360,50 @@ input Users_on_conflict {
 
 # ordering options when selecting data from "Users"
 input Users_order_by {
-  address: order_by
+  AccountGroupUsers_aggregate: AccountGroupUser_aggregate_order_by
+  UserRoles_aggregate: UserRole_aggregate_order_by
+  email: order_by
   id: order_by
   name: order_by
+  phone_number: order_by
 }
 
 # select columns of table "Users"
 enum Users_select_column {
   # column name
-  address
+  email
 
   # column name
   id
 
   # column name
   name
+
+  # column name
+  phone_number
 }
 
 # input type for updating data in table "Users"
 input Users_set_input {
-  address: String
-  id: uuid
+  email: String
+  id: String
   name: String
+  phone_number: String
 }
 
 # update columns of table "Users"
 enum Users_update_column {
   # column name
-  address
+  email
 
   # column name
   id
 
   # column name
   name
+
+  # column name
+  phone_number
 }
 
 scalar uuid
