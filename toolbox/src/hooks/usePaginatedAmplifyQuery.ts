@@ -80,8 +80,8 @@ export const usePaginatedAmplifyQuery = <Data, Values>({
     resetPage,
     canGoToTheNextPage,
     goToNextPage,
-    data,
     isPending: pageState.type === 'pending',
+    data,
     goToPrevPage,
     canGoToThePreviousPage,
     /**
