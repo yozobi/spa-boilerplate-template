@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.3.0
+
+### Minor Changes
+
+- 9fa1311: Softened form validation on declareMakeMutationForm - now will only error when the user has pressed submit.
+- debece9: Updated UrqlWrapper to use a headers object instead of fetchOptions. Completed work on payewg schema.
+
 ## 1.2.0
 
 ### Minor Changes

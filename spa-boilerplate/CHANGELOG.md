@@ -1,5 +1,14 @@
 # spa-boilerplate
 
+## 0.1.4
+
+### Patch Changes
+
+- debece9: Updated UrqlWrapper to use a headers object instead of fetchOptions. Completed work on payewg schema.
+- Updated dependencies [9fa1311]
+- Updated dependencies [debece9]
+  - toolbox@1.3.0
+
 ## 0.1.3
 
 ### Patch Changes
