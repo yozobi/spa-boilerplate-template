@@ -1,5 +1,11 @@
 # spa-boilerplate
 
+## 0.1.5
+
+### Patch Changes
+
+- 4a42334: Made sure purgecss doesn't touch React toastify in payewg and spa-boilerplate
+
 ## 0.1.4
 
 ### Patch Changes
