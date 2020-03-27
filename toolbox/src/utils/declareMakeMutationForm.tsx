@@ -114,7 +114,7 @@ export function declareMakeMutationForm<Inputs>({
            * submit, or if the form input has been touched.
            */
           const { submitCount } = useFormikContext();
-          const shouldShowError = submitCount > 0 || metaProps.touched;
+          const shouldShowError = submitCount > 0;
           return (
             // @ts-ignore
             <Comp
