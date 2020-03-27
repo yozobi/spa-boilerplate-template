@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -92,6 +90,7 @@ module.exports = function(webpackEnv) {
       path.resolve(__dirname, '../../toolbox/src/**/*.svg'),
       // etc.
     ],
+    css: ['./src/**/*.css'],
     // Include any special characters you're using in this regular expression
     defaultExtractor: (content) =>
       content.match(/[A-Za-z0-9-_:\/]+(?<!:)/g) || [],
