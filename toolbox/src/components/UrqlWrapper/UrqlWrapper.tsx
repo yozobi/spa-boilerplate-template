@@ -6,18 +6,16 @@ import {
   cacheExchange,
   fetchExchange,
 } from 'urql';
-// import { suspenseExchange } from '@urql/exchange-suspense';
-import Auth from '@aws-amplify/auth';
 
 interface UrqlWrapperProps {
   endpoint: string;
-  superAdminKey?: string;
+  headers?: {};
 }
 
 export const UrqlWrapper: React.FC<UrqlWrapperProps> = ({
   children,
   endpoint,
-  superAdminKey,
+  headers,
 }) => {
   const client = useMemo(
     () =>
@@ -29,23 +27,12 @@ export const UrqlWrapper: React.FC<UrqlWrapperProps> = ({
           cacheExchange,
           fetchExchange,
         ],
-        fetchOptions: superAdminKey
-          ? // superAdminKey is truthy
-            ({ headers: { 'x-hasura-admin-secret': superAdminKey } } as any)
-          : // superAdminKey is falsy, use the idToken JWT from Cognito instead
-            async () => {
-              const result = (await Auth.currentSession()) as any;
-              return {
-                headers: {
-                  Authorization: result?.idToken?.jwtToken
-                    ? `Bearer ${result.idToken.jwtToken}`
-                    : undefined,
-                },
-              };
-            },
+        fetchOptions: {
+          headers,
+        },
         // suspense: true, /** Disabled as it was causing issues with refetching */
       }),
-    [endpoint, superAdminKey],
+    [endpoint, JSON.stringify(headers)],
   );
   return <Provider value={client}>{children}</Provider>;
 };
