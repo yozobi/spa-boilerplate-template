@@ -1,9 +1,9 @@
 import {
-  FieldInputProps,
   FormikProvider,
   useField,
   useFormik,
   useFormikContext,
+  FormikContextType,
 } from 'formik';
 import React from 'react';
 
@@ -56,6 +56,9 @@ export function declareMakeMutationForm<Inputs>({
   }: MakeMutationFormParams<MutationVariables, Inputs>): {
     Inputs: InputsType<MutationVariables, Inputs>;
     Wrapper: React.FC<MutationFormWrapperProps<MutationVariables>>;
+    Consumer: React.FC<{
+      children: React.FC<FormikContextType<MutationVariables>>;
+    }>;
   } {
     /**
      * Here, we declare a Wrapper which we'll use to
@@ -129,9 +132,19 @@ export function declareMakeMutationForm<Inputs>({
       };
     }, {} as any);
 
+    const Consumer = function({
+      children,
+    }: {
+      children: React.FC<FormikContextType<MutationVariables>>;
+    }) {
+      const formikProps = useFormikContext<MutationVariables>();
+      return <>{children(formikProps)}</>;
+    };
+
     return {
       Wrapper,
       Inputs,
+      Consumer,
     };
   };
 }
@@ -149,7 +162,3 @@ export type MutationFormConfig<V, T> = {
     className?: string;
   };
 };
-
-type FormInputFC = React.FC<
-  Partial<FieldInputProps<any> & { label: string; className: string }>
->;
