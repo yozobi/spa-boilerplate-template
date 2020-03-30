@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.3.1
+
+### Patch Changes
+
+- 636dd42: Moved useFsmReducer into the repo and added simple examples
+
 ## 1.3.0
 
 ### Minor Changes
