@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.3.2
+
+### Patch Changes
+
+- dd02956: Add an edit form component to the sidebar so that the user can edit their 'name' attribute.
+
 ## 1.3.1
 
 ### Patch Changes
