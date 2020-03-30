@@ -1,6 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import React from 'react';
-import useFsmReducer from 'use-fsm-reducer';
+import useFsmReducer from 'toolbox/src/hooks/useFsmReducer';
 import { useAuthenticationContext } from '../AwsAuthenticatorContext';
 import { AwsAuthComponents, AwsDeliveryType } from '../awsAuthenticatorTypes';
 import { useApiState } from '../useApiState';

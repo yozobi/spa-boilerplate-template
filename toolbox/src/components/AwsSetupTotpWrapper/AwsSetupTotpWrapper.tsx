@@ -1,6 +1,8 @@
 import React from 'react';
 import Auth from '@aws-amplify/auth';
-import useFsmReducer, { UseFsmReducerEffects } from 'use-fsm-reducer';
+import useFsmReducer, {
+  UseFsmReducerEffects,
+} from 'toolbox/src/hooks/useFsmReducer';
 import { parseAwsError } from '../AwsAuthenticator/parseAwsError';
 
 type State =

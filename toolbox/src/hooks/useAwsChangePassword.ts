@@ -1,4 +1,6 @@
-import useFsmReducer, { UseFsmReducerEffects } from 'use-fsm-reducer';
+import useFsmReducer, {
+  UseFsmReducerEffects,
+} from 'toolbox/src/hooks/useFsmReducer';
 import { parseAwsError } from '../components/AwsAuthenticator/parseAwsError';
 import Auth from '@aws-amplify/auth';
 

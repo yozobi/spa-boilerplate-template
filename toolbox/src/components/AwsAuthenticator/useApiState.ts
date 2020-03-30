@@ -1,4 +1,4 @@
-import useFsmReducer from 'use-fsm-reducer';
+import useFsmReducer from 'toolbox/src/hooks/useFsmReducer';
 import { parseAwsError } from './parseAwsError';
 
 export type AwsAuthenticatorApiState =

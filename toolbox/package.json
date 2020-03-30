@@ -23,7 +23,6 @@
     "react-toastify": "^5.5.0",
     "styled-components": "^5.0.1",
     "urql": "^1.9.0",
-    "use-fsm-reducer": "^2.0.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import { useCheckForActivity } from './useCheckForActivity';
 import { useEffect, useRef } from 'react';
-import useFsmReducer from 'use-fsm-reducer';
+import useFsmReducer from 'toolbox/src/hooks/useFsmReducer';
 
 const DEFAULT_SESSION_TIMEOUT_STORAGE_KEY = 'USER_WAS_LAST_ACTIVE';
 
