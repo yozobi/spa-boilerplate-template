@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.3.3
+
+### Patch Changes
+
+- 54de51e: Added useConfirm hook to aid with confirmation logic
+
 ## 1.3.2
 
 ### Patch Changes
