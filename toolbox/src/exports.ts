@@ -548,3 +548,5 @@ export { useAwsChangePassword } from './hooks/useAwsChangePassword';
 export { usePaginatedAmplifyQuery } from './hooks/usePaginatedAmplifyQuery';
 
 export { isEmailAddress } from './utils/isEmailAddress';
+
+export { useConfirm } from './hooks/useConfirm';
