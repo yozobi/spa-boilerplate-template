@@ -5,3 +5,7 @@ yarn-error.log
 .env.test.local
 .env.production.local
 devTools.local.ts
+
+# OSX
+.DS_Store
+.vscode
