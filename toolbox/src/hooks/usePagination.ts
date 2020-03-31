@@ -77,6 +77,7 @@ export const usePagination = ({
     offset: resultsPerPage * page,
     canGoToThePreviousPage,
     canGoToTheNextPage,
+    page,
     goToNextPage,
     goToPrevPage,
     resetPage,
