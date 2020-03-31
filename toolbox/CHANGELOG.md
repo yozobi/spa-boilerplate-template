@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.3.4
+
+### Patch Changes
+
+- c477f29: Re built hasura schema (BREAKING CHANGES). Added currency cloud logic. Refactored the store to use useFsmReducer
+
 ## 1.3.3
 
 ### Patch Changes
