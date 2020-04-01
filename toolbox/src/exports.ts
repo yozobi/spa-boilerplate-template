@@ -550,3 +550,5 @@ export { usePaginatedAmplifyQuery } from './hooks/usePaginatedAmplifyQuery';
 export { isEmailAddress } from './utils/isEmailAddress';
 
 export { useConfirm } from './hooks/useConfirm';
+
+export { useModal } from './hooks/useModal';

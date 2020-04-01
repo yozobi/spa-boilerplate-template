@@ -44,7 +44,7 @@ export const Modal: React.FC<Props> = ({
   return (
     <BackdropWrapper
       isVisible={open}
-      className="h-screen w-screen fixed top-0 left-0"
+      className="h-screen w-screen fixed top-0 left-0 z-30"
     >
       <Backdrop
         isVisible={open}
@@ -54,7 +54,7 @@ export const Modal: React.FC<Props> = ({
         title={screenReaderCloseBackdropLabel || 'Go Back'}
       >
         <div className="mt-4 mr-6 absolute top-0 right-0">
-          <HeroIconX className="text-white w-8 h-8"></HeroIconX>
+          <HeroIconX className="text-white w-8 h-8" />
         </div>
       </Backdrop>
       {shouldShowChildren && (
