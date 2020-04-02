@@ -16,7 +16,7 @@ export const usePagination = ({
   const [page, setPage] = useState(initialPage);
   const [totalResults, setTotalResults] = useState(0);
 
-  const totalPages = Math.ceil(totalResults / resultsPerPage);
+  const totalPages = Math.ceil(totalResults / resultsPerPage) || 1;
 
   /**
    * YOU MUST USE THIS - it allows this hook

@@ -38,7 +38,7 @@ export const usePaginatedAmplifyQuery = <Data, Values>({
     },
   });
 
-  const { throttle } = useThrottle();
+  const { throttle } = useThrottle({ allowInstantFirstTry: true });
 
   useEffect(() => {
     throttle(() => dispatch({ type: 'reset' }));

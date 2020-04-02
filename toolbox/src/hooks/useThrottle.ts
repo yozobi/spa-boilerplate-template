@@ -5,6 +5,7 @@ interface UseThrottleParams {
    * How many milliseconds to throttle for
    */
   throttleInMs?: number;
+  allowInstantFirstTry?: boolean;
 }
 
 /**
@@ -20,12 +21,21 @@ interface UseThrottleParams {
  * This is perfect for throttling inputs, such as autocompletes.
  */
 export const useThrottle = (
-  { throttleInMs }: UseThrottleParams = { throttleInMs: 500 },
+  { throttleInMs, allowInstantFirstTry }: UseThrottleParams = {
+    throttleInMs: 500,
+    allowInstantFirstTry: false,
+  },
 ) => {
   const timeoutRef = useRef<number>();
+  const isFirstTryRef = useRef<boolean>(true);
 
   return {
     throttle: (func: () => any) => {
+      if (isFirstTryRef.current && allowInstantFirstTry) {
+        isFirstTryRef.current = false;
+        func();
+        return;
+      }
       if (typeof timeoutRef.current !== 'undefined') {
         clearTimeout(timeoutRef.current);
       }
