@@ -552,3 +552,7 @@ export { isEmailAddress } from './utils/isEmailAddress';
 export { useConfirm } from './hooks/useConfirm';
 
 export { useModal } from './hooks/useModal';
+
+export const SelectBase = React.lazy(() =>
+  import('./components/SelectBase/SelectBase'),
+);
