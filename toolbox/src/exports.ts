@@ -530,6 +530,8 @@ export const AwsAuthenticator = React.lazy(() =>
   import('./components/AwsAuthenticator/AwsAuthenticator'),
 );
 
+export const Stepper = React.lazy(() => import('./components/Stepper/Stepper'));
+
 // @ts-ignore
 export { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';
 
