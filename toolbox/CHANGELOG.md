@@ -1,5 +1,17 @@
 # toolbox
 
+## 1.4.0
+
+### Minor Changes
+
+- 0d343b0: Added lots of quality of life improvements for payewg - nav bars, better loading states etc
+
+### Patch Changes
+
+- bbd93cb: Built an initial go at the fund balance page
+- 97dc4ec: Added a stepper component to the toolbox.
+- 8a72bf9: Added a SelectBase component for handling Select logic
+
 ## 1.3.5
 
 ### Patch Changes
