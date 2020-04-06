@@ -23,7 +23,10 @@
     "react-toastify": "^5.5.0",
     "styled-components": "^5.0.1",
     "urql": "^1.9.0",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "@aws-amplify/api": "^2.1.5",
+    "@aws-amplify/core": "^2.1.5",
+    "@aws-amplify/storage": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
