@@ -530,6 +530,10 @@ export const AwsAuthenticator = React.lazy(() =>
   import('./components/AwsAuthenticator/AwsAuthenticator'),
 );
 
+export const Checkbox = React.lazy(() =>
+  import('./components/Checkbox/Checkbox'),
+);
+
 export const RadioButton = React.lazy(() =>
   import('./components/RadioButton/RadioButton'),
 );
