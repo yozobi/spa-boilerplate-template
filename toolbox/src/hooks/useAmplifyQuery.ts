@@ -1,7 +1,5 @@
 import API from '@aws-amplify/api';
-import useFsmReducer, {
-  UseFsmReducerEffects,
-} from 'toolbox/src/hooks/useFsmReducer';
+import useFsmReducer, { UseFsmReducerEffects } from './useFsmReducer';
 import { parseAwsError } from '../components/AwsAuthenticator/parseAwsError';
 
 export type UseAmplifyQueryState<Data, Values> =

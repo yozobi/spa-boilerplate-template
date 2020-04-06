@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-import useFsmReducer, {
-  UseFsmReducerEffects,
-} from 'toolbox/src/hooks/useFsmReducer';
+import useFsmReducer, { UseFsmReducerEffects } from './useFsmReducer';
 import { UseAmplifyQueryState } from './useAmplifyQuery';
 import { useThrottle } from './useThrottle';
 
