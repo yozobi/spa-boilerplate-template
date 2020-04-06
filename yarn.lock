@@ -134,6 +134,15 @@
     url "^0.11.0"
     zen-observable "^0.8.6"
 
+"@aws-amplify/core@^2.1.5", "@aws-amplify/core@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/core/-/core-2.3.0.tgz#8500f3482a5ac616d70478498a5345ef3812b739"
+  integrity sha512-rokgHMEhQ4coavJbBqEXkM51429CWmpjKfpvkU87MYZXLgUimz1chGA5lRLxbO47/22IqxjfADkfE8uAtXzRSA==
+  dependencies:
+    aws-sdk "2.518.0"
+    url "^0.11.0"
+    zen-observable "^0.8.6"
+
 "@aws-amplify/storage@2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@aws-amplify/storage/-/storage-2.1.2.tgz#15c73cc04a7600e56d45bb89165f13db0fb10e40"
@@ -147,6 +156,13 @@
   integrity sha512-cpysQzGETONs6gZ2+Qcpzc8Y6NIzEauRm2kSnKrFPJdfTj5vLWz4LycrlHSbiAYGU1hSD50xrtfIznfDQGn+nw==
   dependencies:
     "@aws-amplify/core" "^2.2.4"
+
+"@aws-amplify/storage@^2.1.5":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/storage/-/storage-2.2.3.tgz#ebf4cf0a436d734d8cd2f96f0dfcf0c0b91e2272"
+  integrity sha512-ic3K1rRUMxxJJxmncxT2I8uRv6nM8isS5T8cBYZF5KEY2AxFvlOLkpURs0Pt3S8KrIMBRHwSMdPbM0CDedTtIA==
+  dependencies:
+    "@aws-amplify/core" "^2.3.0"
 
 "@babel/cli@^7.8.3":
   version "7.8.4"

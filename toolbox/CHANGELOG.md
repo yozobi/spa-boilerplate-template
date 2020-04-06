@@ -1,5 +1,14 @@
 # toolbox
 
+## 1.4.1
+
+### Patch Changes
+
+- d68beb7: Added checkbox component to toolbox
+- 38c1ffd: Made the stepper component able to take numbers as its values.
+- 01ff90b: Added radio groups to toolbox, and implemented them in PayEWG
+- 52352e9: Added icons to storybook
+
 ## 1.4.0
 
 ### Minor Changes
