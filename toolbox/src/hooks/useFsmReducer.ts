@@ -94,7 +94,7 @@ const useFsmReducer = <
        * If an effect exists, call it whenever
        * the effects change
        */
-      return effects?.[effect.type as TEffect['type']]?.({
+      return effects?.[effect?.type as TEffect['type']]?.({
         dispatch,
         effect: effect as any,
       });

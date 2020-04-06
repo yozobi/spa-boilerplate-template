@@ -11,11 +11,16 @@ interface DeclareMakeMutationFormParams<T extends {}> {
   inputs: T;
 }
 
-type InputsType<MutationVariables, Inputs> = {
-  [K in keyof Required<MutationVariables>]: Inputs[MutationFormConfig<
-    Required<MutationVariables>,
-    Inputs
-  >[K]['type']];
+type InputsBase<InputMap extends {}> = {
+  [K in keyof InputMap]: React.FC<InputMap[K]>;
+};
+
+type InputsType<MutationVariables, Inputs extends InputsBase<any>> = {
+  [K in keyof Required<MutationVariables>]: React.FC<
+    Parameters<
+      Inputs[MutationFormConfig<Required<MutationVariables>, Inputs>[K]['type']]
+    >[0]
+  >;
 };
 
 /**
@@ -31,12 +36,13 @@ type InputsType<MutationVariables, Inputs> = {
  *   },
  * })
  */
-export function declareMakeMutationForm<Inputs>({
+export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
   inputs,
 }: DeclareMakeMutationFormParams<Inputs>) {
   interface MakeMutationFormParams<V extends {}, T extends {}> {
     config: MutationFormConfig<V, T>;
     validate?: (values: V) => { [K in keyof V]?: string } | void;
+    showErrorsOnTouched?: boolean;
   }
   /**
    * You can pass in a generic to makeMutationForm
@@ -53,6 +59,7 @@ export function declareMakeMutationForm<Inputs>({
   return function makeMutationForm<MutationVariables extends {}>({
     config,
     validate: validateFromMakeMutationForm,
+    showErrorsOnTouched,
   }: MakeMutationFormParams<MutationVariables, Inputs>): {
     Inputs: InputsType<MutationVariables, Inputs>;
     Wrapper: React.FC<MutationFormWrapperProps<MutationVariables>>;
@@ -117,7 +124,10 @@ export function declareMakeMutationForm<Inputs>({
            * submit, or if the form input has been touched.
            */
           const { submitCount } = useFormikContext();
-          const shouldShowError = submitCount > 0;
+          let shouldShowError = submitCount > 0;
+          if (showErrorsOnTouched) {
+            shouldShowError = metaProps.touched || submitCount > 0;
+          }
           return (
             // @ts-ignore
             <Comp

@@ -40,7 +40,7 @@ const Step = styled.div<{
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 2;
   flex-shrink: 0;
   position: relative;
 `;
@@ -95,12 +95,12 @@ const Label = styled.div<{
 
 interface IStepProps {
   label: string;
-  value: string;
+  value: string | number;
 }
 
 interface IStepperProps {
   steps: IStepProps[];
-  stepsCompleted: string[];
+  stepsCompleted: (string | number)[];
   borderColor?: string;
   colorComplete?: string;
   labelPosition?: LabelPosition;
