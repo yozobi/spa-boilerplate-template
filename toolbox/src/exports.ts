@@ -570,3 +570,5 @@ export { useModal } from './hooks/useModal';
 export const SelectBase = React.lazy(() =>
   import('./components/SelectBase/SelectBase'),
 );
+
+export { Pagination } from './components/Pagination/Pagination';

@@ -17,13 +17,14 @@ export const usePagination = ({
   const [totalResults, setTotalResults] = useState(0);
 
   const totalPages = Math.ceil(totalResults / resultsPerPage) || 1;
+  const totalIndexPages = totalPages - 1;
 
   /**
    * YOU MUST USE THIS - it allows this hook
    * to watch for changes in the query
    * response so that it can update properly
-   * 
-   
+   *
+
     const {
       offset,
       limit,
@@ -45,8 +46,21 @@ export const usePagination = ({
     }, [count]);
   };
 
-  const canGoToTheNextPage = page !== totalPages - 1;
+  const canGoToTheNextPage = page !== totalIndexPages;
   const canGoToThePreviousPage = page !== 0;
+
+  const goToPage = (pageIndexNumber: number) => {
+    // If the input number falls within the valid range of pages set it.
+    // If the input is over the valid number of pages set it to the last valid page
+    // otherwise set the page to the first valid page
+    if (pageIndexNumber >= 0 && pageIndexNumber <= totalPages) {
+      setPage(pageIndexNumber);
+    } else if (pageIndexNumber >= totalIndexPages) {
+      setPage(totalIndexPages);
+    } else {
+      setPage(0);
+    }
+  };
 
   const goToNextPage = () => {
     if (canGoToTheNextPage) {
@@ -78,10 +92,14 @@ export const usePagination = ({
     canGoToThePreviousPage,
     canGoToTheNextPage,
     page,
+    // Duplicated prop to help it fit with the Pagination comp
+    currentPage: page,
+    goToPage,
     goToNextPage,
     goToPrevPage,
     resetPage,
     useWatchAllResultsCount,
+    totalPages,
     /**
      * Human-readable display of the page number
      * for showing to users
