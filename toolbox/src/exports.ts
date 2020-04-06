@@ -530,6 +530,14 @@ export const AwsAuthenticator = React.lazy(() =>
   import('./components/AwsAuthenticator/AwsAuthenticator'),
 );
 
+export const RadioButton = React.lazy(() =>
+  import('./components/RadioButton/RadioButton'),
+);
+
+export const RadioGroup = React.lazy(() =>
+  import('./components/RadioButton/RadioGroup'),
+);
+
 export const Stepper = React.lazy(() => import('./components/Stepper/Stepper'));
 
 // @ts-ignore
