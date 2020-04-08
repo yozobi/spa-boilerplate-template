@@ -26,7 +26,7 @@ export const Default = () => {
         value={selectedOption?.value || ''}
         label="A simple select component you can easily extend"
         labelAccessor={({ label }) => label}
-        valueAccessor={({ value }) => value}
+        valueAccessor={(option) => option?.value || ''}
         onChange={(e) =>
           setSelectedOption(
             options.find(({ value }) => value === Number(e.target.value)) ||
