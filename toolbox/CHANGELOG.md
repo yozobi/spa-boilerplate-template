@@ -1,5 +1,14 @@
 # toolbox
 
+## 1.4.2
+
+### Patch Changes
+
+- 4229b83: Fixed clickaway issue on payewg side menu. Added useOnClickOutside hook to the toolbox.
+- 3a7db22: Changed SelectBase component to use React-Select
+
+  Implemented new SelectBase in PayEWG, and added currency flag function to grab flag emojis.
+
 ## 1.4.1
 
 ### Patch Changes
