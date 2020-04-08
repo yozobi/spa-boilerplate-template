@@ -572,3 +572,5 @@ export const SelectBase = React.lazy(() =>
 );
 
 export { Pagination } from './components/Pagination/Pagination';
+
+export { useOnClickOutside } from './hooks/useOnClickOutside';
