@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import * as allExports from '../../exports';
 import ToastContainer from '../ToastContainer/ToastContainer';
 import { toast } from 'react-toastify';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 
 const heroIconRegex = /^Hero/;
 
@@ -14,22 +15,14 @@ export default {
 };
 
 export const Icons = () => {
-  const copyToClipboard = (name: string) => {
-    navigator.permissions
-      .query({ name: 'clipboard-write' } as any)
-      .then((result: any) => {
-        if (result.state == 'granted' || result.state == 'prompt') {
-          navigator.clipboard.writeText(`<${name} />`).then(
-            function() {
-              toast(`Copied <${name} /> to clipboard!`);
-            },
-            function() {
-              toast.error(`Could not copy to clipboard...`);
-            },
-          );
-        }
-      });
-  };
+  const copyToClipboard = useCopyToClipboard({
+    onSuccess: (name) => {
+      toast(`Copied ${name} to clipboard!`);
+    },
+    onError: () => {
+      toast.error(`Could not copy to clipboard...`);
+    },
+  });
   return (
     <>
       <div className="p-6 grid grid-cols-4 gap-6 max-w-3xl">
@@ -39,7 +32,7 @@ export const Icons = () => {
               <button
                 className="flex flex-col items-center px-4 py-2 focus:outline-none focus:bg-gray-200 hover:bg-gray-100"
                 style={{ cursor: 'copy' }}
-                onClick={() => copyToClipboard(name)}
+                onClick={() => copyToClipboard(`<${name} />`)}
               >
                 <Suspense fallback={null}>
                   <Icon className="text-gray-600 w-8 h-8" />

@@ -573,4 +573,8 @@ export const SelectBase = React.lazy(() =>
 
 export { Pagination } from './components/Pagination/Pagination';
 
+export { useCopyToClipboard } from './hooks/useCopyToClipboard';
+
+export { addComponentSeparator } from './utils/addComponentSeparator';
+
 export { useOnClickOutside } from './hooks/useOnClickOutside';
