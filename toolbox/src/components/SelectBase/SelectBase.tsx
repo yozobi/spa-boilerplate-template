@@ -27,12 +27,13 @@ export function SelectBase<O>({
   labelAccessor,
   labelClassname,
   children,
+  testID,
   theme,
   SelectWrapper = React.Fragment,
   ...props
 }: SelectBaseProps<O>) {
   return (
-    <div>
+    <>
       {label && (
         <label htmlFor={props.name}>
           <span className={classNames('block', labelClassname)}>{label}</span>
@@ -63,7 +64,7 @@ export function SelectBase<O>({
         />
         {children}
       </SelectWrapper>
-    </div>
+    </>
   );
 }
 

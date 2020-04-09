@@ -8,11 +8,19 @@ const PaginationBar = styled.nav`
   display: flex;
   align-items: center;
   user-select: none;
+
+  & > * + * {
+    margin-left: 0.5rem;
+  }
 `;
 
 const PageButtonContainer = styled.div<{ hideButtons?: boolean }>`
   align-items: center;
   display: ${(props) => (props.hideButtons ? 'none' : 'flex')};
+
+  & > * + * {
+    margin-left: 0.5rem;
+  }
 `;
 
 const BaseButton = styled.a`
@@ -22,7 +30,6 @@ const BaseButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0.4rem;
 `;
 
 const PageNumberButton = styled(BaseButton)<{
@@ -50,7 +57,6 @@ const PageNavButton = styled(BaseButton)<{
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   opacity: ${(props) => (props.disabled ? '0.4' : '1')};
   transition: background-color 300ms;
-  margin: 0;
 `;
 
 const Ellipsis = styled.div`
@@ -60,7 +66,6 @@ const Ellipsis = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0.4rem;
   &:after {
     content: '. . .';
   }
