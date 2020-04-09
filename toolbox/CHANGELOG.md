@@ -1,5 +1,17 @@
 # toolbox
 
+## 1.4.3
+
+### Patch Changes
+
+- d54449a: Toolbox: added useCopyToClipboard hook. This gives you a handy utility for copying work to the clipboard.
+
+  Toolbox: added addComponentSeparator - this utility lets you add components as separators to a list of other comps. Handy for breadcrumbs.
+
+  PayEWG: Completed the fund balance page.
+
+- ed24c25: Completed UX styling for find balances page. Added more styling to the app.
+
 ## 1.4.2
 
 ### Patch Changes
