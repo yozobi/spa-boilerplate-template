@@ -5,8 +5,9 @@ services:
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
+    env_file: .env.local
   graphql-engine:
-    image: hasura/graphql-engine:v1.0.0
+    image: hasura/graphql-engine:v1.1.1
     ports:
       - '6060:8080'
     depends_on:
