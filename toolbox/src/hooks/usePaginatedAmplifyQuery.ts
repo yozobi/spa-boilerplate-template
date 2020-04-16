@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import useFsmReducer, { UseFsmReducerEffects } from './useFsmReducer';
 import { UseAmplifyQueryState } from './useAmplifyQuery';
-import { useThrottle } from './useThrottle';
+import { useThrottleUserInput as useThrottle } from './useThrottle';
 
 export const usePaginatedAmplifyQuery = <Data, Values>({
   useQuery,

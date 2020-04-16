@@ -24,6 +24,10 @@ export const UrqlWrapper = React.lazy(() =>
   import('./components/UrqlWrapper/UrqlWrapper'),
 );
 
+export const UrqlWrapperWithSubscriptions = React.lazy(() =>
+  import('./components/UrqlWrapper/UrqlWrapperWithSubscriptions'),
+);
+
 export const HeroIconAnnouncement = React.lazy(() =>
   import('./components/HeroIcons/HeroIconAnnouncement'),
 );
@@ -494,7 +498,10 @@ export const SankeyDiagram = React.lazy(() =>
 
 export const Modal = React.lazy(() => import('./components/Modal/Modal'));
 
-export { useThrottle } from './hooks/useThrottle';
+export {
+  useThrottleUserInput as useThrottle,
+  useDeduplicationThrottle,
+} from './hooks/useThrottle';
 
 export { usePagination } from './hooks/usePagination';
 
@@ -578,3 +585,7 @@ export { useCopyToClipboard } from './hooks/useCopyToClipboard';
 export { addComponentSeparator } from './utils/addComponentSeparator';
 
 export { useOnClickOutside } from './hooks/useOnClickOutside';
+
+export { useInterval } from './hooks/useInterval';
+
+export { useKeepScrolledToBottom } from './hooks/useKeepScrolledToBottom';

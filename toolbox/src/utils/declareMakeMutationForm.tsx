@@ -4,6 +4,7 @@ import {
   useFormik,
   useFormikContext,
   FormikContextType,
+  FormikHelpers,
 } from 'formik';
 import React from 'react';
 
@@ -79,8 +80,8 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
     }) => {
       const formik = useFormik<MutationVariables>({
         initialValues: (initialValues || {}) as MutationVariables,
-        onSubmit: (values: MutationVariables) => {
-          onSubmit(values);
+        onSubmit: (values, helpers) => {
+          onSubmit(values, helpers);
         },
         validate: validateFromLocal || validateFromMakeMutationForm,
       });
@@ -161,7 +162,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
 
 interface MutationFormWrapperProps<V> {
   initialValues?: Partial<V>;
-  onSubmit: (values: V) => void;
+  onSubmit: (values: V, helpers: FormikHelpers<V>) => void;
   validate?: (values: V) => { [K in keyof V]?: string } | void;
 }
 
