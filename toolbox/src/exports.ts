@@ -586,6 +586,8 @@ export { addComponentSeparator } from './utils/addComponentSeparator';
 
 export { useOnClickOutside } from './hooks/useOnClickOutside';
 
+export const Stack = React.lazy(() => import('./components/Stack/Stack'));
+
 export { useInterval } from './hooks/useInterval';
 
 export { useKeepScrolledToBottom } from './hooks/useKeepScrolledToBottom';

@@ -17,7 +17,7 @@ export const VerifyContactWrapper: React.FC<{
   >('noCodeSent');
 
   const attributeToVerify = Object.keys(
-    (user as any)?.unverified,
+    (user as any)?.unverified || {},
   )[0] as AwsAttributeToVerify;
 
   const beginVerify = () => {
@@ -49,6 +49,6 @@ export const VerifyContactWrapper: React.FC<{
       currentStep={currentStep}
       beginVerify={beginVerify}
       submitVerify={submitVerify}
-    ></Component>
+    />
   );
 };
