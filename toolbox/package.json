@@ -21,12 +21,12 @@
     "formik": "^2.1.4",
     "framer-motion": "^1.8.4",
     "graphql": "^14.6.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-toastify": "^5.5.0",
     "styled-components": "^5.0.1",
     "subscriptions-transport-ws": "^0.9.16",
-    "urql": "^1.9.0",
+    "urql": "1.9.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
