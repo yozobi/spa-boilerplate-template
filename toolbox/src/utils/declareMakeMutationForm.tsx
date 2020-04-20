@@ -67,6 +67,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
     Consumer: React.FC<{
       children: React.FC<FormikContextType<MutationVariables>>;
     }>;
+    useContext: () => FormikContextType<MutationVariables>;
   } {
     /**
      * Here, we declare a Wrapper which we'll use to
@@ -135,8 +136,8 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
               {...inputProps}
               {...configProps}
               {...metaProps}
-              {...props}
               error={shouldShowError ? metaProps.error : undefined}
+              {...props}
             />
           );
         },
@@ -152,10 +153,13 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
       return <>{children(formikProps)}</>;
     };
 
+    const useFormContext = () => useFormikContext<MutationVariables>();
+
     return {
       Wrapper,
       Inputs,
       Consumer,
+      useContext: useFormContext,
     };
   };
 }

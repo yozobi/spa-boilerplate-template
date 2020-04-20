@@ -33,7 +33,7 @@ export function SelectBase<O>({
   ...props
 }: SelectBaseProps<O>) {
   return (
-    <>
+    <div>
       {label && (
         <label htmlFor={props.name}>
           <span className={classNames('block', labelClassname)}>{label}</span>
@@ -64,7 +64,7 @@ export function SelectBase<O>({
         />
         {children}
       </SelectWrapper>
-    </>
+    </div>
   );
 }
 
