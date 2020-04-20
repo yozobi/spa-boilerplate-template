@@ -5,6 +5,7 @@ import classNames from 'classnames';
 interface AlertProps {
   variant?: 'light-with-left-border' | 'heavy';
   color?: 'info' | 'success' | 'warning' | 'danger';
+  className?: string;
 }
 
 const classnameMaps: TwoVariantClassnameMap<
@@ -37,11 +38,13 @@ export const Alert: React.FC<AlertProps> = ({
   children,
   variant = 'light-with-left-border',
   color = 'danger',
+  className,
 }) => {
   const classes = classNames(
     'p-6',
     'inline-block',
     classnameMaps[color][variant],
+    className,
   );
   return <div className={classes}>{children}</div>;
 };
