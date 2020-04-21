@@ -1,6 +1,14 @@
 import classNames from 'classnames';
 import React from 'react';
 import Select, { Props } from 'react-select';
+import styled from 'styled-components';
+
+export const Label = styled.label`
+  color: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+`;
 
 export type SelectBaseProps<O> = {
   onChange?: (e: { target: { value: string | number; name?: string } }) => void;
@@ -8,6 +16,8 @@ export type SelectBaseProps<O> = {
   valueAccessor: (option: O | undefined) => string | number;
   labelAccessor: (option: O) => string;
   label?: string;
+  hint?: string;
+  error?: string;
   labelClassname?: string;
   value: string | number;
   placeholder?: string;
@@ -21,6 +31,8 @@ export function SelectBase<O>({
   options = [],
   value,
   label,
+  hint,
+  error,
   onBlur,
   valueAccessor,
   placeholder = 'Select...',
@@ -35,9 +47,19 @@ export function SelectBase<O>({
   return (
     <div>
       {label && (
-        <label htmlFor={props.name}>
+        <Label htmlFor={props.name}>
           <span className={classNames('block', labelClassname)}>{label}</span>
-        </label>
+        </Label>
+      )}
+      {hint && (
+        <Label htmlFor={props.name}>
+          <span className={classNames('block', labelClassname)}>{hint}</span>
+        </Label>
+      )}
+      {error && (
+        <Label htmlFor={props.name}>
+          <span className={classNames('block', labelClassname)}>{error}</span>
+        </Label>
       )}
       <SelectWrapper>
         <Select<O>
