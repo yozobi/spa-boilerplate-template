@@ -136,6 +136,14 @@ Runs a script to PR your current changes to the branch you're currently on. Hand
 
 Same as `quick-pr`, but this makes the PR a draft. Handy for when you're starting off a piece of work.
 
+### bug-report
+
+`yarn bug-report`
+
+Report a bug found in master as an issue on the repo. Running this command enters you into a dialog where you answer questions based on the bug.
+
+> You must have **hub** installed on your machine before you run this command.
+
 ### changeset
 
 `yarn changeset`

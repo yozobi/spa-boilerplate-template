@@ -22,7 +22,7 @@
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "release": "node internals/scripts/release.js",
     "lint-staged": "lint-staged",
-    "quick-issue": "node internals/scripts/quickIssue.js"
+    "report-bug": "node internals/scripts/quickIssue.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
