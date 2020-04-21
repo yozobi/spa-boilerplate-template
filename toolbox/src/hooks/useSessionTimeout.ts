@@ -45,6 +45,10 @@ interface UseSessionTimeoutParams {
    * If we want to add a custom localstorage key for timeouts
    */
   localStorageKey?: string;
+  /**
+   * Disable checking and always report timeout as OK
+   */
+  disabled?: boolean;
 }
 
 type State =
@@ -53,7 +57,7 @@ type State =
   | { type: 'notRunning' };
 
 type Action =
-  | { type: 'reportUserIdle'; lastActiveTimestamp: number }
+  | { type: 'reportUserIdle'; lastActiveTimestamp: number; disabled: boolean }
   | { type: 'reportUserActive' }
   | { type: 'reportTimeoutExpired' }
   | { type: 'reportTimeoutOK' };
@@ -87,6 +91,7 @@ export const useSessionTimeout = ({
   onWarning,
   onInitialSessionTimeout,
   warningThresholdInMs = 120000, // 2 minutes
+  disabled = false,
 }: UseSessionTimeoutParams) => {
   const getTimeLastActive = (): number | null => {
     const result = localStorage.getItem(localStorageKey);
@@ -136,6 +141,9 @@ export const useSessionTimeout = ({
             };
           },
           reportUserIdle: (state, action) => {
+            if (action.disabled) {
+              return state;
+            }
             const timeLastActive = action.lastActiveTimestamp;
             const currentTime = new Date().getTime();
 
@@ -174,6 +182,11 @@ export const useSessionTimeout = ({
       onTimeout: onSessionTimeout,
       onWarning: onWarning || (() => {}),
       runInitialCheck: ({ dispatch }) => {
+        if (disabled) {
+          return dispatch({
+            type: 'reportTimeoutOK',
+          });
+        }
         const lastActiveTimestamp = getTimeLastActive();
         const currentTime = new Date().getTime();
         if (
@@ -199,7 +212,7 @@ export const useSessionTimeout = ({
       if (activity.state === 'active') {
         dispatch({ type: 'reportUserActive' });
       } else if (lastActiveTimestamp) {
-        dispatch({ type: 'reportUserIdle', lastActiveTimestamp });
+        dispatch({ type: 'reportUserIdle', lastActiveTimestamp, disabled });
       }
     };
     dispatchStates();
