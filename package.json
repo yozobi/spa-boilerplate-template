@@ -21,7 +21,8 @@
     "quick-pr": "node internals/scripts/quickPullRequest.js",
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "release": "node internals/scripts/release.js",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "quick-issue": "node internals/scripts/quickIssue.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -59,6 +60,7 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
-    "gray-matter": "^4.0.2"
+    "gray-matter": "^4.0.2",
+    "prompts": "^2.3.2"
   }
 }
