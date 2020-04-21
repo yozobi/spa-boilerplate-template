@@ -7,6 +7,7 @@ export const Label = styled.label`
   color: inherit;
   font-size: 1.125rem;
   font-weight: 600;
+  display: block;
   margin-bottom: 0.4rem;
 `;
 

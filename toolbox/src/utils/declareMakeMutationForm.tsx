@@ -78,6 +78,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
       initialValues,
       onSubmit,
       validate: validateFromLocal,
+      className,
     }) => {
       const formik = useFormik<MutationVariables>({
         initialValues: (initialValues || {}) as MutationVariables,
@@ -93,7 +94,9 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
          * and storing the state of the component.
          */
         <FormikProvider value={formik}>
-          <form onSubmit={formik.handleSubmit}>{children}</form>
+          <form onSubmit={formik.handleSubmit} className={className}>
+            {children}
+          </form>
         </FormikProvider>
       );
     };
@@ -165,6 +168,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
 }
 
 interface MutationFormWrapperProps<V> {
+  className?: string;
   initialValues?: Partial<V>;
   onSubmit: (values: V, helpers: FormikHelpers<V>) => void;
   validate?: (values: V) => { [K in keyof V]?: string } | void;
