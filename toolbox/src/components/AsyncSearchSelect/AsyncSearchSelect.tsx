@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import { UseQueryArgs, UseQueryResponse, UseQueryState } from 'urql';
+import React from 'react';
+import {
+  useAsyncSearchSelect,
+  UseAsyncSearchSelectParams,
+} from '../../hooks/useAsyncSearchSelect';
 import SelectBase, { SelectBaseProps } from '../SelectBase/SelectBase';
-import { useThrottleUserInput } from '../../hooks/useThrottle';
 
-interface AsyncSearchSelectProps<V, Q, O>
-  extends Omit<SelectBaseProps<O>, 'options'> {
-  useQuery: (args: Omit<UseQueryArgs<V>, 'query'>) => UseQueryResponse<Q>;
-  resultAccessor: (result: UseQueryState<Q>) => O[];
-  makeVariablesFromInput: (input: string) => V;
-  initialOption?: O;
-}
+type AsyncSearchSelectProps<V, Q, O> = Omit<SelectBaseProps<O>, 'options'> &
+  UseAsyncSearchSelectParams<V, Q, O>;
 
 export function AsyncSearchSelect<V, Q, O>({
   useQuery,
@@ -20,36 +17,20 @@ export function AsyncSearchSelect<V, Q, O>({
   initialOption,
   ...props
 }: AsyncSearchSelectProps<V, Q, O>) {
-  const [inputText, setInputText] = useState('');
-  const [hasChangedInput, setHasChangedInput] = useState(false);
-  const [result] = useQuery({
-    pause: !inputText,
-    variables: makeVariablesFromInput(inputText),
+  const { onInputChange, options } = useAsyncSearchSelect({
+    makeVariablesFromInput,
+    resultAccessor,
+    useQuery,
+    initialOption,
   });
-  const { throttle } = useThrottleUserInput({
-    throttleInMs: 200,
-    allowInstantFirstTry: false,
-  });
-
-  const changeInput = (text: string) => {
-    if (text !== inputText && !hasChangedInput) {
-      setHasChangedInput(true);
-    }
-    throttle(() => setInputText(text));
-  };
-
   return (
     <SelectBase
       {...props}
-      options={[
-        // Include initial option
-        ...(initialOption && !hasChangedInput ? [initialOption] : []),
-        ...resultAccessor(result),
-      ]}
+      options={options}
       labelAccessor={labelAccessor}
       valueAccessor={valueAccessor}
       value={props.value}
-      onInputChange={(text) => changeInput(text)}
+      onInputChange={onInputChange}
     />
   );
 }

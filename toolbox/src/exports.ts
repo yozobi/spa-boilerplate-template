@@ -595,3 +595,5 @@ export { useKeepScrolledToBottom } from './hooks/useKeepScrolledToBottom';
 export const AsyncSearchSelect = React.lazy(() =>
   import('./components/AsyncSearchSelect/AsyncSearchSelect'),
 );
+
+export { useAsyncSearchSelect } from './hooks/useAsyncSearchSelect';
