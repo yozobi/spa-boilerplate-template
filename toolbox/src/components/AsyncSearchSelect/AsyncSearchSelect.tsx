@@ -5,7 +5,10 @@ import {
 } from '../../hooks/useAsyncSearchSelect';
 import SelectBase, { SelectBaseProps } from '../SelectBase/SelectBase';
 
-type AsyncSearchSelectProps<V, Q, O> = Omit<SelectBaseProps<O>, 'options'> &
+export type AsyncSearchSelectProps<V, Q, O> = Omit<
+  SelectBaseProps<O>,
+  'options'
+> &
   UseAsyncSearchSelectParams<V, Q, O>;
 
 export function AsyncSearchSelect<V, Q, O>({
