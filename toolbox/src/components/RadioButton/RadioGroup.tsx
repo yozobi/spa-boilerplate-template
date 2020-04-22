@@ -47,6 +47,7 @@ const RadioGroup = (props: IRadioGroupProps) => {
             checked={props.value === radioItem.value}
             value={radioItem.value}
             label={radioItem.label}
+            id={props.name}
             color={props.color}
             borderColor={props.borderColor}
             highlightColor={props.highlightColor}

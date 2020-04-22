@@ -85,6 +85,7 @@ interface IRadioButtonProps {
   labelPosition?: LabelPositionType;
   labelClassname?: string;
   onSelect: () => void;
+  id?: string;
 }
 
 const RadioButton = (props: IRadioButtonProps) => {

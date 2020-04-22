@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import Select, { Props } from 'react-select';
 import styled from 'styled-components';
+import InputLabel from '../InputLabel/InputLabel';
 
 export const Label = styled.label`
   color: inherit;
@@ -48,21 +49,6 @@ export function SelectBase<O>({
 }: SelectBaseProps<O>) {
   return (
     <div>
-      {label && (
-        <Label htmlFor={props.name}>
-          <span className={classNames('block', labelClassname)}>{label}</span>
-        </Label>
-      )}
-      {hint && (
-        <Label htmlFor={props.name}>
-          <span className={classNames('block', labelClassname)}>{hint}</span>
-        </Label>
-      )}
-      {error && (
-        <Label htmlFor={props.name}>
-          <span className={classNames('block', labelClassname)}>{error}</span>
-        </Label>
-      )}
       <SelectWrapper>
         <Select<O>
           {...props}
