@@ -69,14 +69,8 @@ const sdk = getSdk(
     headers: { 'x-hasura-admin-secret': process.env.REACT_APP_HASURA_SECRET },
   }),
 );
-
-const goToPage = (url: string) => {
-  return page.goto(process.env.REACT_APP_PUBLIC_URL + url);
-};
-
 const testUtils = {
   testByMachine,
-  goToPage,
   sdk,
 };
 
