@@ -41,5 +41,6 @@ export const useWrappedUrqlMutation = <T, V>(
     data,
     fetching,
     stale,
+    errorMessage: error?.message,
   };
 };

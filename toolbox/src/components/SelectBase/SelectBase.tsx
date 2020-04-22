@@ -22,6 +22,7 @@ export type SelectBaseProps<O> = {
   labelClassname?: string;
   value: string | number;
   placeholder?: string;
+  onInputChange?: (newValue: string) => void;
   SelectWrapper?: React.FC;
   theme?: Partial<Props['theme']>;
   styles?: Props['styles'];
@@ -71,7 +72,10 @@ export function SelectBase<O>({
             })
           }
           isMulti={false}
-          value={options.find((option) => valueAccessor(option as O) === value)}
+          value={
+            options.find((option) => valueAccessor(option as O) === value) ||
+            null
+          }
           defaultValue={
             props.defaultValue
               ? options.find(

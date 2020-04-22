@@ -591,3 +591,7 @@ export const Stack = React.lazy(() => import('./components/Stack/Stack'));
 export { useInterval } from './hooks/useInterval';
 
 export { useKeepScrolledToBottom } from './hooks/useKeepScrolledToBottom';
+
+export const AsyncSearchSelect = React.lazy(() =>
+  import('./components/AsyncSearchSelect/AsyncSearchSelect'),
+);
