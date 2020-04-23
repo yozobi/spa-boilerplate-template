@@ -597,3 +597,5 @@ export const AsyncSearchSelect = React.lazy(() =>
 );
 
 export { useAsyncSearchSelect } from './hooks/useAsyncSearchSelect';
+
+export { makeUseNavigate, makeRouteMap } from './utils/makeUseNavigate';
