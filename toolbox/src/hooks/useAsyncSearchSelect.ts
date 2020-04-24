@@ -46,7 +46,7 @@ export const useAsyncSearchSelect = <V, Q, O>({
     pause: !inputText,
     variables: makeVariablesFromInput(inputText),
   });
-  const { throttle } = useThrottleUserInput({
+  const { throttle, isThrottling } = useThrottleUserInput({
     throttleInMs: 200,
     allowInstantFirstTry: false,
   });
@@ -58,16 +58,27 @@ export const useAsyncSearchSelect = <V, Q, O>({
     throttle(() => setInputText(text));
   };
 
+  const coercedInitialOption =
+    initialOption && !hasChangedInput ? initialOption : undefined;
+
+  const optionsFromQuery = resultAccessor(result);
+
+  const options =
+    coercedInitialOption || optionsFromQuery
+      ? [
+          // Include initial option
+          ...(coercedInitialOption ? [coercedInitialOption] : []),
+          ...(optionsFromQuery || []),
+        ]
+      : [];
+
   /**
    * Returns a set of props you can pass directly
    * to your SelectBase comp
    */
   return {
-    options: [
-      // Include initial option
-      ...(initialOption && !hasChangedInput ? [initialOption] : []),
-      ...resultAccessor(result),
-    ],
+    isLoading: result.fetching || isThrottling,
+    options,
     onInputChange: (text: string) => changeInput(text),
   };
 };

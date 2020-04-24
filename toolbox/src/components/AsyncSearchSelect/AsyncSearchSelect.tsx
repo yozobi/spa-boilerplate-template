@@ -20,7 +20,7 @@ export function AsyncSearchSelect<V, Q, O>({
   initialOption,
   ...props
 }: AsyncSearchSelectProps<V, Q, O>) {
-  const { onInputChange, options } = useAsyncSearchSelect({
+  const { onInputChange, options, isLoading } = useAsyncSearchSelect({
     makeVariablesFromInput,
     resultAccessor,
     useQuery,
@@ -30,6 +30,7 @@ export function AsyncSearchSelect<V, Q, O>({
     <SelectBase
       {...props}
       options={options}
+      isLoading={isLoading}
       labelAccessor={labelAccessor}
       valueAccessor={valueAccessor}
       value={props.value}

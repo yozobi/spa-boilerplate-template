@@ -19,6 +19,7 @@ export type SelectBaseProps<O> = {
   labelAccessor: (option: O) => string;
   label?: string;
   hint?: string;
+  isLoading?: boolean;
   error?: string;
   labelClassname?: string;
   value: string | number | undefined;
@@ -36,6 +37,7 @@ export function SelectBase<O>({
   label,
   hint,
   error,
+  isLoading,
   onBlur,
   valueAccessor,
   placeholder = 'Select...',
@@ -58,6 +60,15 @@ export function SelectBase<O>({
             })
           }
           isMulti={false}
+          noOptionsMessage={({ inputValue }) => {
+            if (!inputValue) {
+              return 'Search for an option...';
+            }
+            if (isLoading) {
+              return 'Loading...';
+            }
+            return 'No options found';
+          }}
           value={
             options.find((option) => valueAccessor(option as O) === value) ||
             null
@@ -69,6 +80,7 @@ export function SelectBase<O>({
                 )
               : undefined
           }
+          filterOption={() => true}
           theme={theme as any}
           placeholder={placeholder}
           options={options}

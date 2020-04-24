@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface UseThrottleParams {
   /**
@@ -28,6 +28,7 @@ export const useThrottleUserInput = (
 ) => {
   const timeoutRef = useRef<number>();
   const isFirstTryRef = useRef<boolean>(true);
+  const [isThrottling, setIsThrottling] = useState(false);
 
   return {
     throttle: (func: () => any) => {
@@ -36,11 +37,16 @@ export const useThrottleUserInput = (
         func();
         return;
       }
+      setIsThrottling(true);
       if (typeof timeoutRef.current !== 'undefined') {
         clearTimeout(timeoutRef.current);
       }
-      timeoutRef.current = setTimeout(func, throttleInMs);
+      timeoutRef.current = setTimeout(() => {
+        func();
+        setIsThrottling(false);
+      }, throttleInMs);
     },
+    isThrottling,
   };
 };
 

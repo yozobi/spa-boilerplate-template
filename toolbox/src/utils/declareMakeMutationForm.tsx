@@ -86,6 +86,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
           onSubmit(values, helpers);
         },
         validate: validateFromLocal || validateFromMakeMutationForm,
+        enableReinitialize: true,
       });
       return (
         /**

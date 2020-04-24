@@ -16,8 +16,8 @@ type RoutesType = {
 
 type RoutesReturn<R extends RoutesType> = {
   [K in keyof R]: (params?: {
-    params?: { [PK in keyof R[K]['params']]: string };
-    search?: { [PK in keyof R[K]['search']]?: string };
+    params?: { [PK in keyof R[K]['params']]: string | number };
+    search?: { [PK in keyof R[K]['search']]?: string | number };
   }) => string;
 };
 
@@ -34,10 +34,10 @@ export const makeRouteMap = <R extends RoutesType>(
 
     const func: RoutesReturn<R>[typeof key] = (routeInfo?: {
       params?: {
-        [paramName: string]: string;
+        [paramName: string]: string | number;
       };
       search?: {
-        [paramName: string]: string | undefined;
+        [paramName: string]: string | number | undefined;
       };
     }) => {
       let newPath = String(path);
@@ -45,7 +45,10 @@ export const makeRouteMap = <R extends RoutesType>(
       if (routeInfo?.params) {
         Object.entries(routeInfo?.params || {}).forEach(
           ([paramName, value]) => {
-            newPath = newPath.replace(new RegExp(':' + paramName), value);
+            newPath = newPath.replace(
+              new RegExp(':' + paramName),
+              String(value),
+            );
           },
         );
       }
