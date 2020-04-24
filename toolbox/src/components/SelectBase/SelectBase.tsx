@@ -21,7 +21,7 @@ export type SelectBaseProps<O> = {
   hint?: string;
   error?: string;
   labelClassname?: string;
-  value: string | number;
+  value: string | number | undefined;
   placeholder?: string;
   onInputChange?: (newValue: string) => void;
   SelectWrapper?: React.FC;
