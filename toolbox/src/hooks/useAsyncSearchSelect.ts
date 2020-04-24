@@ -3,9 +3,30 @@ import { useState } from 'react';
 import { useThrottleUserInput } from './useThrottle';
 
 export interface UseAsyncSearchSelectParams<V, Q, O> {
+  /**
+   * Pass in an urql useQuery. The hook uses this query to
+   * go and grab the data
+   */
   useQuery: (args: Omit<UseQueryArgs<V>, 'query'>) => UseQueryResponse<Q>;
+  /**
+   * Pass in a function to describe how to grab the options
+   * from the graphQL query. For instance:
+   *
+   * resultAccessor: (result) => result.data?.CurrencyCloudAccounts || []
+   */
   resultAccessor: (result: UseQueryState<Q>) => O[];
+  /**
+   * Pass in a function to describe how to turn the user's
+   * search input (a string) into the variables that the query
+   * above needs.
+   *
+   * makeVariablesFromInput: (inputText) => ({ search: inputText })
+   */
   makeVariablesFromInput: (input: string) => V;
+  /**
+   * If you need the search input to start off with an initial option
+   * selected, add it here
+   */
   initialOption?: O;
 }
 
