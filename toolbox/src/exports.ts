@@ -609,3 +609,5 @@ export const PreventLeavingFormIfTouched = React.lazy(() =>
     './components/PreventLeavingFormIfTouched/PreventLeavingFormIfTouched'
   ),
 );
+
+export { useNprogressOnInitialLoad } from './hooks/useNprogressOnInitialLoad';
