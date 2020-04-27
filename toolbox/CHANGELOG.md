@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.4.7
+
+### Patch Changes
+
+- 287e35a: Fixed nprogress showing up on login screen
+
 ## 1.4.6
 
 ### Patch Changes
