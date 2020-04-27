@@ -1,5 +1,20 @@
 # spa-boilerplate
 
+## 0.1.15
+
+### Patch Changes
+
+- 8ccedab: Added regenerator-runtime to build
+- 6f396c3: Removed puppeteer for faster install times
+- Updated dependencies [3ef8376]
+- Updated dependencies [5a81162]
+- Updated dependencies [5d65aff]
+- Updated dependencies [1609daf]
+- Updated dependencies [7f434a3]
+- Updated dependencies [5adbd62]
+- Updated dependencies [9696f7f]
+  - toolbox@1.4.4
+
 ## 0.1.14
 
 ### Patch Changes

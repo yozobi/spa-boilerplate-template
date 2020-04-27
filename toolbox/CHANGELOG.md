@@ -1,5 +1,26 @@
 # toolbox
 
+## 1.4.4
+
+### Patch Changes
+
+- 3ef8376: Built create beneficiary form
+- 5a81162: Removed labels from SelectBase
+- 5d65aff: Added CRUD to currency books. Refactored several components into useful shorthands. Built a makeMutationForm for JCAP.
+
+  Built an AsyncSearchSelect for the toolbox which takes an Urql query.
+
+- 1609daf: Added labels to jcap select
+
+  Added an extra type export from the toolbox
+
+- 7f434a3: Added makeUseNavigate hook to toolbox, and added basic route maps for jcap, payewg.
+
+  Made yarn generate work with the routeMap syntax.
+
+- 5adbd62: Refactored async logic in AsyncSearchSelect into its own hook
+- 9696f7f: Running yarn generate component or yarn generate hook will now allow you to create hooks and components within any workspace, not just the toolbox.
+
 ## 1.4.3
 
 ### Patch Changes
