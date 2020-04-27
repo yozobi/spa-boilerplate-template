@@ -1,8 +1,6 @@
-import classNames from 'classnames';
 import React from 'react';
 import Select, { Props } from 'react-select';
 import styled from 'styled-components';
-import InputLabel from '../InputLabel/InputLabel';
 
 export const Label = styled.label`
   color: inherit;
@@ -12,10 +10,10 @@ export const Label = styled.label`
   margin-bottom: 0.4rem;
 `;
 
-export type SelectBaseProps<O> = {
+export type SelectBaseProps<O = any> = {
   onChange?: (e: { target: { value: string | number; name?: string } }) => void;
   options: O[];
-  valueAccessor: (option: O | undefined) => string | number;
+  valueAccessor: (option: O) => string | number;
   labelAccessor: (option: O) => string;
   label?: string;
   hint?: string;
@@ -26,11 +24,12 @@ export type SelectBaseProps<O> = {
   placeholder?: string;
   onInputChange?: (newValue: string) => void;
   SelectWrapper?: React.FC;
+  filterOption?: (option: O, rawInput: string) => boolean;
   theme?: Partial<Props['theme']>;
   styles?: Props['styles'];
 } & Omit<Props<O>, 'onChange' | 'theme'>;
 
-export function SelectBase<O>({
+export function SelectBase<O = any>({
   onChange,
   options = [],
   value,
@@ -38,6 +37,7 @@ export function SelectBase<O>({
   hint,
   error,
   isLoading,
+  filterOption,
   onBlur,
   valueAccessor,
   placeholder = 'Select...',
@@ -80,7 +80,7 @@ export function SelectBase<O>({
                 )
               : undefined
           }
-          filterOption={() => true}
+          filterOption={filterOption as any}
           theme={theme as any}
           placeholder={placeholder}
           options={options}

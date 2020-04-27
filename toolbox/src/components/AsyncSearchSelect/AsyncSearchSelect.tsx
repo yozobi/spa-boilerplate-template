@@ -31,6 +31,7 @@ export function AsyncSearchSelect<V, Q, O>({
       {...props}
       options={options}
       isLoading={isLoading}
+      filterOption={() => true}
       labelAccessor={labelAccessor}
       valueAccessor={valueAccessor}
       value={props.value}
