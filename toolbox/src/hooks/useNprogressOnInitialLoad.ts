@@ -1,20 +1,26 @@
 import nprogress from 'nprogress';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
+
+type State = 'idle' | 'loading' | 'complete';
+
+nprogress.configure({
+  showSpinner: false,
+});
 
 export const useNprogressOnInitialLoad = (
-  { loaded, disabled }: { disabled?: boolean; loaded: boolean },
+  { state = 'idle' }: { state: State },
   deps: any[],
 ) => {
-  const [hasStarted, setHasStarted] = useState(false);
+  const lastStateRef = useRef(state);
+
   useEffect(() => {
-    if (!hasStarted && !disabled) {
+    if (lastStateRef.current === 'idle' && state === 'loading') {
       nprogress.start();
-      setHasStarted(true);
-    }
-    if (!loaded) {
-      nprogress.inc();
-    } else {
+    } else if (lastStateRef.current === 'loading' && state === 'complete') {
       nprogress.done();
+    } else if (state === 'loading') {
+      nprogress.inc();
     }
-  }, [disabled, loaded, ...deps]);
+    lastStateRef.current = state;
+  }, [state, ...deps]);
 };
