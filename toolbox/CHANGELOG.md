@@ -1,5 +1,14 @@
 # toolbox
 
+## 1.4.6
+
+### Patch Changes
+
+- 1955954: Removed filterOption default on SelectBase, and added it to AsyncSearchSelect instead.
+- 1e3fbea: Fixed local urql issue
+
+  Added nprogress loading indicator when you switch users
+
 ## 1.4.5
 
 ### Patch Changes
