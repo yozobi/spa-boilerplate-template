@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.4.5
+
+### Patch Changes
+
+- fa6d81a: Fixed peerDependencies on urql in payewg
+
 ## 1.4.4
 
 ### Patch Changes
