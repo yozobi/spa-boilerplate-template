@@ -71,7 +71,7 @@ const Ellipsis = styled.div`
   }
 `;
 
-interface PaginationProps {
+export interface PaginationProps {
   buttonColor?: string;
   totalPages: number;
   currentPage: number;
@@ -193,7 +193,7 @@ const Wrapper: React.FC<PaginationProps> = (props) => {
   );
 };
 
-const usePaginationContext = () => {
+export const usePaginationContext = () => {
   const context = useContext(PaginationContext);
   if (context === null) {
     throw new Error(
