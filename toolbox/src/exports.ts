@@ -612,6 +612,8 @@ export const PreventLeavingFormIfTouched = React.lazy(() =>
 
 export { useNprogressOnInitialLoad } from './hooks/useNprogressOnInitialLoad';
 
+export { useFetchConversionRates } from './hooks/useFetchConversionRates';
+
 export const PopoverMenu = React.lazy(() =>
   import('./components/PopoverMenu/PopoverMenu'),
 );
