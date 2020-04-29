@@ -4,6 +4,7 @@ import { useThrottleUserInput } from './useThrottle';
 interface UseTextInputParams {
   defaultValue?: string;
   throttleInMs?: number;
+  onThrottledInputChange?: (value: string) => void;
 }
 
 export const useTextInput = (
@@ -22,6 +23,7 @@ export const useTextInput = (
         setValue(newValue);
         throttle(() => {
           setThrottledValue(newValue);
+          params?.onThrottledInputChange?.(newValue);
         });
       },
     },

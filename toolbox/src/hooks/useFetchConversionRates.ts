@@ -55,8 +55,6 @@ export const useFetchConversionRates = () => {
   const [data, setData] = useState<Conversions | null>(null);
   const [error, setError] = useState<string>();
 
-  console.log({ data });
-
   const fetchRates = useCallback(() => {
     try {
       fetchConversionRates().then(setData);
