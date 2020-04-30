@@ -14,7 +14,7 @@ export type SelectBaseProps<O = any> = {
   onChange?: (e: { target: { value: string | number; name?: string } }) => void;
   options: O[];
   valueAccessor: (option: O) => string | number;
-  labelAccessor: (option: O) => string;
+  labelAccessor: (option: O) => string | JSX.Element;
   label?: string;
   hint?: string;
   isLoading?: boolean;
@@ -24,7 +24,7 @@ export type SelectBaseProps<O = any> = {
   placeholder?: string;
   onInputChange?: (newValue: string) => void;
   SelectWrapper?: React.FC;
-  filterOption?: (option: O, rawInput: string) => boolean;
+  filterOption?: (option: { data: O }, rawInput: string) => boolean;
   theme?: Partial<Props['theme']>;
   styles?: Props['styles'];
 } & Omit<Props<O>, 'onChange' | 'theme'>;
@@ -84,7 +84,7 @@ export function SelectBase<O = any>({
           theme={theme as any}
           placeholder={placeholder}
           options={options}
-          getOptionLabel={labelAccessor}
+          getOptionLabel={labelAccessor as Props<O>['getOptionValue']}
           getOptionValue={valueAccessor as Props<O>['getOptionValue']}
         />
         {children}

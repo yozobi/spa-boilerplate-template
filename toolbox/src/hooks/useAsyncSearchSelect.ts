@@ -77,6 +77,7 @@ export const useAsyncSearchSelect = <V, Q, O>({
    * to your SelectBase comp
    */
   return {
+    inputText,
     isLoading: result.fetching || isThrottling,
     options,
     onInputChange: (text: string) => changeInput(text),
