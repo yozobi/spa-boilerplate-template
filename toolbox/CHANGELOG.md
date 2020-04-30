@@ -1,5 +1,14 @@
 # toolbox
 
+## 1.4.8
+
+### Patch Changes
+
+- 9b567a3: Implement new design for account switcher
+- 544dca0: Add simple popover component to the toolbox
+- 17852f1: Added ViewActualBalances page with editable interest rate field
+- 0ebc1db: Added AdminViewBalances for JCAP so that admins can view the full list of actual balances and edit them
+
 ## 1.4.7
 
 ### Patch Changes

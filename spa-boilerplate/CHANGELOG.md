@@ -1,5 +1,15 @@
 # spa-boilerplate
 
+## 0.1.19
+
+### Patch Changes
+
+- Updated dependencies [9b567a3]
+- Updated dependencies [544dca0]
+- Updated dependencies [17852f1]
+- Updated dependencies [0ebc1db]
+  - toolbox@1.4.8
+
 ## 0.1.18
 
 ### Patch Changes
