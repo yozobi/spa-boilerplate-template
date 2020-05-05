@@ -5,9 +5,11 @@ export const useModal = <CachedState = undefined>() => {
   const [cachedState, setCachedState] = useState<CachedState | null>();
 
   const onClose = () => {
-    if (cachedState) {
-      setCachedState(null);
-    }
+    setTimeout(() => {
+      if (cachedState) {
+        setCachedState(null);
+      }
+    }, [500]);
     setOpen(false);
   };
 
