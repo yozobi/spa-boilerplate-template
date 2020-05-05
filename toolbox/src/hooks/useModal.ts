@@ -1,6 +1,16 @@
 import { useState } from 'react';
 
-export const useModal = <CachedState = undefined>() => {
+export interface UseModalReturn<CachedState = undefined> {
+  state: CachedState | null | undefined;
+  open: boolean;
+  onOpen: (state?: CachedState) => void;
+  onClose: () => void;
+  setState: (state: CachedState) => void;
+}
+
+export const useModal = <
+  CachedState = undefined
+>(): UseModalReturn<CachedState> => {
   const [open, setOpen] = useState(false);
   const [cachedState, setCachedState] = useState<CachedState | null>();
 
@@ -20,10 +30,17 @@ export const useModal = <CachedState = undefined>() => {
     setOpen(true);
   };
 
+  const setState = (state: CachedState) => {
+    if (open) {
+      setCachedState(state);
+    }
+  };
+
   return {
     state: cachedState,
     open,
     onOpen,
     onClose,
+    setState,
   };
 };
