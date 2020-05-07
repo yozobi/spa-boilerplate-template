@@ -79,7 +79,7 @@
     "hasura:down": "docker-compose down",
     "console": "npm run hasura console",
     "get-schema": "dotenv -e .env.local node scripts/getGraphqlIntrospection.js",
-    "codegen": "npm run get-schema && graphql-codegen",
+    "codegen": "npm run codegen:clear && npm run get-schema && graphql-codegen",
     "codegen:watch": "npm run codegen:clear && npm run get-schema && graphql-codegen --watch",
     "codegen:clear": "find ./src -name \"*.generated.*\" -delete",
     "hasura": "ENV_FILE=\".env.local\" node scripts/hasura.js",
