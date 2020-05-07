@@ -13,6 +13,11 @@ const introspectionFilePath = path.resolve(
   '../schema.generated.graphql',
 );
 
+/** If in CI mode, don't fetch anything but don't fail */
+if (process.env.CI) {
+  return;
+}
+
 if (
   process.env.REACT_APP_HASURA_ENDPOINT &&
   process.env.REACT_APP_HASURA_SECRET
