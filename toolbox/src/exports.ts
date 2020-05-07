@@ -617,3 +617,7 @@ export { useFetchConversionRates } from './hooks/useFetchConversionRates';
 export const PopoverMenu = React.lazy(() =>
   import('./components/PopoverMenu/PopoverMenu'),
 );
+
+export const AuthWrapper = React.lazy(() =>
+  import('./components/AuthWrapper/AuthWrapper'),
+);

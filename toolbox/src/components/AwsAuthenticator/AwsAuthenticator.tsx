@@ -18,39 +18,18 @@ const SignedInWrapper: React.FC<{ render: AwsAuthComponents['signedIn'] }> = ({
 export const AwsAuthenticator: React.FC<{
   components: AwsAuthComponents;
   onLogInSuccess?: () => void;
-  checkIsLoggedIn: () => Promise<boolean> | boolean;
-}> = ({ components, onLogInSuccess, checkIsLoggedIn }) => {
+  isLoggedIn: boolean;
+}> = ({ components, onLogInSuccess, isLoggedIn }) => {
   const [authState, setAuthState] = useState<AuthState>('pending');
   const [user, setUser] = useState<CognitoUser | { username: string }>();
   /** Check if the user is logged in */
   useEffect(() => {
-    const promiseOrBoolean = checkIsLoggedIn();
-
-    /**
-     * Slightly strange logic to make
-     * sure we can either accept a promise or a boolean
-     */
-    // @ts-ignore
-    if (promiseOrBoolean?.then) {
-      (promiseOrBoolean as Promise<boolean>)
-        .then((isLoggedIn) => {
-          if (isLoggedIn) {
-            setAuthState('signedIn');
-          } else {
-            setAuthState('signIn');
-          }
-        })
-        .catch(() => {
-          setAuthState('signIn');
-        });
+    if (isLoggedIn) {
+      setAuthState('signedIn');
     } else {
-      if (promiseOrBoolean) {
-        setAuthState('signedIn');
-      } else {
-        setAuthState('signIn');
-      }
+      setAuthState('signIn');
     }
-  }, []);
+  }, [isLoggedIn]);
   return (
     <AuthenticationContext.Provider
       value={{
@@ -83,7 +62,7 @@ export const AwsAuthenticator: React.FC<{
         <VerifyContactWrapper render={components.verifyContact} />
       )}
       {authState === 'signedIn' && (
-        <SignedInWrapper render={components.signedIn}></SignedInWrapper>
+        <SignedInWrapper render={components.signedIn} />
       )}
     </AuthenticationContext.Provider>
   );
