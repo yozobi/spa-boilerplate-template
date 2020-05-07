@@ -91,7 +91,7 @@ export const useFetchConversionRates = () => {
     }
     const baseModifier = data.rates[base];
     const targetModifier = data.rates[target];
-    return Number((amount * baseModifier * targetModifier).toFixed(2));
+    return Number(((amount * targetModifier) / baseModifier).toFixed(2));
   };
 
   return {
