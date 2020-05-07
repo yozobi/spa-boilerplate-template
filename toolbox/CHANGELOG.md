@@ -1,5 +1,16 @@
 # toolbox
 
+## 1.5.0
+
+### Minor Changes
+
+- b5f8f12: Fix conversion formula in useFetchConversionRate formula (invert the base/target)
+
+### Patch Changes
+
+- 66cbab5: Added an inline edit form for the Upload Balances Page to update troublesome bank accounts
+- f575c69: Added fields in JCAP database for fetching the maturity date on import. Improved errors in upload balances.
+
 ## 1.4.8
 
 ### Patch Changes

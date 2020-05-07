@@ -1,5 +1,16 @@
 # spa-boilerplate
 
+## 0.1.20
+
+### Patch Changes
+
+- 661f78c: Fixed release script when running locally - codegen wasn't being called and it wasn't clearing dead codegenned files.
+- 6bd29a6: Made the codegen scripts never fetch from the server in CI mode
+- Updated dependencies [b5f8f12]
+- Updated dependencies [66cbab5]
+- Updated dependencies [f575c69]
+  - toolbox@1.5.0
+
 ## 0.1.19
 
 ### Patch Changes
