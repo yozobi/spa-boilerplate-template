@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.5.1
+
+### Patch Changes
+
+- f929dfa: Implement Conversion wizard
+- 6067cb9: Made the release script check if the ci checks have completed
+
 ## 1.5.0
 
 ### Minor Changes
