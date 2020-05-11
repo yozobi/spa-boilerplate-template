@@ -618,6 +618,8 @@ export const PopoverMenu = React.lazy(() =>
   import('./components/PopoverMenu/PopoverMenu'),
 );
 
+export const Appear = React.lazy(() => import('./components/Appear/Appear'));
+
 export const AuthWrapper = React.lazy(() =>
   import('./components/AuthWrapper/AuthWrapper'),
 );

@@ -95,18 +95,7 @@ interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Checkbox = (props: ICheckBoxProps) => {
-  const {
-    labelPosition = 'right',
-    onChange,
-    onDeselect,
-    onSelect,
-    icon,
-    color,
-    labelClassName,
-    label,
-    className,
-    ...rest
-  } = props;
+  const { labelPosition = 'right', labelClassName, className } = props;
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
@@ -124,7 +113,7 @@ const Checkbox = (props: ICheckBoxProps) => {
     <CheckboxContainer className={className}>
       <CheckBoxLabel labelPosition={labelPosition}>
         <HiddenCheckbox
-          {...rest}
+          {...props}
           type="checkbox"
           onChange={handleCheckboxChange}
           name={props.name}

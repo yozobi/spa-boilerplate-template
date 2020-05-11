@@ -39,6 +39,8 @@ const RadioGroup = (props: IRadioGroupProps) => {
       flexDirection={props.flexDirection}
       alignItems={props.alignItems}
       justifyContent={props.justifyContent}
+      my={props.my}
+      mx={props.mx}
     >
       {props.options.map((radioItem) => {
         return (
