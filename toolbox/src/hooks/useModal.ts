@@ -8,9 +8,7 @@ export interface UseModalReturn<CachedState = undefined> {
   setState: (state: CachedState) => void;
 }
 
-export const useModal = <
-  CachedState = undefined
->(): UseModalReturn<CachedState> => {
+export const useModal = <CachedState = any>(): UseModalReturn<CachedState> => {
   const [open, setOpen] = useState(false);
   const [cachedState, setCachedState] = useState<CachedState | null>();
 

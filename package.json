@@ -23,7 +23,8 @@
     "release": "node internals/scripts/release.js",
     "lint-staged": "lint-staged",
     "report-bug": "node internals/scripts/quickIssue.js",
-    "bug-report": "npm run report-bug"
+    "bug-report": "npm run report-bug",
+    "ci-check": "yarn install && npm run codegen && npm run lint && npm run test:ci"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
