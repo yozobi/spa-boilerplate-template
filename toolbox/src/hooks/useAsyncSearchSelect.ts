@@ -1,5 +1,5 @@
 import { UseQueryArgs, UseQueryResponse, UseQueryState } from 'urql';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useThrottleUserInput } from './useThrottle';
 
 export interface UseAsyncSearchSelectParams<V, Q, O> {
@@ -41,6 +41,7 @@ export const useAsyncSearchSelect = <V, Q, O>({
   initialOption,
 }: UseAsyncSearchSelectParams<V, Q, O>) => {
   const [inputText, setInputText] = useState('');
+  const [optionOverride, setOptionOverride] = useState<O[] | undefined>();
   const [hasChangedInput, setHasChangedInput] = useState(false);
   const [result] = useQuery({
     pause: !inputText,
@@ -50,6 +51,12 @@ export const useAsyncSearchSelect = <V, Q, O>({
     throttleInMs: 200,
     allowInstantFirstTry: false,
   });
+
+  useEffect(() => {
+    if (inputText && optionOverride) {
+      setOptionOverride(undefined);
+    }
+  }, [inputText]);
 
   const changeInput = (text: string) => {
     if (text !== inputText && !hasChangedInput) {
@@ -64,7 +71,7 @@ export const useAsyncSearchSelect = <V, Q, O>({
   const optionsFromQuery = resultAccessor(result);
 
   const options =
-    coercedInitialOption || optionsFromQuery
+    optionOverride || coercedInitialOption || optionsFromQuery
       ? [
           // Include initial option
           ...(coercedInitialOption ? [coercedInitialOption] : []),
@@ -77,6 +84,14 @@ export const useAsyncSearchSelect = <V, Q, O>({
    * to your SelectBase comp
    */
   return {
+    /**
+     * Clears the options of the select temporarily,
+     * useful if you need to clear a value
+     */
+    clearOptions: () => {
+      setInputText('');
+      setOptionOverride([]);
+    },
     inputText,
     isLoading: result.fetching || isThrottling,
     options,
