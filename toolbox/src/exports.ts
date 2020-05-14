@@ -623,3 +623,5 @@ export const Appear = React.lazy(() => import('./components/Appear/Appear'));
 export const AuthWrapper = React.lazy(() =>
   import('./components/AuthWrapper/AuthWrapper'),
 );
+
+export { useSortedTable } from './hooks/useSortedTable';
