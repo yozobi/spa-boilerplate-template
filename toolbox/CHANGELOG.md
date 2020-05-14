@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.2
+
+### Patch Changes
+
+- fdec673: Added a VSCode task to add classNames to a file
+- e3aeb07: Made the usePagination hook respond when it was on a page out of range
+- 7c55db1: Implemented payewg account selector design 4C
+
 ## 1.5.1
 
 ### Patch Changes

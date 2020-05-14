@@ -1,5 +1,15 @@
 # spa-boilerplate
 
+## 0.1.22
+
+### Patch Changes
+
+- a85714e: Upgraded packages to latest react testing library environment
+- Updated dependencies [fdec673]
+- Updated dependencies [e3aeb07]
+- Updated dependencies [7c55db1]
+  - toolbox@1.5.2
+
 ## 0.1.21
 
 ### Patch Changes
