@@ -56,7 +56,9 @@ export const useSortedTable = <OrderByVariable extends object[]>({
   return {
     sortingState,
     orderBy: ((mapping[sortingState?.columnId]?.(sortingState?.order) ||
-      initialState) as unknown) as OrderByVariable,
+      mapping[sortingState?.columnId]?.(
+        sortingState?.order,
+      )) as unknown) as OrderByVariable,
     onColumnClick: (columnId?: string) => {
       if (!columnId) {
         return setSortingState(initialState);
