@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.5.4
+
+### Patch Changes
+
+- 4b0f380: Ensured all statuses in payewg used proper case
+  Also made sure that the view payment page handled deleted payments
+
 ## 1.5.3
 
 ### Patch Changes
