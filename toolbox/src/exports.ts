@@ -625,3 +625,5 @@ export const AuthWrapper = React.lazy(() =>
 );
 
 export { useSortedTable } from './hooks/useSortedTable';
+
+export { useValueDidUpdate } from './hooks/useValueDidUpdate';

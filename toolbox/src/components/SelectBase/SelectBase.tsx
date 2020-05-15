@@ -17,6 +17,7 @@ export type SelectBaseProps<O = any> = {
   labelAccessor: (option: O) => string | JSX.Element;
   label?: string;
   hint?: string;
+  disabled?: boolean;
   isLoading?: boolean;
   error?: string;
   labelClassname?: string;
@@ -32,6 +33,7 @@ export type SelectBaseProps<O = any> = {
 export function SelectBase<O = any>({
   onChange,
   options = [],
+  disabled,
   value,
   label,
   hint,
@@ -84,6 +86,7 @@ export function SelectBase<O = any>({
           theme={theme as any}
           placeholder={placeholder}
           options={options}
+          isDisabled={disabled}
           getOptionLabel={labelAccessor as Props<O>['getOptionValue']}
           getOptionValue={valueAccessor as Props<O>['getOptionValue']}
         />

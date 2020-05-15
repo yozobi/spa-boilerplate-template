@@ -1,7 +1,6 @@
 import { UseQueryArgs, UseQueryResponse, UseQueryState } from 'urql';
 import { useState, useEffect } from 'react';
 import { useThrottleUserInput } from './useThrottle';
-
 export interface UseAsyncSearchSelectParams<V, Q, O> {
   /**
    * Pass in an urql useQuery. The hook uses this query to
@@ -28,8 +27,11 @@ export interface UseAsyncSearchSelectParams<V, Q, O> {
    * selected, add it here
    */
   initialOption?: O;
+  /**
+   * If you want the search results to be pre-populated
+   */
+  allowEmptySearches?: boolean;
 }
-
 /**
  * Works well with the SelectBase component - allows
  * you to easily add async logic to it.
@@ -39,46 +41,42 @@ export const useAsyncSearchSelect = <V, Q, O>({
   resultAccessor,
   useQuery,
   initialOption,
+  allowEmptySearches = true,
 }: UseAsyncSearchSelectParams<V, Q, O>) => {
   const [inputText, setInputText] = useState('');
   const [optionOverride, setOptionOverride] = useState<O[] | undefined>();
   const [hasChangedInput, setHasChangedInput] = useState(false);
   const [result] = useQuery({
-    pause: !inputText,
+    pause: !allowEmptySearches && !inputText,
     variables: makeVariablesFromInput(inputText),
   });
   const { throttle, isThrottling } = useThrottleUserInput({
     throttleInMs: 200,
     allowInstantFirstTry: false,
   });
-
   useEffect(() => {
     if (inputText && optionOverride) {
       setOptionOverride(undefined);
     }
   }, [inputText]);
-
   const changeInput = (text: string) => {
     if (text !== inputText && !hasChangedInput) {
       setHasChangedInput(true);
     }
     throttle(() => setInputText(text));
   };
-
   const coercedInitialOption =
     initialOption && !hasChangedInput ? initialOption : undefined;
-
   const optionsFromQuery = resultAccessor(result);
-
   const options =
-    optionOverride || coercedInitialOption || optionsFromQuery
+    optionOverride ||
+    (coercedInitialOption || optionsFromQuery
       ? [
           // Include initial option
           ...(coercedInitialOption ? [coercedInitialOption] : []),
           ...(optionsFromQuery || []),
         ]
-      : [];
-
+      : []);
   /**
    * Returns a set of props you can pass directly
    * to your SelectBase comp
