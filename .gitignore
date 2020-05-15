@@ -1,7 +1,7 @@
 node_modules
 yarn-error.log
 /coverage
-.env.local
+.env.*
 .env.test.local
 .env.production.local
 devTools.local.ts
