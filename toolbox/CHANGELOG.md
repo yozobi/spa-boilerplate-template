@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.3
+
+### Patch Changes
+
+- c394950: Added useSortedTable and implemented it in JCAP view bank accounts
+
 ## 1.5.2
 
 ### Patch Changes

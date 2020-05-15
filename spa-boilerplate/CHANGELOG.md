@@ -1,5 +1,12 @@
 # spa-boilerplate
 
+## 0.1.23
+
+### Patch Changes
+
+- Updated dependencies [c394950]
+  - toolbox@1.5.3
+
 ## 0.1.22
 
 ### Patch Changes
