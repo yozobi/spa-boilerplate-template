@@ -46,7 +46,11 @@ export const Alert: React.FC<AlertProps> = ({
     classnameMaps[color][variant],
     className,
   );
-  return <div className={classes}>{children}</div>;
+  return (
+    <div className={classes} role="alert">
+      {children}
+    </div>
+  );
 };
 
 export default Alert;
