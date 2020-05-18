@@ -24,6 +24,10 @@ type InputsType<MutationVariables, Inputs extends InputsBase<any>> = {
   >;
 };
 
+export type ValidationFunction<V> = (
+  values: V,
+) => { [K in keyof V]?: string } | undefined;
+
 /**
  * declareMakeMutationForm creates a function which you can
  * call in your project to help bootstrap forms. You pass in
@@ -42,7 +46,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
 }: DeclareMakeMutationFormParams<Inputs>) {
   interface MakeMutationFormParams<V extends {}, T extends {}> {
     config: MutationFormConfig<V, T>;
-    validate?: (values: V) => { [K in keyof V]?: string } | void;
+    validate?: ValidationFunction<V>;
     showErrorsOnTouched?: boolean;
   }
   /**
