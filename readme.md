@@ -124,7 +124,7 @@ Creates a new git tag and pushes it to the remote repo. This is used when you ne
 
 ### quick-pr
 
-`yarn quick-pr "A message describing what the PR does"`
+`yarn quick-pr`
 
 Runs a script to PR your current changes to the branch you're currently on. Handy for when you want to split up lots of small changes into several PR's.
 
