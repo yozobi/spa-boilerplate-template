@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.5.6
+
+### Patch Changes
+
+- c09c9ae6: Allowed for adding a description to a pr
+- 7d219c8c: Made quick-pr script use prompts and also write a changeset
+
 ## 1.5.5
 
 ### Patch Changes
