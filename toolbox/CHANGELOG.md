@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.5
+
+### Patch Changes
+
+- 7fab79fa: Added amplifyAuthExchange to payewg and jcap, to refresh the amplify token if expired.
+
 ## 1.5.4
 
 ### Patch Changes
