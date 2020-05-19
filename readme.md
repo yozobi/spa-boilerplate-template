@@ -130,6 +130,12 @@ Runs a script to PR your current changes to the branch you're currently on. Hand
 
 > You need **hub** installed on your machine before you run this command.
 
+### track-time
+
+`yarn track-time`
+
+Runs a script to allow you to take notes on which projects you've been working on today. It saves it in a local json file which you can refer to later when submitting your time to Xero.
+
 ### draft-pr
 
 `yarn draft-pr "A message describing what the PR does"`
