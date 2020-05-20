@@ -25,7 +25,8 @@
     "report-bug": "node internals/scripts/quickIssue.js",
     "bug-report": "npm run report-bug",
     "track-time": "node internals/scripts/trackTime.js",
-    "ci-check": "yarn install && npm run codegen && npm run lint && npm run test:ci"
+    "ci-check": "yarn install && npm run codegen && npm run lint && npm run test:ci",
+    "postinstall": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
