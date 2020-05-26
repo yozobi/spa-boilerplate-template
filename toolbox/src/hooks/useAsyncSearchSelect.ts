@@ -31,6 +31,7 @@ export interface UseAsyncSearchSelectParams<V, Q, O> {
    * If you want the search results to be pre-populated
    */
   allowEmptySearches?: boolean;
+  valueAccessor: (option: any) => any;
 }
 /**
  * Works well with the SelectBase component - allows
@@ -42,12 +43,14 @@ export const useAsyncSearchSelect = <V, Q, O>({
   useQuery,
   initialOption,
   allowEmptySearches = true,
+  valueAccessor,
 }: UseAsyncSearchSelectParams<V, Q, O>) => {
   const [inputText, setInputText] = useState('');
   const [optionOverride, setOptionOverride] = useState<O[] | undefined>();
   const [hasChangedInput, setHasChangedInput] = useState(false);
+
   const [result] = useQuery({
-    pause: !allowEmptySearches && !inputText,
+    pause: !(allowEmptySearches && !hasChangedInput) && !inputText,
     variables: makeVariablesFromInput(inputText),
   });
   const { throttle, isThrottling } = useThrottleUserInput({
@@ -73,7 +76,12 @@ export const useAsyncSearchSelect = <V, Q, O>({
     (coercedInitialOption || optionsFromQuery
       ? [
           // Include initial option
-          ...(coercedInitialOption ? [coercedInitialOption] : []),
+          ...(coercedInitialOption &&
+          !optionsFromQuery?.find(
+            (o) => valueAccessor(o) === valueAccessor(coercedInitialOption),
+          )
+            ? [coercedInitialOption]
+            : []),
           ...(optionsFromQuery || []),
         ]
       : []);

@@ -25,6 +25,7 @@ export function AsyncSearchSelect<V, Q, O>({
     resultAccessor,
     useQuery,
     initialOption,
+    valueAccessor,
   });
   return (
     <SelectBase
