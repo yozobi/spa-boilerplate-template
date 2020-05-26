@@ -9,4 +9,6 @@ devTools.local.ts
 # OSX
 .DS_Store
 
+*.local.*
+
 time-tracked.json
