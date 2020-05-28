@@ -631,3 +631,7 @@ export { useValueDidUpdate } from './hooks/useValueDidUpdate';
 export const ScrollToTop = React.lazy(() =>
   import('./components/ScrollToTop/ScrollToTop'),
 );
+
+export { useMutationForm } from './hooks/useMutationForm';
+
+export { useLegacyState } from './hooks/useLegacyState';
