@@ -8,7 +8,7 @@ export const useKeepScrolledToBottom = (deps: any[]) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && 'scrollTo' in ref.current) {
       ref.current?.scrollTo({ top: 20000 });
     }
   }, [ref.current, ...deps]);

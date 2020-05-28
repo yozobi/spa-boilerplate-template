@@ -8,7 +8,8 @@ export default function ScrollToTop() {
     if (
       typeof window !== 'undefined' &&
       // scrollTo is not implemented in @testing-library/react
-      process.env.NODE_ENV !== 'test'
+      process.env.NODE_ENV !== 'test' &&
+      'scrollTo' in window
     ) {
       window.scrollTo(0, 0);
     }
