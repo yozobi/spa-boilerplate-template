@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 interface AlertProps {
   variant?: 'light-with-left-border' | 'heavy';
-  color?: 'info' | 'success' | 'warning' | 'danger' | 'primary';
+  color?: 'info' | 'success' | 'warning' | 'danger' | 'primary' | 'gray';
   className?: string;
 }
 
@@ -31,6 +31,11 @@ const classnameMaps: TwoVariantClassnameMap<
     'light-with-left-border':
       'bg-danger-200 text-danger-800 border-danger-600 border-l-4',
     heavy: 'bg-danger-800 text-danger-100',
+  },
+  gray: {
+    'light-with-left-border':
+      'bg-gray-200 text-gray-800 border-gray-600 border-l-4',
+    heavy: 'bg-gray-800 text-gray-100',
   },
   primary: {
     'light-with-left-border':
