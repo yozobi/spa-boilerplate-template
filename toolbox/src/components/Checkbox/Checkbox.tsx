@@ -80,7 +80,7 @@ const labelPositionOptions = {
 
 interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
-  value?: string | boolean;
+  value?: any;
   label?: string;
   color?: string;
   borderColor?: string;
