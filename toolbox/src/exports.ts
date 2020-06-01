@@ -635,3 +635,5 @@ export const ScrollToTop = React.lazy(() =>
 export { useMutationForm } from './hooks/useMutationForm';
 
 export { useLegacyState } from './hooks/useLegacyState';
+
+export { formatCurrency } from './utils/formatCurrency';
