@@ -136,12 +136,6 @@ Runs a script to PR your current changes to the branch you're currently on. Hand
 
 Runs a script to allow you to take notes on which projects you've been working on today. It saves it in a local json file which you can refer to later when submitting your time to Xero.
 
-### draft-pr
-
-`yarn draft-pr "A message describing what the PR does"`
-
-Same as `quick-pr`, but this makes the PR a draft. Handy for when you're starting off a piece of work.
-
 ### bug-report
 
 `yarn bug-report`
