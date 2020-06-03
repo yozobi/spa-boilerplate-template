@@ -54,6 +54,8 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.6.1",
+    "@changesets/get-release-plan": "^1.0.4",
+    "@changesets/read": "^0.4.6",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.0.3",
