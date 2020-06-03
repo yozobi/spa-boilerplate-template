@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.5.7
+
+### Patch Changes
+
+- e6978a91: Improved release script to make the root changelog more readable
+- 0339ea8b: Updated quick-pr to allow for adding drafts, and made the changeset a separate field
+
 ## 1.5.6
 
 ### Patch Changes
