@@ -101,13 +101,18 @@ module.exports = function(webpackEnv) {
   });
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = ({
+    cssOptions,
+    preProcessor,
+    preCssLoaders = [],
+  }) => {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
         options: shouldUseRelativeAssetPaths ? { publicPath: '../../' } : {},
       },
+      ...preCssLoaders,
       {
         loader: require.resolve('css-loader'),
         options: cssOptions,
@@ -188,7 +193,6 @@ module.exports = function(webpackEnv) {
       // require.resolve('webpack/hot/dev-server'),
       isEnvDevelopment &&
         require.resolve('react-dev-utils/webpackHotDevClient'),
-      isEnvProduction && `regenerator-runtime/runtime`,
       // Finally, this is your app's code:
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
@@ -459,8 +463,10 @@ module.exports = function(webpackEnv) {
               test: cssRegex,
               exclude: cssModuleRegex,
               use: getStyleLoaders({
-                importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                cssOptions: {
+                  importLoaders: 1,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -472,13 +478,18 @@ module.exports = function(webpackEnv) {
             // using the extension .module.css
             {
               test: cssModuleRegex,
-              use: getStyleLoaders({
-                importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
-                modules: {
-                  getLocalIdent: getCSSModuleLocalIdent,
-                },
-              }),
+              use: [
+                ...getStyleLoaders({
+                  preCssLoaders: ['css-modules-typescript-loader'],
+                  cssOptions: {
+                    importLoaders: 1,
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                    modules: {
+                      getLocalIdent: getCSSModuleLocalIdent,
+                    },
+                  },
+                }),
+              ],
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
@@ -486,13 +497,13 @@ module.exports = function(webpackEnv) {
             {
               test: sassRegex,
               exclude: sassModuleRegex,
-              use: getStyleLoaders(
-                {
+              use: getStyleLoaders({
+                cssOptions: {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader',
-              ),
+                preProcessor: 'sass-loader',
+              }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
