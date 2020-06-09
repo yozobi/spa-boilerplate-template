@@ -15,6 +15,7 @@ export type SelectBaseProps<O = any> = {
   options: O[];
   valueAccessor: (option: O) => string | number;
   labelAccessor: (option: O) => string | JSX.Element;
+  displayValue?: any;
   label?: string;
   hint?: string;
   disabled?: boolean;
@@ -72,6 +73,7 @@ export function SelectBase<O = any>({
             return 'No options found';
           }}
           value={
+            props.displayValue ||
             options.find((option) => valueAccessor(option as O) === value) ||
             null
           }
