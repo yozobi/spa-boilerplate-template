@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.8
+
+### Patch Changes
+
+- 472006ea: Added CSS Modules type generation to spa-boilerplate, agent-relay and payewg
+- 6f9b5ee3: - Adds a text component with styling
+  - Adds a select component with styling
+
 ## 1.5.7
 
 ### Patch Changes
