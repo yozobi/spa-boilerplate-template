@@ -637,3 +637,5 @@ export { useMutationForm } from './hooks/useMutationForm';
 export { useLegacyState } from './hooks/useLegacyState';
 
 export { formatCurrency } from './utils/formatCurrency';
+
+export { addFileToStorage, getS3Url } from './utils/addToStorage';
