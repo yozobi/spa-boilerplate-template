@@ -23,7 +23,7 @@ const PageButtonContainer = styled.div<{ hideButtons?: boolean }>`
   }
 `;
 
-const BaseButton = styled.a`
+const BaseButton = styled.button`
   padding: 0 4px;
   min-width: 2.6rem;
   height: 2.6rem;
@@ -73,6 +73,7 @@ const Ellipsis = styled.div`
 
 export interface PaginationProps {
   buttonColor?: string;
+  buttonClassName?: string;
   totalPages: number;
   currentPage: number;
   pageDisplayValue: number;
@@ -208,9 +209,11 @@ const PrevButton = () => {
     canGoToThePreviousPage,
     goToPrevPage,
     buttonColor,
+    buttonClassName,
   } = usePaginationContext();
   return (
     <PageNavButton
+      className={buttonClassName}
       disabled={!canGoToThePreviousPage}
       onClick={goToPrevPage}
       buttonColor={buttonColor}
@@ -225,9 +228,11 @@ const NextButton = () => {
     goToNextPage,
     canGoToTheNextPage,
     buttonColor,
+    buttonClassName,
   } = usePaginationContext();
   return (
     <PageNavButton
+      className={buttonClassName}
       disabled={!canGoToTheNextPage}
       onClick={goToNextPage}
       buttonColor={buttonColor}
@@ -240,6 +245,7 @@ const NextButton = () => {
 const PageNumbers = () => {
   const {
     buttonColor,
+    buttonClassName,
     pageDisplayValue,
     goToPage,
     truncatePageButtons,
@@ -251,6 +257,7 @@ const PageNumbers = () => {
   return (
     <PageButtonContainer>
       <PageNumberButton
+        className={buttonClassName}
         onClick={() => goToPage(0)}
         selected={pageDisplayValue === 1}
         buttonColor={buttonColor}
@@ -262,6 +269,7 @@ const PageNumbers = () => {
         const selected = pageNumber === pageDisplayValue;
         return (
           <PageNumberButton
+            className={buttonClassName}
             onClick={() => goToPage(pageNumber - 1)}
             selected={selected}
             buttonColor={buttonColor}
@@ -274,6 +282,7 @@ const PageNumbers = () => {
       {truncatePageButtons && moreToShowRight && <Ellipsis />}
       {totalPageDisplayValue > 1 && (
         <PageNumberButton
+          className={buttonClassName}
           onClick={() => goToPage(totalPageDisplayValue - 1)}
           selected={pageDisplayValue === totalPageDisplayValue}
           buttonColor={buttonColor}

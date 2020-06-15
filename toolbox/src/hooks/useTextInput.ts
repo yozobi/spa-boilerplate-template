@@ -7,6 +7,11 @@ interface UseTextInputParams {
   onThrottledInputChange?: (value: string) => void;
 }
 
+/**
+ * This provides a simple hook for dealing with text inputs. By default,
+ * it throttles the value passed to it to prevent overfetching, and distinguishes
+ * between the throttled value for the API and the live value for the input.
+ */
 export const useTextInput = (
   params: UseTextInputParams = { defaultValue: '', throttleInMs: 200 },
 ) => {
