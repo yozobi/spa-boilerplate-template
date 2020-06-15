@@ -30,7 +30,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "organize-imports-cli",
       "eslint --fix",
       "prettier --write"
     ]
@@ -72,7 +71,6 @@
     "express": "^4.17.1",
     "gray-matter": "^4.0.2",
     "isomorphic-fetch": "^2.2.1",
-    "organize-imports-cli": "^0.7.0",
     "prompts": "^2.3.2"
   }
 }
