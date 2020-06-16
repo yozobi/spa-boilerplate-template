@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.9
+
+### Patch Changes
+
+- 9c036eac: Added generic CanGoToNextPage component
+
 ## 1.5.8
 
 ### Patch Changes
