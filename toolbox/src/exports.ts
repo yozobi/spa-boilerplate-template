@@ -638,6 +638,8 @@ export { useLegacyState } from './hooks/useLegacyState';
 
 export { formatCurrency } from './utils/formatCurrency';
 
+export { extractOnlySomeAttributes } from './utils/extractOnlySomeAttributes';
+
 export { addFileToStorage, getS3Url } from './utils/addToStorage';
 
 export const CanGoToNextPage = React.lazy(() =>
