@@ -75,7 +75,7 @@
     "e2e": "jest --config=jest.e2e.config.js --runInBand",
     "e2e:watch": "PUPPETEER_HEADED=true npm run e2e",
     "lint": "tsc",
-    "test": "jest --config=jest.config.js --passWithNoTests --changedSince=master",
+    "test": "jest --config=jest.config.js --passWithNoTests --changedSince=\"master\"",
     "hasura:up": "docker-compose up -d",
     "hasura:down": "docker-compose down",
     "console": "npm run hasura console",
