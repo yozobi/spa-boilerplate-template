@@ -26,10 +26,15 @@ export const useTextInput = (
       onChange: (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value || '';
         setValue(newValue);
-        throttle(() => {
+        const makeChange = () => {
           setThrottledValue(newValue);
           params?.onThrottledInputChange?.(newValue);
-        });
+        };
+        if (params.throttleInMs) {
+          throttle(makeChange);
+        } else {
+          makeChange();
+        }
       },
     },
     throttledValue,
