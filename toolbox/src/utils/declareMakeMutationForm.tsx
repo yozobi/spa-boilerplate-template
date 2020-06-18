@@ -83,6 +83,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
       onSubmit,
       validate: validateFromLocal,
       className,
+      noFormTag = false,
     }) => {
       const formik = useFormik<MutationVariables>({
         initialValues: (initialValues || {}) as MutationVariables,
@@ -92,6 +93,15 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
         validate: validateFromLocal || validateFromMakeMutationForm,
         enableReinitialize: true,
       });
+
+      if (noFormTag) {
+        return (
+          <FormikProvider value={formik}>
+            <div className={className}>{children}</div>
+          </FormikProvider>
+        );
+      }
+
       return (
         /**
          * We wrap the form in a FormikProvider,
@@ -172,12 +182,14 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
   };
 }
 
-interface MutationFormWrapperProps<V> {
+type MutationFormWrapperProps<V> = {
   className?: string;
   initialValues?: Partial<V>;
   onSubmit: (values: V, helpers: FormikHelpers<V>) => void;
   validate?: (values: V) => { [K in keyof V]?: string } | void;
-}
+  // Don't use a <form /> tag to wrap the form.
+  noFormTag?: boolean;
+};
 
 export type MutationFormConfig<V, T> = {
   [K in keyof V]: {
