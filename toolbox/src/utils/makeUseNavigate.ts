@@ -1,4 +1,5 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useSearchParams } from '../hooks/useSearchParams';
 
 type RoutesType = {
   [name: string]: {
@@ -90,4 +91,29 @@ export const makeUseNavigate = <R extends RoutesType>(
     });
     return toReturn as UseNavigateReturn<R>;
   };
+};
+
+type UseParamsAndSearch<R extends RoutesType, K extends keyof R> = NonNullable<
+  Parameters<RoutesReturn<R>[K]>[0]
+>;
+
+/**
+ * Gives you type-safe access to the params and search of
+ * the route you're currently on
+ */
+export const makeUseParamsAndSearch = <R extends RoutesType>(
+  routeMap: RoutesReturn<R>,
+) => {
+  const useParamsAndSearch = <K extends keyof R>(
+    route: K,
+  ): UseParamsAndSearch<R, K> => {
+    const params: any = useParams<any>();
+    const search: any = useSearchParams<any>();
+    return {
+      params,
+      search,
+    } as any;
+  };
+
+  return useParamsAndSearch;
 };
