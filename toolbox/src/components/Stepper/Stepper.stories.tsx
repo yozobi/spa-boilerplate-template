@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Stepper from './Stepper';
+import Stepper from './DeprecatedStepper';
 import ButtonBase from '../ButtonBase/ButtonBase';
 export default { title: 'Stepper' };
 

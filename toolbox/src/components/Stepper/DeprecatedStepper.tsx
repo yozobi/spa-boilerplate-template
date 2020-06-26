@@ -98,7 +98,7 @@ interface IStepProps {
   value: string | number;
 }
 
-interface IStepperProps {
+interface DeprecatedStepperProps {
   steps: IStepProps[];
   stepsCompleted: (string | number)[];
   borderColor?: string;
@@ -107,7 +107,7 @@ interface IStepperProps {
   labelClassName?: string;
 }
 
-const Stepper = (props: IStepperProps) => {
+const DeprecatedStepper = (props: DeprecatedStepperProps) => {
   const totalSteps = props.steps.length;
   const completedSteps = props.stepsCompleted.length;
   return (
@@ -149,4 +149,4 @@ const Stepper = (props: IStepperProps) => {
   );
 };
 
-export default Stepper;
+export default DeprecatedStepper;
