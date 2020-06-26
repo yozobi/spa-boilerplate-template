@@ -68,6 +68,7 @@
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "lint": "tsc",
+    "test": "jest",
     "playroom:start": "playroom start",
     "play": "npm run playroom:start",
     "playroom:build": "playroom build"
