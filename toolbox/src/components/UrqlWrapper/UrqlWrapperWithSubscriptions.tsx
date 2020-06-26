@@ -22,7 +22,7 @@ export const UrqlWrapperWithSubscriptions: React.FC<UrqlWrapperProps> = ({
         headers,
       },
     });
-  }, [websocketEndpoint]);
+  }, [websocketEndpoint, JSON.stringify(headers)]);
 
   const client = useMemo(
     () =>

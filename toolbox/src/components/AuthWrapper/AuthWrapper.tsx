@@ -6,19 +6,20 @@ interface AuthWrapperProps {
   fallback: React.ReactNode;
 }
 
+export type AuthWrapperContextType = {
+  status: State['type'];
+  user?: CognitoUser;
+  username?: string;
+  idTokenJwt?: string;
+  /**
+   * This triggers the auth wrapper to check for the
+   * user in localStorage.
+   */
+  refreshAuthState: () => void;
+};
+
 const AuthWrapperContext = React.createContext<
-  | {
-      status: State['type'];
-      user?: CognitoUser;
-      username?: string;
-      idTokenJwt?: string;
-      /**
-       * This triggers the auth wrapper to check for the
-       * user in localStorage.
-       */
-      refreshAuthState: () => void;
-    }
-  | undefined
+  AuthWrapperContextType | undefined
 >(undefined);
 
 export const AuthWrapper: React.FC<AuthWrapperProps> = ({
