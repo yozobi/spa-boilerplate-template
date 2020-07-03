@@ -8,7 +8,15 @@ import {
 import React, { useMemo } from 'react';
 
 export function useMutationForm<T>(
-  params: FormikConfig<T> & { showErrorsOnTouched?: boolean },
+  params: FormikConfig<T> & {
+    /**
+     * Normally, we wait until the user has tried to submit
+     * to show the errors. But, if you want, you can show them
+     * immediately after the user blurs the input by passing
+     * this as true
+     */
+    showErrorsOnTouched?: boolean;
+  },
 ) {
   const formProps = useFormik<T>(params);
 
