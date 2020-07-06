@@ -647,3 +647,5 @@ export { addFileToStorage, getS3Url } from './utils/addToStorage';
 export const CanGoToNextPage = React.lazy(() =>
   import('./components/CanGoToNextPage/CanGoToNextPage'),
 );
+
+export { useAsyncLoadScript } from './hooks/useAsyncLoadScript';

@@ -1,0 +1,20 @@
+import { useEffect } from 'react';
+
+interface UseAsyncLoadScriptParams {
+  src: string;
+  onLoad: () => void;
+}
+
+export const useAsyncLoadScript = ({
+  src,
+  onLoad,
+}: UseAsyncLoadScriptParams) => {
+  useEffect(() => {
+    const scriptElement = document.createElement('script');
+    scriptElement.src = src;
+    scriptElement.onload = onLoad;
+
+    // TODO - double check that this works with IE11
+    document.body.appendChild(scriptElement);
+  }, [src]);
+};
