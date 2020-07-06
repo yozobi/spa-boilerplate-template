@@ -12,9 +12,7 @@
     "spa": "yarn workspace spa-boilerplate",
     "toolbox": "yarn workspace toolbox",
     "tb": "yarn workspace toolbox",
-    "codegen": "bash internals/scripts/ci-codegen.sh",
-    "lint": "bash internals/scripts/ci-lint.sh",
-    "test:ci": "bash internals/scripts/ci-test.sh",
+    "ci-check": "node internals/scripts/run-ci-checks.js",
     "generate": "plop --plopfile internals/generators/plopfile.js",
     "version-minor": "npm version minor && git push --tags",
     "version-patch": "npm version patch && git push --tags",
@@ -25,7 +23,6 @@
     "report-bug": "node internals/scripts/quickIssue.js",
     "bug-report": "npm run report-bug",
     "track-time": "node internals/scripts/trackTime.js",
-    "ci-check": "yarn install && npm run codegen && npm run lint && npm run test:ci",
     "postinstall": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts"
   },
   "lint-staged": {
@@ -55,6 +52,7 @@
   "dependencies": {
     "@changesets/cli": "^2.6.1",
     "@changesets/get-release-plan": "^1.0.4",
+    "@changesets/git": "^1.0.5",
     "@changesets/read": "^0.4.6",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
