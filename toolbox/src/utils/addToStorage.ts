@@ -15,7 +15,7 @@ export const addFileToStorage = async (
   const s3Key = `${id}.${extension}`;
   await Storage.put(s3Key, file, {
     contentType: mimeType,
-    // level: "protected"
+    level: 'public',
   });
   return {
     s3Key,
@@ -39,7 +39,7 @@ export const getS3Url = async (
  * Loom for clarity: https://www.loom.com/share/ec976f2821334b32bcac422ae37ccc64
  */
 export const usePublicS3Url = (params: {
-  s3Key: string;
+  s3Key?: string;
   Storage: StorageClass;
   disabled?: boolean;
 }) => {
