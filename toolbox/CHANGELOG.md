@@ -1,5 +1,17 @@
 # toolbox
 
+## 1.5.10
+
+### Patch Changes
+
+- ff5f5d52: - Adds functionality for the handling of a file upload
+  - Adds UI flow to upload a property image when uploading a property
+  - restricts file types to png and jpg
+  - error state for if not a supported file type
+  - ability to edit an image on a property
+  - ability to delete an image from a property
+  - builds a reusable component for rendering images which standardises the styling and provides a fallback for if there is no image
+
 ## 1.5.9
 
 ### Patch Changes
