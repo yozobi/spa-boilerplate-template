@@ -6,6 +6,7 @@ export interface UseModalReturn<CachedState = undefined> {
   onOpen: (state?: CachedState) => void;
   onClose: () => void;
   setState: (state: CachedState) => void;
+  onToggle: () => void;
 }
 
 export const useModal = <CachedState = any>(): UseModalReturn<CachedState> => {
@@ -40,5 +41,12 @@ export const useModal = <CachedState = any>(): UseModalReturn<CachedState> => {
     onOpen,
     onClose,
     setState,
+    onToggle: () => {
+      if (open) {
+        onClose();
+      } else {
+        onOpen();
+      }
+    },
   };
 };
