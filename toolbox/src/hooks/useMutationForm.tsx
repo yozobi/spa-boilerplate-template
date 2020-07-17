@@ -7,6 +7,11 @@ import {
 } from 'formik';
 import React, { useMemo } from 'react';
 
+export type UseMutationFormFieldProps<T = any> = FieldInputProps<T> & {
+  error: string;
+  touched: boolean;
+};
+
 /**
  * Full explanation:
  *
@@ -27,7 +32,7 @@ export function useMutationForm<T>(
 
   const makeInputProps = <K extends keyof T>(
     name: K,
-  ): FieldInputProps<T[K]> & { error: string; touched: boolean } => {
+  ): UseMutationFormFieldProps<T[K]> => {
     const error = formProps.errors[name] as string;
     const touched = Boolean(formProps.touched[name]);
     const shouldShowError = Boolean(
