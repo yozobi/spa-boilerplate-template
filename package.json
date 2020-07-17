@@ -23,7 +23,8 @@
     "report-bug": "node internals/scripts/quickIssue.js",
     "bug-report": "npm run report-bug",
     "track-time": "node internals/scripts/trackTime.js",
-    "postinstall": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts"
+    "postinstall": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
+    "deploy": "node internals/scripts/updateDeploys.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
