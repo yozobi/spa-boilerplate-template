@@ -576,6 +576,8 @@ export { useConfirm } from './hooks/useConfirm';
 
 export { useModal } from './hooks/useModal';
 
+export { useSearchParamsModal } from './hooks/useSearchParamsModal';
+
 export const SelectBase = React.lazy(() =>
   import('./components/SelectBase/SelectBase'),
 );
@@ -603,6 +605,7 @@ export { useAsyncSearchSelect } from './hooks/useAsyncSearchSelect';
 export { validateMutationForm } from './utils/validateMutationForm';
 
 export { useTextInput } from './hooks/useTextInput';
+export { useSearchParamsTextInput } from './hooks/useSearchParamsTextInput';
 export { useSearchParams } from './hooks/useSearchParams';
 export { makeUseNavigate, makeRouteMap } from './utils/makeUseNavigate';
 
@@ -653,3 +656,5 @@ export const CanGoToNextPage = React.lazy(() =>
 );
 
 export { useAsyncLoadScript } from './hooks/useAsyncLoadScript';
+
+export { useSearchParamsState } from './hooks/useSearchParamsState';
