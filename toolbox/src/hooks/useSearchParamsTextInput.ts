@@ -29,7 +29,7 @@ export const useSearchParamsTextInput = (
   const { throttle } = useThrottleUserInput({
     throttleInMs: throttleInMs || 200,
   });
-  const [throttledValue, setThrottledValue] = useState(value);
+  const [throttledValue, setThrottledValue] = useState(value || '');
   return {
     inputProps: {
       value,

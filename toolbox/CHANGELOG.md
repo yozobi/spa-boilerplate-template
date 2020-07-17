@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.12
+
+### Patch Changes
+
+- Fixed a bug useSearchParamsTextInput where by default the throttled value would not be an empty string
+
 ## 1.5.11
 
 ### Patch Changes
