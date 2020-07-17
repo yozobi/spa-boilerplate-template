@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.11
+
+### Patch Changes
+
+- 93a734a1: Improved search state on search pages by storing more state in the search parameters of the URL
+
 ## 1.5.10
 
 ### Patch Changes
