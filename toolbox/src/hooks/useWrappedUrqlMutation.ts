@@ -1,4 +1,5 @@
 import { UseMutationResponse, OperationResult } from 'urql';
+import Bugsnag from '@bugsnag/js';
 
 /**
  * Use this hook to wrap a mutation to add
@@ -28,6 +29,7 @@ export const useWrappedUrqlMutation = <T, V>(
   const dispatch: typeof dispatchMutation = async (...args) => {
     const result = await dispatchMutation(...args);
     if (result.error?.message) {
+      Bugsnag.notify(result.error);
       onError?.(result);
       notifyErrorTracker?.(result.error?.message, result);
     } else {
