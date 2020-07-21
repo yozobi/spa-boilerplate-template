@@ -571,6 +571,19 @@
     "@aws-cdk/cx-api" "1.47.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-s3-notifications@1.47.0":
+  version "1.47.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-notifications/-/aws-s3-notifications-1.47.0.tgz#7eff3532dbf00125b7bd2614d0f2f87499d91b00"
+  integrity sha512-fFsHnJW+AiL9bGQ6+V0cJt2r73Zf7hAnbCy7pdxQewaOmN9ysIQy0w1ShjRAUV+pav5I9lN6gi8c5WONUCNK8g==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.47.0"
+    "@aws-cdk/aws-lambda" "1.47.0"
+    "@aws-cdk/aws-s3" "1.47.0"
+    "@aws-cdk/aws-sns" "1.47.0"
+    "@aws-cdk/aws-sqs" "1.47.0"
+    "@aws-cdk/core" "1.47.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-s3@1.47.0":
   version "1.47.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.47.0.tgz#c5ba77875e90e1d617587d5b55bb23e507bb0a48"
@@ -611,6 +624,30 @@
     "@aws-cdk/aws-ec2" "1.47.0"
     "@aws-cdk/aws-elasticloadbalancingv2" "1.47.0"
     "@aws-cdk/aws-route53" "1.47.0"
+    "@aws-cdk/core" "1.47.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ses-actions@1.47.0":
+  version "1.47.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ses-actions/-/aws-ses-actions-1.47.0.tgz#94c78645b3c26d5f14550d5be9c0b1ca012bc33f"
+  integrity sha512-6yCpRIB+nyqLeCYxlihTe78PVNocQosl+VcPzCXB/uCYYTJGhpTuhhQnvS4uIRonpVLycAkCBjLcjWI9xdZoKg==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.47.0"
+    "@aws-cdk/aws-kms" "1.47.0"
+    "@aws-cdk/aws-lambda" "1.47.0"
+    "@aws-cdk/aws-s3" "1.47.0"
+    "@aws-cdk/aws-ses" "1.47.0"
+    "@aws-cdk/aws-sns" "1.47.0"
+    "@aws-cdk/core" "1.47.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ses@1.47.0":
+  version "1.47.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ses/-/aws-ses-1.47.0.tgz#d1812ca88a34fbc662621f71a4e392e510328870"
+  integrity sha512-E4DWzuqw1oTkNOmrv+ENM5V3mPgi9O1uFFOVNKM7elS5VRZrXaP56EQvAOVkul6Q215pQKxDVo8qu3wjAesGYw==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.47.0"
+    "@aws-cdk/aws-lambda" "1.47.0"
     "@aws-cdk/core" "1.47.0"
     constructs "^3.0.2"
 
