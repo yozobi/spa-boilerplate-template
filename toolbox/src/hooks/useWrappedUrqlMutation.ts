@@ -10,10 +10,14 @@ export const useWrappedUrqlMutation = <T, V>(
   {
     onSuccess,
     onError,
+    notifyErrorTracker,
   }: {
     onSuccess?: (data?: T) => void;
     onError?: (result: OperationResult<T>) => void;
-  } = {},
+    notifyErrorTracker?: (message: string, description?: any) => void;
+  } = {
+    notifyErrorTracker: console.error,
+  },
 ) => {
   /** We take the mutation you pass in */
   const [{ error, data, fetching, stale }, dispatchMutation] = useMutation();
@@ -25,6 +29,7 @@ export const useWrappedUrqlMutation = <T, V>(
     const result = await dispatchMutation(...args);
     if (result.error?.message) {
       onError?.(result);
+      notifyErrorTracker?.(result.error?.message, result);
     } else {
       onSuccess?.(result.data);
     }
