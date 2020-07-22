@@ -6980,10 +6980,23 @@
   resolved "https://registry.yarnpkg.com/@xstate/graph/-/graph-1.0.0.tgz#657168ce35001bb915d419dc2bea9cd89d17b038"
   integrity sha512-QinBh+O7CEqqb//SSeJU++tdKex635Hzx0xCgF+yYtDs0RIx99qscRJXlIr2mjaV1g0c/j9wAgc/ZChd6mzgDA==
 
-"@xstate/react@^0.8.1":
+"@xstate/graph@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@xstate/graph/-/graph-1.1.0.tgz#827d21db610713fd9ac68fd53b8393b98481a8bf"
+  integrity sha512-o9lxrZ45J6h8cSfbXsihtmLkuC3ACXpwWM2NUj8Gp1tOQ/ivQBnSBwWBeoG5UNoGM20tt7F++caU81rXgeSTFw==
+
+"@xstate/react@0.8.1", "@xstate/react@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@xstate/react/-/react-0.8.1.tgz#df200547cca24c909572b7aef1ddab8bca3a0603"
   integrity sha512-8voZm4GX3x70lNQVvoGedoObPYapkQIbgMhE+xOQEsm8Ait4Zto6R01SZ6WJD4qvLl8JPV6uq96OcFRdEsVESg==
+
+"@xstate/test@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@xstate/test/-/test-0.4.0.tgz#27cb677d5bb5539c89ae4c0616487b5b52e842e5"
+  integrity sha512-0Ts8zZ08bgugpOF9/gbqj3U9+Uy5ggUVivollqZcLzHHCMnihYH82QnjoAY/tp9SQZAZefPntbHIX1W/1hOLBQ==
+  dependencies:
+    "@xstate/graph" "^1.1.0"
+    chalk "^2.4.2"
 
 "@xstate/test@^0.3.0":
   version "0.3.0"
@@ -26380,7 +26393,7 @@ xregexp@^4.3.0:
   dependencies:
     "@babel/runtime-corejs3" "^7.8.3"
 
-xstate@^4.11.0:
+xstate@4.11.0, xstate@^4.11.0:
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.11.0.tgz#dc0bd31079fe22918c2c27c118d6310bef3dcd9e"
   integrity sha512-v+S3jF2YrM2tFOit8o7+4N3FuFd9IIGcIKHyfHeeNjMlmNmwuiv/IbY9uw7ECifx7H/A9aGLcxPSr0jdjTGDww==
