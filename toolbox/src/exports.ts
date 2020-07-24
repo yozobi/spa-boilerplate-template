@@ -24,10 +24,6 @@ export const UrqlWrapper = React.lazy(() =>
   import('./components/UrqlWrapper/UrqlWrapper'),
 );
 
-export const UrqlWrapperWithSubscriptions = React.lazy(() =>
-  import('./components/UrqlWrapper/UrqlWrapperWithSubscriptions'),
-);
-
 export const HeroIconAnnouncement = React.lazy(() =>
   import('./components/HeroIcons/HeroIconAnnouncement'),
 );
