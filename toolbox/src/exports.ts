@@ -654,3 +654,5 @@ export const CanGoToNextPage = React.lazy(() =>
 export { useAsyncLoadScript } from './hooks/useAsyncLoadScript';
 
 export { useSearchParamsState } from './hooks/useSearchParamsState';
+
+export { useDataMap, makeMapFromArray } from './hooks/useDataMap';
