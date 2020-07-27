@@ -21144,6 +21144,14 @@ react-csv-reader@^3.0.4:
     "@types/papaparse" "^5.0.3"
     papaparse "^5.1.1"
 
+react-csv-reader@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-csv-reader/-/react-csv-reader-3.1.0.tgz#c7bf8ad9d7571a511317e03749c5733e96ab2e13"
+  integrity sha512-ZIPhKtitu2UlXJKCQJWJvvJ12GXuQLtQjsiTRubBT1sRNPc85rCT8w5LSHDdvvnCVoDcamqq5Cus2bBrsm/ypw==
+  dependencies:
+    "@types/papaparse" "^5.0.3"
+    papaparse "^5.1.1"
+
 react-dates@^21.8.0:
   version "21.8.0"
   resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-21.8.0.tgz#355c3c7a243a7c29568fe00aca96231e171a5e94"

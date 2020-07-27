@@ -125,6 +125,6 @@
     "minimist": "^1.2.0",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.1.4",
-    "xstate": "^4.7.8"
+    "xstate": "^4.11.0"
   }
 }
