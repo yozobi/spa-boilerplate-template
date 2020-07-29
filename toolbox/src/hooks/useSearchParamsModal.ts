@@ -1,6 +1,6 @@
 import { useSearchParamsState } from './useSearchParamsState';
 
-export interface UseSearchParamsModalReturn<CachedState = undefined> {
+export interface UseSearchParamsModalReturn<CachedState> {
   state: CachedState | null | undefined;
   open: boolean;
   onOpen: (state?: CachedState) => void;
@@ -9,7 +9,7 @@ export interface UseSearchParamsModalReturn<CachedState = undefined> {
   onToggle: () => void;
 }
 
-export const useSearchParamsModal = <CachedState = any>(
+export const useSearchParamsModal = <CachedState>(
   modalId: string,
 ): UseSearchParamsModalReturn<CachedState> => {
   const [modalState, setModalState] = useSearchParamsState<
@@ -23,7 +23,18 @@ export const useSearchParamsModal = <CachedState = any>(
   };
 
   const onOpen = (state?: CachedState) => {
-    setModalState(state || true);
+    if (state) {
+      try {
+        // This try/catch helps catch when you accidentally pass in
+        // circular objects, which cannot be stringified into a search param
+        JSON.stringify(state);
+        setModalState(state);
+      } catch (e) {
+        setModalState(true);
+      }
+    } else {
+      setModalState(true);
+    }
   };
 
   const setState = (state: CachedState) => {
