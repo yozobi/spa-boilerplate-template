@@ -656,3 +656,7 @@ export { useAsyncLoadScript } from './hooks/useAsyncLoadScript';
 export { useSearchParamsState } from './hooks/useSearchParamsState';
 
 export { useDataMap, makeMapFromArray } from './hooks/useDataMap';
+
+export const AnimateInHeight = React.lazy(() =>
+  import('./components/AnimateInHeight/AnimateInHeight'),
+);

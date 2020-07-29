@@ -92,6 +92,7 @@ interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
   onSelect?: () => void;
   onDeselect?: () => void;
+  checkboxClassName?: string;
 }
 
 const Checkbox = (props: ICheckBoxProps) => {
@@ -120,6 +121,7 @@ const Checkbox = (props: ICheckBoxProps) => {
           checked={props.checked}
         />
         <StyledCheckbox
+          className={props.checkboxClassName}
           labelPosition={labelPosition}
           checked={props.checked}
           color={props.color || '#000'}
