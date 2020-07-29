@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.13
+
+### Patch Changes
+
+- 68611062: Fix React warning for toolbox/addComponentSeparator that separators did not have unique key props
+
 ## 1.5.12
 
 ### Patch Changes
