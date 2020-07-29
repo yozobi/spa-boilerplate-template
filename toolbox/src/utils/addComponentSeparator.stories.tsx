@@ -32,7 +32,9 @@ const BreadcrumbsExample: React.FC = () => {
             Fund Balance
           </p>,
         ],
-        <HeroIconCheveronRight />,
+        (key: string) => (
+          <HeroIconCheveronRight key={key} />
+        ),
       )}
     </Flex>
   );

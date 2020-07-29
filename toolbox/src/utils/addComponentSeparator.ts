@@ -7,14 +7,14 @@ import { ReactNode } from 'react';
  */
 export const addComponentSeparator = (
   components: ReactNode[],
-  separator: ReactNode,
+  separator: (key: string) => ReactNode,
 ) => {
   return components.reduce(
     (array: ReactNode[], component, index, allComponents) => {
       if (index === allComponents.length - 1) {
         return [...array, component];
       }
-      return [...array, component, separator];
+      return [...array, component, separator(`separator_key_${index}`)];
     },
     [] as ReactNode[],
   );
