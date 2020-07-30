@@ -106,6 +106,7 @@ export const usePagination = ({
     resetPage,
     useWatchAllResultsCount,
     totalPages,
+    hasMoreThanOnePage: totalPages > 1,
     /**
      * Human-readable display of the page number
      * for showing to users
