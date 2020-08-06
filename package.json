@@ -27,7 +27,7 @@
     "deploy": "node internals/scripts/updateDeploys.js"
   },
   "lint-staged": {
-    "*.!(typed.){js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write"
     ]
