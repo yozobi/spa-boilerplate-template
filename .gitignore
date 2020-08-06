@@ -1,3 +1,4 @@
+
 node_modules
 yarn-error.log
 /coverage
@@ -12,3 +13,4 @@ devTools.local.ts
 *.local.*
 
 time-tracked.json
+*.machine.typed.ts

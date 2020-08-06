@@ -140,7 +140,7 @@ const useLogic = ({
       },
       reportShouldCheckUser: (state) => {
         return {
-          type: 'pending',
+          ...state,
           effects: [{ type: 'checkIfUserIsLoggedIn' }],
         };
       },
