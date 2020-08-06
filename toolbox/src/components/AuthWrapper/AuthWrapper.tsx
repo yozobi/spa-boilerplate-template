@@ -7,7 +7,7 @@ interface AuthWrapperProps {
 }
 
 export type AuthWrapperContextType = {
-  status: State['type'];
+  status: Exclude<State['type'], 'pending'>;
   user?: CognitoUser;
   username?: string;
   idTokenJwt?: string;
