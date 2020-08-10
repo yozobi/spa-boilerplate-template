@@ -628,6 +628,19 @@
     "@aws-cdk/cx-api" "1.53.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-s3-deployment@1.53.0":
+  version "1.53.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-deployment/-/aws-s3-deployment-1.53.0.tgz#90a6570e8a11c67275e275169d6b9dc00a89d309"
+  integrity sha512-KoLh5CCFVxLGMQamMh6qaz4oTa85dkODHnryxadKMy2hQZDaLdfVpanD9TKsSnqos1NRNJxzu4Bu6bnvni2ByQ==
+  dependencies:
+    "@aws-cdk/aws-cloudfront" "1.53.0"
+    "@aws-cdk/aws-iam" "1.53.0"
+    "@aws-cdk/aws-lambda" "1.53.0"
+    "@aws-cdk/aws-s3" "1.53.0"
+    "@aws-cdk/aws-s3-assets" "1.53.0"
+    "@aws-cdk/core" "1.53.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-s3-notifications@1.53.0":
   version "1.53.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-notifications/-/aws-s3-notifications-1.53.0.tgz#5fbba3fcea4370c14cf99b16a8479166d8afd93a"

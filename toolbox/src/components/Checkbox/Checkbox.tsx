@@ -83,6 +83,8 @@ interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: any;
   label?: string;
   color?: string;
+  errorClassName?: string;
+  error?: string;
   borderColor?: string;
   checked?: boolean;
   highlightColor?: string;
@@ -111,30 +113,35 @@ const Checkbox = (props: ICheckBoxProps) => {
   };
 
   return (
-    <CheckboxContainer className={className}>
-      <CheckBoxLabel labelPosition={labelPosition}>
-        <HiddenCheckbox
-          {...props}
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          name={props.name}
-          checked={props.checked}
-        />
-        <StyledCheckbox
-          className={props.checkboxClassName}
-          labelPosition={labelPosition}
-          checked={props.checked}
-          color={props.color || '#000'}
-          borderColor={props.borderColor}
-          highlightColor={props.highlightColor}
-        >
-          <Icon viewBox="0 0 24 24">
-            {props.icon || <polyline points="20 6 9 17 4 12" />}
-          </Icon>
-        </StyledCheckbox>
-        <span className={labelClassName}>{props.label}</span>
-      </CheckBoxLabel>
-    </CheckboxContainer>
+    <div className={className}>
+      <CheckboxContainer>
+        <CheckBoxLabel labelPosition={labelPosition}>
+          <HiddenCheckbox
+            {...props}
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            name={props.name}
+            checked={props.checked}
+          />
+          <StyledCheckbox
+            className={`${props.checkboxClassName} flex-shrink-0`}
+            labelPosition={labelPosition}
+            checked={props.checked}
+            color={props.color || '#000'}
+            borderColor={props.borderColor}
+            highlightColor={props.highlightColor}
+          >
+            <Icon viewBox="0 0 24 24">
+              {props.icon || <polyline points="20 6 9 17 4 12" />}
+            </Icon>
+          </StyledCheckbox>
+          <span className={labelClassName}>{props.label}</span>
+        </CheckBoxLabel>
+      </CheckboxContainer>
+      {props.error && (
+        <span className={props.errorClassName}>{props.error}</span>
+      )}
+    </div>
   );
 };
 export default Checkbox;
