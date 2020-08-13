@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.15
+
+### Patch Changes
+
+- 4484596e: Added JWT refreshing in the auth wrapper
+
 ## 1.5.14
 
 ### Patch Changes
