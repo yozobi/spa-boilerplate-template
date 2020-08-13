@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import useFsmReducer, { UseFsmReducerEffects } from '../../hooks/useFsmReducer';
 import Auth, { CognitoUser } from '@aws-amplify/auth';
+import { useInterval } from '../../hooks/useInterval';
 
 interface AuthWrapperProps {
   fallback: React.ReactNode;
 }
+
+const FIVE_MINUTES = 1000 * 10 * 60;
 
 export type AuthWrapperContextType = {
   status: Exclude<State['type'], 'pending'>;
@@ -55,11 +58,36 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
     dispatch({ type: 'reportShouldCheckUser' });
   };
 
+  useInterval(
+    async () => {
+      if (state.type === 'loggedIn') {
+        const session = user?.getSignInUserSession?.()!;
+        user?.refreshSession(session?.getRefreshToken(), (...args) => {
+          refreshAuthState();
+        });
+      }
+    },
+    FIVE_MINUTES,
+    [state.type],
+  );
+
   if (state.type === 'pending') {
     return <>{fallback}</>;
   }
 
   const user = state.type === 'loggedIn' ? state.user : undefined;
+
+  const idTokenJwt = user
+    ?.getSignInUserSession?.()
+    ?.getIdToken?.()
+    ?.getJwtToken?.();
+
+  const expiration = user
+    ?.getSignInUserSession?.()
+    ?.getIdToken?.()
+    ?.getExpiration();
+
+  console.log(expiration);
 
   return (
     <AuthWrapperContext.Provider
@@ -67,10 +95,7 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
         status: state.type,
         user,
         username: user?.getUsername(),
-        idTokenJwt: user
-          ?.getSignInUserSession?.()
-          ?.getIdToken?.()
-          ?.getJwtToken?.(),
+        idTokenJwt,
         refreshAuthState,
       }}
     >
