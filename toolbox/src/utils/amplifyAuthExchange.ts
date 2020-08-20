@@ -12,16 +12,23 @@ const addTokenToOperation = (operation: Operation, token: string) => {
     return operation;
   }
 
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    ...fetchOptions.headers,
+  };
+
+  Object.entries(headers).forEach(([key, value]) => {
+    // @ts-ignore
+    if (!value) delete headers[key];
+  });
+
   return {
     ...operation,
     context: {
       ...operation.context,
       fetchOptions: {
         ...fetchOptions,
-        headers: {
-          ...fetchOptions.headers,
-          Authorization: `Bearer ${token}`,
-        },
+        headers,
       },
     },
   };
