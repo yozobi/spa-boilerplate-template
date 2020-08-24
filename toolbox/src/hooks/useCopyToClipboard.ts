@@ -11,23 +11,24 @@ export const useCopyToClipboard = ({
     if (process.env.NODE_ENV === 'test') {
       onSuccess?.(content);
     } else {
-      navigator.permissions
-        .query({ name: 'clipboard-write' } as any)
-        .then((result: any) => {
-          if (
-            String(result.state) === 'granted' ||
-            String(result.state) === 'prompt'
-          ) {
-            navigator.clipboard.writeText(content).then(
-              function() {
-                onSuccess?.(content);
-              },
-              function() {
-                onError?.(content);
-              },
-            );
-          }
-        });
+      try {
+        const dummyDiv = document.createElement('input');
+
+        dummyDiv.value = content;
+
+        document.body.appendChild(dummyDiv);
+
+        dummyDiv.select();
+        dummyDiv.setSelectionRange(0, 99999);
+
+        document.execCommand('copy');
+        document.body.removeChild(dummyDiv);
+
+        onSuccess?.(content);
+      } catch (e) {
+        console.error(e);
+        onError?.(content);
+      }
     }
   };
   return copyToClipboard;
