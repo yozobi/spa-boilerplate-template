@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LabelDefault = styled.label`
-  color: inherit;
-  font-size: 1.125rem;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.4rem;
-`;
+const LabelDefault = styled.label``;
 
 const LabelHint = styled.label`
   color: ${(props) => props.theme?.colors?.gray[600]};
@@ -38,7 +32,12 @@ const InputLabel = (props: IInputLabelProps) => {
   ) : props.isError ? (
     <LabelError htmlFor={props.htmlFor}>{props.children}</LabelError>
   ) : (
-    <LabelDefault htmlFor={props.htmlFor}>{props.children}</LabelDefault>
+    <label
+      className="uppercase mb-2 text-sm block tracking-wider text-gray-700"
+      htmlFor={props.htmlFor}
+    >
+      {props.children}
+    </label>
   );
 };
 

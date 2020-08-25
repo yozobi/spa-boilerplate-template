@@ -5,6 +5,7 @@ type State = 'idle' | 'loading' | 'complete';
 
 nprogress.configure({
   showSpinner: false,
+  parent: '#nprogressParent',
 });
 
 export const useNprogressOnInitialLoad = (

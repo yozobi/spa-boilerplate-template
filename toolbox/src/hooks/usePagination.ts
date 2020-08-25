@@ -84,6 +84,12 @@ export const usePagination = ({
     }
   }, [page, totalPages]);
 
+  useEffect(() => {
+    if (page !== 0) {
+      setPage(0);
+    }
+  }, [resultsPerPage]);
+
   return {
     /**
      * Useful for feeding directly into the graphql query

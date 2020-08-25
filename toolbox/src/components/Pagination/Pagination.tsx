@@ -242,7 +242,13 @@ const NextButton = () => {
   );
 };
 
-const PageNumbers = () => {
+export type PageNumberButtonType = React.FC<{
+  selected?: boolean;
+  buttonColor?: string;
+  onClick?: () => void;
+}>;
+
+const PageNumbers = (props: { Button?: PageNumberButtonType }) => {
   const {
     buttonColor,
     buttonClassName,
@@ -254,21 +260,22 @@ const PageNumbers = () => {
     totalPageDisplayValue,
     visiblePageRange,
   } = usePaginationContext();
+  const Button = props.Button || PageNumberButton;
   return (
     <PageButtonContainer>
-      <PageNumberButton
+      <Button
         className={buttonClassName}
         onClick={() => goToPage(0)}
         selected={pageDisplayValue === 1}
         buttonColor={buttonColor}
       >
         1
-      </PageNumberButton>
+      </Button>
       {truncatePageButtons && moreToShowLeft && <Ellipsis />}
       {visiblePageRange.map((pageNumber: number) => {
         const selected = pageNumber === pageDisplayValue;
         return (
-          <PageNumberButton
+          <Button
             className={buttonClassName}
             onClick={() => goToPage(pageNumber - 1)}
             selected={selected}
@@ -276,19 +283,19 @@ const PageNumbers = () => {
             key={pageNumber}
           >
             {pageNumber}
-          </PageNumberButton>
+          </Button>
         );
       })}
       {truncatePageButtons && moreToShowRight && <Ellipsis />}
       {totalPageDisplayValue > 1 && (
-        <PageNumberButton
+        <Button
           className={buttonClassName}
           onClick={() => goToPage(totalPageDisplayValue - 1)}
           selected={pageDisplayValue === totalPageDisplayValue}
           buttonColor={buttonColor}
         >
           {totalPageDisplayValue}
-        </PageNumberButton>
+        </Button>
       )}
     </PageButtonContainer>
   );
