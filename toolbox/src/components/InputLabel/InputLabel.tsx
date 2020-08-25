@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LabelDefault = styled.label``;
-
 const LabelHint = styled.label`
   color: ${(props) => props.theme?.colors?.gray[600]};
-  font-size: 1.125rem;
+  font-size: 0.85rem;
   font-weight: 600;
   display: block;
   margin-bottom: 0.4rem;
