@@ -12,6 +12,13 @@ declare namespace NodeJS {
   }
 }
 
+type StringsOf<T> = Record<
+  {
+    [K in keyof T]: T[K] extends string ? K : never;
+  }[keyof T],
+  string
+>;
+
 declare module '*.bmp' {
   const src: string;
   export default src;
