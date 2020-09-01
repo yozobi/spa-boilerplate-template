@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.16
+
+### Patch Changes
+
+- e5ad8de9: - Highlights current item in the stepper and changes the colour to use the new theme colours
+
 ## 1.5.15
 
 ### Patch Changes
