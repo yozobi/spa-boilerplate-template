@@ -124,18 +124,19 @@ const DeprecatedStepper = (props: DeprecatedStepperProps) => {
       <ProgressSteps>
         {props.steps.map((step: IStepProps, i: number) => {
           const isStepComplete = props.stepsCompleted.includes(step.value);
+          const isCurrentStep = props.stepsCompleted.length + 1 === step.value;
           return (
             <StepItem
-              isComplete={isStepComplete}
+              isComplete={isStepComplete || isCurrentStep}
               key={i}
               labelPosition={props.labelPosition}
             >
               <Step
                 colorComplete={props.colorComplete}
-                isComplete={isStepComplete}
+                isComplete={isStepComplete || isCurrentStep}
               />
               <Label
-                isComplete={isStepComplete}
+                isComplete={isStepComplete || isCurrentStep}
                 labelPosition={props.labelPosition}
                 className={props.labelClassName}
               >
