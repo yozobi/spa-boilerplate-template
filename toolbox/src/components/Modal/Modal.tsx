@@ -44,11 +44,11 @@ export const Modal: React.FC<Props> = ({
   return (
     <BackdropWrapper
       isVisible={open}
-      className="h-screen w-screen fixed top-0 left-0 z-30"
+      className="w-screen fixed top-0 left-0 bottom-0 right-0 z-30"
     >
       <Backdrop
         isVisible={open}
-        className="absolute h-screen w-screen top-0 left-0 bg-smoke-600"
+        className="absolute w-screen top-0 left-0 bottom-0 right-0 bg-smoke-600"
         onClick={onClose}
         ref={backdropRef}
         title={screenReaderCloseBackdropLabel || 'Go Back'}
