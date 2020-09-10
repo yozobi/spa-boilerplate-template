@@ -6642,6 +6642,47 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.30.tgz#3501e6f09b954de9c404671cefdbcc5d9d7c45f6"
   integrity sha512-sz9MF/zk6qVr3pAnM0BSQvYIBK44tS75QC5N+VbWSE4DjCV/pJ+UzCW/F+vVnl7TkOPcuwQureKNtSSwjBTaMg==
 
+"@types/nodemailer-direct-transport@*":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer-direct-transport/-/nodemailer-direct-transport-1.0.31.tgz#3ade05e35d69171bebe5cba32ffdab1c01bb99ce"
+  integrity sha512-LDFL7X58v4som2QnodajLgltFpCbF4JAqlg/Iy4SNbrnfBraJVU/ySh7gvd22Wc6V6CSpuG3SjZolJfNf7Z3bA==
+  dependencies:
+    "@types/nodemailer" "^3"
+
+"@types/nodemailer-ses-transport@*", "@types/nodemailer-ses-transport@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer-ses-transport/-/nodemailer-ses-transport-3.1.6.tgz#a5a62fe643c79c8acc8eeb33638c13fbd5a3bc1f"
+  integrity sha512-v17x1RV3HeCzuuolAoSmRshvqw4qfPHvlzdweXpHxKNjikBNNrzDnE/FEW+JLkcrzP6rKdocHBn+yLxHJ/14OA==
+  dependencies:
+    "@types/nodemailer" "^3"
+    aws-sdk "^2.37.0"
+
+"@types/nodemailer-smtp-transport@*":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer-smtp-transport/-/nodemailer-smtp-transport-2.7.4.tgz#163d9d3b4cd6ec8f44da445043c4fab56b0871d1"
+  integrity sha512-AXsNWM1gKm3ieD+Ff7FK4mmpkPnpOGVzLSM67T0l8cQGz0G7mFbcq48FhxfbrOtm92gG00k9Cv81+flXhDBuxg==
+  dependencies:
+    "@types/node" "*"
+    "@types/nodemailer" "^3"
+
+"@types/nodemailer@^3":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-3.1.6.tgz#37544a34ee28c4352902a10cee121169decec69f"
+  integrity sha512-0OoHW6b8//1az36dJdUIv/HEdY2Dk8VBmM38ueAvlmNIBltdXUcEe2nc7Ntjw0As0Y5le98LPoCtZWPB+FcvRg==
+  dependencies:
+    "@types/node" "*"
+    "@types/nodemailer-direct-transport" "*"
+    "@types/nodemailer-ses-transport" "*"
+    "@types/nodemailer-smtp-transport" "*"
+    aws-sdk "^2.37.0"
+
+"@types/nodemailer@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-6.4.0.tgz#d8c039be3ed685c4719a026455555be82c124b74"
+  integrity sha512-KY7bFWB0MahRZvVW4CuW83qcCDny59pJJ0MQ5ifvfcjNwPlIT0vW4uARO4u1gtkYnWdhSvURegecY/tzcukJcA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -8600,6 +8641,21 @@ aws-sdk@2.596.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
+aws-sdk@^2.2.36, aws-sdk@^2.37.0:
+  version "2.749.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.749.0.tgz#76bbdeb8b3332d8492784bf9c37a2e8d6ba97664"
+  integrity sha512-dG7jbOfSrZpdhCniQpe3hXmRNjmlKX7DyZuLDJ5tDl/4+jmXUEjXpM1IhMi0wWXriO/AnHBKlKGsePx8vBMqcw==
+  dependencies:
+    buffer "4.9.2"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
 aws-serverless-express@^3.3.8:
   version "3.3.8"
   resolved "https://registry.yarnpkg.com/aws-serverless-express/-/aws-serverless-express-3.3.8.tgz#8c05e0ce3651fc277725c6d2e1b8f8a36dbe4f4b"
@@ -9697,7 +9753,7 @@ buffer@4.9.1:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-buffer@^4.3.0:
+buffer@4.9.2, buffer@^4.3.0:
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.2.tgz#230ead344002988644841ab0244af8c44bbe3ef8"
   integrity sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==
@@ -19626,6 +19682,13 @@ node-releases@^1.1.52, node-releases@^1.1.58:
   version "1.1.58"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.58.tgz#8ee20eef30fa60e52755fcc0942def5a734fe935"
   integrity sha512-NxBudgVKiRh/2aPWMgPR7bPTX0VPmGx5QBwCtdHitnqFE5/O8DeBXuIMH1nwNnw/aMo6AjOrpsHzfY3UbUJ7yg==
+
+nodemailer-ses-transport@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/nodemailer-ses-transport/-/nodemailer-ses-transport-1.5.1.tgz#dc0598c1bf53e8652e632e8f31692ce022d7dea9"
+  integrity sha1-3AWYwb9T6GUuYy6PMWks4CLX3qk=
+  dependencies:
+    aws-sdk "^2.2.36"
 
 nodemailer@6.4.10:
   version "6.4.10"
