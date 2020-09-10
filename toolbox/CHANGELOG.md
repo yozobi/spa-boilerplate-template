@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.17
+
+### Patch Changes
+
+- dcd7483c: Fix audio/video options modal being cut off on mobile
+
 ## 1.5.16
 
 ### Patch Changes
