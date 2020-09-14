@@ -27874,10 +27874,10 @@ xregexp@^4.3.0:
   dependencies:
     "@babel/runtime-corejs3" "^7.8.3"
 
-xstate-codegen@0.1.0-next.6:
-  version "0.1.0-next.6"
-  resolved "https://registry.yarnpkg.com/xstate-codegen/-/xstate-codegen-0.1.0-next.6.tgz#861a74c318c16ca5f0a8045f2a6e145255d4d62b"
-  integrity sha512-ebrcBGowXMNOHqujw/gbuZ4JhcEWMb2VhMY81s6W8Q9/5LguhkR2ei704JdA2SoezU8VCMIpzFr6TIDnm5oqJg==
+xstate-codegen@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/xstate-codegen/-/xstate-codegen-0.1.3.tgz#28f2a7aafd704f4b8c699013af3857d5e05e0d7b"
+  integrity sha512-xGknn5BuVwyYXrG9AXNUDlYVFWAozYg6n1xqHNvIF/o30jcuIU5j+p2Vk2r8dGGvQbYEv3NXGtoSZXDWbewVDw==
   dependencies:
     "@babel/core" "^7.10.4"
     "@babel/helper-split-export-declaration" "^7.11.0"
@@ -27893,6 +27893,7 @@ xstate-codegen@0.1.0-next.6:
     handlebars "^4.7.6"
     handlebars-helpers "^0.10.0"
     pkg-up "^3.1.0"
+    rimraf "^3.0.2"
     rollup "^2.26.3"
     xstate "^4.12.0"
 
