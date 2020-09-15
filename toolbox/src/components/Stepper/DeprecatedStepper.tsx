@@ -75,7 +75,6 @@ const Label = styled.div<{
   colorComplete?: string;
 }>`
   padding: 5px 10px;
-  border-radius: 5px;
   background: #eee;
   width: 100px;
   text-align: center;
@@ -93,14 +92,9 @@ const Label = styled.div<{
   will-change: transform;
 `;
 
-interface IStepProps {
-  label: string;
-  value: string | number;
-}
-
 interface DeprecatedStepperProps {
-  steps: IStepProps[];
-  stepsCompleted: (string | number)[];
+  steps: string[];
+  currentStep: number;
   borderColor?: string;
   colorComplete?: string;
   labelPosition?: LabelPosition;
@@ -109,7 +103,6 @@ interface DeprecatedStepperProps {
 
 const DeprecatedStepper = (props: DeprecatedStepperProps) => {
   const totalSteps = props.steps.length;
-  const completedSteps = props.stepsCompleted.length;
   return (
     <Progress>
       <Bar
@@ -117,30 +110,29 @@ const DeprecatedStepper = (props: DeprecatedStepperProps) => {
         colorComplete={props.colorComplete}
       >
         <BarProgress
-          width={(completedSteps / (totalSteps - 1)) * 100}
+          width={(props.currentStep / (totalSteps - 1)) * 100}
           colorComplete={props.colorComplete}
         />
       </Bar>
       <ProgressSteps>
-        {props.steps.map((step: IStepProps, i: number) => {
-          const isStepComplete = props.stepsCompleted.includes(step.value);
-          const isCurrentStep = props.stepsCompleted.length + 1 === step.value;
+        {props.steps.map((step, i) => {
+          const isStepComplete = props.currentStep >= i;
           return (
             <StepItem
-              isComplete={isStepComplete || isCurrentStep}
+              isComplete={isStepComplete}
               key={i}
               labelPosition={props.labelPosition}
             >
               <Step
                 colorComplete={props.colorComplete}
-                isComplete={isStepComplete || isCurrentStep}
+                isComplete={isStepComplete}
               />
               <Label
-                isComplete={isStepComplete || isCurrentStep}
+                isComplete={isStepComplete}
                 labelPosition={props.labelPosition}
                 className={props.labelClassName}
               >
-                {step.label}
+                {step}
               </Label>
             </StepItem>
           );
