@@ -29,7 +29,11 @@ export const useCheckForActivity = ({
       }
       setState('active');
     });
-  }, [timeToIdle]);
+
+    return () => {
+      activityDetector.stop();
+    };
+  }, [timeToIdle, state]);
   return {
     state,
   };
