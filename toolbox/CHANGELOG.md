@@ -1,5 +1,12 @@
 # toolbox
 
+## 1.5.18
+
+### Patch Changes
+
+- 40bbded8: - minor mobile fixes - work in progress
+- 7eab4d53: Added roundedCorners option prop to Checkbox component (default=true so as not to affect existing use of this)
+
 ## 1.5.17
 
 ### Patch Changes
