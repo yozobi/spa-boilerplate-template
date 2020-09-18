@@ -20,6 +20,7 @@ export const PaginationStory = () => {
     totalPages,
     pageDisplayValue,
     goToPage,
+    totalEntries,
     goToPrevPage,
     goToNextPage,
     canGoToTheNextPage,
@@ -51,6 +52,7 @@ export const PaginationStory = () => {
         goToNextPage={goToNextPage}
         pageDisplayValue={pageDisplayValue}
         buttonColor={buttonColor}
+        totalEntries={totalEntries}
       >
         {showButtons && <Pagination.PrevButton />}
         {showNumbers && <Pagination.PageNumbers />}

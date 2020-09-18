@@ -82,6 +82,7 @@ export interface PaginationProps {
   goToNextPage: () => void;
   goToPrevPage: () => void;
   goToPage: (pageNumber: number) => void;
+  totalEntries: number;
 }
 
 type PaginationContextType =

@@ -14,9 +14,9 @@ export const usePagination = ({
   initialPage = 0,
 }: UsePaginationParams) => {
   const [page, setPage] = useState(initialPage);
-  const [totalResults, setTotalResults] = useState(0);
+  const [totalEntries, setTotalEntries] = useState(0);
 
-  const totalPages = Math.ceil(totalResults / resultsPerPage) || 1;
+  const totalPages = Math.ceil(totalEntries / resultsPerPage) || 1;
   const totalIndexPages = totalPages - 1;
 
   /**
@@ -41,7 +41,7 @@ export const usePagination = ({
   const useWatchAllResultsCount = (count: number | null | undefined) => {
     useEffect(() => {
       if (typeof count === 'number') {
-        setTotalResults(count || 0);
+        setTotalEntries(count || 0);
       }
     }, [count]);
   };
@@ -118,5 +118,6 @@ export const usePagination = ({
      * for showing to users
      */
     pageDisplayValue: page + 1,
+    totalEntries,
   };
 };
