@@ -42,11 +42,12 @@ const StyledCheckbox = styled.div<{
   borderColor?: string;
   highlightColor?: string;
   labelPosition: labelPositionType;
+  roundedCorners?: boolean;
 }>`
   display: inline-block;
   width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: ${(props) => (props.roundedCorners ? '5px' : '1px')};
   margin: ${(props) =>
     props.labelPosition === 'top'
       ? '8px 0 0 0'
@@ -86,6 +87,7 @@ interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   errorClassName?: string;
   error?: string;
   borderColor?: string;
+  roundedCorners?: boolean;
   checked?: boolean;
   highlightColor?: string;
   labelPosition?: labelPositionType;
@@ -97,7 +99,7 @@ interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   checkboxClassName?: string;
 }
 
-const Checkbox = (props: ICheckBoxProps) => {
+const Checkbox = ({ roundedCorners = true, ...props }: ICheckBoxProps) => {
   const { labelPosition = 'right', labelClassName, className } = props;
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -130,6 +132,7 @@ const Checkbox = (props: ICheckBoxProps) => {
             color={props.color || '#000'}
             borderColor={props.borderColor}
             highlightColor={props.highlightColor}
+            roundedCorners={roundedCorners}
           >
             <Icon viewBox="0 0 24 24">
               {props.icon || <polyline points="20 6 9 17 4 12" />}
