@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 type LabelPosition = 'top' | 'bottom';
 
-const Progress = styled.div`
+const Progress = styled.div<{ className?: string }>`
   width: 100%;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   position: relative;
 `;
@@ -104,41 +104,48 @@ interface DeprecatedStepperProps {
 const DeprecatedStepper = (props: DeprecatedStepperProps) => {
   const totalSteps = props.steps.length;
   return (
-    <Progress>
-      <Bar
-        labelPosition={props.labelPosition}
-        colorComplete={props.colorComplete}
-      >
-        <BarProgress
-          width={(props.currentStep / (totalSteps - 1)) * 100}
+    <>
+      <Progress className="hidden md:flex">
+        <Bar
+          labelPosition={props.labelPosition}
           colorComplete={props.colorComplete}
-        />
-      </Bar>
-      <ProgressSteps>
-        {props.steps.map((step, i) => {
-          const isStepComplete = props.currentStep >= i;
-          return (
-            <StepItem
-              isComplete={isStepComplete}
-              key={i}
-              labelPosition={props.labelPosition}
-            >
-              <Step
-                colorComplete={props.colorComplete}
+        >
+          <BarProgress
+            width={(props.currentStep / (totalSteps - 1)) * 100}
+            colorComplete={props.colorComplete}
+          />
+        </Bar>
+        <ProgressSteps>
+          {props.steps.map((step, i) => {
+            const isStepComplete = props.currentStep >= i;
+            return (
+              <StepItem
                 isComplete={isStepComplete}
-              />
-              <Label
-                isComplete={isStepComplete}
+                key={i}
                 labelPosition={props.labelPosition}
-                className={props.labelClassName}
               >
-                {step}
-              </Label>
-            </StepItem>
-          );
-        })}
-      </ProgressSteps>
-    </Progress>
+                <Step
+                  colorComplete={props.colorComplete}
+                  isComplete={isStepComplete}
+                />
+                <Label
+                  isComplete={isStepComplete}
+                  labelPosition={props.labelPosition}
+                  className={props.labelClassName}
+                >
+                  {step}
+                </Label>
+              </StepItem>
+            );
+          })}
+        </ProgressSteps>
+      </Progress>
+      <div className="w-full flex items-center justify-center md:hidden">
+        <p className="text-primary-500 text-center text-2xl">
+          Step {props.currentStep + 1}/{totalSteps}
+        </p>
+      </div>
+    </>
   );
 };
 
