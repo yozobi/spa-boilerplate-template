@@ -27,7 +27,8 @@
     "postinstall": "npm run fix-types && npm run codegen:machines",
     "codegen:machines": "xstate-codegen \"*/src/**/**.machine.ts\" --once",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
-    "deploy": "node internals/scripts/updateDeploys.js"
+    "deploy": "node internals/scripts/updateDeploys.js",
+    "check-aws-profile": "node internals/scripts/checkAwsProfile.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
