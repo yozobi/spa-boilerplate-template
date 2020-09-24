@@ -20323,6 +20323,11 @@ papaparse@^5.1.1:
   resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.1.1.tgz#1da66a039f80e2db43a1226b0bf44106451e9a2d"
   integrity sha512-KPkW4GNQxunmYTeJIjHFrvilcNuHBWrfgbyvmagEmfGOA4hnP1WIkPbv4yABhj1Nam3as4w+7MBiI27BntwqVg==
 
+papaparse@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.3.0.tgz#ab1702feb96e79ab4309652f36db9536563ad05a"
+  integrity sha512-Lb7jN/4bTpiuGPrYy4tkKoUS8sTki8zacB5ke1p5zolhcSE4TlWgrlsxjrDTbG/dFVh07ck7X36hUf/b5V68pg==
+
 parallel-transform@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.2.0.tgz#9049ca37d6cb2182c3b1d2c720be94d14a5814fc"
@@ -22449,14 +22454,6 @@ react-csv-reader@^3.0.4:
     "@types/papaparse" "^5.0.3"
     papaparse "^5.1.1"
 
-react-csv-reader@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-csv-reader/-/react-csv-reader-3.1.0.tgz#c7bf8ad9d7571a511317e03749c5733e96ab2e13"
-  integrity sha512-ZIPhKtitu2UlXJKCQJWJvvJ12GXuQLtQjsiTRubBT1sRNPc85rCT8w5LSHDdvvnCVoDcamqq5Cus2bBrsm/ypw==
-  dependencies:
-    "@types/papaparse" "^5.0.3"
-    papaparse "^5.1.1"
-
 react-dates@21.8.0:
   version "21.8.0"
   resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-21.8.0.tgz#355c3c7a243a7c29568fe00aca96231e171a5e94"
@@ -22680,6 +22677,15 @@ react-dropzone@^11.0.1:
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-11.0.1.tgz#c8b6a6ed02576e5365af2e2a3f3b31df31feb213"
   integrity sha512-x/6wqRHaR8jsrNiu/boVMIPYuoxb83Vyfv77hO7/3ZRn8Pr+KH5onsCsB8MLBa3zdJl410C5FXPUINbu16XIzw==
+  dependencies:
+    attr-accept "^2.0.0"
+    file-selector "^0.1.12"
+    prop-types "^15.7.2"
+
+react-dropzone@^11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-11.2.0.tgz#4e54fa3479e6b6bb93f67914e4a27f1260807fdb"
+  integrity sha512-S/qaXQHCCg7MVlcrhqd05MLC6DupITLUB0CFn3iCLs6OTjzxdGDF1WTktTe5Jyq8jZdxYfMHNUZOHL0mg+K0Dw==
   dependencies:
     attr-accept "^2.0.0"
     file-selector "^0.1.12"
