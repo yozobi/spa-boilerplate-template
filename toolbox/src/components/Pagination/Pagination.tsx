@@ -32,6 +32,7 @@ const BaseButton = styled.button`
   justify-content: center;
 `;
 
+// @ts-ignore
 const PageNumberButton = styled(BaseButton)<{
   selected?: boolean;
   buttonColor?: string;

@@ -14,6 +14,7 @@ export type AuthWrapperContextType = {
   user?: CognitoUser;
   username?: string;
   idTokenJwt?: string;
+  groups?: string[];
   /**
    * This triggers the auth wrapper to check for the
    * user in localStorage.
@@ -77,17 +78,14 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
 
   const user = state.type === 'loggedIn' ? state.user : undefined;
 
-  const idTokenJwt = user
-    ?.getSignInUserSession?.()
-    ?.getIdToken?.()
-    ?.getJwtToken?.();
+  const idToken = user?.getSignInUserSession?.()?.getIdToken?.();
 
-  const expiration = user
-    ?.getSignInUserSession?.()
-    ?.getIdToken?.()
-    ?.getExpiration();
+  //  const expiration = user
+  //   ?.getSignInUserSession?.()
+  //   ?.getIdToken?.()
+  //   ?.getExpiration();
 
-  console.log(expiration);
+  //  console.log(expiration);
 
   return (
     <AuthWrapperContext.Provider
@@ -95,7 +93,8 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
         status: state.type,
         user,
         username: user?.getUsername(),
-        idTokenJwt,
+        idTokenJwt: idToken?.getJwtToken?.(),
+        groups: idToken?.payload?.['cognito:groups'] || [],
         refreshAuthState,
       }}
     >
