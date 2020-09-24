@@ -545,10 +545,6 @@ export const RadioGroup = React.lazy(() =>
   import('./components/RadioButton/RadioGroup'),
 );
 
-export const DeprecatedStepper = React.lazy(() =>
-  import('./components/Stepper/DeprecatedStepper'),
-);
-
 // @ts-ignore
 export { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';
 
