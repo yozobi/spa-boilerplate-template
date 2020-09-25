@@ -121,3 +121,23 @@ export const usePagination = ({
     totalEntries,
   };
 };
+
+/**
+ * Perfect for when you have data client-side
+ * that you need to be paginated
+ */
+export const useClientSidePagination = <T>(
+  data: T[],
+  params: UsePaginationParams,
+): [T[], ReturnType<typeof usePagination>] => {
+  const paginationProps = usePagination(params);
+
+  paginationProps.useWatchAllResultsCount(data.length);
+
+  const paginatedData = data.slice(
+    paginationProps.offset,
+    paginationProps.limit + paginationProps.offset,
+  );
+
+  return [paginatedData, paginationProps];
+};
