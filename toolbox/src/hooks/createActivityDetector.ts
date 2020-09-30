@@ -7,17 +7,7 @@ const IDLE = 'idle';
 
 const DEFAULT_INITIAL_STATE = ACTIVE;
 
-const DEFAULT_ACTIVITY_EVENTS = [
-  'click',
-  'mousemove',
-  'keydown',
-  'DOMMouseScroll',
-  'mousewheel',
-  'mousedown',
-  'touchstart',
-  'touchmove',
-  'focus',
-] as const;
+const DEFAULT_ACTIVITY_EVENTS = ['focus'] as const;
 
 const DEFAULT_INACTIVITY_EVENTS = ['blur', 'visibilitychange'];
 
