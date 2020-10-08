@@ -23,27 +23,6 @@ From this package: `yarn lint`
 
 Runs typescript type-checking
 
-### playroom:start
-
-From root: `yarn toolbox playroom:start`
-From this package: `yarn playroom:start`
-
-Starts playroom on localhost:9000. This allows you to build prototypes quickly using the components you've defined in the Storybook.
-
-### play
-
-From root: `yarn toolbox play`
-From this package: `yarn play`
-
-An alias for the `yarn playroom:start`
-
-### playroom:build
-
-From root: `yarn toolbox playroom:build`
-From this package: `yarn playroom:build`
-
-Builds a production-ready version of playroom, ready for hosting on Netlify.
-
 ### test
 
 From root: `yarn toolbox test`

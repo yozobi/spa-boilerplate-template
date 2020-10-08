@@ -12,6 +12,8 @@
     "@aws-amplify/storage": "^2.1.5",
     "@nivo/sankey": "^0.61.2",
     "@storybook/addon-actions": "^5.3.13",
+    "@types/classnames": "^2.2.10",
+    "@types/lodash": "^4.14.161",
     "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^4.4.3",
     "@types/uuid": "^3.4.7",
@@ -19,6 +21,8 @@
     "apollo-boost": "^0.4.7",
     "aws-amplify-react": "^3.1.7",
     "classnames": "^2.2.6",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
     "formik": "^2.1.4",
     "framer-motion": "^1.8.4",
     "graphql": "^14.6.0",
@@ -27,9 +31,7 @@
     "react-dom": "^16.13.1",
     "react-toastify": "^5.5.0",
     "subscriptions-transport-ws": "^0.9.16",
-    "uuid": "^3.4.0",
-    "dotenv": "8.2.0",
-    "dotenv-expand": "5.1.0"
+    "uuid": "^3.4.0"
   },
   "peerDependencies": {
     "react-router": "^5.1.2",
@@ -38,7 +40,6 @@
     "urql": "^1.9.7"
   },
   "devDependencies": {
-    "dotenv-cli": "^3.1.0",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
@@ -50,8 +51,8 @@
     "autoprefixer": "^9.7.4",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
+    "dotenv-cli": "^3.1.0",
     "jest": "^25.1.0",
-    "playroom": "^0.15.1",
     "postcss-cli": "^7.1.0",
     "postcss-loader": "^3.0.0",
     "react-docgen-typescript-loader": "^3.6.0",
@@ -71,9 +72,6 @@
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "lint": "tsc",
-    "test": "jest",
-    "playroom:start": "playroom start",
-    "play": "npm run playroom:start",
-    "playroom:build": "playroom build"
+    "test": "jest"
   }
 }
