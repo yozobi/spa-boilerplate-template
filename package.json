@@ -7,6 +7,10 @@
     "spa-boilerplate",
     "toolbox"
   ],
+  "engines": {
+    "node": ">=10 <13",
+    "yarn": ">=1 <2"
+  },
   "scripts": {
     "setup": "bash ./setup.sh",
     "spa": "yarn workspace spa-boilerplate",
