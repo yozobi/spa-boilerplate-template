@@ -91,6 +91,7 @@ export function SelectBase<O = any>({
           isDisabled={disabled}
           getOptionLabel={labelAccessor as Props<O>['getOptionValue']}
           getOptionValue={valueAccessor as Props<O>['getOptionValue']}
+          menuPlacement="auto"
         />
         {children}
       </SelectWrapper>
