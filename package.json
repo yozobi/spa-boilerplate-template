@@ -66,7 +66,7 @@
     "@changesets/read": "^0.4.6",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
-    "babel-eslint": "10.0.3",
+    "babel-eslint": "10.1.0",
     "camelcase-keys": "^6.2.2",
     "dayjs": "^1.8.27",
     "eslint": "6.x",
@@ -79,6 +79,7 @@
     "express": "^4.17.1",
     "gray-matter": "^4.0.2",
     "isomorphic-fetch": "^2.2.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "prompts": "^2.3.2",
     "xstate-codegen": "0.2.0"
   }

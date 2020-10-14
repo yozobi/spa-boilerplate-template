@@ -1,6 +1,17 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const path = require('path');
 
 module.exports = {
+  future: {
+    purgeLayersByDefault: true,
+  },
+  purge: [
+    path.resolve(__dirname, './src/**/**.tsx'),
+    path.resolve(__dirname, './src/**/**.ts'),
+    path.resolve(__dirname, './src/**/**.js'),
+    path.resolve(__dirname, '../toolbox/src/**/**.ts'),
+    path.resolve(__dirname, '../toolbox/src/**/**.tsx'),
+  ],
   theme: {
     extend: {
       colors: {
