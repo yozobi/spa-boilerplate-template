@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput } from '../components/TextInput/TextInput';
 import Flex from '../components/Flex/Flex';
+import ButtonBase from '../components/ButtonBase/ButtonBase';
 import { declareMakeMutationForm } from './declareMakeMutationForm';
 
 export default { title: 'Form Setup' };
@@ -46,7 +47,7 @@ export const Default = () => (
       <Flex flexDirection="column" my={6}>
         <LoginForm.Inputs.email />
         <LoginForm.Inputs.password />
-        <button>Submit</button>
+        <ButtonBase>Submit</ButtonBase>
       </Flex>
     </LoginForm.Wrapper>
   </div>
@@ -96,7 +97,7 @@ export const WithValidation = () => (
       <Flex flexDirection="column" my={6}>
         <LoginFormWithValidation.Inputs.email />
         <LoginFormWithValidation.Inputs.password />
-        <button>Submit</button>
+        <ButtonBase>Submit</ButtonBase>
       </Flex>
     </LoginFormWithValidation.Wrapper>
   </div>

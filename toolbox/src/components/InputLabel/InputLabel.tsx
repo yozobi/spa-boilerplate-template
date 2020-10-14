@@ -17,7 +17,7 @@ const LabelError = styled.label`
   margin-bottom: 0.4rem;
 `;
 
-export interface IInputLabelProps {
+interface IInputLabelProps {
   isHint?: boolean;
   isError?: boolean;
   children: any;

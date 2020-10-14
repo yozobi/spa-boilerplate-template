@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getS3Url } from 'toolbox';
 import Storage from '@aws-amplify/storage';
-import { getS3Url } from '../utils/addToStorage';
 
 export const useS3KeyToUrl = (s3key: string) => {
   const [isLoading, setIsLoading] = useState(false);

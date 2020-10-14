@@ -2,7 +2,7 @@ import React from 'react';
 import { Prompt } from 'react-router-dom';
 import { useFormikContext } from 'formik';
 
-export interface PreventLeavingFormIfTouchedProps {
+interface PreventLeavingFormIfTouchedProps {
   message?: string;
 }
 

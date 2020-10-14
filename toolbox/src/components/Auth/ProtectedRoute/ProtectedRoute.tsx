@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, RouteProps, useHistory } from 'react-router-dom';
 import Auth from '@aws-amplify/auth';
 
-export interface ProtectedRouteProps extends RouteProps {
+interface ProtectedRouteProps extends RouteProps {
   redirectPath?: string; // redirect to this route used if checkAuthState fails
   shouldIgnoreFailedAuth?: boolean;
 }

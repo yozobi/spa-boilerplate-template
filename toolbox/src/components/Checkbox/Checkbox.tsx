@@ -79,7 +79,7 @@ const labelPositionOptions = {
   right: 'row',
 };
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   value?: any;
   label?: string;
@@ -99,7 +99,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   checkboxClassName?: string;
 }
 
-const Checkbox = ({ roundedCorners = true, ...props }: CheckboxProps) => {
+const Checkbox = ({ roundedCorners = true, ...props }: ICheckBoxProps) => {
   const { labelPosition = 'right', labelClassName, className } = props;
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {

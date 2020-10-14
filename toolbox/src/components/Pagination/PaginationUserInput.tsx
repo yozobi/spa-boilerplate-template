@@ -20,7 +20,7 @@ const InputContainer = styled.div<{ hideInput?: boolean }>`
   display: ${(props) => (props.hideInput ? 'none' : 'inline-block')};
 `;
 
-export interface PaginationUserInput {
+interface IPaginationUserInputProps {
   goToPage: (pageNumber: number) => void;
   setPageNumberValue: (value: number | null) => void;
   pageNumberValue: number | null;
@@ -28,7 +28,7 @@ export interface PaginationUserInput {
   hideTextInput?: boolean;
 }
 
-const PaginationUserInput = (props: PaginationUserInput) => {
+const PaginationUserInput = (props: IPaginationUserInputProps) => {
   const goToPage = () => {
     props.goToPage((props.pageNumberValue || 0) - 1);
   };

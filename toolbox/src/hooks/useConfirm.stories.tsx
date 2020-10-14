@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ButtonBase from '../components/ButtonBase/ButtonBase';
 import { useConfirm } from './useConfirm';
 import Modal from '../components/Modal/Modal';
 
@@ -23,13 +24,13 @@ const DefaultUseConfirmStory = () => {
   const deleteUser = () => confirm(() => setHasDeletedUser(true));
   return (
     <div className="p-6">
-      <button onClick={deleteUser}>Delete User</button>
+      <ButtonBase onClick={deleteUser}>Delete User</ButtonBase>
       <Modal onClose={onReject} open={isConfirming}>
         <div className="p-6 grid grid-cols-1 gap-4 bg-white">
           <p>Are you sure you want to delete this user?</p>
           <div className="grid grid-cols-2 gap-4">
-            <button onClick={onReject}>Cancel</button>
-            <button onClick={onConfirm}>Confirm</button>
+            <ButtonBase onClick={onReject}>Cancel</ButtonBase>
+            <ButtonBase onClick={onConfirm}>Confirm</ButtonBase>
           </div>
         </div>
       </Modal>

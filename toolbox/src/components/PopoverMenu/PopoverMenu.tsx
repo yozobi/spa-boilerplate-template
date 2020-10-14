@@ -66,7 +66,7 @@ const IconContainer = styled.div`
   margin-right: 1rem;
 `;
 
-export interface PopoverMenuProps {
+interface PopoverMenuProps {
   menuTitle?: string | React.ReactNode;
   className?: string;
   options: { name: string; icon?: React.ReactNode; onClick: () => void }[];

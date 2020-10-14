@@ -2,7 +2,7 @@ import React from 'react';
 import { TwoVariantClassnameMap } from '../../types/ClassnameMap';
 import classNames from 'classnames';
 
-export interface AlertProps {
+interface AlertProps {
   variant?: 'light-with-left-border' | 'heavy';
   color?: 'info' | 'success' | 'warning' | 'danger' | 'primary' | 'gray';
   className?: string;

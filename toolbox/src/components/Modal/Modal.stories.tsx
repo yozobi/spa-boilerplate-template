@@ -3,6 +3,7 @@ import { Modal } from './Modal';
 import Flex from '../Flex/Flex';
 import HeroIconX from '../HeroIcons/HeroIconX';
 import HeroIconExclamation from '../HeroIcons/HeroIconExclamation';
+import ButtonBase from '../ButtonBase/ButtonBase';
 
 export default { title: 'Modal' };
 
@@ -29,7 +30,7 @@ export const Normal = () => {
         <div>
           <div className="p-2">
             <div className="flex justify-start">
-              <HeroIconExclamation className="text-danger-600 w-8 h-8 mr-4" />
+              <HeroIconExclamation className="text-danger-600 w-8 h-8 mr-4"></HeroIconExclamation>
               <div>
                 <h1 className="font-semibold text-lg tracking-tight text-gray-800 mb-1">
                   Are you sure you want to do this?
@@ -41,16 +42,17 @@ export const Normal = () => {
             </div>
           </div>
           <Flex justifyContent="flex-end" className="mt-3" mx={2}>
-            <button className="rounded " color="gray">
+            <ButtonBase className="rounded " size="small" color="gray">
               Cancel
-            </button>
-            <button
+            </ButtonBase>
+            <ButtonBase
+              size="small"
               color="danger"
               // background="heavy-fill"
               className="rounded font-semibold tracking-snug"
             >
               Delete
-            </button>
+            </ButtonBase>
           </Flex>
         </div>
       </Modal>

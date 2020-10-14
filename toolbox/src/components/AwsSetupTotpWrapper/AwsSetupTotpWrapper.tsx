@@ -145,7 +145,7 @@ const useLogic = (effects: UseFsmReducerEffects<Action, Effect>) =>
     effects,
   });
 
-export interface AwsSetupTotpWrapperProps {
+interface AwsSetupTotpWrapperProps {
   onEnableSuccess?: () => void;
   onDisableSuccess?: () => void;
   render: React.FC<AwsSetupTotpComponentProps>;
