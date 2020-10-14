@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-interface AppearProps {
+export interface AppearProps {
   visible: boolean;
 }
 

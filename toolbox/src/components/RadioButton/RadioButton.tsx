@@ -74,7 +74,7 @@ const labelPositionOptions = {
   right: 'row',
 };
 
-interface IRadioButtonProps {
+export interface IRadioButtonProps {
   group: string;
   value: string;
   label?: string;

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { useRef } from 'react';
 import HeroIconX from '../HeroIcons/HeroIconX';
 
-interface Props {
+export interface ModalProps {
   open: boolean;
   onClose: () => void;
   className?: string;
@@ -14,7 +14,7 @@ interface Props {
   screenReaderCloseBackdropLabel?: string;
 }
 
-export const Modal: React.FC<Props> = ({
+export const Modal: React.FC<ModalProps> = ({
   open,
   onClose,
   children,

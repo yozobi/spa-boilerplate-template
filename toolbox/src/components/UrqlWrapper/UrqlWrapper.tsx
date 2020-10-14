@@ -7,7 +7,7 @@ import {
   fetchExchange,
 } from 'urql';
 
-interface UrqlWrapperProps {
+export interface UrqlWrapperProps {
   endpoint: string;
   headers?: {};
 }

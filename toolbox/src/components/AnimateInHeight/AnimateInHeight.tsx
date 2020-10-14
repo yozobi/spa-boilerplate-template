@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface AnimateInHeightProps {
+export interface AnimateInHeightProps {
   /**
    * If you'd like to have it animate from opacity: 0
    * to opacity: 1

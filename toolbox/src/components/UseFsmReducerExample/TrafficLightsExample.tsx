@@ -1,6 +1,5 @@
 import useFsmReducer from '../../hooks/useFsmReducer';
 import React from 'react';
-import ButtonBase from '../ButtonBase/ButtonBase';
 
 export const TrafficLightsExample = () => {
   const [state, dispatch] = useLogic();
@@ -24,7 +23,7 @@ export const TrafficLightsExample = () => {
         <div className="bg-green-500 w-32 h-32 rounded-full" />
       )}
       <div>
-        <ButtonBase onClick={() => dispatch({ type: 'next' })}>Next</ButtonBase>
+        <button onClick={() => dispatch({ type: 'next' })}>Next</button>
       </div>
       <div>
         <pre>{JSON.stringify({ state }, null, 2)}</pre>

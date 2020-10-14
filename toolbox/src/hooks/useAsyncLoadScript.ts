@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-interface UseAsyncLoadScriptParams {
+export interface UseAsyncLoadScriptParams {
   src: string;
   onLoad: () => void;
 }

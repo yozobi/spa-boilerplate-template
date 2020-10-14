@@ -1,6 +1,5 @@
 import useFsmReducer from '../../hooks/useFsmReducer';
 import React from 'react';
-import ButtonBase from '../ButtonBase/ButtonBase';
 
 export const DataFetchingExample = () => {
   const [state, dispatch] = useLogic();
@@ -21,7 +20,7 @@ export const DataFetchingExample = () => {
         </p>
       </div>
       <div>
-        <ButtonBase
+        <button
           onClick={() =>
             dispatch({
               type: 'dispatchFetch',
@@ -30,8 +29,8 @@ export const DataFetchingExample = () => {
           }
         >
           Go
-        </ButtonBase>
-        <ButtonBase
+        </button>
+        <button
           className="ml-4"
           color="danger"
           onClick={() =>
@@ -41,7 +40,7 @@ export const DataFetchingExample = () => {
           }
         >
           Cancel
-        </ButtonBase>
+        </button>
       </div>
       <div>
         <pre>{JSON.stringify({ state }, null, 2)}</pre>

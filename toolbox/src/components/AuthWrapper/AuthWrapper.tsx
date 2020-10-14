@@ -3,7 +3,7 @@ import useFsmReducer, { UseFsmReducerEffects } from '../../hooks/useFsmReducer';
 import Auth, { CognitoUser } from '@aws-amplify/auth';
 import { useInterval } from '../../hooks/useInterval';
 
-interface AuthWrapperProps {
+export interface AuthWrapperProps {
   fallback: React.ReactNode;
 }
 

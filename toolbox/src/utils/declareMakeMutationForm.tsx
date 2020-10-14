@@ -8,15 +8,15 @@ import {
 } from 'formik';
 import React from 'react';
 
-interface DeclareMakeMutationFormParams<T extends {}> {
+export interface DeclareMakeMutationFormParams<T extends {}> {
   inputs: T;
 }
 
-type InputsBase<InputMap extends {}> = {
+export type InputsBase<InputMap extends {}> = {
   [K in keyof InputMap]: React.FC<InputMap[K]>;
 };
 
-type InputsType<MutationVariables, Inputs extends InputsBase<any>> = {
+export type InputsType<MutationVariables, Inputs extends InputsBase<any>> = {
   [K in keyof Required<MutationVariables>]: React.FC<
     Parameters<
       Inputs[MutationFormConfig<Required<MutationVariables>, Inputs>[K]['type']]
@@ -27,6 +27,12 @@ type InputsType<MutationVariables, Inputs extends InputsBase<any>> = {
 export type ValidationFunction<V> = (
   values: V,
 ) => { [K in keyof V]?: string } | undefined;
+
+export interface MakeMutationFormParams<V extends {}, T extends {}> {
+  config: MutationFormConfig<V, T>;
+  validate?: ValidationFunction<V>;
+  showErrorsOnTouched?: boolean;
+}
 
 /**
  * declareMakeMutationForm creates a function which you can
@@ -44,11 +50,6 @@ export type ValidationFunction<V> = (
 export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
   inputs,
 }: DeclareMakeMutationFormParams<Inputs>) {
-  interface MakeMutationFormParams<V extends {}, T extends {}> {
-    config: MutationFormConfig<V, T>;
-    validate?: ValidationFunction<V>;
-    showErrorsOnTouched?: boolean;
-  }
   /**
    * You can pass in a generic to makeMutationForm
    * to strongly type your form. For instance:
@@ -162,7 +163,7 @@ export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
       };
     }, {} as any);
 
-    const Consumer = function({
+    const Consumer = function ({
       children,
     }: {
       children: React.FC<FormikContextType<MutationVariables>>;

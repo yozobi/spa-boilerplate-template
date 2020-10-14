@@ -2,7 +2,7 @@
   "name": "toolbox",
   "version": "1.5.18",
   "private": true,
-  "main": "src/exports.ts",
+  "main": "dist/exports.js",
   "license": "MIT",
   "dependencies": {
     "@aws-amplify/api": "^2.1.5",
@@ -38,8 +38,8 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@storybook/addon-actions": "^5.3.13",
     "@storybook/addon-a11y": "^5.3.13",
+    "@storybook/addon-actions": "^5.3.13",
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-storyshots": "^5.3.13",
     "@storybook/react": "^5.3.13",
@@ -64,8 +64,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "tsc",
     "lint": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "dev": "tsc --watch"
   }
 }
