@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 
-type Rates = {
+export type FetchConversionCurrencies = {
   AUD: number;
   BGN: number;
   BRL: number;
@@ -38,10 +38,10 @@ type Rates = {
 
 interface Conversions {
   // The base currency, by default GBP
-  base: keyof Rates;
+  base: keyof FetchConversionCurrencies;
   // yyyy-mm-dd format
   date: string;
-  rates: Rates;
+  rates: FetchConversionCurrencies;
 }
 
 export const fetchConversionRates = async (): Promise<Conversions> => {
@@ -50,6 +50,12 @@ export const fetchConversionRates = async (): Promise<Conversions> => {
   ).json();
   return result;
 };
+
+export type ConvertFunction = (params: {
+  base: keyof FetchConversionCurrencies;
+  target: keyof FetchConversionCurrencies;
+  amount: number;
+}) => number | null;
 
 export const useFetchConversionRates = () => {
   const [data, setData] = useState<Conversions | null>(null);
@@ -74,15 +80,7 @@ export const useFetchConversionRates = () => {
     state = 'success';
   }
 
-  const convert = ({
-    base,
-    amount,
-    target,
-  }: {
-    base: keyof Rates;
-    target: keyof Rates;
-    amount: number;
-  }): number | null => {
+  const convert: ConvertFunction = ({ base, amount, target }) => {
     if (state !== 'success' || !data) {
       console.error(
         'You cannot convert if useFetchConversionRates has errored or is still loading.',
