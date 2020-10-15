@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.19
+
+### Patch Changes
+
+- d0eb4bb2: - Fix fund new currency modal on mobile so that the dropdown menu doesn't disappear off the page
+
 ## 1.5.18
 
 ### Patch Changes
