@@ -37,6 +37,10 @@ export const useTextInput = (
         }
       },
     },
+    setValue: (value: string) => {
+      setValue(value);
+      setThrottledValue(value);
+    },
     throttledValue,
   };
 };
