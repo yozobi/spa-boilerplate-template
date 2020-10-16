@@ -69,7 +69,6 @@
     "babel-eslint": "10.1.0",
     "camelcase-keys": "^6.2.2",
     "dayjs": "^1.8.27",
-    "dotenv": "^8.2.0",
     "eslint": "6.x",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-flowtype": "4.x",
