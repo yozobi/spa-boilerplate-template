@@ -9,9 +9,9 @@ interface UseSortedTableParams<OrderByVariable extends object[]> {
    * Each column maps to a Header or id attribute in a react-table column.
    * Pass each column a function, which will return either asc or desc
    * depending on which orderBy is selected.
-   * 
+   *
    * For example, in JCAP:
-   * 
+   *
    *  Organisation: (o) => ({
         currencyBook: {
           businessUnit: {
@@ -21,7 +21,7 @@ interface UseSortedTableParams<OrderByVariable extends object[]> {
           },
         },
       }),
-   * 
+   *
    * This takes the Organisation column id and returns an ordering object
    * which you can pump straight into hasura. The 'o' is either
    * 'asc' or 'desc', but we mark it as any for type convenience.
@@ -77,5 +77,45 @@ export const useSortedTable = <OrderByVariable extends object[]>({
         setSortingState({ columnId, order: defaultAscOrDesc });
       }
     },
+  };
+};
+
+export const useClientSideSortedTable = <DataObject>(
+  data: DataObject[],
+  params: {
+    defaultOrderBy: string;
+    sort: (a: DataObject, b: DataObject, sortingState: SortState) => number;
+    defaultAscOrDesc?: AscOrDesc;
+  },
+) => {
+  const { defaultAscOrDesc = 'desc', defaultOrderBy, sort } = params;
+
+  const initialState = {
+    columnId: defaultOrderBy,
+    order: defaultAscOrDesc,
+  };
+  const [sortingState, setSortingState] = useState<SortState>(initialState);
+
+  const sortedData = data.sort((a, b) => sort(a, b, sortingState));
+
+  return {
+    onColumnClick: (columnId?: string) => {
+      if (!columnId) {
+        return setSortingState(initialState);
+      }
+
+      const isOnlyTogglingAscOrDesc = columnId === sortingState.columnId;
+
+      if (isOnlyTogglingAscOrDesc) {
+        return setSortingState({
+          ...sortingState,
+          order: sortingState.order === 'asc' ? 'desc' : 'asc',
+        });
+      }
+
+      setSortingState({ columnId, order: defaultAscOrDesc });
+    },
+    sortingState,
+    sortedData,
   };
 };
