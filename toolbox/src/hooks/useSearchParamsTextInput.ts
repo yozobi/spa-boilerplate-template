@@ -50,3 +50,47 @@ export const useSearchParamsTextInput = (
     throttledValue,
   };
 };
+
+interface UseSearchParamsSelectInputProps {
+  defaultValue?: string;
+  throttleInMs?: number;
+  onThrottledInputChange?: (value: string) => void;
+}
+
+export const useSearchParamsSelectInput = (
+  id: string,
+  {
+    throttleInMs,
+    onThrottledInputChange,
+    defaultValue,
+  }: UseSearchParamsSelectInputProps = {
+    throttleInMs: 200,
+  },
+) => {
+  const [value, setValue] = useSearchParamsState(id, {
+    initialValue: defaultValue,
+  });
+  const { throttle } = useThrottleUserInput({
+    throttleInMs: throttleInMs || 200,
+  });
+  const [throttledValue, setThrottledValue] = useState(value || '');
+  return {
+    inputProps: {
+      inputValue: value,
+      onInputChange: (newInputValue: string) => {
+        const newValue = newInputValue || '';
+        setValue(newValue);
+        const makeChange = () => {
+          setThrottledValue(newValue);
+          onThrottledInputChange?.(newValue);
+        };
+        if (throttleInMs) {
+          throttle(makeChange);
+        } else {
+          makeChange();
+        }
+      },
+    },
+    throttledValue,
+  };
+};

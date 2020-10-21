@@ -589,7 +589,10 @@ export { useAsyncSearchSelect } from './hooks/useAsyncSearchSelect';
 export { validateMutationForm } from './utils/validateMutationForm';
 
 export { useTextInput } from './hooks/useTextInput';
-export { useSearchParamsTextInput } from './hooks/useSearchParamsTextInput';
+export {
+  useSearchParamsTextInput,
+  useSearchParamsSelectInput,
+} from './hooks/useSearchParamsTextInput';
 export { useSearchParams } from './hooks/useSearchParams';
 export { makeUseNavigate, makeRouteMap } from './utils/makeUseNavigate';
 
