@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 
 /**
+ * @deprecated - @mattpocock was being too clever here
+ *
  * This makes working with arrays of data significantly easier. Given that
  * the data has an 'id' attribute, it provides you with methods to simply
  * get, set, and delete data without writing complicated array logic.

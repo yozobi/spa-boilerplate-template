@@ -5,6 +5,10 @@ interface ConfirmParams {
   onReject?: () => void;
 }
 
+/**
+ * Use this hook to pause execution of a function
+ * until the user has confirmed they want it to happen
+ */
 export const useConfirm = () => {
   const funcRef = useRef<(() => void) | null>();
   const onConfirmRef = useRef<(() => void) | null>();

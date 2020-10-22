@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export const spacing = {
   px: '1px',
   0: '0',

@@ -13,6 +13,8 @@ type Status =
  * Using data statuses with Urql allows us to be sure that we're covering
  * every possible outcome of our data fetch. We need to cover pending,
  * success, and three types of failures.
+ *
+ * @deprecated - probably too complex and needs buy-in from everyone
  */
 export const useDataStatuses = <T>(
   result: UseQueryState<T>,

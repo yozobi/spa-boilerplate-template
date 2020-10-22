@@ -1,5 +1,8 @@
 import { useEffect, MutableRefObject } from 'react';
 
+/**
+ * Detect clicks outside an element
+ */
 export const useOnClickOutside = ({
   ref,
   handler,

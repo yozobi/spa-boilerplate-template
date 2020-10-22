@@ -17,6 +17,9 @@ type Config<V> = {
   [K in keyof V]?: Validation[];
 };
 
+/**
+ * Returns a function you can use to validate useMutationForm
+ */
 export const validateMutationForm = <V extends {}>({
   config,
   values,

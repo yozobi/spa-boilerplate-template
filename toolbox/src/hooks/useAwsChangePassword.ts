@@ -78,6 +78,10 @@ interface UseAwsChangePasswordParams {
   onSuccess?: () => void;
 }
 
+/**
+ * The current logged-in user can use this hook
+ * to change their password
+ */
 export const useAwsChangePassword = ({
   onSuccess = () => {},
 }: UseAwsChangePasswordParams) => {

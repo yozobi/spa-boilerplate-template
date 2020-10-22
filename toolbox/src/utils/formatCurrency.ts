@@ -1,3 +1,8 @@
+/**
+ * Formats a currency using Intl.NumberFormat
+ *
+ * @deprecated - appears buggy on less well-known currencies
+ */
 export const formatCurrency = (
   value: number | string | undefined = '0.00',
   currency?: string,

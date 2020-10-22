@@ -57,6 +57,10 @@ export type ConvertFunction = (params: {
   amount: number;
 }) => number | null;
 
+/**
+ * Returns a function you can use to calculate the
+ * exchange rates between currencies
+ */
 export const useFetchConversionRates = () => {
   const [data, setData] = useState<Conversions | null>(null);
   const [error, setError] = useState<string>();

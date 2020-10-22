@@ -3,6 +3,10 @@ interface UseCopyToClipboardParams {
   onError?: (name: string) => void;
 }
 
+/**
+ * Use this hook to return a function which copies a string
+ * to the user's clipboard
+ */
 export const useCopyToClipboard = ({
   onError,
   onSuccess,

@@ -9,6 +9,8 @@ type Status =
 /**
  * This query provides a helpful interface for list pages,
  * to ensure that we're covering all the states our data can be in.
+ *
+ * @deprecated - too complex
  */
 export const useWrappedUrqlQuery = <T, V, D>(
   useQuery: (args: Omit<UseQueryArgs<V>, 'query'>) => UseQueryResponse<T>,

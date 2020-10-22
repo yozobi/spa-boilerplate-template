@@ -33,7 +33,10 @@ export interface UseAsyncSearchSelectParams<V, Q, O> {
   allowEmptySearches?: boolean;
   valueAccessor: (option: any) => any;
 }
+
 /**
+ * Packages up logic for an async select box
+ *
  * Works well with the SelectBase component - allows
  * you to easily add async logic to it.
  */

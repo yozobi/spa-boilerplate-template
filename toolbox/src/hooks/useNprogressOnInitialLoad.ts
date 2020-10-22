@@ -8,6 +8,12 @@ nprogress.configure({
   parent: '#nprogressParent',
 });
 
+/**
+ * Uses the nprogress library to show a loading indicator
+ * when something is loading
+ *
+ * @deprecated, use XState instead
+ */
 export const useNprogressOnInitialLoad = (
   { state = 'idle' }: { state: State },
   deps: any[],

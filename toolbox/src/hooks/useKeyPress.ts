@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Listens for keypresses on te window
+ */
 const useKeyPress = (targetKey: string) => {
   // State for keeping track of whether key is pressed
   const [keyPressed, setKeyPressed] = useState(false);

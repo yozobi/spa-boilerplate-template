@@ -13,6 +13,9 @@ export type UseMutationFormFieldProps<T = any> = FieldInputProps<T> & {
 };
 
 /**
+ * Provides a simple wrapper on top of Formik to make working
+ * with forms simple
+ *
  * Full explanation:
  *
  * https://www.loom.com/share/9620a036f74c4d65805fb23163791f85

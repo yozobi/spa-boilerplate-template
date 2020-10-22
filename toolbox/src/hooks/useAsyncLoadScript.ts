@@ -5,6 +5,10 @@ interface UseAsyncLoadScriptParams {
   onLoad: () => void;
 }
 
+/**
+ * Used to asynchronously load an external script file
+ * via a CDN. Useful for loading in Paddle, Matterport etc.
+ */
 export const useAsyncLoadScript = ({
   src,
   onLoad,

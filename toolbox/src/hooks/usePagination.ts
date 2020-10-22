@@ -9,6 +9,10 @@ interface UsePaginationParams {
   initialPage?: number;
 }
 
+/**
+ * Used for tracking state important for pagination,
+ * used with our Pagination components
+ */
 export const usePagination = ({
   resultsPerPage,
   initialPage = 0,

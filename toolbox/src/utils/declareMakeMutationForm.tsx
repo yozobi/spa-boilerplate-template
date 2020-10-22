@@ -40,6 +40,8 @@ export type ValidationFunction<V> = (
  *     password: (props) => <TextInput {...props} type="password" />,
  *   },
  * })
+ *
+ * @deprecated - use useMutationForm instead
  */
 export function declareMakeMutationForm<Inputs extends InputsBase<any>>({
   inputs,

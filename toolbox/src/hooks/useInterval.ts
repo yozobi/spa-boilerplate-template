@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 /**
+ * A declarative way to use an interval
+ *
  * Usage:
  *
  * useInterval(() => {

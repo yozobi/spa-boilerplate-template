@@ -9,6 +9,10 @@ export interface UseSearchParamsModalReturn<CachedState> {
   onToggle: () => void;
 }
 
+/**
+ * Allows for storing the open and closed state of a modal
+ * in search params, to ensure the back button works effectively
+ */
 export const useSearchParamsModal = <CachedState>(
   modalId: string,
 ): UseSearchParamsModalReturn<CachedState> => {

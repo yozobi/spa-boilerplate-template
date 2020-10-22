@@ -1,5 +1,9 @@
 import { useLocation } from 'react-router';
 
+/**
+ * Gives type-safe access to the search parameters
+ * in the URL: facebook.com?hello=world
+ */
 export const useSearchParams = <P extends {}>(): P | null => {
   const { search } = useLocation();
   try {

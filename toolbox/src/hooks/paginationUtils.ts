@@ -1,5 +1,8 @@
 import { PaginationProps } from '../components/Pagination/Pagination';
 
+/**
+ * Mocks pagination props for use in storybooks
+ */
 export const mockPagination = <T>(
   data: T[],
   pageCount: number,

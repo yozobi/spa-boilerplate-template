@@ -43,7 +43,10 @@ export interface UseFsmReducerParams<
   runEffectsOnMount?: TEffect[];
 }
 
-const useFsmReducer = <
+/**
+ * @deprecated - use XState instead
+ */
+export const useFsmReducer = <
   TState extends { type: string } = any,
   TAction extends { type: string } = any,
   TEffect extends { type: string } = any

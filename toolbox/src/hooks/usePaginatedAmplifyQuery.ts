@@ -3,6 +3,11 @@ import useFsmReducer, { UseFsmReducerEffects } from './useFsmReducer';
 import { UseAmplifyQueryState } from './useAmplifyQuery';
 import { useThrottleUserInput as useThrottle } from './useThrottle';
 
+/**
+ * Similar to useAmplifyQuery, but works with pagination tokens
+ *
+ * @deprecated use XState instead
+ */
 export const usePaginatedAmplifyQuery = <Data, Values>({
   useQuery,
   getParams,

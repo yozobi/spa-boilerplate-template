@@ -119,6 +119,12 @@ type UseAmplifyQueryParams = (
   jwt: string;
 };
 
+/**
+ * useAmplifyQuery can be used to connect to an Amplify backend
+ *
+ * @deprecated - probably best to build your own implementation per project
+ * instead
+ */
 export const useAmplifyQuery = <Data, Values>(
   params: UseAmplifyQueryParams,
 ) => {
