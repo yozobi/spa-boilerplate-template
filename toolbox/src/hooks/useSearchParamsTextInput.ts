@@ -15,16 +15,11 @@ interface UseSearchParamsTextInputProps {
  */
 export const useSearchParamsTextInput = (
   id: string,
-  {
-    throttleInMs,
-    onThrottledInputChange,
-    defaultValue,
-  }: UseSearchParamsTextInputProps = {
-    throttleInMs: 200,
-  },
+  params?: UseSearchParamsTextInputProps,
 ) => {
+  const throttleInMs = params?.throttleInMs || 200;
   const [value, setValue] = useSearchParamsState(id, {
-    initialValue: defaultValue,
+    initialValue: params?.defaultValue,
   });
   const { throttle } = useThrottleUserInput({
     throttleInMs: throttleInMs || 200,
@@ -38,9 +33,9 @@ export const useSearchParamsTextInput = (
         setValue(newValue);
         const makeChange = () => {
           setThrottledValue(newValue);
-          onThrottledInputChange?.(newValue);
+          params?.onThrottledInputChange?.(newValue);
         };
-        if (throttleInMs) {
+        if (throttleInMs || 200) {
           throttle(makeChange);
         } else {
           makeChange();
