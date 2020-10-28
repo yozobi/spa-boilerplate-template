@@ -62,6 +62,10 @@ export function SelectBase<O = any>({
               target: { value: valueAccessor(option as O), name: props.name },
             })
           }
+          styles={{
+            // Fixes the overlapping problem of the component
+            menu: (provided) => ({ ...provided, zIndex: 9999 }),
+          }}
           isMulti={false}
           noOptionsMessage={({ inputValue }) => {
             if (!inputValue) {
