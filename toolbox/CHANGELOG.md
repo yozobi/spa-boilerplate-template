@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.20
+
+### Patch Changes
+
+- 48b87893: Fix zindex on react-select dropdown
+
 ## 1.5.19
 
 ### Patch Changes
