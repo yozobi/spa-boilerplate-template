@@ -6,7 +6,7 @@ export const downloadAsCsv = (data: {}[], filename: string) => {
 
   const appendToContent = function(rowArray: string[]) {
     const row = rowArray.map((item) => JSON.stringify(item)).join(',');
-    csvContent += row + '\r\n';
+    csvContent += encodeURI(row + '\r\n');
   };
 
   appendToContent(Object.keys(data?.[0] || {}));
