@@ -655,3 +655,5 @@ export const AnimateInHeight = React.lazy(() =>
 export { useDataStatuses } from './hooks/useDataStatuses';
 
 export { usePreventCallsWhilePending } from './hooks/usePreventCallsWhilePending';
+
+export { downloadAsCsv } from './utils/downloadAsCsv';
