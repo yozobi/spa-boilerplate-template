@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.21
+
+### Patch Changes
+
+- 17cea1f5: Added encodeURI to download csv to attempt to get it to work with excel. Added other feedback Dan requested, including visual changes in reporting area
+
 ## 1.5.20
 
 ### Patch Changes
