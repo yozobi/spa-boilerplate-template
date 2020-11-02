@@ -81,6 +81,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "prompts": "^2.3.2",
-    "xstate-codegen": "0.2.0"
+    "xstate-codegen": "0.2.0",
+    "sextant": "0.2.10"
   }
 }
