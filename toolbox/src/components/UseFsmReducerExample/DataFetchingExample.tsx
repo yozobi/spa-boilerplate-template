@@ -5,18 +5,18 @@ import ButtonBase from '../ButtonBase/ButtonBase';
 export const DataFetchingExample = () => {
   const [state, dispatch] = useLogic();
   return (
-    <div className="p-6 grid grid-cols-1 gap-8">
+    <div className="grid grid-cols-1 gap-8 p-6">
       <div>
-        <h1 className="text-gray-900 text-2xl font-extrabold mb-2 tracking-tighter">
+        <h1 className="mb-2 text-2xl font-extrabold tracking-tighter text-gray-900">
           Data Fetching Example
         </h1>
-        <p className="text-gray-700 text-lg mb-2" style={{ maxWidth: '60ch' }}>
+        <p className="mb-2 text-lg text-gray-700" style={{ maxWidth: '60ch' }}>
           Press 'go' to launch a data fetch. Notice that the attributes in the
           state change depending on which state type you're in. Note that 'Go'
           will only work once, because the reducer won't respond to any action
           when it's in the 'success' state.
         </p>
-        <p className="text-gray-700 text-lg" style={{ maxWidth: '60ch' }}>
+        <p className="text-lg text-gray-700" style={{ maxWidth: '60ch' }}>
           When you're in the pending state, press 'cancel' to cancel the fetch.
         </p>
       </div>

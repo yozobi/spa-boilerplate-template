@@ -6,9 +6,9 @@ const HomePage = () => {
     <Flex flexDirection="column" my={6}>
       <Flex alignItems="center">
         <div data-testid="hello-world">Hello World!</div>
-        <button className="bg-primary-200 text-primary-700 py-2 px-3">
+        <button className="px-3 py-2 bg-primary-200 text-primary-700">
           <Flex alignItems="center">
-            <HeroIconThumbUp className="mr-3"></HeroIconThumbUp>
+            <HeroIconThumbUp className="mr-3" />
             An Imported Button!
           </Flex>
         </button>

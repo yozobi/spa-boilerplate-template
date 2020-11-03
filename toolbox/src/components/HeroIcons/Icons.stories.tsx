@@ -25,7 +25,7 @@ export const Icons = () => {
   });
   return (
     <>
-      <div className="p-6 grid grid-cols-4 gap-6 max-w-3xl">
+      <div className="grid max-w-3xl grid-cols-4 gap-6 p-6">
         {heroIcons.map(([name, Icon]: any[]) => {
           return (
             <div className="flex justify-center" key={name}>
@@ -35,10 +35,10 @@ export const Icons = () => {
                 onClick={() => copyToClipboard(`<${name} />`)}
               >
                 <Suspense fallback={null}>
-                  <Icon className="text-gray-600 w-8 h-8" />
+                  <Icon className="w-8 h-8 text-gray-600" />
                 </Suspense>
                 <p
-                  className="text-gray-700 font-mono tracking-wider text-xs mt-2"
+                  className="mt-2 font-mono text-xs tracking-wider text-gray-700"
                   id={name}
                 >
                   {name}

@@ -25,8 +25,8 @@ export const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
           error ? 'border-red-400 focus:border-red-700' : ''
         } ${className}`}
         onBlur={onBlur}
-      ></input>
-      {error && <p className="text-red-700 text-xs mt-2">{error}</p>}
+      />
+      {error && <p className="mt-2 text-xs text-red-700">{error}</p>}
     </label>
   );
 };

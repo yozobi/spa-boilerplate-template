@@ -8,7 +8,7 @@ export default { title: 'Add Component Separator' };
 export const Breadcrumbs = () => {
   return (
     <div className="p-6">
-      <p className="text-gray-600 max-w-sm mb-6 text-sm">
+      <p className="max-w-sm mb-6 text-sm text-gray-600">
         This is a handy utility for adding separators to components, for
         instance to separate breadcrumb links with an arrow
       </p>

@@ -44,7 +44,7 @@ export const Modal: React.FC<Props> = ({
   return (
     <BackdropWrapper
       isVisible={open}
-      className="w-screen fixed top-0 left-0 bottom-0 right-0 z-30"
+      className="fixed top-0 bottom-0 left-0 right-0 z-30 w-screen"
       /**
        * Prevents this from gaining a margin when being used inside a <Stack />
        */
@@ -52,19 +52,19 @@ export const Modal: React.FC<Props> = ({
     >
       <Backdrop
         isVisible={open}
-        className="absolute w-screen top-0 left-0 bottom-0 right-0 bg-smoke-600"
+        className="absolute top-0 bottom-0 left-0 right-0 w-screen bg-smoke-600"
         onClick={onClose}
         ref={backdropRef}
         title={screenReaderCloseBackdropLabel || 'Go Back'}
       >
-        <div className="mt-4 mr-6 absolute top-0 right-0">
-          <HeroIconX className="text-white w-8 h-8" />
+        <div className="absolute top-0 right-0 mt-4 mr-6">
+          <HeroIconX className="w-8 h-8 text-white" />
         </div>
       </Backdrop>
       {shouldShowChildren && (
         <ChildrenWrapper
           isVisible={open}
-          className="z-10 max-h-screen flex flex-col justify-center w-full sm:w-auto"
+          className="z-10 flex flex-col justify-center w-full max-h-screen sm:w-auto"
         >
           <div className={`flex-1 m-4 ${className || ''}`}>{children}</div>
         </ChildrenWrapper>

@@ -10,7 +10,7 @@ export const withText = () => (
 );
 
 export const colors = () => (
-  <div className="p-6 flex w-full max-w-2xl justify-between">
+  <div className="flex justify-between w-full max-w-2xl p-6">
     <AnimatedButtonBase>Primary (default)</AnimatedButtonBase>
     <AnimatedButtonBase color="gray">Gray</AnimatedButtonBase>
     <AnimatedButtonBase color="success">Success</AnimatedButtonBase>

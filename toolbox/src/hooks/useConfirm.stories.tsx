@@ -26,7 +26,7 @@ const DefaultUseConfirmStory = () => {
     <div className="p-6">
       <ButtonBase onClick={deleteUser}>Delete User</ButtonBase>
       <Modal onClose={onReject} open={isConfirming}>
-        <div className="p-6 grid grid-cols-1 gap-4 bg-white">
+        <div className="grid grid-cols-1 gap-4 p-6 bg-white">
           <p>Are you sure you want to delete this user?</p>
           <div className="grid grid-cols-2 gap-4">
             <ButtonBase onClick={onReject}>Cancel</ButtonBase>

@@ -31,7 +31,7 @@ const InputLabel = (props: IInputLabelProps) => {
     <LabelError htmlFor={props.htmlFor}>{props.children}</LabelError>
   ) : (
     <label
-      className="uppercase mb-2 text-sm block tracking-wider text-gray-700"
+      className="block mb-2 text-sm tracking-wider text-gray-700 uppercase"
       htmlFor={props.htmlFor}
     >
       {props.children}

@@ -14,7 +14,7 @@ const App: React.FC = () => {
             }),
           }}
         >
-          <main className="max-w-4xl px-6 py-8 mx-auto text-gray-100 font-mono">
+          <main className="max-w-4xl px-6 py-8 mx-auto font-mono text-gray-100">
             <Routes />
           </main>
         </UrqlWrapper>

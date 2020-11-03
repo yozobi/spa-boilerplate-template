@@ -4,24 +4,24 @@ import useFsmReducer from '../../hooks/useFsmReducer';
 export const AutomaticTrafficLightsExample = () => {
   const [state] = useLogic();
   return (
-    <div className="p-6 grid grid-cols-1 gap-8">
+    <div className="grid grid-cols-1 gap-8 p-6">
       <div>
-        <h1 className="text-gray-900 text-2xl font-extrabold mb-2">
+        <h1 className="mb-2 text-2xl font-extrabold text-gray-900">
           Automatic Traffic Light Example
         </h1>
-        <p className="text-gray-700 text-lg">
+        <p className="text-lg text-gray-700">
           Effects are fired automatically to move it to the next state after a
           duration.
         </p>
       </div>
       {state.type === 'red' && (
-        <div className="bg-red-600 w-32 h-32 rounded-full" />
+        <div className="w-32 h-32 bg-red-600 rounded-full" />
       )}
       {(state.type === 'orange' || state.type === 'flashingOrange') && (
-        <div className="bg-orange-500 w-32 h-32 rounded-full" />
+        <div className="w-32 h-32 bg-orange-500 rounded-full" />
       )}
       {state.type === 'green' && (
-        <div className="bg-green-500 w-32 h-32 rounded-full" />
+        <div className="w-32 h-32 bg-green-500 rounded-full" />
       )}
       <div>
         <pre>{JSON.stringify({ state }, null, 2)}</pre>

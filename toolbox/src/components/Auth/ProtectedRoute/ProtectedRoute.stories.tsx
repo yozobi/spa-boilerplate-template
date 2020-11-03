@@ -9,11 +9,11 @@ import {
 
 export default { title: 'ProtectedRoute' };
 
-export const miniRouterDemo = () => {
+export const MiniRouterDemo = () => {
   const [shouldIgnoreFailedAuth, setShouldIgnoreFailedAuth] = useState(false);
 
   return (
-    <div className="p-6 max-w-2xl">
+    <div className="max-w-2xl p-6">
       <label
         htmlFor="authToggle"
         className={`inline-block mb-5 p-2 rounded ${
@@ -31,7 +31,7 @@ export const miniRouterDemo = () => {
         Authenticated
       </label>
       <Router>
-        <nav className="bg-blue-500 text-white p-3 rounded">
+        <nav className="p-3 text-white bg-blue-500 rounded">
           <NavLink to="/" exact className="pl-3" activeClassName="underline">
             Unprotected Route 1
           </NavLink>
@@ -42,7 +42,7 @@ export const miniRouterDemo = () => {
             Protected Route
           </NavLink>
         </nav>
-        <div className="h-64 border rouneed mt-5 p-5">
+        <div className="h-64 p-5 mt-5 border rouneed">
           <Switch>
             <Route path="/" exact>
               <p>This is the default page</p>

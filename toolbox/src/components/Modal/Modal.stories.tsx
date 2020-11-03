@@ -12,7 +12,7 @@ export const Normal = () => {
   return (
     <div className="p-6">
       <button
-        className="px-2 py-1 bg-gray-200 mb-6"
+        className="px-2 py-1 mb-6 bg-gray-200"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? 'Close' : 'Open'}
@@ -25,14 +25,14 @@ export const Normal = () => {
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="bg-white p-4 shadow rounded-lg"
+        className="p-4 bg-white rounded-lg shadow"
       >
         <div>
           <div className="p-2">
             <div className="flex justify-start">
-              <HeroIconExclamation className="text-danger-600 w-8 h-8 mr-4"></HeroIconExclamation>
+              <HeroIconExclamation className="w-8 h-8 mr-4 text-danger-600" />
               <div>
-                <h1 className="font-semibold text-lg tracking-tight text-gray-800 mb-1">
+                <h1 className="mb-1 text-lg font-semibold tracking-tight text-gray-800">
                   Are you sure you want to do this?
                 </h1>
                 <p className="text-sm text-gray-700">
@@ -49,7 +49,7 @@ export const Normal = () => {
               size="small"
               color="danger"
               // background="heavy-fill"
-              className="rounded font-semibold tracking-snug"
+              className="font-semibold rounded tracking-snug"
             >
               Delete
             </ButtonBase>
@@ -70,7 +70,7 @@ export const WithLongScrollBackground = () => {
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="bg-white p-4"
+        className="p-4 bg-white"
       >
         <span>Hello!</span>
       </Modal>
@@ -83,19 +83,19 @@ export const Danger = () => {
   return (
     <div className="p-6">
       <button
-        className="px-2 py-1 bg-gray-200 mb-6"
+        className="px-2 py-1 mb-6 bg-gray-200"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? 'Close' : 'Open'}
       </button>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="max-w-md border-l-8 border-red-600 bg-red-200 px-6 py-6 pt-5 text-red-900">
+        <div className="max-w-md px-6 py-6 pt-5 text-red-900 bg-red-200 border-l-8 border-red-600">
           <Flex my={4}>
             <div>
-              <span className="block tracking-tight font-semibold mb-2">
+              <span className="block mb-2 font-semibold tracking-tight">
                 Something Went Wrong!
               </span>
-              <span className="text-xs block text-red-900">
+              <span className="block text-xs text-red-900">
                 Oh dear, what a shame. We'll just have to try again next time.
               </span>
             </div>
