@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.22
+
+### Patch Changes
+
+- 15c54e3b: Added height prop to SelectBase
+
 ## 1.5.21
 
 ### Patch Changes
