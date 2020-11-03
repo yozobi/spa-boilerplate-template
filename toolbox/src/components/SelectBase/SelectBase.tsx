@@ -28,6 +28,7 @@ export type SelectBaseProps<O = any> = {
   SelectWrapper?: React.FC;
   filterOption?: (option: { data: O }, rawInput: string) => boolean;
   theme?: Partial<Props['theme']>;
+  height?: number | string;
   styles?: Props['styles'];
 } & Omit<Props<O>, 'onChange' | 'theme'>;
 
@@ -49,6 +50,7 @@ export function SelectBase<O = any>({
   children,
   testID,
   theme,
+  height,
   SelectWrapper = React.Fragment,
   ...props
 }: SelectBaseProps<O>) {
@@ -64,6 +66,19 @@ export function SelectBase<O = any>({
           }
           styles={{
             // Fixes the overlapping problem of the component
+            valueContainer: (provided, state) => ({
+              ...provided,
+              height,
+            }),
+            indicatorsContainer: (provided, state) => ({
+              ...provided,
+              height,
+            }),
+            control: (provided, state) => ({
+              ...provided,
+              minHeight: height,
+              maxHeight: height,
+            }),
             menu: (provided) => ({ ...provided, zIndex: 9999 }),
           }}
           isMulti={false}
