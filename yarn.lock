@@ -23759,10 +23759,10 @@ seventh@^0.7.35:
   dependencies:
     setimmediate "^1.0.5"
 
-sextant@0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/sextant/-/sextant-0.2.10.tgz#14baf173d7775e5a954466c20aad05520fbc13c3"
-  integrity sha512-Y8/D3smkQhB1d5wGWqSLNULekmp/jfpuUdjUw7a+hp1PBAahYN5lQwUqUX0cNECm+XB1z3Nnk6tP/ZV+wG3FyQ==
+sextant@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/sextant/-/sextant-0.3.0.tgz#c053aa13fa9ff2a02ae4a02b992fa897a38ee83a"
+  integrity sha512-D6WS/cxEywrhenjIOn8d8aL1wXZwLQUsd8PWKqUPQ/9+Svlpm8pHiPd/i3Uk2BuTZGOozQoPbnVUVXrEvt6Fow==
   dependencies:
     "@sextant-tools/adapter-typescript" "0.0.5"
     "@sextant-tools/core" "0.0.5"
