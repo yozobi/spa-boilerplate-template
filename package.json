@@ -30,7 +30,7 @@
     "bug-report": "npm run issue",
     "report-bug": "npm run issue",
     "track-time": "node internals/scripts/trackTime.js",
-    "postinstall": "npm run fix-types && npm run codegen:machines",
+    "postinstall": "npm run fix-types && npm run codegen:machines && npm run codegen:sextant",
     "codegen:machines": "xstate-codegen \"./!(node_modules)/!(node_modules)/**/**.machine.ts\" --once",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
     "deploy": "node internals/scripts/updateDeploys.js",
@@ -82,6 +82,7 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "prompts": "^2.3.2",
     "xstate-codegen": "0.2.0",
-    "sextant": "next"
+    "sextant": "0.4.0-next.0",
+    "@sextant-tools/plugin-javascript-express": "0.1.0-next.4"
   }
 }
