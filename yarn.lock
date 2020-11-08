@@ -3526,16 +3526,6 @@
     auto-bind "~4.0.0"
     tslib "~2.0.1"
 
-"@graphql-codegen/typescript@^1.17.11":
-  version "1.17.11"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.17.11.tgz#9bcc00580b36e8c98e7cc565dbccaf1b8b8ce85d"
-  integrity sha512-cZsuOWpPWWHX7IIv2xMbrI/AZOiv+wEzyGpoGFV8zU6vjs54C50gb7Chhj9XPjMbOhUQ+z3Pn01geTRvi1gDeA==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^1.17.9"
-    "@graphql-codegen/visitor-plugin-common" "^1.17.16"
-    auto-bind "~4.0.0"
-    tslib "~2.0.1"
-
 "@graphql-codegen/visitor-plugin-common@1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.12.2.tgz#a32ed6ed2554bd2df125675e296d110d7ec00420"
@@ -3568,21 +3558,6 @@
   version "1.17.15"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.17.15.tgz#e9cb90f9f4177ced5a84289ff1f9d3d3ea5409d1"
   integrity sha512-vWwuZulw5nYY9X6Vtc9ftw2BcFZoEGM/Qi3i4kEXh0o6Zgyk6XSq8bQM0joxBAD7tIfET2hXjTdq2oWcxurnsA==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^1.17.9"
-    "@graphql-tools/relay-operation-optimizer" "^6"
-    array.prototype.flatmap "^1.2.3"
-    auto-bind "~4.0.0"
-    dependency-graph "^0.9.0"
-    graphql-tag "^2.11.0"
-    parse-filepath "^1.0.2"
-    pascal-case "^3.1.1"
-    tslib "~2.0.1"
-
-"@graphql-codegen/visitor-plugin-common@^1.17.16":
-  version "1.17.16"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.17.16.tgz#37316cbe2bb9ec4ff65d1f3287c72641d4b3fe6c"
-  integrity sha512-q/v13WA4gqD79VR+rrUPrTdLn43qaEuSfij9k52ti4GNKnXglGHP8ljXTrHKN6MypUxOJ2u7tcFRgriH1nxy6w==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^1.17.9"
     "@graphql-tools/relay-operation-optimizer" "^6"
@@ -4907,27 +4882,17 @@
     "@sentry/types" "5.25.0"
     tslib "^1.9.3"
 
-"@sextant-tools/adapter-typescript@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@sextant-tools/adapter-typescript/-/adapter-typescript-0.0.5.tgz#6505097d87f0c00ad831410059b0fbf7ccf3fefc"
-  integrity sha512-l1ByUUguscdcs7+SPkigGcC+A1AovktwiOQcGYE4ba+CAqaEfWWutf6Qk2t+tNAlSasFehwrFA1QjKuAUvkfSg==
-  dependencies:
-    "@graphql-codegen/typescript" "^1.17.11"
-    "@sextant-tools/core" "0.0.5"
-    graphql "^15.4.0"
-    handlebars "^4.7.6"
-    handlebars-helpers "^0.10.0"
-    lodash "^4.17.20"
-
-"@sextant-tools/core@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@sextant-tools/core/-/core-0.0.5.tgz#9e566eb765eb3478df46fa5c8164e43bad34bb64"
-  integrity sha512-Tw/XFqC7vfFWgIQrVV4521TpbIDmyGfFQPqCRm9xk3ac90++7sEyLbK4nq+xllGN3+ZR0zGaj2U8H83v6Ja23Q==
+"@sextant-tools/core@0.1.0-next.0":
+  version "0.1.0-next.0"
+  resolved "https://registry.yarnpkg.com/@sextant-tools/core/-/core-0.1.0-next.0.tgz#db792f04a28d9359574b1e6ba49481b9c79c3e28"
+  integrity sha512-X0KQA2AqMwD0SDgE3csNHBJBb+3wcS6FZfpxlCG6tx7j+ZwhtkrBcFmUuHE/FyLNINfZCCkFeq0rXI9Iz7P/0w==
   dependencies:
     graphql "^15.3.0"
     handlebars "^4.7.6"
     human-id "^2.0.1"
     immer "7.0.14"
+    lodash.camelcase "^4.3.0"
+    lodash.upperfirst "^4.3.1"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -14800,11 +14765,6 @@ graphql@14.0.0:
   dependencies:
     iterall "^1.2.2"
 
-graphql@^15.4.0:
-  version "15.4.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
-  integrity sha512-EB3zgGchcabbsU9cFe1j+yxdzKQKAbGUWRb13DsrsMN1yyfmmIq+2+L5MqVWcDCE4V89R5AyUOi7sMOGxdsYtA==
-
 graphqurl@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/graphqurl/-/graphqurl-0.3.3.tgz#3fb8504b1230ec0142e7ac8357625411997ea08b"
@@ -17852,6 +17812,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
+
+lodash.upperfirst@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
+  integrity sha1-E2Xt9DFIBIHvDRxolXpe2Z1J984=
 
 lodash.xorby@^4.7.0:
   version "4.7.0"
@@ -23764,13 +23729,12 @@ seventh@^0.7.35:
   dependencies:
     setimmediate "^1.0.5"
 
-sextant@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/sextant/-/sextant-0.3.0.tgz#c053aa13fa9ff2a02ae4a02b992fa897a38ee83a"
-  integrity sha512-D6WS/cxEywrhenjIOn8d8aL1wXZwLQUsd8PWKqUPQ/9+Svlpm8pHiPd/i3Uk2BuTZGOozQoPbnVUVXrEvt6Fow==
+sextant@next:
+  version "0.4.0-next.0"
+  resolved "https://registry.yarnpkg.com/sextant/-/sextant-0.4.0-next.0.tgz#66e91ab637931363dd3f296be06e65d8331b922b"
+  integrity sha512-vQx6/p9MHAa6bHZBjIaYTERILLRxOvoyzcLQeQPJRuskbO3u+ro4YYMszK7n69L6f0j93DH1x+Inie5GjHt4WQ==
   dependencies:
-    "@sextant-tools/adapter-typescript" "0.0.5"
-    "@sextant-tools/core" "0.0.5"
+    "@sextant-tools/core" "0.1.0-next.0"
     body-parser "^1.19.0"
     commander "^6.2.0"
     express "^4.17.1"
