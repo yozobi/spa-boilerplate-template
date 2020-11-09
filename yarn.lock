@@ -4936,19 +4936,19 @@
     lodash.camelcase "^4.3.0"
     lodash.upperfirst "^4.3.1"
 
-"@sextant-tools/plugin-javascript-express@0.1.0-next.4":
-  version "0.1.0-next.4"
-  resolved "https://registry.yarnpkg.com/@sextant-tools/plugin-javascript-express/-/plugin-javascript-express-0.1.0-next.4.tgz#66d915e35fdebb1fd2900d33438e277d09786d8a"
-  integrity sha512-jzq8PGprRtNyGRbyTRPBXo3ANHCsuYKWAB5Gmv0Sy0slMLXSbhHvKpmAIf0m58yucuM8mNzyNmXuuTMfjwlFYg==
+"@sextant-tools/plugin-javascript-express@0.1.0-next.6":
+  version "0.1.0-next.6"
+  resolved "https://registry.yarnpkg.com/@sextant-tools/plugin-javascript-express/-/plugin-javascript-express-0.1.0-next.6.tgz#52866386b98cdbac4b0831110eef8db19c5ac90e"
+  integrity sha512-lFr7fOamTSLrtnTxRj411OZRE0LxIwK2XXO/qH1vMsuRdEckbYipexnGGd7OoXujWhq1Jeney57nbyph1wa6Sw==
   dependencies:
     "@sextant-tools/core" "0.1.0-next.0"
-    "@sextant-tools/plugin-javascript-operations" "0.1.0-next.3"
+    "@sextant-tools/plugin-javascript-operations" "0.1.0-next.4"
     handlebars "^4.7.6"
 
-"@sextant-tools/plugin-javascript-operations@0.1.0-next.3":
-  version "0.1.0-next.3"
-  resolved "https://registry.yarnpkg.com/@sextant-tools/plugin-javascript-operations/-/plugin-javascript-operations-0.1.0-next.3.tgz#d31d6ea62b113f758712ba14310bd8775d1ebdb0"
-  integrity sha512-zmqBWlT5fBOfWr0MZT8YN1Sw7wzK0n+OtA4A4Q1Ehg5jZrN/WcBHpYKzQDZzGP/gCpPkG8J9eg0FtYEOdq6FwA==
+"@sextant-tools/plugin-javascript-operations@0.1.0-next.4":
+  version "0.1.0-next.4"
+  resolved "https://registry.yarnpkg.com/@sextant-tools/plugin-javascript-operations/-/plugin-javascript-operations-0.1.0-next.4.tgz#b107a7b300d5f8e071864eb93b6462cf545b8d0a"
+  integrity sha512-hvItEECX1jJuaShpX12vWWyPDALGvUjrqFw6Bmu01ObwIS40ssYjpBAj6CgdN/NKuHaLx5Ug4TuwXGXGotwtHw==
   dependencies:
     "@graphql-codegen/typescript" "^1.17.11"
     "@sextant-tools/core" "0.1.0-next.0"
