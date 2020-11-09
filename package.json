@@ -83,6 +83,7 @@
     "prompts": "^2.3.2",
     "xstate-codegen": "0.2.0",
     "sextant": "0.4.0-next.0",
-    "@sextant-tools/plugin-javascript-express": "0.1.0-next.6"
+    "@sextant-tools/plugin-javascript-express": "0.1.0-next.6",
+    "@sextant-tools/plugin-jest": "0.0.2-next.1"
   }
 }

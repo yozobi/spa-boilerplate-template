@@ -4958,6 +4958,15 @@
     lodash.camelcase "^4.3.0"
     lodash.upperfirst "^4.3.1"
 
+"@sextant-tools/plugin-jest@0.0.2-next.1":
+  version "0.0.2-next.1"
+  resolved "https://registry.yarnpkg.com/@sextant-tools/plugin-jest/-/plugin-jest-0.0.2-next.1.tgz#1acedff0ee7f647380c7c7b857f9a827b7421ce3"
+  integrity sha512-8P1jH/YPsULRgP5jk0SLEa5M4p5qMVQOchHOQJ5XeRinZBwQ2ZdctcIGt52PZioNZXY4aeZHxKnKyyi3b71HfQ==
+  dependencies:
+    "@sextant-tools/core" "0.1.0-next.0"
+    "@sextant-tools/plugin-javascript-operations" "0.1.0-next.4"
+    handlebars "^4.7.6"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
