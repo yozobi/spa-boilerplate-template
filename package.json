@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.1.0",
     "camelcase-keys": "^6.2.2",
-    "dayjs": "^1.8.27",
+    "dayjs": "^1.9.4",
     "eslint": "6.x",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-flowtype": "4.x",
