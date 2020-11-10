@@ -65,20 +65,22 @@ export function SelectBase<O = any>({
             })
           }
           styles={{
+            ...(typeof height !== 'undefined' && {
+              valueContainer: (provided, state) => ({
+                ...provided,
+                height,
+              }),
+              indicatorsContainer: (provided, state) => ({
+                ...provided,
+                height,
+              }),
+              control: (provided, state) => ({
+                ...provided,
+                minHeight: height,
+                maxHeight: height,
+              }),
+            }),
             // Fixes the overlapping problem of the component
-            valueContainer: (provided, state) => ({
-              ...provided,
-              height,
-            }),
-            indicatorsContainer: (provided, state) => ({
-              ...provided,
-              height,
-            }),
-            control: (provided, state) => ({
-              ...provided,
-              minHeight: height,
-              maxHeight: height,
-            }),
             menu: (provided) => ({ ...provided, zIndex: 9999 }),
           }}
           isMulti={false}
