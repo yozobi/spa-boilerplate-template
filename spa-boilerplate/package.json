@@ -1,6 +1,6 @@
 {
   "name": "spa-boilerplate",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "private": true,
   "license": "MIT",
   "dependencies": {
@@ -25,7 +25,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3",
-    "toolbox": "1.5.22",
+    "toolbox": "1.5.23",
     "typescript": "~3.7.2"
   },
   "scripts": {
