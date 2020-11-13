@@ -1,11 +1,5 @@
 # toolbox
 
-## 1.5.23
-
-### Patch Changes
-
-- 4daf847b: Fixed deploy bug where a necessary script was being automatically deleted
-
 ## 1.5.22
 
 ### Patch Changes
