@@ -1,6 +1,6 @@
 {
   "name": "toolbox",
-  "version": "1.5.22",
+  "version": "1.5.23",
   "private": true,
   "main": "src/exports.ts",
   "license": "MIT",
@@ -58,6 +58,7 @@
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "lint": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "echo \"No postinstall! Continuing...\""
   }
 }

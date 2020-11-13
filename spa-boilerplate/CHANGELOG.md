@@ -1,5 +1,13 @@
 # spa-boilerplate
 
+## 0.1.43
+
+### Patch Changes
+
+- 4daf847b: Fixed deploy bug where a necessary script was being automatically deleted
+- Updated dependencies [4daf847b]
+  - toolbox@1.5.23
+
 ## 0.1.42
 
 ### Patch Changes
