@@ -63,7 +63,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "@graphql-codegen/add": "^1.12.1",
-    "@graphql-codegen/cli": "^1.12.2",
+    "@graphql-codegen/cli": "1.13.2",
     "@graphql-codegen/introspection": "^1.12.2",
     "@graphql-codegen/near-operation-file-preset": "^1.12.2",
     "@graphql-codegen/typescript": "^1.12.0",
