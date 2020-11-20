@@ -84,7 +84,8 @@
     "xstate-codegen": "0.2.0",
     "sextant": "0.4.0",
     "@sextant-tools/plugin-javascript-express": "0.1.0",
-    "@sextant-tools/plugin-jest": "0.0.2"
+    "@sextant-tools/plugin-jest": "0.0.2",
+    "graphql-schema-linter": "1.0.1"
   },
   "resolutions": {
     "graphql": "^15.3.0"

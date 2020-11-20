@@ -10928,6 +10928,14 @@ colors@^1.1.2, colors@^1.4.0:
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
 
+columnify@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/columnify/-/columnify-1.5.4.tgz#4737ddf1c7b69a8a7c340570782e947eec8e78bb"
+  integrity sha1-Rzfd8ce2mop8NAVweC6UfuyOeLs=
+  dependencies:
+    strip-ansi "^3.0.0"
+    wcwidth "^1.0.0"
+
 combined-stream@^1.0.6, combined-stream@^1.0.7, combined-stream@^1.0.8, combined-stream@~1.0.6:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
@@ -10954,6 +10962,11 @@ commander@^2.11.0, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0, comm
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
+commander@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
+  integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
 
 commander@^5.0.0:
   version "5.1.0"
@@ -11810,17 +11823,6 @@ csv@^5.3.1:
     csv-parse "^4.8.8"
     csv-stringify "^5.3.6"
     stream-transform "^2.0.1"
-
-currency-cloud@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/currency-cloud/-/currency-cloud-3.4.0.tgz#dacd48cc48571d0e3f1f50c5891f0f328063f104"
-  integrity sha512-/xM1Mj4ly8YtRFtlYZFEXwxmUSn58p3/4sLoGWjyDJ3Ehbsa8ULA0kneZsFw41J/XVh0SOyyexQZ5dG4aFt0+g==
-  dependencies:
-    combined-stream "^1.0.7"
-    request "^2.88.0"
-    request-promise "^4.2.4"
-    retry "^0.12.0"
-    uuid "^3.3.2"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -15020,6 +15022,18 @@ graphql-request@^3.1.0:
     extract-files "^9.0.0"
     form-data "^3.0.0"
 
+graphql-schema-linter@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-schema-linter/-/graphql-schema-linter-1.0.1.tgz#8b16ef19f77ab436ca4fc4c7cfa648b7f4abc8a4"
+  integrity sha512-wcT0to0fBKLmbe4N9C1pM53T6hn8PJ393k1GkWQPLC5xVAVjh37BU23NB9drekVzYXwWfnvP64B4wwFFHKr56w==
+  dependencies:
+    chalk "^2.0.1"
+    columnify "^1.5.4"
+    commander "^3.0.0"
+    cosmiconfig "^5.2.1"
+    glob "^7.1.2"
+    graphql "^15.0.0"
+
 graphql-subscriptions@^0.5.8:
   version "0.5.8"
   resolved "https://registry.yarnpkg.com/graphql-subscriptions/-/graphql-subscriptions-0.5.8.tgz#13a6143c546bce390404657dc73ca501def30aa7"
@@ -15142,7 +15156,7 @@ graphql-yoga@^1.18.3:
     graphql-upload "^8.0.0"
     subscriptions-transport-ws "^0.9.8"
 
-graphql@*, graphql@0.9.1, graphql@14.0.0, "graphql@^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0", graphql@^14.6.0, graphql@^15.3.0, graphql@^15.4.0:
+graphql@*, graphql@0.9.1, graphql@14.0.0, "graphql@^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0", graphql@^14.6.0, graphql@^15.0.0, graphql@^15.3.0, graphql@^15.4.0:
   version "15.3.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
   integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
@@ -26648,7 +26662,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-wcwidth@^1.0.1:
+wcwidth@^1.0.0, wcwidth@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
