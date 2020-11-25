@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.24
+
+### Patch Changes
+
+- f9aefc3a: Replace authentication context throughout the app with a new AuthWrapper, update signin/signup/password/mfa components
+
 ## 1.5.23
 
 ### Patch Changes
