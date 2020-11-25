@@ -9,7 +9,10 @@ export const SignInWrapper: React.FC<{
   render: AwsAuthComponents['signIn'];
 }> = ({ render }) => {
   const [state, dispatch] = useApiState();
-  const { setAuthState } = useAuthenticationContext();
+  const {
+    setAuthState,
+    onUserNotConfirmedException,
+  } = useAuthenticationContext();
 
   const checkContact = (user: CognitoUser) => {
     dispatch({ type: 'reportLoading' });
@@ -47,9 +50,13 @@ export const SignInWrapper: React.FC<{
       }
       dispatch({ type: 'reportComplete' });
     } catch (err) {
-      // if (err.code === 'UserNotConfirmedException') {
-      //   setAuthState('confirmSignUp', { username });
-      if (err.code === 'PasswordResetRequiredException') {
+      if (
+        err.code === 'UserNotConfirmedException' &&
+        onUserNotConfirmedException
+      ) {
+        // setAuthState('confirmSignUp', { username });
+        onUserNotConfirmedException(username);
+      } else if (err.code === 'PasswordResetRequiredException') {
         setAuthState('forgotPassword', { username });
       } else {
         dispatch({ type: 'reportError', err });

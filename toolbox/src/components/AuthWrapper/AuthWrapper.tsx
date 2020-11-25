@@ -38,7 +38,7 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
           user = await Auth.currentAuthenticatedUser();
         } catch (e) {
           user = undefined;
-          console.log(e);
+          // console.log(e);
         }
 
         if (user) {

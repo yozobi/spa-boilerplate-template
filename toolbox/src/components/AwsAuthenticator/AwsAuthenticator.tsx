@@ -18,8 +18,14 @@ const SignedInWrapper: React.FC<{ render: AwsAuthComponents['signedIn'] }> = ({
 export const AwsAuthenticator: React.FC<{
   components: AwsAuthComponents;
   onLogInSuccess?: () => void;
+  onUserNotConfirmedException?: (username: string) => void;
   isLoggedIn: boolean;
-}> = ({ components, onLogInSuccess, isLoggedIn }) => {
+}> = ({
+  components,
+  onLogInSuccess,
+  onUserNotConfirmedException,
+  isLoggedIn,
+}) => {
   const [authState, setAuthState] = useState<AuthState>('pending');
   const [user, setUser] = useState<CognitoUser | { username: string }>();
   /** Check if the user is logged in */
@@ -44,6 +50,7 @@ export const AwsAuthenticator: React.FC<{
           }
         },
         onLogInSuccess,
+        onUserNotConfirmedException,
         user,
       }}
     >
@@ -52,6 +59,9 @@ export const AwsAuthenticator: React.FC<{
       {authState === 'confirmSignIn' && (
         <ConfirmSignInWrapper render={components.confirmSignIn} />
       )}
+      {/* {authState === 'confirmSignUp' && (
+        <ConfirmSignUpWrapper render={components.confirmSignUp} />
+      )} */}
       {authState === 'forgotPassword' && (
         <ForgotPasswordWrapper render={components.forgotPassword} />
       )}

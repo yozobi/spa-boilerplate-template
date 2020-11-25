@@ -5,6 +5,7 @@ import { createContext, useContext } from 'react';
 export type AuthenticationContextType = {
   authState: AuthState;
   onLogInSuccess?: () => void;
+  onUserNotConfirmedException?: (username: string) => void;
   setAuthState: (
     authState: AuthState,
     user?: CognitoUser | { username: string },
