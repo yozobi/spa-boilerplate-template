@@ -92,6 +92,7 @@
     "prompts": "^2.3.2",
     "react-select-event": "^5.1.0",
     "sextant": "0.4.0",
+    "utility-types": "^3.10.0",
     "xstate-codegen": "0.2.0"
   },
   "resolutions": {
