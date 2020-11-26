@@ -85,7 +85,13 @@
     "sextant": "0.4.0",
     "@sextant-tools/plugin-javascript-express": "0.1.0",
     "@sextant-tools/plugin-jest": "0.0.2",
-    "graphql-schema-linter": "1.0.1"
+    "graphql-schema-linter": "1.0.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@types/testing-library__dom": "^7.5.0",
+    "@types/testing-library__react": "^10.2.0",
+    "msw": "^0.22.3"
   },
   "resolutions": {
     "graphql": "^15.3.0"
