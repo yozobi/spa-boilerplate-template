@@ -25,9 +25,9 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start:app": "craco start",
+    "start:app": "SKIP_PREFLIGHT_CHECK=true craco start",
     "start": "concurrently \"npm run start:app\" \"npm run codegen:watch\" \"npm run console\"",
-    "build": "graphql-codegen --silent && craco build",
+    "build": "graphql-codegen --silent && SKIP_PREFLIGHT_CHECK=true craco build",
     "lint": "tsc",
     "test": "jest --config=jest.config.js --passWithNoTests",
     "console": "npm run hasura console",
