@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.25
+
+### Patch Changes
+
+- 336ae71f: toolbox - Export Checkbox types for typesafe check through projects
+
 ## 1.5.24
 
 ### Patch Changes
