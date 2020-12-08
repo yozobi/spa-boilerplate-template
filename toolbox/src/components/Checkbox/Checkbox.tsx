@@ -79,7 +79,7 @@ const labelPositionOptions = {
   right: 'row',
 };
 
-interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   value?: any;
   label?: string;
