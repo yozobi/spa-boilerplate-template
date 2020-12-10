@@ -7,7 +7,7 @@ import {
 } from 'formik';
 import React, { useMemo } from 'react';
 
-export type UseMutationFormFieldProps<T = any> = FieldInputProps<T> & {
+export type UseMutationFormFieldProps<T> = FieldInputProps<Exclude<T, null>> & {
   error: string;
   touched: boolean;
 };
@@ -20,7 +20,7 @@ export type UseMutationFormFieldProps<T = any> = FieldInputProps<T> & {
  *
  * https://www.loom.com/share/9620a036f74c4d65805fb23163791f85
  */
-export function useMutationForm<T>(
+export function useMutationForm<T extends object>(
   params: FormikConfig<T> & {
     /**
      * Normally, we wait until the user has tried to submit
@@ -45,7 +45,7 @@ export function useMutationForm<T>(
     return {
       error: shouldShowError ? error : '',
       touched,
-      value,
+      value: value as any,
       onChange: formProps.handleChange,
       onBlur: formProps.handleBlur,
       name: name as string,
