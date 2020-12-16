@@ -20,6 +20,7 @@ export type SelectBaseProps<O = any> = {
   hint?: string;
   disabled?: boolean;
   isLoading?: boolean;
+  id?: string;
   error?: string;
   labelClassname?: string;
   value: string | number | undefined;
@@ -50,6 +51,7 @@ export function SelectBase<O = any>({
   children,
   testID,
   theme,
+  id,
   height,
   SelectWrapper = React.Fragment,
   ...props
@@ -105,6 +107,7 @@ export function SelectBase<O = any>({
                 )
               : undefined
           }
+          inputId={id}
           filterOption={filterOption as any}
           theme={theme as any}
           placeholder={placeholder}
