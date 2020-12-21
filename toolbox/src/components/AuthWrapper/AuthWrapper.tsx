@@ -22,7 +22,7 @@ export type AuthWrapperContextType = {
   refreshAuthState: () => void;
 };
 
-const AuthWrapperContext = React.createContext<
+export const AuthWrapperContext = React.createContext<
   AuthWrapperContextType | undefined
 >(undefined);
 
