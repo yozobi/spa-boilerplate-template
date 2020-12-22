@@ -42,9 +42,10 @@ const RadioGroup = (props: IRadioGroupProps) => {
       my={props.my}
       mx={props.mx}
     >
-      {props.options.map((radioItem) => {
+      {props.options.map((radioItem, index) => {
         return (
           <RadioButton
+            key={index}
             onSelect={() => handleCheckboxChange(radioItem.value)}
             checked={props.value === radioItem.value}
             value={radioItem.value}
