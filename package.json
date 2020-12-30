@@ -16,8 +16,6 @@
     "spa": "yarn workspace spa-boilerplate",
     "toolbox": "yarn workspace toolbox",
     "tb": "yarn workspace toolbox",
-    "gouldson": "yarn workspace gouldson",
-    "g": "yarn gouldson",
     "ci-check": "node internals/scripts/run-ci-checks.js",
     "generate": "plop --plopfile internals/generators/plopfile.js",
     "version-minor": "npm version minor && git push --tags",
