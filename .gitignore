@@ -15,3 +15,4 @@ devTools.local.ts
 time-tracked.json
 *.machine.typed.ts
 report.*.json
+.dprintrc.json
