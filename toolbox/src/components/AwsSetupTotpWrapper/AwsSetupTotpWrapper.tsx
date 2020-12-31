@@ -10,6 +10,7 @@ type State =
       type: 'noPreferredMFA';
       pref: 'NOMFA' | 'TOTP';
       qrCode: string;
+      secret: string;
       apiState: 'idle' | 'loading' | 'error';
       errorMessage?: string;
     }
@@ -22,7 +23,7 @@ type Action =
   | { type: 'disableMFA' }
   | { type: 'reportError'; error: Error }
   | { type: 'reportSuccess' }
-  | { type: 'reportQRCode'; qrCode: string };
+  | { type: 'reportQRCode'; qrCode: string; secret: string };
 
 type Effect =
   | { type: 'getQRCode' }
@@ -76,6 +77,7 @@ const useLogic = (effects: UseFsmReducerEffects<Action, Effect>) =>
           reportQRCode: (state, action) => {
             return {
               qrCode: action.qrCode,
+              secret: action.secret,
               type: 'noPreferredMFA',
               pref: state.pref,
               apiState: 'idle',
@@ -94,6 +96,7 @@ const useLogic = (effects: UseFsmReducerEffects<Action, Effect>) =>
               apiState: 'loading',
               pref: state.pref,
               qrCode: state.qrCode,
+              secret: state.secret,
               effects: [
                 {
                   type: 'enableMFA',
@@ -115,6 +118,7 @@ const useLogic = (effects: UseFsmReducerEffects<Action, Effect>) =>
               apiState: 'error',
               pref: state.pref,
               qrCode: state.qrCode,
+              secret: state.secret,
               errorMessage: parseAwsError(action.error),
             };
           },
@@ -181,7 +185,7 @@ export const AwsSetupTotpWrapper = ({
         const user = await Auth.currentAuthenticatedUser();
         const secretCode = await Auth.setupTOTP(user);
         const url = `otpauth://totp/${clientName}:${user?.username}?secret=${secretCode}&issuer=${window.location.hostname}`;
-        dispatch({ type: 'reportQRCode', qrCode: url });
+        dispatch({ type: 'reportQRCode', qrCode: url, secret: secretCode });
       } catch (error) {
         dispatch({ type: 'reportError', error });
       }
