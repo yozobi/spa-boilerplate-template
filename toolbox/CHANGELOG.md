@@ -1,5 +1,11 @@
 # toolbox
 
+## 1.5.26
+
+### Patch Changes
+
+- 3cda8ccf4: Added secret to props returned by AwsSetupTotpWrapper
+
 ## 1.5.25
 
 ### Patch Changes

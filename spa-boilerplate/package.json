@@ -1,6 +1,6 @@
 {
   "name": "spa-boilerplate",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -39,7 +39,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "toolbox": "1.5.25"
+    "toolbox": "1.5.26"
   },
   "devDependencies": {
     "@graphql-codegen/add": "^1.12.1",
