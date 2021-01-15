@@ -40,9 +40,15 @@ export const ForgotPasswordWrapper: React.FC<{
   const [state, dispatch] = useForgotPasswordState();
   const [apiState, apiDispatch] = useApiState();
 
-  const sendCode = ({ username }: { username: string }) => {
+  const sendCode = ({
+    username,
+    clientMetadata,
+  }: {
+    username: string;
+    clientMetadata?: {};
+  }) => {
     apiDispatch({ type: 'reportLoading' });
-    return Auth.forgotPassword(username)
+    return Auth.forgotPassword(username, clientMetadata)
       .then((data) => {
         dispatch({
           type: 'reportCodeSent',
@@ -56,13 +62,15 @@ export const ForgotPasswordWrapper: React.FC<{
     username,
     code,
     password,
+    clientMetadata,
   }: {
     username: string;
     code: string;
     password: string;
+    clientMetadata?: {};
   }) => {
     apiDispatch({ type: 'reportLoading' });
-    return Auth.forgotPasswordSubmit(username, code, password)
+    return Auth.forgotPasswordSubmit(username, code, password, clientMetadata)
       .then((data) => {
         apiDispatch({ type: 'reportComplete' });
         setAuthState('signIn');

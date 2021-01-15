@@ -48,17 +48,22 @@ export interface AwsAuthComponents {
       username: string;
       email?: string;
       phone_number?: string;
+      clientMetadata?: {};
     }) => Promise<void>;
     delivery: AwsDeliveryType | null | undefined;
     submitNewPassword: (params: {
       username: string;
       code: string;
       password: string;
+      clientMetadata?: {};
     }) => Promise<void>;
   }>;
   requireNewPassword: React.FC<{
     apiState: AwsAuthenticatorApiState;
-    sendNewPassword: (params: { password: string }) => void;
+    sendNewPassword: (params: {
+      password: string;
+      clientMetadata?: {};
+    }) => void;
     /**
      * Sometimes, AWS will ask you to verify attributes
      * along with the change password request.

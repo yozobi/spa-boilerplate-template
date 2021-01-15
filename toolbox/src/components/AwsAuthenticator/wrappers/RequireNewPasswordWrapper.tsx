@@ -26,16 +26,23 @@ export const RequireNewPasswordWrapper: React.FC<{
     password,
     email,
     phone_number,
+    clientMetadata,
   }: {
     password: string;
     email?: string;
     phone_number?: string;
+    clientMetadata?: {};
   }) => {
     dispatch({ type: 'reportLoading' });
-    Auth.completeNewPassword(user, password, {
-      ...(email && { email }),
-      ...(phone_number && { phone_number }),
-    })
+    Auth.completeNewPassword(
+      user,
+      password,
+      {
+        ...(email && { email }),
+        ...(phone_number && { phone_number }),
+      },
+      clientMetadata,
+    )
       .then((user) => {
         if (user.challengeName === 'SMS_MFA') {
           setAuthState('confirmSignIn', user);
