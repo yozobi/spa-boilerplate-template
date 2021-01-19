@@ -155,6 +155,7 @@
     "yarn": ">=1 <2"
   },
   "devDependencies": {
-    "@types/prompts": "^2.0.9"
+    "@types/prompts": "^2.0.9",
+    "tsconfig-paths": "^3.9.0"
   }
 }
