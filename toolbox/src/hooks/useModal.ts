@@ -22,7 +22,7 @@ export const useModal = <CachedState = any>(): UseModalReturn<CachedState> => {
       if (cachedState) {
         setCachedState(null);
       }
-    }, [500]);
+    }, 500);
     setOpen(false);
   };
 
