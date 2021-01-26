@@ -21260,6 +21260,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+libphonenumber-js@^1.9.8:
+  version "1.9.8"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.8.tgz#82f88ea473c2214667709c24220bade4b85e0752"
+  integrity sha512-gXzuhvlqdH20MlKAy1jXOVouCYByz43ZGCAeNnNuKQXUM+Wl36gbql0M27QQI3ahYCHJErd2W8ciqWweoQdbrQ==
+  
 lie@~3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/lie/-/lie-3.3.0.tgz#dcf82dee545f46074daf200c7c1c5a08e0f40f6a"
@@ -26328,6 +26333,11 @@ react-focus-lock@^2.1.0:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-headless-phone-input@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-headless-phone-input/-/react-headless-phone-input-2.0.0.tgz#2e4a5ae10c56f803831d1514de597c2ac639773e"
+  integrity sha512-Pg6/nAvlCCP19x3Gxr4Ph/4p0qbXhcpaaTEkNJwFNiPhTa/4H6cGBOkXkUdyfekUAm+3ZRgtxtpFOkTvLYC5YA==
 
 react-helmet-async@^1.0.2:
   version "1.0.4"
