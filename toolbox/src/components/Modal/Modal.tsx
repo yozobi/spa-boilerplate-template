@@ -44,11 +44,11 @@ export const Modal: React.FC<Props> = ({
   return (
     <BackdropWrapper
       isVisible={open}
-      className="fixed top-0 bottom-0 left-0 right-0 z-30 w-screen"
+      className="fixed top-0 bottom-0 left-0 right-0 w-screen"
       /**
        * Prevents this from gaining a margin when being used inside a <Stack />
        */
-      style={{ marginBottom: 0 }}
+      style={{ marginBottom: 0, zIndex: 120 }}
     >
       <Backdrop
         isVisible={open}
