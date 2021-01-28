@@ -10,6 +10,7 @@ export const useCheckForActivity = ({
   onIdle,
   onActive,
   initialState,
+  disabled,
 }: {
   /**
    * How long we want it to take before the user
@@ -25,29 +26,32 @@ export const useCheckForActivity = ({
    * When the user becomes idle after a period of activity
    */
   onIdle?: () => void;
+  disabled?: boolean;
 }) => {
   const [state, setState] = useState<'idle' | 'active'>(
     initialState || 'active',
   );
   useEffect(() => {
-    const activityDetector = createActivityDetector({ timeToIdle });
-    activityDetector.on('idle', () => {
-      if (state === 'active') {
-        onIdle?.();
-      }
-      setState('idle');
-    });
-    activityDetector.on('active', () => {
-      if (state === 'idle') {
-        onActive?.();
-      }
-      setState('active');
-    });
+    if (!disabled) {
+      const activityDetector = createActivityDetector({ timeToIdle });
+      activityDetector.on('idle', () => {
+        if (state === 'active') {
+          onIdle?.();
+        }
+        setState('idle');
+      });
+      activityDetector.on('active', () => {
+        if (state === 'idle') {
+          onActive?.();
+        }
+        setState('active');
+      });
 
-    return () => {
-      activityDetector.stop();
-    };
-  }, [timeToIdle, state]);
+      return () => {
+        activityDetector.stop();
+      };
+    }
+  }, [timeToIdle, state, disabled]);
   return {
     state,
   };

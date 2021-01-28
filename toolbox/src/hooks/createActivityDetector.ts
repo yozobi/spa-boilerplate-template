@@ -7,11 +7,11 @@ const IDLE = 'idle';
 
 const DEFAULT_INITIAL_STATE = ACTIVE;
 
-const DEFAULT_ACTIVITY_EVENTS = ['focus'] as const;
+const DEFAULT_ACTIVITY_EVENTS = ['focus', 'mousemove'] as const;
 
 const DEFAULT_INACTIVITY_EVENTS = ['blur', 'visibilitychange'];
 
-const DEFAULT_IGNORED_EVENTS_WHEN_IDLE = ['mousemove'];
+const DEFAULT_IGNORED_EVENTS_WHEN_IDLE = [] as any[];
 const prefixes = ['webkit', 'moz', 'ms'] as const;
 
 let hidden: string;
