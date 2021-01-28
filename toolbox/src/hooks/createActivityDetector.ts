@@ -16,16 +16,18 @@ const prefixes = ['webkit', 'moz', 'ms'] as const;
 
 let hidden: string;
 let visibilityChangeEvent: string;
-if (typeof document.hidden !== 'undefined') {
-  hidden = 'hidden';
-  visibilityChangeEvent = 'visibilitychange';
-} else {
-  for (let i = 0; i < prefixes.length; i++) {
-    const prefix = prefixes[i];
-    if (typeof (document as any)[`${prefix}Hidden`] !== 'undefined') {
-      hidden = `${prefix}Hidden`;
-      visibilityChangeEvent = `${prefix}visibilitychange`;
-      break;
+if (typeof document !== 'undefined') {
+  if (typeof document.hidden !== 'undefined') {
+    hidden = 'hidden';
+    visibilityChangeEvent = 'visibilitychange';
+  } else {
+    for (let i = 0; i < prefixes.length; i++) {
+      const prefix = prefixes[i];
+      if (typeof (document as any)[`${prefix}Hidden`] !== 'undefined') {
+        hidden = `${prefix}Hidden`;
+        visibilityChangeEvent = `${prefix}visibilitychange`;
+        break;
+      }
     }
   }
 }

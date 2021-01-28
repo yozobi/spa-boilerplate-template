@@ -101,10 +101,18 @@ export const usePagination = ({
      */
     limit: resultsPerPage,
     /**
+     * The same as limit, but plays nicely with Prisma
+     */
+    take: resultsPerPage,
+    /**
      * Useful for feeding directly into the graphql query
      *  - plays very nicely with Hasura
      */
     offset: resultsPerPage * page,
+    /**
+     * The same as offset, but plays nicely with Prisma
+     */
+    skip: resultsPerPage * page,
     canGoToThePreviousPage,
     canGoToTheNextPage,
     page,
