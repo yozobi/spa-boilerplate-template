@@ -93,6 +93,26 @@ export const makeUseNavigate = <R extends RoutesType>(
   };
 };
 
+/**
+ * Creates a useNavigate hook which you can use to
+ * navigate type-safely between all routes in your app
+ */
+export const makeUseNavigateWithCustomHistoryPush = <R extends RoutesType>(
+  routeMap: RoutesReturn<R>,
+  historyPush: (path: string) => void,
+) => {
+  return (): UseNavigateReturn<R> => {
+    const toReturn: Partial<UseNavigateReturn<R>> = {};
+    Object.entries(routeMap).forEach(([_routeName, func]) => {
+      const routeName: keyof UseNavigateReturn<R> = _routeName;
+      toReturn[routeName] = (params: any) => {
+        historyPush(routeMap[routeName](params));
+      };
+    });
+    return toReturn as UseNavigateReturn<R>;
+  };
+};
+
 type UseParamsAndSearch<R extends RoutesType, K extends keyof R> = NonNullable<
   Parameters<RoutesReturn<R>[K]>[0]
 >;
