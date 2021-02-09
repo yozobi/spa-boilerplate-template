@@ -2,10 +2,16 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { spacing } from '../../theme/spacing';
 
+export type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch';
+export type JustifyContent =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'space-between';
 export interface FlexProps {
   flexDirection?: 'column' | 'row';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
+  alignItems?: AlignItems;
+  justifyContent?: JustifyContent;
   mx?: keyof typeof spacing;
   my?: keyof typeof spacing;
   className?: string;

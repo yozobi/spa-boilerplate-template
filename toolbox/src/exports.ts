@@ -11,6 +11,9 @@ export const ButtonBase = React.lazy(
 export { declareMakeMutationForm } from './utils/declareMakeMutationForm';
 
 export const Flex = React.lazy(() => import('./components/Flex/Flex'));
+export const RTLAwareFlex = React.lazy(
+  () => import('./components/Flex/RTLAwareFlex'),
+);
 
 export const TextInput = React.lazy(
   () => import('./components/TextInput/TextInput'),

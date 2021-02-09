@@ -206,7 +206,7 @@ export const usePaginationContext = () => {
   return context;
 };
 
-const PrevButton = () => {
+const PrevButton = ({ className }: { className?: string }) => {
   const {
     canGoToThePreviousPage,
     goToPrevPage,
@@ -215,7 +215,7 @@ const PrevButton = () => {
   } = usePaginationContext();
   return (
     <PageNavButton
-      className={buttonClassName}
+      className={`${buttonClassName} ${className}`}
       disabled={!canGoToThePreviousPage}
       onClick={goToPrevPage}
       buttonColor={buttonColor}
@@ -225,7 +225,7 @@ const PrevButton = () => {
   );
 };
 
-const NextButton = () => {
+const NextButton = ({ className }: { className?: string }) => {
   const {
     goToNextPage,
     canGoToTheNextPage,
@@ -234,7 +234,7 @@ const NextButton = () => {
   } = usePaginationContext();
   return (
     <PageNavButton
-      className={buttonClassName}
+      className={`${buttonClassName} ${className}`}
       disabled={!canGoToTheNextPage}
       onClick={goToNextPage}
       buttonColor={buttonColor}
