@@ -1,0 +1,27 @@
+diff --git a/node_modules/babel-plugin-formatjs/index.js b/node_modules/babel-plugin-formatjs/index.js
+index 3e32a02..53c4e34 100755
+--- a/node_modules/babel-plugin-formatjs/index.js
++++ b/node_modules/babel-plugin-formatjs/index.js
+@@ -115,14 +115,14 @@ function storeMessage(_a, path, _b, filename, messages) {
+     if (!id && !defaultMessage) {
+         throw path.buildCodeFrameError('[React Intl] Message Descriptors require an `id` or `defaultMessage`.');
+     }
+-    if (messages.has(id)) {
+-        var existing = messages.get(id);
+-        if (description !== existing.description ||
+-            defaultMessage !== existing.defaultMessage) {
+-            throw path.buildCodeFrameError("[React Intl] Duplicate message id: \"" + id + "\", " +
+-                'but the `description` and/or `defaultMessage` are different.');
+-        }
+-    }
++    // if (messages.has(id)) {
++    //     var existing = messages.get(id);
++    //     if (description !== existing.description ||
++    //         defaultMessage !== existing.defaultMessage) {
++    //         throw path.buildCodeFrameError("[React Intl] Duplicate message id: \"" + id + "\", " +
++    //             'but the `description` and/or `defaultMessage` are different.');
++    //     }
++    // }
+     var loc = {};
+     if (extractSourceLocation) {
+         loc = tslib_1.__assign({ file: filename }, path.node.loc);
