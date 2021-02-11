@@ -3,10 +3,12 @@
  */
 export const downloadAsCsv = (data: {}[], filename: string) => {
   let csvContent = 'data:text/csv;charset=utf-8,';
+  let csvContentEdge = '';
 
-  const appendToContent = function(rowArray: string[]) {
+  const appendToContent = function (rowArray: string[]) {
     const row = rowArray.map((item) => JSON.stringify(item)).join(',');
     csvContent += encodeURI(row + '\r\n');
+    csvContentEdge += row + '\\n';
   };
 
   appendToContent(Object.keys(data?.[0] || {}));
@@ -22,9 +24,16 @@ export const downloadAsCsv = (data: {}[], filename: string) => {
     );
   });
 
-  const downloadLink = document.createElement('a');
+  let blob = new Blob([csvContentEdge], { type: 'text/csv;charset=utf-8' });
 
-  downloadLink.href = csvContent;
-  downloadLink.download = filename;
-  downloadLink.click();
+  if (window.navigator.userAgent.indexOf('Trident/') > -1) {
+    window.navigator.msSaveBlob(blob, filename);
+  } else {
+    const downloadLink = document.createElement('a');
+
+    downloadLink.href = csvContent;
+    downloadLink.download = filename;
+    document.body.appendChild(downloadLink); // Required for FF
+    downloadLink.click();
+  }
 };
