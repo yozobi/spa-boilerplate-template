@@ -43,11 +43,12 @@ const StyledCheckbox = styled.div<{
   highlightColor?: string;
   labelPosition: labelPositionType;
   roundedCorners?: boolean;
+  focusRing?: boolean;
 }>`
   display: inline-block;
   width: 30px;
   height: 30px;
-  border-radius: ${(props) => (props.roundedCorners ? '5px' : '1px')};
+  border-radius: ${(props) => (props.roundedCorners ? '5px' : '0px')};
   margin: ${(props) =>
     props.labelPosition === 'top'
       ? '8px 0 0 0'
@@ -64,7 +65,10 @@ const StyledCheckbox = styled.div<{
     ${(props) => (props.checked ? props.color : props.borderColor || '#000')};
   cursor: pointer;
   ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px ${(props) => props.highlightColor || '#000'};
+    ${(props) =>
+      props.focusRing === true
+        ? `box-shadow: 0 0 0 3px ${props.highlightColor || '#000'};`
+        : `box-shadow: none`}
     border-color: ${(props) => props.highlightColor || '#000'};
   }
   ${Icon} {
@@ -88,6 +92,7 @@ export interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   borderColor?: string;
   roundedCorners?: boolean;
+  focusRing?: boolean;
   checked?: boolean;
   highlightColor?: string;
   labelPosition?: labelPositionType;
@@ -99,7 +104,11 @@ export interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   checkboxClassName?: string;
 }
 
-const Checkbox = ({ roundedCorners = true, ...props }: ICheckBoxProps) => {
+const Checkbox = ({
+  roundedCorners = true,
+  focusRing = true,
+  ...props
+}: ICheckBoxProps) => {
   const { labelPosition = 'right', labelClassName, className } = props;
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -113,6 +122,8 @@ const Checkbox = ({ roundedCorners = true, ...props }: ICheckBoxProps) => {
       props.onDeselect();
     }
   };
+
+  console.log(focusRing);
 
   return (
     <div className={className}>
@@ -133,6 +144,7 @@ const Checkbox = ({ roundedCorners = true, ...props }: ICheckBoxProps) => {
             borderColor={props.borderColor}
             highlightColor={props.highlightColor}
             roundedCorners={roundedCorners}
+            focusRing={focusRing}
           >
             <Icon viewBox="0 0 24 24">
               {props.icon || <polyline points="20 6 9 17 4 12" />}
