@@ -36,7 +36,8 @@
     "react-dom": "^16.13.1",
     "react-toastify": "^5.5.0",
     "subscriptions-transport-ws": "^0.9.16",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "toolbox": "*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^5.3.13",

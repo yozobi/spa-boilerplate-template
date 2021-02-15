@@ -16,6 +16,7 @@ export const useInterval = (
 ) => {
   const intervalRef = useRef<number>();
   useEffect(() => {
+    // @ts-ignore
     intervalRef.current = setInterval(func, interval);
     return () => {
       clearInterval(intervalRef.current);
