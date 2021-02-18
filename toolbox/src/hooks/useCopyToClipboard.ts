@@ -16,7 +16,7 @@ export const useCopyToClipboard = ({
       onSuccess?.(content);
     } else {
       try {
-        const dummyDiv = document.createElement('input');
+        const dummyDiv = document.createElement('textarea');
 
         dummyDiv.value = content;
 
