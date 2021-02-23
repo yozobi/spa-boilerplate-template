@@ -123,7 +123,7 @@ const Checkbox = ({
     }
   };
 
-  console.log(focusRing);
+  // console.log(focusRing);
 
   return (
     <div className={className}>
