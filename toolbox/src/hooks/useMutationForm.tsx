@@ -68,5 +68,15 @@ export function useMutationForm<T extends object>(
     [],
   );
 
-  return { ...formProps, makeInputProps, Provider };
+  const ReactNativeProvider = useMemo(
+    () =>
+      function MutationFormProvider({
+        children,
+        ...formProps
+      }: FormikProps<T> & { children?: any }) {
+        return <FormikProvider value={formProps}>{children}</FormikProvider>;
+      },
+    [],
+  );
+  return { ...formProps, makeInputProps, Provider, ReactNativeProvider };
 }
