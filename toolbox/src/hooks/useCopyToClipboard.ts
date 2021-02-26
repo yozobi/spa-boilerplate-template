@@ -6,6 +6,8 @@ interface UseCopyToClipboardParams {
 /**
  * Use this hook to return a function which copies a string
  * to the user's clipboard
+ *
+ * NOTE - does not work when in modals using a focus trap...
  */
 export const useCopyToClipboard = ({
   onError,
