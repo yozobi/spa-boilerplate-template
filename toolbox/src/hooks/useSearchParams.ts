@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 /**
  * Gives type-safe access to the search parameters
