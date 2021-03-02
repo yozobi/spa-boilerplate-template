@@ -1,6 +1,6 @@
 {
   "name": "yozobi-shared",
-  "version": "1.57.10",
+  "version": "1.57.11",
   "private": true,
   "author": "Matt Pocock <matt.pocock@yozobi.com>",
   "workspaces": [
@@ -166,7 +166,7 @@
     "xstate-codegen": "0.2.0"
   },
   "engines": {
-    "node": ">=10 <13",
+    "node": ">=10 <15",
     "yarn": ">=1 <2"
   },
   "devDependencies": {
