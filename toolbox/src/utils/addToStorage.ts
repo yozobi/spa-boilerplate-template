@@ -8,6 +8,9 @@ import { useState, useEffect } from 'react';
 export const addFileToStorage = async (
   Storage: StorageClass,
   file: File,
+  opts?: {
+    level?: 'protected' | 'public';
+  },
 ): Promise<{ s3Key: string }> => {
   const extension = file?.name?.split('.').pop() || '';
   const { type: mimeType } = file;
@@ -15,7 +18,7 @@ export const addFileToStorage = async (
   const s3Key = `${id}.${extension}`;
   await Storage.put(s3Key, file, {
     contentType: mimeType,
-    level: 'public',
+    level: opts?.level || 'public',
   });
   return {
     s3Key,
