@@ -14,6 +14,7 @@ export type AuthWrapperContextType = {
   user?: CognitoUser;
   username?: string;
   idTokenJwt?: string;
+  accessTokenJwt?: string;
   groups?: string[];
   /**
    * This triggers the auth wrapper to check for the
@@ -79,6 +80,7 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
   const user = state.type === 'loggedIn' ? state.user : undefined;
 
   const idToken = user?.getSignInUserSession?.()?.getIdToken?.();
+  const accessToken = user?.getSignInUserSession?.()?.getAccessToken?.();
 
   //  const expiration = user
   //   ?.getSignInUserSession?.()
@@ -94,6 +96,7 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({
         user,
         username: user?.getUsername(),
         idTokenJwt: idToken?.getJwtToken?.(),
+        accessTokenJwt: accessToken?.getJwtToken?.(),
         groups: idToken?.payload?.['cognito:groups'] || [],
         refreshAuthState,
       }}
