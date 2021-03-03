@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.27
+
+### Patch Changes
+
+- c6254c6e2: - swap icons for agent info and book viewing
+- Updated dependencies [c6254c6e2]
+  - toolbox@1.5.27
+
 ## 1.5.26
 
 ### Patch Changes
