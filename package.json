@@ -12,7 +12,7 @@
     "check-aws-profile": "node internals/scripts/checkAwsProfile.js",
     "checkout-pr": "node internals/scripts/checkoutPr.js",
     "ci-check": "node internals/scripts/run-ci-checks.js",
-    "codegen:machines": "xstate-codegen \"./!(node_modules)/!(node_modules)/**/**.machine.ts\" --once",
+    "codegen:machines": "XSTATE_CODEGEN=true xstate-codegen \"./!(node_modules)/!(node_modules)/**/**.machine.ts\" --once",
     "deploy": "node internals/scripts/updateDeploys.js",
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
