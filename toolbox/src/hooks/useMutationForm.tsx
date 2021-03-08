@@ -7,7 +7,9 @@ import {
 } from 'formik';
 import React, { useMemo } from 'react';
 
-export type UseMutationFormFieldProps<T> = FieldInputProps<Exclude<T, null>> & {
+export type UseMutationFormFieldProps<T = any> = FieldInputProps<
+  Exclude<T, null>
+> & {
   error: string;
   touched: boolean;
 };
