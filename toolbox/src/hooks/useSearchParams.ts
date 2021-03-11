@@ -9,7 +9,9 @@ export const useSearchParams = <P extends {}>(): P | null => {
   try {
     let obj: any = {};
     const queryParams = new URLSearchParams(search);
+    // @ts-ignore
     Array.from(queryParams.keys()).forEach((key) => {
+      // @ts-ignore
       obj[key] = queryParams.get(key);
     });
     return obj;

@@ -72,6 +72,7 @@ export const useDeduplicationThrottle = (
         if (typeof timeoutRef.current !== 'undefined') {
           clearTimeout(timeoutRef.current);
         }
+        // @ts-ignore
         timeoutRef.current = setTimeout(() => {
           timeLastSent.current = new Date().getTime();
           func();

@@ -46,6 +46,37 @@ export const useSearchParamsTextInput = (
   };
 };
 
+export const useSearchParamsReactNativeTextInput = (
+  id: string,
+  params?: UseSearchParamsTextInputProps,
+) => {
+  const throttleInMs = params?.throttleInMs || 200;
+  const [value, setValue] = useState('');
+  const { throttle } = useThrottleUserInput({
+    throttleInMs: throttleInMs || 200,
+  });
+  const [throttledValue, setThrottledValue] = useState(value || '');
+  return {
+    inputProps: {
+      value,
+      onChangeText: (value: string) => {
+        const newValue = value || '';
+        setValue(newValue);
+        const makeChange = () => {
+          setThrottledValue(newValue);
+          params?.onThrottledInputChange?.(newValue);
+        };
+        if (throttleInMs || 200) {
+          throttle(makeChange);
+        } else {
+          makeChange();
+        }
+      },
+    },
+    throttledValue,
+  };
+};
+
 interface UseSearchParamsSelectInputProps {
   defaultValue?: string;
   throttleInMs?: number;
