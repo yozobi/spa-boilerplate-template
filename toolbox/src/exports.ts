@@ -540,8 +540,7 @@ export const RadioGroup = React.lazy(
   () => import('./components/RadioButton/RadioGroup'),
 );
 
-// @ts-ignore
-export { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';
+export type { AwsAuthComponents } from './components/AwsAuthenticator/awsAuthenticatorTypes';
 
 export { useAmplifyQuery } from './hooks/useAmplifyQuery';
 
