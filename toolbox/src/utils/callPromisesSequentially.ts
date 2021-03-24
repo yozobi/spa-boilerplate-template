@@ -3,12 +3,12 @@
  */
 export async function callPromisesSequentially<ArrayMember, Data>(
   array: ArrayMember[],
-  mapperFunction: (params: ArrayMember) => Promise<Data>,
+  mapperFunction: (params: ArrayMember, index: number) => Promise<Data>,
 ): Promise<Data[]> {
   let dataArray: Data[] = [];
-  await array.reduce(async (promise, param) => {
+  await array.reduce(async (promise, param, index) => {
     await promise;
-    const dataElement = await mapperFunction(param);
+    const dataElement = await mapperFunction(param, index);
     dataArray.push(dataElement);
   }, Promise.resolve());
 
