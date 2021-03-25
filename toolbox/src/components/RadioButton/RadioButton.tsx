@@ -43,6 +43,7 @@ const StyledRadio = styled.div<{
   height: 30px;
   border-radius: 50%;
   transition: border 150ms;
+  flex-shrink: 0;
   cursor: pointer;
   border: 1px solid ${(props) => props.borderColor};
   ${HiddenRadio}:focus + & {
