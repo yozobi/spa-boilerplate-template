@@ -29,7 +29,8 @@
     "toolbox": "yarn workspace toolbox",
     "track-time": "node internals/scripts/trackTime.js",
     "version-minor": "npm version minor && git push --tags",
-    "version-patch": "npm version patch && git push --tags"
+    "version-patch": "npm version patch && git push --tags",
+    "v": "yarn --cwd vsc/experiments/next-js-with-tina"
   },
   "husky": {
     "hooks": {
