@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.29
+
+### Patch Changes
+
+- b3ab68387: use https to get exchange rates
+- Updated dependencies [b3ab68387]
+  - toolbox@1.5.29
+
 ## 1.5.28
 
 ### Patch Changes
