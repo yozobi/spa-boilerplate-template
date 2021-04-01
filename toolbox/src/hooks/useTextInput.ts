@@ -1,5 +1,5 @@
-import { useState, ChangeEvent } from 'react';
-import { useThrottleUserInput } from './useThrottle';
+import { useState, ChangeEvent, useEffect } from 'react';
+import { useThrottleUserInput, UseThrottleParams } from './useThrottle';
 
 interface UseTextInputParams {
   defaultValue?: string;
@@ -43,4 +43,18 @@ export const useTextInput = (
     },
     throttledValue,
   };
+};
+
+export const useThrottledValue = <T>(value: T, opts?: UseThrottleParams): T => {
+  const [throttledValue, setThrottledValue] = useState(value);
+
+  const { throttle } = useThrottleUserInput(opts);
+
+  useEffect(() => {
+    throttle(() => {
+      setThrottledValue(value);
+    });
+  }, [value]);
+
+  return throttledValue;
 };

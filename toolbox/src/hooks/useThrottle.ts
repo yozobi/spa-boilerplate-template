@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-interface UseThrottleParams {
+export interface UseThrottleParams {
   /**
    * How many milliseconds to throttle for
    */
