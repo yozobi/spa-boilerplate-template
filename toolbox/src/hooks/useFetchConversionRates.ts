@@ -227,7 +227,7 @@ export const fetchConversionRates = async (
   try {
     const result: Conversions = await (
       await fetch(
-        `http://api.exchangeratesapi.io/latest?base=GBP&access_key=${api_key}`,
+        `https://api.exchangeratesapi.io/latest?base=GBP&access_key=${api_key}`,
       )
     )?.json();
 
