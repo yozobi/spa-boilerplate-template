@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.28
+
+### Patch Changes
+
+- e28b1e071: Hotfix for exchangerates.io issue
+- Updated dependencies [e28b1e071]
+  - toolbox@1.5.28
+
 ## 1.5.27
 
 ### Patch Changes
