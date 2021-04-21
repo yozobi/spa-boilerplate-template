@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.30
+
+### Patch Changes
+
+- 1e02d0164: Removed button type submit from the pagination buttons
+- Updated dependencies [1e02d0164]
+  - toolbox@1.5.30
+
 ## 1.5.29
 
 ### Patch Changes
