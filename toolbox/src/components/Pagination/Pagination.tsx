@@ -219,6 +219,7 @@ const PrevButton = ({ className }: { className?: string }) => {
       disabled={!canGoToThePreviousPage}
       onClick={goToPrevPage}
       buttonColor={buttonColor}
+      type="button"
     >
       <HeroIconArrowLeft />
     </PageNavButton>
@@ -238,6 +239,7 @@ const NextButton = ({ className }: { className?: string }) => {
       disabled={!canGoToTheNextPage}
       onClick={goToNextPage}
       buttonColor={buttonColor}
+      type="button"
     >
       <HeroIconArrowRight />
     </PageNavButton>
