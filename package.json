@@ -67,7 +67,6 @@
     "@sextant-tools/plugin-jest": "0.0.2",
     "@storybook/addon-actions": "^5.3.13",
     "@storybook/addon-viewport": "^6.0.6",
-    "@swc-node/jest": "^1.0.3",
     "@testing-library/cypress": "^7.0.3",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
