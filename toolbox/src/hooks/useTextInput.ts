@@ -19,7 +19,7 @@ export const useTextInput = (
   const { throttle } = useThrottleUserInput({
     throttleInMs: params.throttleInMs,
   });
-  const [throttledValue, setThrottledValue] = useState('');
+  const [throttledValue, setThrottledValue] = useState(params.defaultValue);
   return {
     inputProps: {
       value,
