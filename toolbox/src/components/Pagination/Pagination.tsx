@@ -14,10 +14,7 @@ const PaginationBar = styled.nav`
   }
 `;
 
-const PageButtonContainer = styled.div<{ hideButtons?: boolean }>`
-  align-items: center;
-  display: ${(props) => (props.hideButtons ? 'none' : 'flex')};
-
+const PageButtonContainer = styled.div`
   & > * + * {
     margin-left: 0.5rem;
   }
@@ -252,7 +249,10 @@ export type PageNumberButtonType = React.FC<{
   onClick?: () => void;
 }>;
 
-const PageNumbers = (props: { Button?: PageNumberButtonType }) => {
+const PageNumbers = (props: {
+  Button?: PageNumberButtonType;
+  className?: string;
+}) => {
   const {
     buttonColor,
     buttonClassName,
@@ -266,7 +266,7 @@ const PageNumbers = (props: { Button?: PageNumberButtonType }) => {
   } = usePaginationContext();
   const Button = props.Button || PageNumberButton;
   return (
-    <PageButtonContainer>
+    <PageButtonContainer className={`flex items-center ${props.className}`}>
       <Button
         className={buttonClassName}
         onClick={() => goToPage(0)}
