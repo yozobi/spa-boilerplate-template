@@ -15,11 +15,13 @@ interface UseTextInputParams {
 export const useTextInput = (
   params: UseTextInputParams = { defaultValue: '', throttleInMs: 200 },
 ) => {
-  const [value, setValue] = useState(params.defaultValue);
+  const [value, setValue] = useState<string>(params.defaultValue || '');
   const { throttle } = useThrottleUserInput({
     throttleInMs: params.throttleInMs,
   });
-  const [throttledValue, setThrottledValue] = useState(params.defaultValue);
+  const [throttledValue, setThrottledValue] = useState<string>(
+    params.defaultValue || '',
+  );
   return {
     inputProps: {
       value,
