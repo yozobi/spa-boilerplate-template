@@ -1,4 +1,11 @@
-import { UseMutationResponse, OperationResult } from 'urql';
+import { UseMutationResponse, OperationResult, useMutation } from 'urql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+
+export interface UseWrappedUrqlMutationOptions<T> {
+  onSuccess?: (data?: T) => void;
+  onError?: (result: OperationResult<T>) => void;
+  notifyErrorTracker?: (message: string, description?: any) => void;
+}
 
 /**
  * Use this hook to wrap a mutation to add
@@ -11,11 +18,7 @@ export const useWrappedUrqlMutation = <T, V>(
     onSuccess,
     onError,
     notifyErrorTracker,
-  }: {
-    onSuccess?: (data?: T) => void;
-    onError?: (result: OperationResult<T>) => void;
-    notifyErrorTracker?: (message: string, description?: any) => void;
-  } = {
+  }: UseWrappedUrqlMutationOptions<T> = {
     notifyErrorTracker: console.error,
   },
 ) => {
@@ -48,4 +51,13 @@ export const useWrappedUrqlMutation = <T, V>(
     stale,
     errorMessage: error?.message,
   };
+};
+
+export const useWrappedDocumentMutation = <T, V>(
+  documentNode: DocumentNode<T, V>,
+  options: UseWrappedUrqlMutationOptions<T>,
+) => {
+  const useMutationWithNode = () => useMutation<T, V>(documentNode);
+
+  return useWrappedUrqlMutation<T, V>(useMutationWithNode, options);
 };
