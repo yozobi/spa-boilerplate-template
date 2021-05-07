@@ -508,7 +508,7 @@ export const ProtectedRoute = React.lazy(
 
 export {
   useWrappedUrqlMutation,
-  useWrappedDocumentMutation,
+  makeUseWrappedDocumentNodeMutation,
 } from './hooks/useWrappedUrqlMutation';
 
 export const TableRow = React.lazy(

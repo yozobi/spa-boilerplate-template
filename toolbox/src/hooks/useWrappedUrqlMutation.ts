@@ -1,4 +1,4 @@
-import { UseMutationResponse, OperationResult, useMutation } from 'urql';
+import { UseMutationResponse, OperationResult } from 'urql';
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 export interface UseWrappedUrqlMutationOptions<T> {
@@ -53,11 +53,18 @@ export const useWrappedUrqlMutation = <T, V>(
   };
 };
 
-export const useWrappedDocumentMutation = <T, V>(
+/**
+ * Make your own useWrappedDocumentNodeMutation, with a dynamic
+ * version of urql
+ */
+export const makeUseWrappedDocumentNodeMutation = (
+  useMutation: <T, V>(query: DocumentNode<T, V>) => any,
+) => <T, V>(
   documentNode: DocumentNode<T, V>,
-  options: UseWrappedUrqlMutationOptions<T>,
+  options?: UseWrappedUrqlMutationOptions<T>,
 ) => {
   const useMutationWithNode = () => useMutation<T, V>(documentNode);
 
+  // eslint-disable-next-line
   return useWrappedUrqlMutation<T, V>(useMutationWithNode, options);
 };
