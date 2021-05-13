@@ -1,4 +1,7 @@
-import { useHistory, useParams } from 'react-router-dom';
+import {
+  useHistory as useReactRouterHistory,
+  useParams,
+} from 'react-router-dom';
 import { useSearchParams } from '../hooks/useSearchParams';
 
 type RoutesType = {
@@ -79,6 +82,7 @@ type UseNavigateReturn<R extends RoutesType> = {
  */
 export const makeUseNavigate = <R extends RoutesType>(
   routeMap: RoutesReturn<R>,
+  useHistory: typeof useReactRouterHistory,
 ) => {
   return (): UseNavigateReturn<R> => {
     const history = useHistory();
