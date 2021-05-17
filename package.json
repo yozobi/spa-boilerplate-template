@@ -20,6 +20,7 @@
     "postinstall": "npm run fix-types && patch-package && npm run codegen:machines && yarn workspaces run postinstall",
     "issue": "node internals/scripts/quickIssue.js",
     "lint-staged": "lint-staged",
+    "oa": "yarn --cwd orange-shark-app",
     "quick-pr": "node internals/scripts/quickPullRequest.js",
     "release": "node internals/scripts/release.js",
     "report-bug": "npm run issue",
