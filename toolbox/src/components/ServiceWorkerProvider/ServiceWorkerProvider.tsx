@@ -22,21 +22,28 @@ const ServiceWorkerContext = createContext<ServiceWorkerContextType>({
  * and managing the service worker, and allows us allow users
  * to force update their browsers when there is new code.
  */
-const ServiceWorkerProvider: React.FC = ({ children }) => {
+const ServiceWorkerProvider: React.FC<{ disableServiceWorker?: boolean }> = ({
+  children,
+  disableServiceWorker = false,
+}) => {
   const [canUpdate, setCanUpdate] = useState(false);
   const updateSwRef = useRef<() => void>(() => {});
 
   useEffect(() => {
-    serviceWorker.register({
-      onUpdate: (sw) => {
-        updateSwRef.current = () => {
-          sw.postMessage({ type: 'SKIP_WAITING' });
-          window.location.reload();
-        };
-        setCanUpdate(true);
-      },
-    });
-  }, []);
+    if (disableServiceWorker) {
+      serviceWorker.unregister();
+    } else {
+      serviceWorker.register({
+        onUpdate: (sw) => {
+          updateSwRef.current = () => {
+            sw.postMessage({ type: 'SKIP_WAITING' });
+            window.location.reload();
+          };
+          setCanUpdate(true);
+        },
+      });
+    }
+  }, [disableServiceWorker]);
 
   return (
     <ServiceWorkerContext.Provider
