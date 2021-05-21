@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.31
+
+### Patch Changes
+
+- e0d9e0e38: Made changesets work with packages not in the repo
+- Updated dependencies [e0d9e0e38]
+  - toolbox@1.5.31
+
 ## 1.5.30
 
 ### Patch Changes
