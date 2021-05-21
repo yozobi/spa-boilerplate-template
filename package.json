@@ -17,7 +17,7 @@
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "postinstall": "npm run fix-types && patch-package && npm run codegen:machines && yarn workspaces run postinstall",
+    "postinstall": "npm run fix-types && patch-package && npm run codegen:machines && npm run fix-changesets && yarn workspaces run postinstall",
     "issue": "node internals/scripts/quickIssue.js",
     "lint-staged": "lint-staged",
     "oa": "yarn --cwd orange-shark-app",
@@ -32,7 +32,8 @@
     "version-minor": "npm version minor && git push --tags",
     "version-patch": "npm version patch && git push --tags",
     "v": "yarn --cwd vsc/experiments/next-js-with-tina",
-    "vp": "yarn workspace vsc-admin-portal"
+    "vp": "yarn workspace vsc-admin-portal",
+    "fix-changesets": "rm -rf node_modules/@changesets/cli/node_modules/@manypkg"
   },
   "husky": {
     "hooks": {
@@ -53,6 +54,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
+    "@manypkg/get-packages": "1.1.1",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.8.3",

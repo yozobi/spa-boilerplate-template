@@ -1,0 +1,154 @@
+diff --git a/node_modules/@manypkg/get-packages/dist/get-packages.cjs.dev.js b/node_modules/@manypkg/get-packages/dist/get-packages.cjs.dev.js
+index 32f5c56..63a279e 100644
+--- a/node_modules/@manypkg/get-packages/dist/get-packages.cjs.dev.js
++++ b/node_modules/@manypkg/get-packages/dist/get-packages.cjs.dev.js
+@@ -45,6 +45,7 @@ function _getPackages() {
+   /*#__PURE__*/
+   _regeneratorRuntime.mark(function _callee(dir) {
+     var cwd, pkg, tool, manifest, lernaJson, root, directories, pkgJsonsMissingNameField, results;
++
+     return _regeneratorRuntime.wrap(function _callee$(_context) {
+       while (1) {
+         switch (_context.prev = _context.next) {
+@@ -59,26 +60,26 @@ function _getPackages() {
+ 
+           case 5:
+             pkg = _context.sent;
++            _context.next = 10;
++            break;
+ 
+-            if (!pkg.workspaces) {
+-              _context.next = 10;
+-              break;
+-            }
++            // if (!pkg.workspaces) {
++            // }
+ 
+-            if (Array.isArray(pkg.workspaces)) {
+-              tool = {
+-                type: "yarn",
+-                packageGlobs: pkg.workspaces
+-              };
+-            } else if (pkg.workspaces.packages) {
+-              tool = {
+-                type: "yarn",
+-                packageGlobs: pkg.workspaces.packages
+-              };
+-            }
++            // if (Array.isArray(pkg.workspaces)) {
++            //   tool = {
++            //     type: "yarn",
++            //     packageGlobs: pkg.workspaces
++            //   };
++            // } else if (pkg.workspaces.packages) {
++            //   tool = {
++            //     type: "yarn",
++            //     packageGlobs: pkg.workspaces.packages
++            //   };
++            // }
+ 
+-            _context.next = 37;
+-            break;
++            // _context.next = 37;
++            // break;
+ 
+           case 10:
+             if (!(pkg.bolt && pkg.bolt.workspaces)) {
+@@ -254,31 +255,29 @@ function getPackagesSync(dir) {
+   var pkg = fs.readJsonSync(path.join(cwd, "package.json"));
+   var tool;
+ 
+-  if (pkg.workspaces) {
+-    if (Array.isArray(pkg.workspaces)) {
+-      tool = {
+-        type: "yarn",
+-        packageGlobs: pkg.workspaces
+-      };
+-    } else if (pkg.workspaces.packages) {
++  try {
++    var manifest = readYamlFile.sync(path.join(cwd, "pnpm-workspace.yaml"));
++
++    if (manifest && manifest.packages) {
+       tool = {
+-        type: "yarn",
+-        packageGlobs: pkg.workspaces.packages
++        type: "pnpm",
++        packageGlobs: manifest.packages
+       };
+     }
+-  } else if (pkg.bolt && pkg.bolt.workspaces) {
+-    tool = {
+-      type: "bolt",
+-      packageGlobs: pkg.bolt.workspaces
+-    };
+-  } else {
++  } catch (err) {
++    if (err.code !== "ENOENT") {
++      throw err;
++    }
++  }
++
++  if (!tool) {
+     try {
+-      var manifest = readYamlFile.sync(path.join(cwd, "pnpm-workspace.yaml"));
++      var lernaJson = fs.readJsonSync(path.join(cwd, "lerna.json"));
+ 
+-      if (manifest && manifest.packages) {
++      if (lernaJson) {
+         tool = {
+-          type: "pnpm",
+-          packageGlobs: manifest.packages
++          type: "lerna",
++          packageGlobs: lernaJson.packages || ["packages/*"]
+         };
+       }
+     } catch (err) {
+@@ -286,23 +285,6 @@ function getPackagesSync(dir) {
+         throw err;
+       }
+     }
+-
+-    if (!tool) {
+-      try {
+-        var lernaJson = fs.readJsonSync(path.join(cwd, "lerna.json"));
+-
+-        if (lernaJson) {
+-          tool = {
+-            type: "lerna",
+-            packageGlobs: lernaJson.packages || ["packages/*"]
+-          };
+-        }
+-      } catch (err) {
+-        if (err.code !== "ENOENT") {
+-          throw err;
+-        }
+-      }
+-    }
+   }
+ 
+   if (!tool) {
+diff --git a/node_modules/@manypkg/get-packages/dist/get-packages.cjs.prod.js b/node_modules/@manypkg/get-packages/dist/get-packages.cjs.prod.js
+index 6d347d2..cfc41d8 100644
+--- a/node_modules/@manypkg/get-packages/dist/get-packages.cjs.prod.js
++++ b/node_modules/@manypkg/get-packages/dist/get-packages.cjs.prod.js
+@@ -37,13 +37,13 @@ function _getPackages() {
+           _context.next = 10;
+           break;
+         }
+-        Array.isArray(pkg.workspaces) ? tool = {
+-          type: "yarn",
+-          packageGlobs: pkg.workspaces
+-        } : pkg.workspaces.packages && (tool = {
+-          type: "yarn",
+-          packageGlobs: pkg.workspaces.packages
+-        }), _context.next = 37;
++        // Array.isArray(pkg.workspaces) ? tool = {
++        //   type: "yarn",
++        //   packageGlobs: pkg.workspaces
++        // } : pkg.workspaces.packages && (tool = {
++        //   type: "yarn",
++        //   packageGlobs: pkg.workspaces.packages
++        // }), _context.next = 37;
+         break;
+ 
+        case 10:
