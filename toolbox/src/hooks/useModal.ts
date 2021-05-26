@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export interface UseModalReturn<CachedState = undefined> {
+export interface UseModalReturn<CachedState = null> {
   state: CachedState | null | undefined;
   open: boolean;
   onOpen: (state?: CachedState) => void;
@@ -13,7 +13,7 @@ export interface UseModalReturn<CachedState = undefined> {
  * Gives you a simple set of methods you can use to give state
  * to a modal. Works well with our Modal components.
  */
-export const useModal = <CachedState = any>(): UseModalReturn<CachedState> => {
+export const useModal = <CachedState = null>(): UseModalReturn<CachedState> => {
   const [open, setOpen] = useState(false);
   const [cachedState, setCachedState] = useState<CachedState | null>();
 

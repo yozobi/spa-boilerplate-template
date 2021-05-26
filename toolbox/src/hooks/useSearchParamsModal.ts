@@ -1,6 +1,6 @@
 import { useSearchParamsState } from './useSearchParamsState';
 
-export interface UseSearchParamsModalReturn<CachedState> {
+export interface UseSearchParamsModalReturn<CachedState = null> {
   state: CachedState | null | undefined;
   open: boolean;
   onOpen: (state?: CachedState) => void;
@@ -13,7 +13,7 @@ export interface UseSearchParamsModalReturn<CachedState> {
  * Allows for storing the open and closed state of a modal
  * in search params, to ensure the back button works effectively
  */
-export const useSearchParamsModal = <CachedState>(
+export const useSearchParamsModal = <CachedState = null>(
   modalId: string,
 ): UseSearchParamsModalReturn<CachedState> => {
   const [modalState, setModalState] = useSearchParamsState<
