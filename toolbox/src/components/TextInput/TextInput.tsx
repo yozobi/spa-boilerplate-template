@@ -1,9 +1,11 @@
 import React from 'react';
 
-export const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
-  error?: string;
-}> = ({
+export const TextInput: React.FC<
+  React.InputHTMLAttributes<HTMLInputElement> & {
+    label?: string;
+    error?: string;
+  }
+> = ({
   value,
   name,
   onChange,
@@ -12,6 +14,7 @@ export const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
   type = 'text',
   error,
   className,
+  placeholder,
 }) => {
   return (
     <label htmlFor={name} className="flex flex-col">
@@ -19,6 +22,7 @@ export const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
       <input
         value={value}
         name={name}
+        placeholder={placeholder}
         type={type}
         onChange={onChange}
         className={`py-4 px-4 border-b-4 bg-gray-100 border-gray-400 focus:border-primary-400 focus:outline-none text-gray-700 text-sm ${
