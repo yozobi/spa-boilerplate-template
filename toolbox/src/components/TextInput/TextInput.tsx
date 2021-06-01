@@ -15,6 +15,7 @@ export const TextInput: React.FC<
   error,
   className,
   placeholder,
+  readOnly,
 }) => {
   return (
     <label htmlFor={name} className="flex flex-col">
@@ -23,6 +24,7 @@ export const TextInput: React.FC<
         value={value}
         name={name}
         placeholder={placeholder}
+        readOnly={readOnly}
         type={type}
         onChange={onChange}
         className={`py-4 px-4 border-b-4 bg-gray-100 border-gray-400 focus:border-primary-400 focus:outline-none text-gray-700 text-sm ${

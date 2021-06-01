@@ -14,6 +14,8 @@ export type UseMutationFormFieldProps<T = any> = FieldInputProps<
   touched: boolean;
 };
 
+type MaybePromise<T> = T | Promise<T>;
+
 /**
  * Provides a simple wrapper on top of Formik to make working
  * with forms simple
@@ -23,7 +25,7 @@ export type UseMutationFormFieldProps<T = any> = FieldInputProps<
  * https://www.loom.com/share/9620a036f74c4d65805fb23163791f85
  */
 export function useMutationForm<T extends object>(
-  params: FormikConfig<T> & {
+  params: Omit<FormikConfig<T>, 'validate'> & {
     /**
      * Normally, we wait until the user has tried to submit
      * to show the errors. But, if you want, you can show them
@@ -31,6 +33,9 @@ export function useMutationForm<T extends object>(
      * this as true
      */
     showErrorsOnTouched?: boolean;
+    validate?: (
+      values: T,
+    ) => MaybePromise<Partial<Record<keyof T, string>> | void>;
   },
 ) {
   const formProps = useFormik<T>(params);
