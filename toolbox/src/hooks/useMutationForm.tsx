@@ -35,7 +35,7 @@ export function useMutationForm<T extends object>(
     showErrorsOnTouched?: boolean;
     validate?: (
       values: T,
-    ) => MaybePromise<Partial<Record<keyof T, string>> | void>;
+    ) => MaybePromise<Partial<Record<keyof T, string | string[]>> | void>;
   },
 ) {
   const formProps = useFormik<T>(params);
