@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 interface UseAsyncLoadScriptParams {
   src: string;
   onLoad: () => void;
+  disabled?: boolean;
 }
 
 /**
@@ -12,13 +13,16 @@ interface UseAsyncLoadScriptParams {
 export const useAsyncLoadScript = ({
   src,
   onLoad,
+  disabled,
 }: UseAsyncLoadScriptParams) => {
   useEffect(() => {
-    const scriptElement = document.createElement('script');
-    scriptElement.src = src;
-    scriptElement.onload = onLoad;
+    if (!disabled) {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = src;
+      scriptElement.onload = onLoad;
 
-    // TODO - double check that this works with IE11
-    document.body.appendChild(scriptElement);
-  }, [src]);
+      // TODO - double check that this works with IE11
+      document.body.appendChild(scriptElement);
+    }
+  }, [src, disabled]);
 };
