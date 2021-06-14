@@ -12,12 +12,12 @@
     "check-aws-profile": "node internals/scripts/checkAwsProfile.js",
     "checkout-pr": "node internals/scripts/checkoutPr.js",
     "ci-check": "node internals/scripts/run-ci-checks.js",
-    "codegen:machines": "XSTATE_CODEGEN=true xstate-codegen \"./!(node_modules)/!(node_modules)/**/**.machine.ts\" --once",
+    "codegen:machines": "cross-env XSTATE_CODEGEN=true xstate-codegen \"./!(node_modules)/!(node_modules)/**/**.machine.ts\" --once",
     "deploy": "node internals/scripts/updateDeploys.js",
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "postinstall": "npm run fix-types && patch-package && npm run codegen:machines && npm run fix-changesets && yarn workspaces run postinstall",
+    "postinstall": "npm run fix-types && patch-package && yarn workspaces run postinstall",
     "issue": "node internals/scripts/quickIssue.js",
     "lint-staged": "lint-staged",
     "oa": "yarn --cwd orange-shark-app",
@@ -164,7 +164,9 @@
     "webpack-bugsnag-plugins": "^1.4.3",
     "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^2.5.0",
-    "xstate-codegen": "0.2.0"
+    "xstate-codegen": "0.2.0",
+    "cross-env": "7.0.3",
+    "hasura-cli": "1.3.3"
   },
   "engines": {
     "node": ">=10 <15",
