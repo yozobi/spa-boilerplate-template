@@ -33,6 +33,7 @@
     "version-patch": "npm version patch && git push --tags",
     "v": "yarn --cwd vsc/experiments/next-js-with-tina",
     "vp": "yarn workspace vsc-admin-portal",
+    "vm": "yarn --cwd visiting-media",
     "fix-changesets": "rm -rf node_modules/@changesets/cli/node_modules/@manypkg"
   },
   "husky": {
