@@ -8,26 +8,11 @@ hooks:
 generates:
   src/graphql/schemaTypes.generated.ts:
     - typescript
-  introspection.generated.json:
-    plugins:
-      - introspection
-    config:
-      minify: false
-  src/utils/sdk.generated.ts:
-    config:
-      typesPrefix: SDK
-    plugins:
-      - typescript
-      - typescript-operations
-      - typescript-graphql-request
   src/graphql/:
     preset: near-operation-file
     presetConfig:
       baseTypesPath: 'schemaTypes.generated.ts'
-      extension: '.generated.tsx'
+      extension: '.generated.ts'
     plugins:
       - typescript-operations
-      - typescript-urql
-    config:
-      withComponent: false
-      withHooks: true
+      - typed-document-node

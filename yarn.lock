@@ -4701,15 +4701,15 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@headlessui/react@1.2.0", "@headlessui/react@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.2.0.tgz#e48652bfce82ddf73d7f331faeb9db6526ee6874"
+  integrity sha512-19DkLz8gDgbi+WvkoTzi9vs0NK9TJf94vbYhMzB4LYJo03Kili0gmvXT9CiKZoxXZ7YAvy/b1U1oQKEnjWrqxw==
+
 "@headlessui/react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.1.0.tgz#04cf1e779cdd514b294dc863205b686a5922fa93"
   integrity sha512-cauadRPiC3lDxudbgLkHThAhfqLIzp7159z2tNjODxrpOnckOk809rfAj63YdXWreRbLETNOupq1pC4i1NX9xA==
-
-"@headlessui/react@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.2.0.tgz#e48652bfce82ddf73d7f331faeb9db6526ee6874"
-  integrity sha512-19DkLz8gDgbi+WvkoTzi9vs0NK9TJf94vbYhMzB4LYJo03Kili0gmvXT9CiKZoxXZ7YAvy/b1U1oQKEnjWrqxw==
 
 "@heroicons/react@^1.0.1":
   version "1.0.1"
@@ -7767,6 +7767,14 @@
     "@graphql-typed-document-node/core" "^3.1.0"
     wonka "^4.0.14"
 
+"@urql/core@^2.1.0":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-2.1.3.tgz#fd8514ce28c1f8cf8e99a03b86a3df217c132290"
+  integrity sha512-CzrTMhO5SG7qdAaS3B5/g1TPH5k7326GHIyta1owT2vzxX9ev8YytxOE5m73EuacxIfF7qVZFhCzY+rubOlI0w==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.0"
+    wonka "^4.0.14"
+
 "@urql/exchange-suspense@^1.8.3":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@urql/exchange-suspense/-/exchange-suspense-1.8.3.tgz#25647c7d1d131484f1fca4e627641bdbb9f031cd"
@@ -7774,6 +7782,14 @@
   dependencies:
     "@urql/core" ">=1.9.0"
     wonka "^4.0.7"
+
+"@vimeo/player@2.15.3":
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.15.3.tgz#7ef73bccd8eaebaadceb9048f1103ed0cbcf1427"
+  integrity sha512-pLOFTKYL6N3wUKj5WpCF5pNGHov/3MausV9tKWXP6ko7+mq4pvlSJLSHCn1vokN71USSwHFnOaZjcMMjK6R79g==
+  dependencies:
+    native-promise-only "0.8.1"
+    weakmap-polyfill "2.0.1"
 
 "@vue/compiler-core@3.0.5", "@vue/compiler-core@^3.0.0":
   version "3.0.5"
@@ -20750,7 +20766,7 @@ napi-build-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/napi-build-utils/-/napi-build-utils-1.0.2.tgz#b1fddc0b2c46e380a0b7a76f984dd47c41a13806"
   integrity sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==
 
-native-promise-only@^0.8.1:
+native-promise-only@0.8.1, native-promise-only@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
   integrity sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
@@ -27307,7 +27323,7 @@ tailwindcss@2.0.3:
     reduce-css-calc "^2.1.8"
     resolve "^1.19.0"
 
-tailwindcss@^1.0.1, tailwindcss@^1.1.4:
+tailwindcss@^1.0.1:
   version "1.9.6"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.9.6.tgz#0c5089911d24e1e98e592a31bfdb3d8f34ecf1a0"
   integrity sha512-nY8WYM/RLPqGsPEGEV2z63riyQPcHYZUJpAwdyBzVpxQHOHqHE+F/fvbCeXhdF1+TA5l72vSkZrtYCB9hRcwkQ==
@@ -28536,6 +28552,14 @@ urql@^2.0.2:
     "@urql/core" "^2.0.0"
     wonka "^4.0.14"
 
+urql@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-2.0.3.tgz#41bc4ad3ea7a1c995bbc8002f9ee82af1396bd26"
+  integrity sha512-CEfCsODKbAloDuAaT3NeMvibKpWxfS86DucI/HGam9uuqiZLpunuKb4p9+SWwoWLRf6Q1kUeQKGZoI5GqudOCg==
+  dependencies:
+    "@urql/core" "^2.1.0"
+    wonka "^4.0.14"
+
 use-isomorphic-layout-effect@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.0.0.tgz#f56b4ed633e1c21cd9fc76fe249002a1c28989fb"
@@ -28819,6 +28843,11 @@ weak-map@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/weak-map/-/weak-map-1.0.5.tgz#79691584d98607f5070bd3b70a40e6bb22e401eb"
   integrity sha1-eWkVhNmGB/UHC9O3CkDmuyLkAes=
+
+weakmap-polyfill@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.1.tgz#ff0278c7f75bb0c492fc3343257f3e87114d709a"
+  integrity sha512-Jy177Lvb1LCrPQDWJsXyyqf4eOhcdvQHFGoCqSv921kVF5i42MVbr4e2WEwetuTLBn1NX0IhPzTmMu0N3cURqQ==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"

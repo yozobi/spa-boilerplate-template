@@ -39,18 +39,18 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "toolbox": "1.5.31"
+    "toolbox": "*"
   },
   "devDependencies": {
     "@graphql-codegen/add": "^1.12.1",
     "@graphql-codegen/cli": "1.13.2",
-    "@graphql-codegen/introspection": "^1.12.2",
     "@graphql-codegen/near-operation-file-preset": "^1.12.2",
     "@graphql-codegen/typescript": "^1.12.0",
-    "@graphql-codegen/typescript-graphql-request": "^1.12.2",
     "@graphql-codegen/typescript-operations": "^1.12.2",
-    "@graphql-codegen/typescript-urql": "^1.12.2",
-    "tailwindcss": "^1.1.4",
-    "xstate": "^4.11.0"
+    "@graphql-typed-document-node/core": "^3.1.0",
+    "@graphql-codegen/typed-document-node": "^1.18.4",
+    "tailwindcss": "^2.1.1",
+    "xstate": "^4.17.1",
+    "urql": "^2.0.3"
   }
 }
