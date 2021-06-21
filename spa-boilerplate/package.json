@@ -17,6 +17,8 @@
     "hasura:production": "ENV_FILE=\".env.production\" node scripts/hasura.js",
     "postinstall": "echo \"No postinstall! Continuing...\"",
     "lint": "tsc",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
     "start": "concurrently \"npm run start:app\" \"npm run codegen:watch\" \"npm run console\"",
     "start:app": "SKIP_PREFLIGHT_CHECK=true craco start",
     "test": "jest --config=jest.config.js --passWithNoTests"
