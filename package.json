@@ -17,7 +17,7 @@
     "draft-pr": "node internals/scripts/draftPullRequest.js",
     "fix-types": "rm -rf node_modules/@testing-library/dom/node_modules/pretty-format/build/index.d.ts",
     "generate": "plop --plopfile internals/generators/plopfile.js",
-    "postinstall": "npm run fix-types && patch-package && yarn workspaces run postinstall",
+    "postinstall": "npm run fix-types && npm run fix-changesets && patch-package && yarn workspaces run postinstall",
     "issue": "node internals/scripts/quickIssue.js",
     "lint-staged": "lint-staged",
     "oa": "yarn --cwd orange-shark-app",
@@ -34,7 +34,7 @@
     "v": "yarn --cwd vsc/experiments/next-js-with-tina",
     "vp": "yarn workspace vsc-admin-portal",
     "vm": "yarn --cwd visiting-media",
-    "fix-changesets": "rm -rf node_modules/@changesets/cli/node_modules/@manypkg"
+    "fix-changesets": "bash fixChangesets.sh"
   },
   "husky": {
     "hooks": {
