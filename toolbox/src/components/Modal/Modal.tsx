@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { useRef } from 'react';
 import HeroIconX from '../HeroIcons/HeroIconX';
 
 interface Props {
