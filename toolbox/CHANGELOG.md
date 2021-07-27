@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.32
+
+### Patch Changes
+
+- 6dba69a49: EWG: Improved password reset UX
+- Updated dependencies [6dba69a49]
+  - toolbox@1.5.32
+
 ## 1.5.31
 
 ### Patch Changes
