@@ -30,6 +30,7 @@ export type SelectBaseProps<O = any> = {
   filterOption?: (option: { data: O }, rawInput: string) => boolean;
   theme?: Partial<Props['theme']>;
   height?: number | string;
+  width?: number | string;
   styles?: Props['styles'];
 } & Omit<Props<O>, 'onChange' | 'theme'>;
 
@@ -53,6 +54,7 @@ export function SelectBase<O = any>({
   theme,
   id,
   height,
+  width,
   SelectWrapper = React.Fragment,
   ...props
 }: SelectBaseProps<O>) {
@@ -71,6 +73,7 @@ export function SelectBase<O = any>({
               valueContainer: (provided, state) => ({
                 ...provided,
                 height,
+                width,
               }),
               indicatorsContainer: (provided, state) => ({
                 ...provided,
