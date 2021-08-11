@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.33
+
+### Patch Changes
+
+- a054cd627: Flags has been added to currency choice dropdowm
+- Updated dependencies [a054cd627]
+  - toolbox@1.5.33
+
 ## 1.5.32
 
 ### Patch Changes
