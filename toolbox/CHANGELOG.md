@@ -1,5 +1,17 @@
 # toolbox
 
+## 1.5.37
+
+### Patch Changes
+
+- 29d844118: bump version
+- 801b0eee9: bump version
+- c1b12c881: add missing styled-components dep to toolbox
+- Updated dependencies [29d844118]
+- Updated dependencies [801b0eee9]
+- Updated dependencies [c1b12c881]
+  - toolbox@1.5.37
+
 ## 1.5.36
 
 ### Patch Changes
