@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.36
+
+### Patch Changes
+
+- 3049fe2a5: bump version
+- Updated dependencies [3049fe2a5]
+  - toolbox@1.5.36
+
 ## 1.5.35
 
 ### Patch Changes
