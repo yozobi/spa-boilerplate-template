@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import HeroIconX from '../HeroIcons/HeroIconX';
 
 interface Props {
+  showHeroIconX?: boolean;
   open: boolean;
   onClose: () => void;
   className?: string;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export const Modal: React.FC<Props> = ({
+  showHeroIconX = true,
   open,
   onClose,
   children,
@@ -56,16 +58,18 @@ export const Modal: React.FC<Props> = ({
         ref={backdropRef}
         title={screenReaderCloseBackdropLabel || 'Go Back'}
       >
-        <div className="absolute top-0 right-0 mt-4 mr-6">
-          <HeroIconX className="w-8 h-8 text-white" />
-        </div>
+        {showHeroIconX ? (
+          <div className="absolute top-0 right-0 mt-4 mr-6">
+            <HeroIconX className="w-8 h-8 text-white" />
+          </div>
+        ) : null}
       </Backdrop>
       {shouldShowChildren && (
         <ChildrenWrapper
           isVisible={open}
           className="z-10 flex flex-col justify-center w-full max-h-screen sm:w-auto"
         >
-          <div className={`flex-1 m-4 ${className || ''}`}>{children}</div>
+          <div className={`flex-1 ${className || ''}`}>{children}</div>
         </ChildrenWrapper>
       )}
     </BackdropWrapper>
