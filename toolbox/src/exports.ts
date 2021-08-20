@@ -26,6 +26,9 @@ export const UrqlWrapper = React.lazy(
 export const HeroIconAnnouncement = React.lazy(
   () => import('./components/HeroIcons/HeroIconAnnouncement'),
 );
+export const HeroIconYourAgency = React.lazy(
+  () => import('./components/HeroIcons/HeroIconYourAgency'),
+);
 export const HeroIconUSAFlag = React.lazy(
   () => import('./components/HeroIcons/HeroIconUSAFlag'),
 );
