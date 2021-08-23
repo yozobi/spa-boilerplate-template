@@ -1,5 +1,17 @@
 # toolbox
 
+## 1.5.38
+
+### Patch Changes
+
+- b002fb778: Add labels to PRs based on workspaces with changes
+- 99542633f: Now we can view and edit lead info in side panel instead of opening it up in new page
+- eb413fc2b: Just added Your agency and your developer Icon
+- Updated dependencies [b002fb778]
+- Updated dependencies [99542633f]
+- Updated dependencies [eb413fc2b]
+  - toolbox@1.5.38
+
 ## 1.5.37
 
 ### Patch Changes
