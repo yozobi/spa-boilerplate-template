@@ -9,8 +9,8 @@ function HeroIconUSAFlag(props: SVGAttributes<HTMLOrSVGElement>) {
       id="flag-icon-css-us"
       viewBox="0 0 512 512"
     >
-      <g fill-rule="evenodd">
-        <g stroke-width="1pt">
+      <g fillRule="evenodd">
+        <g strokeWidth="1pt">
           <path
             fill="#bd3d44"
             d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
