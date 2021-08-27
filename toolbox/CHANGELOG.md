@@ -1,5 +1,15 @@
 # toolbox
 
+## 1.5.39
+
+### Patch Changes
+
+- 90ef43654: This change gives the user a better experience if an error is encountered by displaying a message so that they are aware of what happened.
+- 68c445273: Github Action to generate preview of Hasura schema changes as a PR comment
+- Updated dependencies [90ef43654]
+- Updated dependencies [68c445273]
+  - toolbox@1.5.39
+
 ## 1.5.38
 
 ### Patch Changes
