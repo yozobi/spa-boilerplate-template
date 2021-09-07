@@ -16,3 +16,5 @@ time-tracked.json
 report.*.json
 .dprintrc.json
 .next
+
+.idea
