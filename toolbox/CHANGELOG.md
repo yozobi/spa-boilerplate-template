@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.40
+
+### Patch Changes
+
+- 8e3485d71: This changes gives a more mobile friendly UI to the user, enabling a hidden navigation and better breakpoints.
+- Updated dependencies [8e3485d71]
+  - toolbox@1.5.40
+
 ## 1.5.39
 
 ### Patch Changes
