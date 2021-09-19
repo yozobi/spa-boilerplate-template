@@ -26,7 +26,7 @@ export const useThrottleUserInput = (
     allowInstantFirstTry: false,
   },
 ) => {
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const isFirstTryRef = useRef<boolean>(true);
   const [isThrottling, setIsThrottling] = useState(false);
 

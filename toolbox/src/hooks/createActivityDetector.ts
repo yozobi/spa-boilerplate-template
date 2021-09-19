@@ -58,7 +58,7 @@ const createActivityDetector = ({
 }) => {
   const listeners: Listeners = { [ACTIVE]: [], [IDLE]: [] };
   let state: State;
-  let timer: number;
+  let timer: ReturnType<typeof setTimeout>;
 
   const setState = (newState: State) => {
     clearTimeout(timer);
