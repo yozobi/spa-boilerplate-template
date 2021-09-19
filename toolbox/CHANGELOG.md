@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.41
+
+### Patch Changes
+
+- 549039307: fix problem with setTimeout return type in node.js
+- Updated dependencies [549039307]
+  - toolbox@1.5.41
+
 ## 1.5.40
 
 ### Patch Changes
