@@ -6370,6 +6370,15 @@
   resolved "https://registry.yarnpkg.com/@progress/kendo-popup-common/-/kendo-popup-common-1.8.0.tgz#02ec32974762f30bdb2bb968e3c5b73c76c82c33"
   integrity sha512-/cu0nV+3tHKPEE/bUbJTJHv6t8BMYpwI3uVOYENASYy+ZK1dlOfuRhdpSGH85glAH6NMtr/5pYOPojuXFFz/8A==
 
+"@progress/kendo-react-animation@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-animation/-/kendo-react-animation-4.9.0.tgz#7e3e7193931426e67448fe42774fba3d66e0e873"
+  integrity sha512-jxcWXDmUWvw2Vu9BIOVjBkpVDoLgNsEr6WRui7jX3h56+onVp7XJwHqsvj4Y3FnTWEvD8LqbEhsG9Pgw9VGvug==
+  dependencies:
+    "@progress/kendo-react-common" "4.9.0"
+    prop-types "^15.6.0"
+    react-transition-group "^4.4.2"
+
 "@progress/kendo-react-animation@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-react-animation/-/kendo-react-animation-4.5.0.tgz#d3e07c3b8a9c6d57cc7507dd9bc8b43e69cb6561"
@@ -6394,6 +6403,14 @@
   integrity sha512-0R1e0zNmwy7088gIx1QIDBeRE4oJ68by5am8rk+FpFEFFADBgYuo2bzjitbMHSlc/NB0vVX7MQwv7l1O4GGnOw==
   dependencies:
     "@telerik/kendo-draggable" "^2.1.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-common@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-common/-/kendo-react-common-4.9.0.tgz#b32e6248c90312eb7f4ce0ed4b8988ab03e689b5"
+  integrity sha512-jImCfKrbaIFkQ3nGjGaRBEpG7dvvEWefy23ZJnfBcCSbuxSloV4cLdjlL1uYQ7eJtp96ozVTbZhol+AGLaS74w==
+  dependencies:
+    "@telerik/kendo-draggable" "^2.2.1"
     prop-types "^15.6.0"
 
 "@progress/kendo-react-data-tools@^4.5.0":
@@ -6460,6 +6477,16 @@
     "@progress/kendo-react-common" "4.5.0"
     prop-types "^15.6.0"
 
+"@progress/kendo-react-layout@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-layout/-/kendo-react-layout-4.9.0.tgz#64fc0a17abe89d5294ebd7b11455fbd1f6a9cfdb"
+  integrity sha512-/LMdTOK8g8nWnm7a2Dju01pMNoTdsBVuAFCyDS3QZUiHo5BoJZ4zbEz7HY7Xs0KskAz2lb5dsAIPOtmdYRIoXw==
+  dependencies:
+    "@progress/kendo-react-animation" "4.9.0"
+    "@progress/kendo-react-common" "4.9.0"
+    "@progress/kendo-react-popup" "4.9.0"
+    prop-types "^15.6.0"
+
 "@progress/kendo-react-popup@4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-4.5.0.tgz#7d450adb5fb4b7ac787a64ccf9b5ab825b6a21c0"
@@ -6467,6 +6494,23 @@
   dependencies:
     "@progress/kendo-popup-common" "^1.2.2"
     "@progress/kendo-react-common" "4.5.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-popup@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-4.9.0.tgz#459e41c9f17ef599bb9515855fc3b73233dd3402"
+  integrity sha512-GnyewRFvm/hgVNqN8raIvPUuxRoLN4IoymLxzf4WCchn39c1pt7DYFgPzYfZP0qGC37QUDdMEU1FAAOSl0/u6g==
+  dependencies:
+    "@progress/kendo-popup-common" "^1.2.2"
+    "@progress/kendo-react-common" "4.9.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-progressbars@^4.5.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-progressbars/-/kendo-react-progressbars-4.9.0.tgz#a158b8496ec595948353e7d2db44774c88834e95"
+  integrity sha512-vkEnWI+010C5mM30zyMiVnUmVaq40KQJARQLVg+E9qdo+6IL3njbZJafU+SuHUEtrGEsZX91Oa/5GIIk0j/0KA==
+  dependencies:
+    "@progress/kendo-react-common" "4.9.0"
     prop-types "^15.6.0"
 
 "@progress/kendo-react-treeview@^4.5.0":
@@ -7713,7 +7757,7 @@
     postcss-selector-parser "^6.0.4"
     quick-lru "^5.1.1"
 
-"@telerik/kendo-draggable@^2.1.0":
+"@telerik/kendo-draggable@^2.1.0", "@telerik/kendo-draggable@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@telerik/kendo-draggable/-/kendo-draggable-2.2.1.tgz#27d86fd5b3273676b744bd82dbcebfffd911ad5c"
   integrity sha512-qmuRJnjByOIjSKi0BKYK7fJ/+ITgL0aumc4IRIEwiYAQgDJWumuSpAOp2p8ctIWzP0JfEUmITs6ziJaoyKIYwQ==
@@ -26569,6 +26613,16 @@ react-transition-group@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
   integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+
+react-transition-group@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
+  integrity sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==
   dependencies:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
