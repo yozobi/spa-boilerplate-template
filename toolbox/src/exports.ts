@@ -62,6 +62,9 @@ export const HeroIconArrowUp = React.lazy(
 export const HeroIconAtSymbol = React.lazy(
   () => import('./components/HeroIcons/HeroIconAtSymbol'),
 );
+export const HeroIconUsers = React.lazy(
+  () => import('./components/HeroIcons/HeroIconUsers'),
+);
 
 export const HeroIconBook = React.lazy(
   () => import('./components/HeroIcons/HeroIconBook'),
