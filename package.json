@@ -1,6 +1,6 @@
 {
   "name": "yozobi-shared",
-  "version": "1.67.28",
+  "version": "1.67.29",
   "private": true,
   "author": "Matt Pocock <matt.pocock@yozobi.com>",
   "workspaces": [
