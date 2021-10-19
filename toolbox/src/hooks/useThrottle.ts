@@ -26,7 +26,7 @@ export const useThrottleUserInput = (
     allowInstantFirstTry: false,
   },
 ) => {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof window.setTimeout>>();
   const isFirstTryRef = useRef<boolean>(true);
   const [isThrottling, setIsThrottling] = useState(false);
 
@@ -41,6 +41,7 @@ export const useThrottleUserInput = (
       if (typeof timeoutRef.current !== 'undefined') {
         clearTimeout(timeoutRef.current);
       }
+      // @ts-ignore
       timeoutRef.current = setTimeout(() => {
         func();
         setIsThrottling(false);
@@ -60,7 +61,7 @@ export const useThrottleUserInput = (
 export const useDeduplicationThrottle = (
   params: { throttleInMs: number } = { throttleInMs: 500 },
 ) => {
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef<ReturnType<typeof window.setTimeout>>();
   const timeLastSent = useRef<number>(new Date().getTime());
   return {
     throttle: (func: () => any) => {
