@@ -114,6 +114,10 @@ export const HeroIconChat = React.lazy(
   () => import('./components/HeroIcons/HeroIconChat'),
 );
 
+export const HeroIconCheck = React.lazy(
+  () => import('./components/HeroIcons/HeroIconCheck'),
+);
+
 export const HeroIconCheckCircle = React.lazy(
   () => import('./components/HeroIcons/HeroIconCheckCircle'),
 );
