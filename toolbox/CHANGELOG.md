@@ -1,5 +1,18 @@
 # toolbox
 
+## 1.5.42
+
+### Patch Changes
+
+- f24e1105e: OW - Added a button to be able to contact user when reviewing question responses
+
+  toolbox - Added export HeroIconCheck icon
+
+  OA - Improved QuestionsModal navigation
+
+- Updated dependencies [f24e1105e]
+  - toolbox@1.5.42
+
 ## 1.5.41
 
 ### Patch Changes
