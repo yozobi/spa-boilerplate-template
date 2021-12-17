@@ -15,28 +15,29 @@
     }
   },
   "dependencies": {
-    "@aws-amplify/api": "^2.1.5",
-    "@aws-amplify/auth": "^2.1.5",
-    "@aws-amplify/core": "^2.1.5",
-    "@aws-amplify/storage": "^2.1.5",
+    "@aws-amplify/api": "^4.0.29",
+    "@aws-amplify/auth": "^4.3.19",
+    "@aws-amplify/core": "^4.3.11",
+    "@aws-amplify/storage": "^4.4.12",
     "@nivo/sankey": "^0.61.2",
     "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.161",
     "@types/nprogress": "^0.2.0",
+    "@types/react-select": "^3.0.11",
     "@types/styled-components": "^5.1.0",
     "@types/uuid": "^3.4.7",
-    "@types/react-select": "^3.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@urql/exchange-suspense": "^1.8.3",
     "classnames": "^2.2.6",
     "formik": "^2.1.4",
     "framer-motion": "^1.8.4",
     "nprogress": "^0.2.0",
-    "react-toastify": "^5.5.0",
     "react-select": "^3.1.0",
+    "react-toastify": "^5.5.0",
     "styled-components": "^5.1.0",
     "subscriptions-transport-ws": "^0.9.16",
-    "uuid": "^3.4.0",
-    "toolbox": "*"
+    "toolbox": "*",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "tailwindcss": "^1.2.0"
