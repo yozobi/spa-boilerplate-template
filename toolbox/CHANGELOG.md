@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.43
+
+### Patch Changes
+
+- dc316db4d: Update @aws-amplify libraries
+- Updated dependencies [dc316db4d]
+  - toolbox@1.5.43
+
 ## 1.5.42
 
 ### Patch Changes

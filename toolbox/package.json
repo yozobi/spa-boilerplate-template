@@ -1,6 +1,6 @@
 {
   "name": "toolbox",
-  "version": "1.5.42",
+  "version": "1.5.43",
   "private": true,
   "license": "MIT",
   "main": "src/exports.ts",
