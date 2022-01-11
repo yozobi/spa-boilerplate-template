@@ -1,5 +1,13 @@
 # toolbox
 
+## 1.5.44
+
+### Patch Changes
+
+- 9f886f008: Remove orange shark from monorepo
+- Updated dependencies [9f886f008]
+  - toolbox@1.5.44
+
 ## 1.5.43
 
 ### Patch Changes
