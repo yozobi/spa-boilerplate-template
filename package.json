@@ -2,7 +2,7 @@
   "name": "yozobi-shared",
   "version": "1.67.69",
   "private": true,
-  "author": "Matt Pocock <matt.pocock@yozobi.com>",
+  "author": "Yozobi <dev@yozobi.com>",
   "workspaces": [
     "spa-boilerplate",
     "toolbox"
