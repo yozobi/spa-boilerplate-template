@@ -32,3 +32,5 @@ We use `graphql-codegen` to automatically generate code to talk to our API. Here
 1. Run `yarn spa start`.
 2. Write some queries under `src/graphql/queries/<QueryName>.graphql`
 3. The queries will get auto-built into Urql hooks, in the same folder as the query.
+
+🚀
