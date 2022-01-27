@@ -1,6 +1,6 @@
 {
   "name": "yozobi-shared",
-  "version": "1.67.72",
+  "version": "1.67.73",
   "private": true,
   "author": "Yozobi <dev@yozobi.com>",
   "workspaces": [
@@ -158,11 +158,12 @@
     "xstate-codegen": "0.2.0"
   },
   "engines": {
-    "node": ">=10 <15",
+    "node": ">=10 <18",
     "yarn": ">=1 <2"
   },
   "devDependencies": {
     "@types/prompts": "^2.0.9",
+    "semver": "^7.3.5",
     "tsconfig-paths": "^3.9.0"
   }
 }
