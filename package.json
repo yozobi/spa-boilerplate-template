@@ -1,6 +1,6 @@
 {
   "name": "yozobi-shared",
-  "version": "1.67.74",
+  "version": "1.67.75",
   "private": true,
   "author": "Yozobi <dev@yozobi.com>",
   "workspaces": [
