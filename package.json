@@ -128,7 +128,7 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^10.0.9",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "mocha": "^8.2.1",
     "msw": "^0.22.3",
     "nodemon": "^2.0.4",
